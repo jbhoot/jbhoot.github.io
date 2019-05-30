@@ -1,3 +1,6 @@
 {:base-url "https://bhoot.sh/"
  :site-title "Ghosthouse"
+ :author "Jayesh Bhoot"
+ :author-email "jayesh@bhoot.sh"
+ :language "en"
  :description "My abode"}

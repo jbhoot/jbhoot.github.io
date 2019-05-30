@@ -19,12 +19,15 @@
   (comp
         (perun/global-metadata)
         (perun/markdown)
+
         (perun/draft)
-        (perun/slug)
+        (perun/permalink)
+
         (perun/ttr)
         (perun/word-count)
         (perun/build-date)
         (perun/gravatar :source-key :author-email :target-key :author-gravatar)
+        
         (perun/render :renderer 'site.post/render)
         (perun/collection :renderer 'site.index/render :page "index.html")
         (perun/tags :renderer 'site.tags/render)
@@ -42,17 +45,17 @@
                                                           (update-in [path :entries] conj entry)
                                                           (assoc-in [path :entry :keyword] kw))))
                                                   {}))))
-        (perun/static :renderer 'site.about/render :page "about.html")
-        (perun/inject-scripts :scripts #{"start.js"})
+        (perun/static :renderer 'site.about/render :page "me/index.html")
+        
         (perun/sitemap)
-        (perun/rss :description "Hashobject blog")
+        (perun/rss :description "bhoot.sh blog")
         (perun/atom-feed :filterer :original)
-        (perun/print-meta)
+
         (target)
         (notify)))
 
 (deftask dev
   []
-  (comp (watch)
+  (comp (watch :verbose true)
         (build)
         (serve :resource-root "public")))
