@@ -15,42 +15,20 @@
 
 (deftask build
   "Build test blog. This task is just for testing different plugins together."
+  ; global-meta -> delete tasks -> content -> metadata tasks -> move tasks?
   []
   (comp
         (perun/global-metadata)
-        (perun/markdown)
-
         (perun/draft)
+        (perun/markdown)
         (perun/permalink)
-
-        (perun/ttr)
-        (perun/word-count)
         (perun/build-date)
-        (perun/gravatar :source-key :author-email :target-key :author-gravatar)
-        
-        (perun/render :renderer 'site.post/render)
         (perun/collection :renderer 'site.index/render :page "index.html")
         (perun/tags :renderer 'site.tags/render)
-        (perun/paginate :renderer 'site.paginate/render)
-        (perun/assortment :renderer 'site.assortment/render
-                          :grouper (fn [entries]
-                                     (->> entries
-                                          (mapcat (fn [entry]
-                                                    (if-let [kws (:keywords entry)]
-                                                      (map #(-> [% entry]) (str/split kws #"\s*,\s*"))
-                                                      [])))
-                                          (reduce (fn [result [kw entry]]
-                                                    (let [path (str kw ".html")]
-                                                      (-> result
-                                                          (update-in [path :entries] conj entry)
-                                                          (assoc-in [path :entry :keyword] kw))))
-                                                  {}))))
-        (perun/static :renderer 'site.about/render :page "me/index.html")
-        
+        (perun/render :renderer 'site.post/render)
         (perun/sitemap)
         (perun/rss :description "bhoot.sh blog")
         (perun/atom-feed :filterer :original)
-
         (target)
         (notify)))
 
