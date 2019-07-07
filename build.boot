@@ -25,7 +25,6 @@
         (perun/build-date)
         (perun/collection :renderer 'site.index/render :page "index.html")
         (perun/collection :renderer 'site.tags/render-tag-index :page "tags/index.html")
-        (perun/tags :renderer 'site.tags/render-tag-page :out-dir "tags")
         (perun/render :renderer 'site.post/render)
         (perun/sitemap)
         (perun/rss :description "bhoot.sh blog")
