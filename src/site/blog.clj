@@ -1,6 +1,5 @@
-(ns site.index
-  (:use [hiccup.core :only (html)]
-        [hiccup.page :only (html5)]))
+(ns site.blog
+  (:require [hiccup.page :refer [html5]]))
 
 
 (defn render [{global-meta :meta posts :entries}]
@@ -13,8 +12,7 @@
     [:body
       [:h1 "Ghosthouse"]
       [:ul
-        [:li [:a {:href "/blog"} "Blog"]]
-        [:li [:a {:href "/blog/tags"} "Tags"]]]
+        [:li [:a {:href "/blog/tags/"} "Tags"]]]
       [:ul
           (for [post posts]
             [:li

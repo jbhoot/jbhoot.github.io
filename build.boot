@@ -18,19 +18,17 @@
   ; global-meta -> delete tasks -> content -> metadata tasks -> move tasks?
   []
   (comp
-        (perun/global-metadata)
-        (perun/draft)
-        (perun/markdown)
-        (perun/permalink)
-        (perun/build-date)
-        (perun/collection :renderer 'site.index/render :page "index.html")
-        (perun/collection :renderer 'site.tags/render-tag-index :page "tags/index.html")
-        (perun/render :renderer 'site.post/render)
-        (perun/sitemap)
-        (perun/rss :description "bhoot.sh blog")
-        (perun/atom-feed :filterer :original)
-        (target)
-        (notify)))
+   (perun/global-metadata)
+   (perun/draft)
+   (perun/build-date)
+   (perun/markdown :out-dir "public/blog")
+   (perun/permalink)
+   (perun/collection :renderer 'site.index/render :page "index.html")
+   (perun/collection :renderer 'site.blog/render :page "blog/index.html")
+   (perun/collection :renderer 'site.tags/render-tag-index :page "blog/tags/index.html")
+   (perun/sitemap)
+   (target)
+   (notify)))
 
 (deftask dev
   []
