@@ -1,15 +1,19 @@
-(ns site.paginate
+(ns sh.bhoot.site.blog
   (:require [hiccup.page :refer [html5]]))
 
-(defn render [{global-meta :meta posts :entries entry :entry}]
+
+(defn render [{global-meta :meta posts :entries}]
   (html5 {:lang "en" :itemtype "http://schema.org/Blog"}
     [:head
-      [:title (str (:site-title global-meta) "|" (:tag entry))]
+      [:title (:site-title global-meta)]
       [:meta {:charset "utf-8"}]
       [:meta {:http-equiv "X-UA-Compatible" :content "IE=edge,chrome=1"}]
       [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0, user-scalable=no"}]]
     [:body
-     [:h1 (str "Page " (:page entry))]
-     [:ul.items.columns.small-12
-      (for [post posts]
-        [:li (:title post)])]]))
+      [:h1 "Ghosthouse"]
+      [:ul
+        [:li [:a {:href "/blog/tags/"} "Tags"]]]
+      [:ul
+          (for [post posts]
+            [:li
+              [:a {:href (:permalink post)}(:title post)]])]]))

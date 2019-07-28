@@ -1,8 +1,8 @@
 (set-env!
   ; https://github.com/boot-clj/boot/wiki/Boot-Environment#env-keys
-  ; for files which are to be emitted as final artifacts,
-  ; use either :resource-paths or :asset-paths, depending on usage given in the docs.
-  :source-paths #{"src" "content"}
+  ; use either :resource-paths or :asset-paths, for files which are to be emitted as final artifacts,
+  :source-paths #{"src"}
+  :resource-paths #{"resources"}
   :dependencies '[[perun "0.4.2-SNAPSHOT"]
                   [hiccup "1.0.5" :exclusions [org.clojure/clojure]]
                   [pandeiro/boot-http "0.7.6" :exclusions [org.clojure/clojure]]
@@ -11,10 +11,10 @@
                   ;; is merged
                   [org.clojure/tools.nrepl "0.2.11" :exclusions [org.clojure/clojure]]])
   
-(require '[clojure.string :as str]
+(require  '[clojure.string :as str]
           '[io.perun :as perun]
-          '[site.index :as index-view]
-          '[site.post :as post-view]
+          '[sh.bhoot.site.index :as index-view]
+          '[sh.bhoot.site.post :as post-view]
           '[pandeiro.boot-http :refer [serve]])
 
 (deftask build
@@ -27,9 +27,9 @@
    (perun/build-date)
    (perun/markdown :out-dir "public/blog")
    (perun/permalink)
-   (perun/collection :renderer 'site.index/render :page "index.html")
-   (perun/collection :renderer 'site.blog/render :page "blog/index.html")
-   (perun/collection :renderer 'site.tags/render-tag-index :page "blog/tags/index.html")
+   (perun/collection :renderer 'sh.bhoot.site.index/render :page "index.html")
+   (perun/collection :renderer 'sh.bhoot.site.blog/render :page "blog/index.html")
+   (perun/collection :renderer 'sh.bhoot.site.tags/render-tag-index :page "blog/tags/index.html")
    (perun/sitemap)
    (target)
    (notify)))

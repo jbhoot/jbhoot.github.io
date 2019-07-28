@@ -1,13 +1,15 @@
-(ns site.about
+(ns sh.bhoot.site.assortment
   (:require [hiccup.page :refer [html5]]))
 
-
-(defn render [{global-meta :meta posts :entries}]
+(defn render [{global-meta :meta posts :entries entry :entry}]
   (html5 {:lang "en" :itemtype "http://schema.org/Blog"}
     [:head
-      [:title (:site-title global-meta)]
+      [:title (str (:site-title global-meta) "|" (:keyword entry))]
       [:meta {:charset "utf-8"}]
       [:meta {:http-equiv "X-UA-Compatible" :content "IE=edge,chrome=1"}]
       [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0, user-scalable=no"}]]
     [:body
-     [:p "This is a demonstration of a static page, for content that won't change"]]))
+     [:h1 (str "Page " (:page entry))]
+     [:ul.items.columns.small-12
+      (for [post posts]
+        [:li (:title post)])]]))

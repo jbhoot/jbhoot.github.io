@@ -1,4 +1,4 @@
-(ns site.tags
+(ns sh.bhoot.site.tags
   (:require [hiccup.page :refer [html5]]))
 
 (defn render-tag-index [{:keys [meta entries]}]
