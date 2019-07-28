@@ -1,7 +1,53 @@
+html {
+    /* for the body tag to have a specified height in %,
+       its parent html needs to have a specified height.
+       html being the first ancestor, 100% works in itself. */
+    height: 100%;
+}
+
 body {
-    font-weight: bold;
+    /* for flex-children to fill up extra space,
+       flex parent needs to have a specified height. */
+    height: 100%; 
+
+    display: flex;
+    flex-direction: column;
+}
+
+main {    
+    /* main is a flex-child for body */
+    flex: 1; 
+
+    /* main is also a flex-parent itself */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+article {
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgb(56, 14, 66);
+    margin: 7px;
+    padding: 5px;
 }
 
 address {
     font-style: normal;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 7px;
+}
+
+h3 {
+    margin: 5px;
+}
+
+.nav-menu li {
+    display: inline-block;
 }
