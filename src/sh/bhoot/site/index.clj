@@ -9,9 +9,11 @@
       [:meta {:charset "utf-8"}]
       [:meta {:http-equiv "X-UA-Compatible" :content "IE=edge,chrome=1"}]
       [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0, user-scalable=no"}]
+      [:link {:rel "shortcut icon" :href "images/favicons/favicon.ico" :type "image/x-icon"}]
       (include-css "/styles.css")]
     [:body
       [:header {:class "header"}
+        [:h2 {:class "header-title"} "Jayesh Bhoot"]
         [:nav {:class "nav-menu"}
           [:ul
             [:li [:a {:href "/"} "home"]]
@@ -25,12 +27,12 @@
           [:h3 {:class "cell-title"} "find me on"]
           [:address {:class "web-presence"}
             [:ul
-              [:li [:a {:href "mailto:jayesh@bhoot.sh"} "jayesh@bhoot.sh"]]
-              [:li [:a {:href "https://github.com/jayesh-bhoot"} "github"]]
-              [:li [:a {:href "https://stackoverflow.com/users/663911/jayesh-bhoot"} "stack overflow"]]
-              [:li [:a {:href "https://twitter.com/jayeshbhoot"} "twitter"]]
-              [:li [:a {:href "https://medium.com/@jayesh.bhoot"} "medium"]]
-              [:li [:a {:href "https://www.linkedin.com/in/jayesh-bhoot/"} "linkedin"]]]]]
+              [:li [:a {:href "mailto:jayesh@bhoot.sh" :class "label label-email"} "jayesh@bhoot.sh"]]
+              [:li [:a {:href "https://github.com/jayesh-bhoot" :class "label label-github"} "github"]]
+              [:li [:a {:href "https://stackoverflow.com/users/663911/jayesh-bhoot" :class "label label-stackoverflow"} "stack overflow"]]
+              [:li [:a {:href "https://twitter.com/jayeshbhoot" :class "label label-twitter"} "twitter"]]
+              [:li [:a {:href "https://medium.com/@jayesh.bhoot" :class "label label-medium"} "medium"]]
+              [:li [:a {:href "https://www.linkedin.com/in/jayesh-bhoot/" :class "label label-linkedin"} "linkedin"]]]]]
         [:article {:class "cell"}
           [:h3 {:class "cell-title"} "blog/time"]
           [:ul {:class "article-list"}

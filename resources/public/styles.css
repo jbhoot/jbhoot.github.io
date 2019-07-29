@@ -20,6 +20,10 @@ body {
 .header {
     margin-left: 15px;
     margin-top: 15px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .main {
     /* main is a flex-child for body */
@@ -38,6 +42,12 @@ body {
     text-align: center;    
 }
 
+.header-title {
+    margin: 0;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+
 
 .nav-menu ul {
     list-style: none;
@@ -53,7 +63,7 @@ body {
 
 .cell {
     border-radius: 3px;
-    box-shadow: 0 0 5px rgb(56, 14, 66);
+    box-shadow: 0 0 7px #A020F0;
     margin-right: 15px;
     margin-bottom: 15px;
     padding: 10px;
@@ -71,7 +81,7 @@ body {
     padding: 0;
 }
 .web-presence ul li {
-    margin-top: 7px;
+    margin-top: 15px;
 }
 
 .article-list {
@@ -80,4 +90,34 @@ body {
 }
 .article-list li {
     margin-top: 7px;
+}
+
+.label {
+    padding: 5px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+.label-email {
+    background-color: #A020F0;
+    color: #FFFFFF;
+}
+.label-github {
+    background-color: #24292E;
+    color: #FFFFFF;
+}
+.label-twitter {
+    background-color: #1DA1F2;
+    color: #FFFFFF;    
+}
+.label-stackoverflow {
+    background-color: #F48024;
+    color: #000000;
+}
+.label-medium {
+    background-color: #191716;
+    color: #E8E8E7;
+}
+.label-linkedin {
+    background-color: #0077B5;
+    color: #FFFFFF;
 }
