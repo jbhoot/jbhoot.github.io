@@ -11,30 +11,35 @@
       [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0, user-scalable=no"}]
       (include-css "/styles.css")]
     [:body
-      [:header
-        [:nav
-          [:ul {:class "nav-menu"}
-            [:li [:a {:href "/blog"} "blog/dates"]]
-            [:li [:a {:href "/blog/tags"} "blog/tags"]]]]]
-      [:main
-        [:article
-          [:h3 "what I think I look like"]
-          [:img {:src "https://www.gravatar.com/avatar/0c189999e2c7abcf648d662080912928?s=200"}]]
-        [:article 
-          [:h3 "thoughts in words"]
+      [:header {:class "header"}
+        [:nav {:class "nav-menu"}
           [:ul
-            (for [post posts]
-              [:li
-                [:a {:href (:permalink post)}(:title post)]])]]
-        [:article 
-          [:address
-            [:h3 "find me on"]
+            [:li [:a {:href "/"} "home"]]
+            [:li [:a {:href "/blog"} "blog/time"]]
+            [:li [:a {:href "/blog/tags"} "blog/tags"]]]]]
+      [:main {:class "main"}
+        [:article {:class "cell"}
+          [:h3 {:class "cell-title"} "what I think I look like"]
+          [:img {:src "https://www.gravatar.com/avatar/0c189999e2c7abcf648d662080912928?s=200"}]]
+        [:article {:class "cell"}
+          [:h3 {:class "cell-title"} "find me on"]
+          [:address {:class "web-presence"}
             [:ul
               [:li [:a {:href "mailto:jayesh@bhoot.sh"} "jayesh@bhoot.sh"]]
               [:li [:a {:href "https://github.com/jayesh-bhoot"} "github"]]
               [:li [:a {:href "https://stackoverflow.com/users/663911/jayesh-bhoot"} "stack overflow"]]
               [:li [:a {:href "https://twitter.com/jayeshbhoot"} "twitter"]]
               [:li [:a {:href "https://medium.com/@jayesh.bhoot"} "medium"]]
-              [:li [:a {:href "https://www.linkedin.com/in/jayesh-bhoot/"} "linkedin"]]]]]]
-      [:footer
-        [:span "Powered by perun and hiccup"]]]))
+              [:li [:a {:href "https://www.linkedin.com/in/jayesh-bhoot/"} "linkedin"]]]]]
+        [:article {:class "cell"}
+          [:h3 {:class "cell-title"} "blog/time"]
+          [:ul {:class "article-list"}
+            (for [post posts]
+              [:li
+                [:a {:href (:permalink post)}(:title post)]])]]]
+      [:footer {:class "footer"}
+        [:p
+          [:span "powered by "]
+          [:a {:href "https://perun.io/"} "perun "]
+          [:span "and "]
+          [:a {:href "https://weavejester.github.io/hiccup/"} "hiccup"]]]]))
