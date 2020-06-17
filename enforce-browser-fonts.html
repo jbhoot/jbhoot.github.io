@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>What is this?</h2>
+
+<p>
+    I prefer to use my own fonts instead of fonts set by websites. While firefox provides this configuration, it does
+    not let you easily toggle between browser and website fonts, which is a hassle, because quite a lot of time, I need
+    to use the website fonts (eg: fonts.google.com).
+</p>
+
+<p>
+    This Firefox WebExtension lets you toggle between browser and website fonts by:
+</p>
+
+<ol>
+    <li>clicking on the toolbar icon</li>
+    <li>pressing keyboard combo: <kbd>Alt-Comma</kbd></li>
+</ol>
+
+<p>
+    The toolbar icon also acts as a visual cue: If it is coloured, then browser fonts are enforced. Otherwise, website
+    fonts are being used. The icon tooltip provides the textual cue for the same.
+</p>
+
+<h2>Demo</h2>
+
+<img src="./demos/demo.gif" alt="Demo gif"/>
+
+<h2>Version 1.0</h2>
+
+<ol>
+    <li>
+        The user can now specify in the addon preferences which fonts - the browser fonts or the website fonts - should
+        be enforced for all websites by default.
+    </li>
+
+    <li>
+        Enforcing browser/website fonts now operates at per-website-domain level, instead of the global level. A website
+        domain by default uses the fonts set in the add-on preferences. If the user switches the fonts from the default
+        for that domain, then the add-on will remember that change for that domain.
+    </li>
+</ol>
+
+<h2>Potential Upcoming Features</h2>
+
+<ul>
+    <li>
+        [X] Customizable keyboard shortcut. <b>Firefox now lets the user to set a custom keyboard shortcut for each
+        add-on</b>
+    </li>
+
+    <li>[X] Configuration per website. As such, Firefox's setting is browser-wide. But I see a possibility of piping
+        through
+        the various extension APIs to make per-website configuration possible.
+        <b>Available from v1</b></li>
+
+    <li>[ ] Keep the addon state in sync if a user changes the font configuration from Firefox's Preferences. Start from
+        <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/onChange">here.</a>
+    </li>
+
+    <li>[ ] Allow a user to edit the domains affected by the addon</li>
+
+    <li>[ ] Allow a user to export/import domains affected by the addon</li>
+</ul>
+
+<h2>Credits</h2>
+
+<p>
+    Icons made by <a href="https://www.flaticon.com/authors/baianat">Baianat</a> from<a
+        href="https://www.flaticon.com/">www.flaticon.com</a> is licensed by <a
+        href="http://creativecommons.org/licenses/by/3.0/">CC 3.0 BY</a>
+</p>
+
+<h2>Dev Only</h2>
+
+<p>Commands used during development are listed here for personal use and for general reference:</p>
+
+<pre>
+    # to compile core.js
+    clj --main cljs.main --compile-opts cljs-compile-options/dev/core.edn --watch src --compile ebf.core
+
+    # to compile preferences.js
+    clj --main cljs.main --compile-opts cljs-compile-options/dev/preferences.edn --watch src --compile ebf.preferences
+
+    # to run web-ext in dev mode
+    web-ext run --browser-console --pref font.name.monospace.x-western="JetBrains Mono" --pref
+    font.name.sans-serif.x-western="JetBrains Mono" --pref font.name.serif.x-western="JetBrains Mono"
+</pre>
+
+</body>
+</html>
