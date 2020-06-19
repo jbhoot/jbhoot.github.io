@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-17 Wed 22:28 -->
+<!-- 2020-06-17 Wed 21:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -233,39 +233,128 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6d1f812">1. Work in Progress</a>
+<li><a href="#orgc83e002">1. How to write a Firefox add-on in ClojureScript</a>
 <ul>
-<li><a href="#orgf9394a5">1.1. Projects</a></li>
+<li><a href="#org1a6a8ea">1.1. Project Layout</a></li>
+<li><a href="#org9dec80e">1.2. ClojureScript to JavaScript</a></li>
+<li><a href="#org168c567">1.3. Live reload</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6d1f812" class="outline-2">
-<h2 id="org6d1f812"><span class="section-number-2">1</span> Work in Progress</h2>
+<div id="outline-container-orgc83e002" class="outline-2">
+<h2 id="orgc83e002"><span class="section-number-2">1</span> How to write a Firefox add-on in ClojureScript</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-<a href="how-to-write-a-firefox-addon-in-clojurescript.html">how-to-write-a-firefox-addon-in-clojurescript.html</a>
+I found writing Firefox add-ons to be a good way to learn the ropes in ClojureScript in a productive manner.
 </p>
 
 <p>
-<a href="enforce-browser-fonts.html">enforce-browser-fonts.html</a>
+You can find a sample add-on on my <a href="https://github.com/jayesh-bhoot/firefox-add-on-in-cljs">GitHub</a>. I won't go through the code here, but will lay out the quirky development process. I will mostly focus on the plumbing - how ClojureScript hands over the compiled JavaScript code to the add-on.
 </p>
+
+<p>
+The sample add-on tries to mirror the functionality of the one found in the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension">official tutorial</a> - wrap a border around the pages at mozilla.org.
+</p>
+
+
+<div class="figure">
+<p><img src="static/images/how-to-write-a-firefox-add-on-in-clojurescript.png" alt="Screenshot of the add-on in action" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Screenshot of the add-on in action</p>
+</div>
 </div>
 
-<div id="outline-container-orgf9394a5" class="outline-3">
-<h3 id="orgf9394a5"><span class="section-number-3">1.1</span> Projects</h3>
+<div id="outline-container-org1a6a8ea" class="outline-3">
+<h3 id="org1a6a8ea"><span class="section-number-3">1.1</span> Project Layout</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-<a href="enforce-browser-fonts.html">enforce-browser-fonts.html</a>
+Figuring out a clean project layout took some effort. I am satisfied with the following structure:
 </p>
+
+<pre class="example">
+project-root
+|-- addon  // root for the Firefox add-on
+|   |--- manifest.json
+|   |--- // add-on artefacts like icons
+|   |--- // JS file compiled and placed here by ClojureScript compiler
+|-- src  // ClojureScript code
+|-- compile-opts.edn  // compilation options provided to ClojureScript compiler
+|-- deps.edn
+</pre>
+
+<p>
+The goal is to isolate the artefacts of the add-on from the ClojureScript code. The add-on gets only its JavaScript from ClojureScript. So, isolating the rest of its artefacts - icons, manifest, etc. - into its own directory works out well. ClojureScript dominates the rest of the project layout.
+</p>
+
+<p>
+The only time the ClojureScript compiler touches the <i>addon</i> folder is to put the compiled JavaScript in it.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9dec80e" class="outline-3">
+<h3 id="org9dec80e"><span class="section-number-3">1.2</span> ClojureScript to JavaScript</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+The compilation process by default uses <code>:optimizations :none</code>, which produces a set of JavaScript files, with the main file pointing at the others. This does not work here as the add-on does not seem to pick up the secondary files from the main file.
+</p>
+
+<p>
+The rest of the <code>:optimizations</code> options - <code>:whitespace</code>, <code>:simple</code>, <code>:advanced</code> - produce a single standalone JavaScript file, which the add-on happily accepts.
+</p>
+
+<p>
+However, <code>:optimizations :none</code> is the default because it compiles the fastest, lending a speedy development process. I went with the second fastest - <code>:whitespace</code> - for development purpose, and <code>:advanced</code> to compile a production build.
+</p>
+
+<p>
+Two other compilation options helps keep the plumbing short and clean: <code>:target</code> diverts the temporary files produced during compilation to a <i>tmp</i> folder, while <code>:target-to</code> puts the standalone compile JavaScript file directly into the <i>addon</i> folder.
+</p>
+
+<p>
+To summarise, we tweak the default compilation process with the following three options to keep life simple:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-clojure">{:optimizations :whitespace
+ :output-dir    "tmp"
+ :output-to     "addon/main.js"}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org168c567" class="outline-3">
+<h3 id="org168c567"><span class="section-number-3">1.3</span> Live reload</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Basically, we instruct the ClojureScript compiler to watch over the ClojureScript files and recompile them into JavaScript on change.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #b22222;"># </span><span style="color: #b22222;">in project-root</span>
+clj --main cljs.main --watch <span style="color: #8b2252;">"src"</span> --compile-opts <span style="color: #8b2252;">"compile-opts.edn"</span> --compile demo.core
+</pre>
+</div>
+
+<p>
+In turn, Mozilla's web-ext tool by default watches over the add-on folder and reloads the add-on on detecting a change.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #b22222;"># </span><span style="color: #b22222;">in addon folder</span>
+web-ext run --start-url https://www.mozilla.org/en-US/
+</pre>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jayesh Bhoot</p>
-<p class="date">Created: 2020-06-17 Wed 22:28</p>
+<p class="date">Created: 2020-06-17 Wed 21:53</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
