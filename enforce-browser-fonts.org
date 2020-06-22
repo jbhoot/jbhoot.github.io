@@ -13,7 +13,7 @@ The toolbar icon also acts as a visual cue: If it is coloured, then browser font
 
 ** Demo
 
-[[file:demos/demo.gif]]
+[[file:static/images/demo.gif]]
 
 ** Version 1.0
 

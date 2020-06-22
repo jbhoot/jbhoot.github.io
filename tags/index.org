@@ -1,7 +1,0 @@
-* Tags
-
-** ClojureScript
-
-[[file:~/projects/bhoot.sh/how-to-write-a-firefox-addon-in-clojurescript.org]]
-
-[[file:~/projects/bhoot.sh/enforce-browser-fonts.org]]

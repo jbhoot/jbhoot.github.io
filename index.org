@@ -2,7 +2,6 @@
 
 [[file:how-to-write-a-firefox-addon-in-clojurescript.org]]
 
-[[file:enforce-browser-fonts.org]]
 
 ** Projects
 
