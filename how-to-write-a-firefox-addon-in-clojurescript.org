@@ -1,16 +1,18 @@
-* How to write a Firefox add-on in ClojureScript
+#+TITLE: How to write a Firefox add-on in ClojureScript
+#+DATE: [2020-07-05 Sun 15:11]
 
+* Introduction
 I found writing Firefox add-ons to be a good way to learn the ropes in ClojureScript in a productive manner.
 
 You can find a sample add-on on my [[https://github.com/jayesh-bhoot/firefox-add-on-in-cljs][GitHub]]. I won't go through the code here, but will lay out the quirky development process. I will mostly focus on the plumbing - how ClojureScript hands over the compiled JavaScript code to the add-on.
 
 The sample add-on tries to mirror the functionality of the one found in the [[https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension][official tutorial]] - wrap a border around the pages at mozilla.org.
 
-#+CAPTION: Screenshot of the add-on in action
-#+ATTR_HTML: :alt Screenshot of the add-on in action
+#+CAPTION: The addon puts a purple border around the current webpage
+#+ATTR_HTML: :alt The addon puts a purple border around the current webpage
 [[file:static/images/how-to-write-a-firefox-add-on-in-clojurescript.png]]
 
-** Project Layout
+* Project Layout
 
 Figuring out a clean project layout took some effort. I am satisfied with the following structure:
 
@@ -29,7 +31,7 @@ The goal is to isolate the artefacts of the add-on from the ClojureScript code. 
 
 The only time the ClojureScript compiler touches the /addon/ folder is to put the compiled JavaScript in it.
 
-** ClojureScript to JavaScript
+* ClojureScript to JavaScript
 
 The compilation process by default uses ~:optimizations :none~, which produces a set of JavaScript files, with the main file pointing at the others. This does not work here as the add-on does not seem to pick up the secondary files from the main file.
 
@@ -47,7 +49,7 @@ To summarise, we tweak the default compilation process with the following three 
  :output-to     "addon/main.js"}
 #+END_SRC
 
-** Live reload
+* Live reload
 
 Basically, we instruct the ClojureScript compiler to watch over the ClojureScript files and recompile them into JavaScript on change.
 

@@ -1,8 +1,10 @@
-* Work in Progress
+#+TITLE: bhoot.sh (Work in Progress)
+#+DATE: [2020-07-05 Sun 15:14]
 
-[[file:how-to-write-a-firefox-addon-in-clojurescript.org]]
+* Posts
 
+[[file:how-to-write-a-firefox-addon-in-clojurescript.org][How to write a Firefox addon in ClojureScript]]
 
-** Projects
+* Projects
 
-[[file:enforce-browser-fonts.org]]
+[[file:enforce-browser-fonts.org][Enforce Browser Fonts - a Firefox addon]]
