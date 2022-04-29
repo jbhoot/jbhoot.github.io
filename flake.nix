@@ -15,7 +15,6 @@
         pkgs.mkShell {
           buildInputs = [
             pkgs.soupault
-            pkgs.miniserve
           ];
         };
     in
