@@ -3,6 +3,14 @@
     I have discarded whatever I knew before Flakes.
     With flakes, all that external env remains is needed by Nix package manager only.
     Central to the Nix ecosystem is the Nix package manager.
+    Use the latest kernel to avoid driver issues on very recent hardware: https://nixos.wiki/wiki/Linux_kernel
+    <section>
+        Large fonts on HiDPI monitor
+        1. efi bootloader: check flake.nix for consolemode="2"
+        2. tty: https://nixos.wiki/wiki/Xorg
+        3. gdm: no solution found yet
+    </section>
+
 
     <section>
         <h1>Contributing to nixpkgs</h1>
