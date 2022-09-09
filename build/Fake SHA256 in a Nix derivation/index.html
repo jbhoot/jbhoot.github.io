@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/styles.css">
+ </head>
+ <body>
+  <main>
+   <header>
+    <h1>
+     Fake SHA256 in a Nix derivation
+    </h1>
+    <p>
+     <time datetime="2022-09-09">9th September 2022</time>
+    </p>
+   </header>
+   <p>
+    Discovering the SHA256 hash for a derivation is a chore.
+   </p>
+   <p>
+    One approach is to fake the hash with zeroes.
+   </p>
+   <pre>    sha256 = "0000000000000000000000000000000000000000000000000000";
+</pre>
+   <p>
+    This induces nix-build to throw an error containing the correct hash.
+   </p>
+   <p>
+    However, even the fake hash has to be correct, i.e., needs to have the right number of zeroes in it. Otherwise, nix-build throws an error about the hash being invalid instead of being incorrect. This error does not contain the correct hash.
+   </p>
+   <p>
+    Thankfully, Nix already binds the fake hash value to a variable <code>lib.fakeSha256</code>.
+   </p>
+   <pre>    sha256 = lib.fakeSha256;
+</pre>
+   <p>
+    Thanks to <a href="https://github.com/NixOS/nix/issues/1880#issuecomment-687579758">paulyoung</a> for this tip.
+   </p>
+  </main>
+  <footer>
+   <p>
+    Built with <a href="https://soupault.app/">soupault</a>
+   </p>
+  </footer>
+ </body>
+</html>
