@@ -6,46 +6,53 @@
   <link rel="stylesheet" href="../css/styles.css">
  </head>
  <body>
-  <main>
+  <style>
+   li > * {
+        margin: 0;
+    }
+    li > :first-child {
+        font-size: 1.5em;
+    }
+  </style>
+  <body>
    <h1>
     Jayesh Bhoot
    </h1>
-   <article></article>
-   <ol>
+   <ul>
     <li>
-     <h2>
+     <p>
       <a href="/box-sizing">What <code>box-sizing</code> does</a>
-     </h2>
+     </p>
      <p>
-      17th September 2022
+      <time datetime="2022-09-17">17th September 2022</time>
      </p>
     </li>
     <li>
-     <h2>
+     <p>
       <a href="/Hover to click without animation in GNOME">How to use GNOME's <i>Hover Click</i> without animation</a>
-     </h2>
+     </p>
      <p>
-      5th July 2020
+      <time datetime="2020-07-05">5th July 2020</time>
      </p>
     </li>
     <li>
-     <h2>
+     <p>
       <a href="/Firefox add-on with ClojureScript">How to write a Firefox add-on in ClojureScript</a>
-     </h2>
+     </p>
      <p>
-      4th July 2020
+      <time datetime="2020-07-04">4th July 2020</time>
      </p>
     </li>
     <li>
-     <h2>
-      <a href="/Fake SHA256 in a Nix derivation">Fake SHA256 in a Nix derivation</a>
-     </h2>
      <p>
-      9th September 2022
+      <a href="/Fake SHA256 in a Nix derivation">Fake SHA256 in a Nix derivation</a>
+     </p>
+     <p>
+      <time datetime="2022-09-09">9th September 2022</time>
      </p>
     </li>
-   </ol>
-  </main>
+   </ul>
+  </body>
   <footer>
    <p>
     Built with <a href="https://soupault.app/">soupault</a>

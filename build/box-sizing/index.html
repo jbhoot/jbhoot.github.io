@@ -6,41 +6,43 @@
   <link rel="stylesheet" href="../css/styles.css">
  </head>
  <body>
-  <main>
-   <header>
-    <h1>
-     What <code>box-sizing</code> does
-    </h1>
-    <p>
-     <time datetime="2022-09-17">17th September 2022</time>
-    </p>
-   </header>
+  <header>
+   <h1>
+    What <code>box-sizing</code> does
+   </h1>
    <p>
-    <code>box-sizing</code> specifies the part of an element's CSS box, to which the properties <code>width, min-width, max-width,
-    height, min-height, max-height</code> apply.
+    <time datetime="2022-09-17">17th September 2022</time>
    </p>
-   <figure>
-    <pre lang="css">p {
+  </header>
+  <p>
+   <code>box-sizing</code> specifies the part of an element's CSS box, to which the properties <code>width, min-width, max-width,
+    height, min-height, max-height</code> apply.
+  </p>
+  <p>
+   Testing this
+  </p>
+  <figure>
+   <pre lang="css">p {
     height: 3rem; 
     box-sizing: content-box;
 }
     </pre>
-    <figcaption>
-     Result: brown content box is 3rem tall
-    </figcaption>
-   </figure>
-   <figure>
-    <pre lang="css">p {
+   <figcaption>
+    Result: brown content box is 3rem tall
+   </figcaption>
+  </figure>
+  <figure>
+   <pre lang="css">p {
     height: 3rem; 
     box-sizing: border-box;
 }
     </pre>
-    <figcaption>
-     Result: black border box is 3rem tall
-    </figcaption>
-   </figure>
-   <style>
-    figure {
+   <figcaption>
+    Result: black border box is 3rem tall
+   </figcaption>
+  </figure>
+  <style>
+   figure {
         display: inline flex;
         flex-direction: column;
         gap: 5px;
@@ -78,8 +80,7 @@
 
         margin-top: 1rem;
     }
-   </style>
-  </main>
+  </style>
   <footer>
    <p>
     Built with <a href="https://soupault.app/">soupault</a>
