@@ -13,3 +13,15 @@ h1 {
 h2 {
     font-size: 1.5rem;
 }
+
+code,
+pre {
+    font-family: Menlo, Consolas, monospace;
+    font-size: 1rem;
+}
+
+code {
+    background-color: #f5ebdf;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
