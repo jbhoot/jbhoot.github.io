@@ -1,8 +1,67 @@
 <header>
-    <h1>One way to remember <code>box-sizing</code></h1>
+    <h1>What <code>box-sizing</code> does</h1>
     <p><time datetime="2022-09-17">17th September 2022</time></p>
 </header>
 
-<p>When <code>box-sizing</code> is set to <code>box-sizing: content-box</code> for an element, then <code>width: 10rem</code> applies only to the <em>content</em> of the element. The width of padding and border are <em>added on top of</em> <code>width: 10rem</code>.</p>
+<p><code>box-sizing</code> specifies the part of an element's CSS box, to which the properties <code>width, min-width, max-width,
+    height, min-height, max-height</code> apply.</p>
 
-<p>When <code>box-sizing</code> is set to <code>box-sizing: border-box</code> for an element, then <code>width: 10rem</code> applies to <em>everything</em> within the borders of the element, including the borders. So, the width of content, padding, and the border counted within the <code>width: 10rem</code>.</p>
+<figure>
+    <pre lang="css">
+p {
+    height: 3rem; 
+    box-sizing: content-box;
+}
+    </pre>
+    <figcaption>Result: brown content box is 3rem tall </figcaption>
+</figure>
+
+<figure>
+    <pre lang="css">
+p {
+    height: 3rem; 
+    box-sizing: border-box;
+}
+    </pre>
+    <figcaption>Result: black border box is 3rem tall </figcaption>
+</figure>
+
+<style>
+    figure {
+        display: inline flex;
+        flex-direction: column;
+        gap: 5px;
+        margin: 0;
+        border: 1px solid #dcdee0;
+    }
+
+    figure>* {
+        margin: 0;
+    }
+
+    figure:first-of-type>figcaption {
+        display: inline-block;
+        font-weight: 600;
+        color: white;
+        background-color: brown;
+        background-clip: content-box;
+        box-sizing: content-box;
+        height: 3rem;
+        border: 0.5rem solid black;
+        padding: 0.5rem;
+    }
+
+    figure:last-of-type>figcaption {
+        display: inline-block;
+        font-weight: 600;
+        color: white;
+        background-color: brown;
+        background-clip: content-box;
+        box-sizing: border-box;
+        height: 3rem;
+        border: 0.5rem solid black;
+        padding: 0.5rem;
+
+        margin-top: 1rem;
+    }
+</style>
