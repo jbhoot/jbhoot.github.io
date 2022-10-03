@@ -1,0 +1,11 @@
+# nix
+# 1. Try to source user-level file (if home-manager is in use).
+# 2. Suppress error if not found, and try to source the system-level /run file.
+# 3. Let the error show up if that file is also not found.
+# This is better than inserting a custom error message in the end:
+# source ~/.nix-profile/share/fzf/key-bindings.bash 2> /dev/null || source /run/current-system/sw/share/fzf/key-bindings.bash 2> /dev/null || echo "Bash completions not found in .nix-profile or in /run"
+# because the standard error is well, standard, and also points out to the erring file name.
+# From the error for only the last source command in the chain, we also can deduce that sourcing all the previous files in the chain also failed (for which errors are suppressed).
+source ~/.nix-profile/share/fzf/key-bindings.bash 2> /dev/null || source /run/current-system/sw/share/fzf/key-bindings.bash
+source ~/.nix-profile/share/fzf/completion.bash 2> /dev/null || source /run/current-system/sw/share/fzf/completion.bash
+
