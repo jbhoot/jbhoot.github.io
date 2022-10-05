@@ -13,6 +13,7 @@
           pkgs = import nixpkgs { inherit system; };
         in
         pkgs.mkShell {
+          nativeBuildInputs = [ pkgs.bashInteractive ];
           buildInputs = [
             pkgs.soupault
           ];
