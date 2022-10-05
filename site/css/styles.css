@@ -54,3 +54,16 @@ code {
 ol {
   padding: 2em;
 }
+
+ins {
+  text-decoration: none;
+  background-color: rgba(0, 128, 0, 0.2);
+  padding: 0 4px 0 0;
+}
+
+ins::before {
+  content: "+ " attr(datetime);
+  background-color: green;
+  color: white;
+  padding: 0 4px 0 4px;
+}
