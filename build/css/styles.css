@@ -5,7 +5,7 @@
 }
 
 *+* {
-/* https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/ */
+  /* https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/ */
   margin-top: 1.5em;
 }
 
@@ -13,7 +13,7 @@
   font-family: sans-serif;
   line-height: 1.5;
   padding-left: 1rem;
-  background-color: #f6f5f4;
+  background-color: #f5f5f5;
 }
 
 h1 {
@@ -46,9 +46,16 @@ pre {
 }
 
 code {
-  background-color: #f5ebdf;
-  padding: 0 2px;
-  border-radius: 2px;
+  padding: 0 4px;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 0.8em;
+}
+
+pre {
+  display: inline-block;
+  padding: 8px;
+  background-color: rgba(0, 0, 0);
+  color: white;
 }
 
 ol {

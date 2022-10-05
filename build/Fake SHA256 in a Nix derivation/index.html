@@ -20,7 +20,7 @@
   <p>
    One approach is to fake the hash with zeroes.
   </p>
-  <pre>    sha256 = "0000000000000000000000000000000000000000000000000000";
+  <pre>sha256 = "0000000000000000000000000000000000000000000000000000";
 </pre>
   <p>
    This induces nix-build to throw an error containing the correct hash.
@@ -31,7 +31,7 @@
   <p>
    Thankfully, Nix already binds the fake hash value to a variable <code>lib.fakeSha256</code>.
   </p>
-  <pre>    sha256 = lib.fakeSha256;
+  <pre>sha256 = lib.fakeSha256;
 </pre>
   <p>
    Thanks to <a href="https://github.com/NixOS/nix/issues/1880#issuecomment-687579758">paulyoung</a> for this tip.
