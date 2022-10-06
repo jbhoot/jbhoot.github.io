@@ -1,0 +1,21 @@
+p tag holds a run of phrasing content
+
+p is to other elements that can contain phrasing content, what section is to other grouping elements. While they still represent semantics, the latter should always be preferred wherever possible.
+
+<aside>span is to other text-level elements what div is to other grouping elements. They provide <em> no </em> semantic meaning whatsoever, and should be used for <em> styling purposes only </em>. </aside>
+
+<aside> Prefer div to section if the purpose is stylistic sectioning. </aside>
+
+I would use a p within an element that hosts flow content, in which a run of phrasing content should be slightly separated / distinguished from other such runs, but where the better siblings of p are not applicable.
+
+e.g.,
+<figcaption> A single run of phrasing content </figcaption>
+
+may not need a p tag, but
+
+<figcaption>
+    <p> Cats are classified as feline. </p>
+    <p> Dogs come under canine. </p>
+</figcaption>
+
+may be better served with p tags.
