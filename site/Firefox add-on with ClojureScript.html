@@ -98,9 +98,11 @@ project-root
 
     <div>
         <pre>
+            <code class="language-clojure">
 {:optimizations :whitespace
 :output-dir    "tmp"
 :output-to     "addon/main.js"}
+</code>
         </pre>
     </div>
 
@@ -114,10 +116,10 @@ project-root
     </p>
 
     <div>
-        <pre>
+        <pre><code class="language-sh">
 # in project-root
 clj --main cljs.main --watch "src" --compile-opts "compile-opts.edn" --compile demo.core
-        </pre>
+</code></pre>
     </div>
 
     <p>
@@ -126,10 +128,10 @@ clj --main cljs.main --watch "src" --compile-opts "compile-opts.edn" --compile d
     </p>
 
     <div>
-        <pre>
+        <pre><code class="language-sh">
 # in addon folder
 web-ext run --start-url https://www.mozilla.org/en-US/
-        </pre>
+</code></pre>
     </div>
 </section>
 <aside></aside>

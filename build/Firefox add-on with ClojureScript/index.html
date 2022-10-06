@@ -114,9 +114,11 @@
     To summarise, we tweak the default compilation process with the following three options to keep life simple:
    </p>
    <div>
-    <pre>{:optimizations :whitespace
+    <pre>            <code class="language-clojure">
+{:optimizations :whitespace
 :output-dir    "tmp"
 :output-to     "addon/main.js"}
+</code>
         </pre>
    </div>
   </section>
@@ -129,18 +131,20 @@
         JavaScript on change.
    </p>
    <div>
-    <pre># in project-root
+    <pre><code class="language-sh">
+# in project-root
 clj --main cljs.main --watch "src" --compile-opts "compile-opts.edn" --compile demo.core
-        </pre>
+</code></pre>
    </div>
    <p>
     In turn, Mozilla's web-ext tool by default watches over the add-on folder and reloads the add-on on detecting a
         change.
    </p>
    <div>
-    <pre># in addon folder
+    <pre><code class="language-sh">
+# in addon folder
 web-ext run --start-url https://www.mozilla.org/en-US/
-        </pre>
+</code></pre>
    </div>
   </section>
   <aside></aside>
