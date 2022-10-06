@@ -1,0 +1,113 @@
+<header>
+    <h1>How to mark up a code snippet in HTML</h1>
+    <p><time datetime="2022-10-06">6th October 2022</time></p>
+</header>
+
+<p>Suppose, we want to mark up the following multi-line snippet of JavaScript code:</p>
+
+<figure>
+<pre><code class="language-javascript">function hello(name) {
+    return "Hello, " + name;
+}
+</code></pre>
+<figcaption>A JavaScript function that greets a user Joe with "Hello, Joe!"</figcaption>
+</figure>
+
+<p>Out of habit, let's start by wrapping it in a <code>pre</code> tag.</p>
+
+<figure>
+<pre><code class="language-html">&lt;pre&gt;
+function hello(name) {
+    return "Hello, " + name;
+}
+&lt;/pre&gt;</code></pre>
+<figcaption>
+    Mark up a code snippet with <code>pre</code> tag only. Looks good enough, but not conveyed good enough.
+</figcaption>
+</figure>
+
+<p>However, the <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-pre-element">HTML spec</a>
+    defines <code>pre</code> as</p>
+
+<blockquote cite="https://html.spec.whatwg.org/multipage/grouping-content.html#the-pre-element">
+    The <code>pre</code> tag represents a block of <em>preformatted text</em>, in which structure is represented by
+    typographic conventions
+    rather than by elements.
+</blockquote>
+
+<p>So, a <code>pre</code> tag can contain anything which conveys its semantic meaning at least partly through how its
+    text is formatted,
+    like a code snippet, a poem, or an ascii art.</p>
+
+<p>Clearly, <code>pre</code> tag is not enough to represent a code snippet. How do we distinguish a code snippet from
+    other
+    pre-formatted content? By marking up the snippet with <code>code</code>, and then wrapping it in a
+    <code>pre</code> tag.
+</p>
+
+<figure>
+<pre><code class="language-html">&lt;pre&gt;
+&lt;code&gt;
+function hello(name) {
+    return "Hello, " + name;
+}
+&lt;/code&gt;
+&lt;/pre&gt;</code></pre>
+<figcaption>
+    Mark up a multi-line code snippet with <code>code</code> tag, and then wrap that <code>code</code> tag
+    in a <code>pre</code> tag
+</figcaption>
+</figure>
+
+<p>Now, how do we convey that the language of the code snippet is JavaScript?</p>
+
+<p>HTML spec has an answer to that too:</p>
+
+<blockquote cite="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-code-element">
+    There is no formal way to indicate the language of computer code being marked up. Authors who wish to mark code
+    elements
+    with the language used, e.g. so that syntax highlighting scripts can use the right rules, can use the class
+    attribute,
+    e.g. by adding a class prefixed with "language-" to the element.
+</blockquote>
+
+<p>In short, assign to the <code>code</code> tag a class named <b>language-name of the programming language</b>.</p>
+
+<figure>
+<pre><code>&lt;pre&gt;
+&lt;code class=&quot;language-javascript&quot;&gt;
+function hello(name) {
+    return "Hello, " + name;
+}
+&lt;/code&gt;
+&lt;/pre&gt;</code></pre>
+<figcaption>A <code>code</code> tag containing a JavaScript snippet should be given a class named
+    <strong>language-javascript</strong>.
+</figcaption>
+</figure>
+
+<p>There is still one improvement left, which applies to <code>pre</code> tag in general.</p>
+
+<p>Conveying formatting of a text can be difficult to a visually-challenged user, just like conveying an image is.</p>
+
+<p>In order to assist such a user with an alternate description, wrap such semi-accessible content in a
+    <code>figure</code> tag, and put
+    the alternate description in a <code>figcaption</code> tag.
+</p>
+
+<figure>
+<pre><code>&lt;figure&gt;
+&lt;pre&gt;
+&lt;code class=&quot;language-javascript&quot;&gt;
+function hello(name) {
+    return "Hello, " + name;
+}
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;figcaption&gt;A code tag containing a JavaScript snippet should be given a class named language-javascript.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+<figcaption>Wrap a <code>pre</code> tag in a <code>figure</code> tag, and put a <code>figcaption</code> tag inside
+    the <code>figure</code> tag that provides an
+    alternate description to the contents of the <code>pre</code> tag.
+</figcaption>
+</figure>
