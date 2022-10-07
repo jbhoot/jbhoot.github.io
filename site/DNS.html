@@ -5,12 +5,20 @@
 
 <p>Syntax of a DNS record, along with examples:</p>
 
+<figure>
 <pre>
-NAME             TYPE  VALUE
----------------------------------
+<code class="language-dnszone">
+; Syntax #1: name [ttl] [record_class] record_type record_data
+; Syntax #2: name [record_class] [ttl] record_type record_data 
 foo.example.com. CNAME example.com.
 example.com.     A     1.2.3.4
+</code>
 </pre>
+<figcaption>
+
+</figcaption>
+</figure>
+
 
 <p>Here, <code>foo.example.com</code> resolves to <code>example.com</code>, which in turn resolves to <code>1.2.3.4</code>.</p>
 
