@@ -1,0 +1,15 @@
+Always visible, thick scrollbars
+
+GNOME:
+
+gsettings set org.gnome.desktop.interface overlay-scrolling false
+
+Firefox
+Preferences -> Search for "Always show scrollbars" -> check
+about:config
+-> widget.gtk.overlay-scrollbars.enabled = false
+-> widget.non-native-theme.gtk.scrollbar.round-thumb = false
+-> widget.non-native-theme.gtk.scrollbar.allow-buttons = true
+-> widget.non-native-theme.gtk.scrollbar.thumb-size = 1
+-> widget.non-native-theme.scrollbar.size.override = 12  // or as thick as you want it to be
+-> widget.non-native-theme.scrollbar.style = 0 // setting to 1 uses the system-native scrollbar config, ignoring all above overrides
