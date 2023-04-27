@@ -1,0 +1,66 @@
+<h2> gc roots </h2>
+
+nix-store --gc --print-roots
+
+GC roots can be found in /nix/var/nix/gcroots.
+
+<h2> Limit boot config </h2>
+
+Limit boot configs (I set mine to 3).
+
+<h2> Delete older generations </h2>
+
+Delete old generations of system user
+Delete old generations of personal user
+Delete old generations of personal user
+Delete old generations of home-manager
+
+Simple
+
+nix-collect-garbage -d
+
+and 
+
+sudo nix-collect-garbage -d
+
+did not delete old generations for me, for whatever reason.
+
+I had to explicitly delete old generations.
+
+sudo nix-env -p /nix/var/nix/profiles/system --list-generations
+nix-env --list-generations
+sudo nix-env -p /nix/var/nix/profiles/per-user/jayesh/home-manager --list-generations
+# also explore other profiles in /nix/var/nix/profiles/*
+
+Delete old generations of a profile
+sudo nix-env -p /nix/var/nix/profiles/system --delete-generations old
+nix-env --delete-generations old
+sudo nix-env -p /nix/var/nix/profiles/per-user/jayesh/home-manager --delete-generations old
+
+Now running
+
+nix-collect-garbage -d
+and
+sudo nix-collect-garbage -d
+
+gets rid of all older packages
+
+sudo nix-env --list-generations is useless. It does not list system or root's generations!
+
+<h2> Cleaning up other gc-roots scattered across the system </h2>
+
+To get rid of result links:
+
+https://nixos.wiki/wiki/Storage_optimization#Look_for_result_symlinks
+
+https://discourse.nixos.org/t/how-to-get-rid-of-unused-home-manager-packages/14997/3 suggests the following to get rid of shell envs like per-project flakes (inside .direnv):
+
+sudo -i nix-store --gc --print-roots | egrep -v '^(/nix/var|/run/current-system|/run/booted-system|/proc|{memory|{censored)'
+
+<h2> References </h2>
+
+https://nixos.wiki/wiki/Storage_optimization
+
+https://old.reddit.com/r/NixOS/comments/unwip2/deleting_old_system_profiles_what_am_i_missing/
+
+https://discourse.nixos.org/t/how-to-get-rid-of-unused-home-manager-packages/14997/3
