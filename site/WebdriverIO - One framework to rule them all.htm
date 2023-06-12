@@ -1,0 +1,132 @@
+<h2>Separate L1+L2 and L3 setups</h2>
+
+<h3> Tape </h3>
+
+While it claims to run in the browser, and it does, a few modules it depends on are node-only, and have to be mocked out.
+
+Alternative setup which didn't work: tape browser . Too much dependency on browserify
+
+L1+L2: Would have gone with karma / web-test-runner + tape + rtl + msw
+L3: playwright or webdriverio
+
+<h2>Playwright</h2>
+
+Under the hood : https://playwright.dev/docs/test-components#under-the-hood
+
+[BUG] Unexpected character in app icon #5627 : https://github.com/microsoft/playwright/issues/5627
+
+[REGRESSION]: "Webpacking" Playwright no longer works in 1.28 #19155 : https://github.com/microsoft/playwright/issues/19155
+
+How to run .spec files pre-bundled by webpack #12402 : https://github.com/microsoft/playwright/issues/12402
+
+[Idea] Alternative architecture for component testing #22302  : https://github.com/microsoft/playwright/issues/22302
+
+[Question] Component Tests perform a different bundling? Failed to resolve asset import #17846  : https://github.com/microsoft/playwright/issues/17846
+
+<blockquote rel='https://github.com/microsoft/playwright/issues/22302#issuecomment-1502287452'>
+    While this might happen, there's no plan to do so in the near future. As of today, we're focusing on end-to-end testing.
+</blockquote>
+
+
+<h2> WebdriverIO </h2>
+
+<h3>What about testing-library selectors?</h3>
+
+<pre>
+import {render, screen} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import {$, expect} from '@wdio/globals';
+import * as React from 'react';
+import {createMemoryRouter, RouterProvider} from 'react-router-dom';
+import {routes} from '../../src/components/App.jsx';
+import {worker} from '../../src/mock/browser.js';
+    
+describe('React Component Tests', function () {
+    before(async function () {
+        await worker.start();
+    });
+
+    it('render:testing-library/react select:wdio interact:wdio', async function () {
+        render(<RouterProvider router={createMemoryRouter(routes)}/>);
+
+        const signInLink = await $('=Sign in');
+        await signInLink.click();
+
+        const heading = await $('h1=Sign in to your account');
+        await expect(heading).toBeDisplayed();
+
+        const email = await $('//input[@id=(//label[text()="Email"]/@for)]');
+        await email.setValue('jayesh+farmer@bhoot.sh');
+
+        const pwd = await $('//input[@id=(//label[text()="Password"]/@for)]');
+        await pwd.setValue('fake password');
+
+        const btn = await $('button=Sign in');
+        await btn.click();
+
+        const dashboardLink = await $('=My dashboard');
+        await expect(dashboardLink).toBeDisplayed();
+
+        const userProfileLink = await $('button=Jayesh Farmer');
+        await expect(userProfileLink).toBeDisplayed();
+    });
+
+    it.skip('render:testing-library/react select:testing-library/react interact:wdio', async function () {
+        render(<RouterProvider router={createMemoryRouter(routes)}/>);
+
+        const signInLink = await screen.findByText('Sign in');
+        await $(signInLink).click();
+
+        const heading = await screen.findByText('Sign in to your account');
+        await expect(heading).toBeDisplayed();
+
+        const email = await screen.findByLabelText('Email');
+        await $(email).setValue('jayesh+farmer@bhoot.sh');
+
+        const pwd = await screen.getByLabelText('Password');
+        await $(pwd).setValue('fake password');
+
+        const btn = await screen.findByText((_, e) => e.textContent === 'Sign in', {selector: 'button[type=submit]'});
+        await $(btn).click();
+
+        const dashboardLink = await screen.findByText('My dashboard');
+        await expect(dashboardLink).toBeDisplayed();
+
+        const userProfileLink = await screen.findByText('Jayesh Farmer');
+        await expect(userProfileLink).toBeDisplayed();
+    });
+
+    it.skip('render:testing-library/react select:testing-library/react interact:testing-library/user-event', async function () {
+        const user = userEvent.setup();
+        render(<RouterProvider router={createMemoryRouter(routes)}/>);
+
+        const signInLink = await screen.findByText('Sign in');
+        await user.click(signInLink);
+
+        const heading = await screen.findByText('Sign in to your account');
+        await expect(heading).toBeDisplayed();
+
+        const email = await screen.findByLabelText('Email');
+        await user.type(email, 'jayesh+farmer@bhoot.sh');
+
+        const pwd = await screen.getByLabelText('Password');
+        await user.type(pwd, 'fake password');
+
+        const btn = await screen.findByText((_, e) => e.textContent === 'Sign in', {selector: 'button[type=submit]'});
+        await expect(btn).toBeDisplayed();
+        await user.click(btn);
+
+        const dashboardLink = await screen.findByText('My dashboard');
+        await expect(dashboardLink).toBeDisplayed();
+
+        const userProfileLink = await screen.findByText('Jayesh Farmer');
+        await expect(userProfileLink).toBeDisplayed();
+    });
+});
+</pre>
+
+<h3>What about the simpler (than mocha) tape framework and assertion?</h3>
+
+<h3>What about wdio's own mocking?</h3>
+
+<h3></h3>

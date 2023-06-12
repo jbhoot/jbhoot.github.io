@@ -1,0 +1,80 @@
+What I want in a scripting lang
+No setup ceremony
+IO - file
+IO - network
+Parsing of common data structures: JSON, XML?, YAML?, CSV
+Text processing
+Error handling, at least something like perl's die. Not bash's set -o etc.
+Should be able to shell out to shell without boilerplate. If it cant then it should provide replacements for most/all of them (mostly text manipulation)
+LSP/IDE integration, autocomplete
+All of the above should be the stdlib bundled with runtime
+    Its not that shell comes with all of this built-in, but that the system ensures that associated tools are pre-installed. But then we need to install jq separately for example.
+    Then there are incompatibilities across Linux/macOS/Windows, and across POSIX/GNU and across different versions.
+    So bash is not at all better at this when it comes to defaults.
+Ecosystem of libraries, along with a decent package manager
+  SQLite if possible
+  Excel if possible
+Quick to start
+Portable - cross-platform (Linux, macOS, Windows at least)
+    Shell scripts and tools are NOT portable at all.
+    A system may not have a tool installed.
+    A system may have an outdated version of a tool, rendering a used option unusable.
+    GNU and POSIX versions have differences.
+    macOS has a very outdated bash shell. So even bash is not portable.
+    All of this makes me think: why not just use perl over shell tools? It is at least portable. No differences like GNU and POSIX.
+Default presence of the runtime in system? Only Perl would qualify, and that too not everywhere.
+Ability to compile into a *small*-sized executable if extra packages are used beyond what stdlib provides.
+REPL like shell to experiment and evaluate, with an ability to edit in a separate editor and "send to repl" facility. This is a huge improvement over the shell's GNU readline. Ruby probably fails here.
+
+Combining 'shell as repl', 'sizeable stdlib', 'sizeable ecosystem', 'ability to compile into a single exe', many lisps qualify: Common Lisp, Racket, Janet, Guile (though Guile fails at having a package manager)
+
+Nothing is going to beat the readiness of the shell. That and the baked-in text processing and regex tooling. But it fails at most of the other things.
+
+Problem with shell and its utilities
+In general, if a shell script needs to be saved, then chances are that it should be converted into a better programming language. Shell scripts should only be throwaway lines.
+Quoting Eric Raymond
+As a general scripting language shell sucks really badly compared to anything new-school. Performance, portability, you name it, it’s a mess. It’s not so much the shell interpreters itself that are the portabilty [sic] problem, but (as Magnus implicitly points out) all those userland dependencies on sed and tr and awk and even variants of expr(!) that get dragged in the second you try to get any actual work done.
+Some old-school Unix habits have persisted long past the point that they’re even remotely sane. Shell programming at any volume above a few lines of throwaway code is one of them - it’s nuts and we should stop doing it.
+Only stringly data types. Complex datatypes beyond strings, readability, refactorability, portability. Perl - only portable. Ruby - only portable (may be) and readable. 
+
+The programs (vim, shell) v/s functions in repl (emacs, racket) debate
+Shell is an repl. What If we have another equally effective repl, where functions take place of shell utilities? This is what I wa sthinking of emacs, and now racket. Both need a runtime to be installed. Though nothing beats shell in terms of system utilities. So probably this is limited to text and data processing tools? Or more?
+Lisp is the best bet. You get an REPL on which to evaluate code live. On top of that, you can edit your code more efficiently in an editor and send it for evaluation to REPL. Even bash doesnt have that, and we have to end up editing on the pesky readline prompt.
+
+
+
+At what point does a script stop becoming a script and turns into a program?
+When we need to install a package other than what the scripting lang's stdlib provides, because now we need to ensure that not only the language's runtime is installed, but that the required packages are too.
+Beyond this point, a language that can compile everything into a single executable is preferable, so that only the runtime is needed on another machine. OCaml's time to shine here!
+
+Text processing
+Perl can replace all shell programs related to text processing: sed, awk, grep, tr, cut, join, etc
+
+Ideal: ML language
+Sadly nothing close in ML languages. All of them have either heavy runtimes or thing core libs
+OCaml (no core libs)
+F# (heavy runtime)
+ReScript + Node: Needs node bindings. Needs bsconfig.json
+
+Perl, rather Raku (which is more FP)
+Ruby
+JavaScript
+
+Lisps
+Guile (Geiser as LSP)
+Racket (Magic Racket VSCode)
+Zuo
+
+Aside
+For scripting, isnt less typing better? Parens in lisps might become a hindrance more than elegance.
+
+Perl could work best for one-liners where it could replace shell's text processing programs. Any more perl than that is write-only.
+So not even perl beyond a single loop (which could be done with -n or whatever) or if condition (which is elegant oneliner in perl).
+But then why not learn the shell tools themselves? Perl by itself is stitched together from concepts borrowed from shells, sed, awk, tr, etc. (e.g., join command is mirrored by join() function in Perl).
+We will see. For now, shell tools it is. Because shell tools provide much more than just text processing. No escape from them.
+
+Beyond that, actually Racket, Ruby, or may be Guile or Janet could fit the bill.
+
+Janet does not have JSON module by default. Racket and Ruby do. Also, Janet's `jpm install spork` failed to work under nix on macOS. Its trying to install in /nix/store/.../janet/.cache. Even `jpm --modpath=<custom_cache_dir> install spork` didn't work.
+
+Dropping Janet for now.

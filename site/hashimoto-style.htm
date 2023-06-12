@@ -1,0 +1,62 @@
+JetBrains IDE
+
+remote-dev-server.sh (from server side)
+
+Use jetbrains link for remote-dev-server.sh. Other two didn't work.
+
+e.g.,
+jetbrains-gateway://connect#idePath=/home/jb/.cache/JetBrains/RemoteDev/dist/70381fdc6dbec_WebStorm-232.6734.8-aarch64&projectPath=/home/jb/projects/hillridge/west-au-weather-data&host=172.16.111.128&port=22&user=jb&type=ssh&deploy=false
+
+Parallels desktop
+Port forwarding
+Source port: 2200
+Destination port: 22
+Forward to: vm name in parallels (or ip addr)
+
+Photon OS on VMWare Fusion
+make sure openssh is installed and enabled
+sudo tdnf install openssh
+sudo systemctl enable sshd
+sudo systemctl start sshd
+
+Keep the network sharing to "share with mac" only. No port forwarding or custom network.
+
+now try
+ssh-copy-id vm_user@vm_ip
+ssh vm_user@vm_ip
+
+Permit in sshd_config to forward ssh port:
+Gateway something yes
+AllowTcpForwarding yes
+
+Share files between host and vm: https://tobybase.com/posts/share-files-between-photon-vm-and-host/
+
+Experiment ends
+
+Lots of shortcomings related to my dev work.
+
+Hashimoto's approach - dev work within VM - does not work for me. I cannot run IntelliJ in VM. It will set my laptop on fire.
+
+A full blown GUI VM will ruin even M1's battery.
+
+So only course left is Remote Dev on IntelliJ and VS Code, where the VM runs the headless IDE, while Mac runs the client UI. That way I could keep the VM linux lightweight.
+
+Or so I thought.
+
+Chromium failed to run on Photon, even headless. If I add X/Wayland on top of Photon or use another OS, then while Chromium may run, the VM would start eating battery at an unreasonable pace.
+
+Then there is also the matter of opening generated files like html and excel in browser and Excel respectively. I was able to 'entr + cp to shared_vm_folder' this issue, but to what ends? Now I would also need to 'entr + open' on the host side. Seems like a lot of work just so I can...what was my end goal again?
+
+Right, it was to run guix...or to run Nix only on Linux in order to escape from having to manage Nix on macOS. But I am sure I wouldn't be able to get rid of Nix entirely from macOS.
+
+And Guix...well, all of this is just the beginning. Most likely guix won't have half or more of what I need as pre-built binaries.
+
+I still can't make Guix aarch64 run in VM on macOS. There is also the matter of making IntelliJ remote-dev-server run on Guix.
+
+The only way this approach is feasible is to employ my Dell machine to run the dev env - GuixOS or NixOS or anything + guix/nix pkg-manager. And then I ssh from my macOS into that. In that case, I don't how much latency I would have to suffer. 
+
+And this approach isn't exactly portable - what do I do when I go to Surat?
+
+At this point, I recall the hobby/tools quadrant, and realise the folly of all this.
+
+This journey ends here.

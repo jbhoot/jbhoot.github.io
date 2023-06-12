@@ -1,0 +1,57 @@
+Two categories of env vars:
+- used in configuration. Usually supplied in form of
+  - shell env vars, which are mapped to process.env.VAR, accessible in defineConfig()
+  - command: build | serve, passed as defineConfig({command, mode})
+  - mode: value passed with --mode flag, passed as defineConfig({command, mode})
+- used in the app code. more constants than env vars.
+  - .env files
+    - a .env file is read *after* vite.config.js is evaluated. So defineConfig() does not have access to env vars in .env files
+    - var VITE_XYZ is exposed as import.meta.env.VITE_XYZ in the app code
+    - var XYZ is not exposed at all in the app code. VITE_ prefix is required for vars defined in .env files.
+  - use `define` property in defineConfig()
+    - VITE_ prefix or any prefix is not required
+    - Variables defined in define: {'import.meta.env.XYZ': JSON.stringify('value'), 'XYZ': JSON.stringify('value')} are exposed in app code as import.meta.env.XYZ and XYZ.
+    - best practice is to do define: {'import.meta.env.XYZ': JSON.stringify('value')} for consistency with .env files.
+ 
+How to pass shell env var to the app code?
+By mapping process.env.VAR to import.meta.env.VAR in define in defineConfig()
+
+In the end all of this is to serve two purposes
+- which values the env vars used in the app code are set to
+  - use mode to set the deployment platform to decide the values of env vars used in the app code, depending on which platform the code is being deployed on. e.g., development, staging, production have different API endpoints 
+  - A `--mode staging` would pick .env.staging file automatically
+- what optimizations vite should apply to the built code (HMR, ES modules serving, etc. for development, bundling, high optimizations, etc. for production)
+
+vite is a means to two ends:
+
+- development build
+  - vite dev
+    - default mode is development
+
+- deployment build
+  - vite build
+    - default mode is production
+    - use custom modes to set env vars to values depending on where you are deploying the build - staging site, prod site, etc.
+
+command | mode | NODE_ENV defaults to | .env file used | build type
+vite dev | development | development | .env.development | dev build with .env.development vars
+vite dev --mode development | development | development | .env.development | dev build with .env.development vars
+vite dev --mode custom | custom | development | .env.custom | dev build with .env.custom vars
+vite build | production | production | .env.production | prod build with .env.production vars
+vite build --mode production | production | production | .env.production | prod build with .env.production vars
+vite build --mode custom | custom | production | .env.custom | prod build with .env.custom vars
+vite build --mode custom with NODE_ENV=development in .env.custom | custom | development | .env.custom | dev build with .env.custom env vars
+
+Ignore everything else
+- quirky combinations like `vite dev --mode production` or `vite build --mode development`
+
+--mode custom v/s MODE=custom/process.env.MODE 
+- former can pick up .env.custom file, latter cannot
+- latter is only available in defineConfig(), former is also available to app code as import.meta.env.MODE
+- In general, its best to use a --mode to decide which env vars to expose to app code, instead of using a shell var, then mapping it again to an env var that can be read by app code. Too much work basically. For example, `MOCK_NETWORK=true vite build` needs to map process.env.MOCK_NETWORK to import.meta.env.MOCK_NETWORK to determine whether or not to activate msw.
+
+What about NODE_ENV (exposed as process.env.NODE_ENV in config code)?
+In general, leave it alone.
+vite uses NODE_ENV internally to decide what optimizations to perform while building (dev build: HMR, ES modules serving, etc., prod build: bundling, high optimizations, etc.).
+If NODE_ENV is set to other than these two, then most likely, vite makes a dev build.
+In general, leave NODE_ENV alone, except when we want `vite build` to make a dev build for a custom mode. But this comes under the quirky combinations. Even a vite build --mode dev:mockNetwork would need a prod build.
