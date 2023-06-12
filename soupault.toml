@@ -45,10 +45,10 @@ date_formats = ["%F"]
 selector = ["h1"]
 
 [index.fields.date]
-selector = ["header time"]
+selector = ["hgroup time"]
 
 [index.fields.timestamp]
-selector = ["header time"]
+selector = ["hgroup time"]
 extract_attribute = "datetime"
 fallback_to_content = false
 
@@ -61,10 +61,10 @@ index_item_template = """
   <!-- 
     If I ever decide to add an excerpt for each article, then I should use:
     <article>
-        <header>
+        <hgroup>
             <h2> title </h2>
             <p> <time datetime=""> date </time> </p>
-        </header>
+        </hgroup>
         <p> excerpt </p>
     </article>
   -->

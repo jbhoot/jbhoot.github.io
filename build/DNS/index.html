@@ -9,22 +9,27 @@
   </title>
  </head>
  <body>
-  <header>
+  <hgroup>
    <h1>
     Learnings on DNS
    </h1>
    <p>
     <time datetime="2022-09-19">19th September 2022</time>
    </p>
-  </header>
+  </hgroup>
   <p>
    Syntax of a DNS record, along with examples:
   </p>
-  <pre>NAME             TYPE  VALUE
----------------------------------
+  <figure>
+   <pre><code class="language-dnszone">
+; Syntax #1: name [ttl] [record_class] record_type record_data
+; Syntax #2: name [record_class] [ttl] record_type record_data 
 foo.example.com. CNAME example.com.
 example.com.     A     1.2.3.4
+</code>
 </pre>
+   <figcaption></figcaption>
+  </figure>
   <p>
    Here, <code>foo.example.com</code> resolves to <code>example.com</code>, which in turn resolves to <code>1.2.3.4</code>.
   </p>
