@@ -82,3 +82,18 @@ ins::before {
   color: white;
   padding: 0 4px 0 4px;
 }
+
+caption {
+  text-align: left;
+  width: 100%;
+}
+
+table, th, td {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.5rem;
+}
