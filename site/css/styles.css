@@ -89,19 +89,28 @@ h3 {
 }
 
 hgroup > * + *,
-:is(h1, h2, h3, h4, h5, h6) + p,
-figure > * + *
+:is(h1, h2, h3, h4, h5, h6) + p
 {
     margin-top: 2px;
 }
 
 figure {
     display: inline-block;
-    border: 1px solid;
 }
 
-figcaption {
+figure > * + figcaption {
+    margin-top: 0;
+}
+
+figure,
+table {
+    outline: 1px solid black;
+}
+
+figcaption,
+caption {
     padding: var(--s-4) var(--s-3);
+    border-top: 1px solid black;
 }
 
 code {
@@ -138,17 +147,26 @@ ins::before {
     padding: 0 4px 0 4px;
 }
 
-caption {
-    text-align: left;
-    width: 100%;
+table {
+    min-width: var(--measure);
 }
 
 table, th, td {
-    border: 1px solid;
     border-collapse: collapse;
 }
 
 th, td {
+    /*border: 1px solid black;*/
     text-align: left;
     padding: var(--s-4);
+}
+
+tr:hover {
+    background-color: mistyrose;
+}
+
+caption {
+    text-align: left;
+    /*width: 100%;*/
+    caption-side: bottom;
 }
