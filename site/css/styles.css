@@ -30,7 +30,7 @@ body {
     font-size: calc(var(--s0) + 0.5vw);
     font-family: "Gentium Plus", serif;
     background-color: #f3f3f3;
-    padding: var(--s0) var(--s4);
+    padding: var(--s4);
 }
 
 * {
