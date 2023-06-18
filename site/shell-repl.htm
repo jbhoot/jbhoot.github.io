@@ -1,0 +1,15 @@
+autocomplete
+
+better editing than the pesky GNU readline
+    . inconsistent keybindings - alt-b / alt-f dont work on macOS without work, and then still dont work often
+
+
+terminal = shell (bash, zsh) + terminal emulator
+Emacs's shell, eshell is a shell like bash/zsh
+Vim's terminal mode is a terminal emulator which sends inputs to a bg terminal?, and prints output from there. Emacs's term, ansi-term, vterm also does the same. So lag involved in heavy processing.
+
+Solutions
+. ctrl-x ctrl-e to edit command in editor is ok, but no autocomplete there
+. vi mode of the shell: inconsistent, doesnt alleviate all problems of GNU readline
+. 2nd lvl: terminal emulator in vim. Gives us all - editing motions, autocomplete, history, all of it
+. 3rd lvl: edit with all features of vim emulator, plus send to REPL. Probably possible only in a language with a decent stdlib (+ libraries), and strong REPL support. So clojure? But it cannot list libraries dependencies in same file. Common lisp?

@@ -2,6 +2,7 @@ What I want in a scripting lang
 No setup ceremony
 IO - file
 IO - network
+Immutable by default. Functional paradigm.
 Parsing of common data structures: JSON, XML?, YAML?, CSV
 Text processing
 Error handling, at least something like perl's die. Not bash's set -o etc.
@@ -25,6 +26,7 @@ Portable - cross-platform (Linux, macOS, Windows at least)
 Default presence of the runtime in system? Only Perl would qualify, and that too not everywhere.
 Ability to compile into a *small*-sized executable if extra packages are used beyond what stdlib provides.
 REPL like shell to experiment and evaluate, with an ability to edit in a separate editor and "send to repl" facility. This is a huge improvement over the shell's GNU readline. Ruby probably fails here.
+Alive - decent-sized community that I can turn to for support
 
 Combining 'shell as repl', 'sizeable stdlib', 'sizeable ecosystem', 'ability to compile into a single exe', many lisps qualify: Common Lisp, Racket, Janet, Guile (though Guile fails at having a package manager)
 
@@ -35,7 +37,7 @@ In general, if a shell script needs to be saved, then chances are that it should
 Quoting Eric Raymond
 As a general scripting language shell sucks really badly compared to anything new-school. Performance, portability, you name it, it’s a mess. It’s not so much the shell interpreters itself that are the portabilty [sic] problem, but (as Magnus implicitly points out) all those userland dependencies on sed and tr and awk and even variants of expr(!) that get dragged in the second you try to get any actual work done.
 Some old-school Unix habits have persisted long past the point that they’re even remotely sane. Shell programming at any volume above a few lines of throwaway code is one of them - it’s nuts and we should stop doing it.
-Only stringly data types. Complex datatypes beyond strings, readability, refactorability, portability. Perl - only portable. Ruby - only portable (may be) and readable. 
+Only stringly data types. Complex datatypes beyond strings, readability, refactorability, portability. Perl - only portable. Ruby - only portable (may be) and readable.
 
 The programs (vim, shell) v/s functions in repl (emacs, racket) debate
 Shell is an repl. What If we have another equally effective repl, where functions take place of shell utilities? This is what I wa sthinking of emacs, and now racket. Both need a runtime to be installed. Though nothing beats shell in terms of system utilities. So probably this is limited to text and data processing tools? Or more?
@@ -61,12 +63,17 @@ Ruby
 JavaScript
 
 Lisps
-Guile (Geiser as LSP)
-Racket (Magic Racket VSCode)
-Zuo
+Clojure? Good IDE support. Too slow to start for scripting. But my usecase is Send to REPL, which clojure is good at. Not babashka though - as limited as schemes. But you simply cant escape Java libs. Needs separate file to specify additional libs.
+Common Lisp: Good IDE support. But mutability by default. Not too functional. Send to REPL possible.
+Why not Common Lisp: https://news.ycombinator.com/item?id=26072351
+Guile (Geiser as LSP): lame ide support
+Racket (Magic Racket VSCode): lame ide support
+Zuo: lame ide support
 
 Aside
 For scripting, isnt less typing better? Parens in lisps might become a hindrance more than elegance.
+
+Elixir! Elixir has immutability by default, in contrast to Common Lisp.
 
 Perl could work best for one-liners where it could replace shell's text processing programs. Any more perl than that is write-only.
 So not even perl beyond a single loop (which could be done with -n or whatever) or if condition (which is elegant oneliner in perl).
@@ -78,3 +85,7 @@ Beyond that, actually Racket, Ruby, or may be Guile or Janet could fit the bill.
 Janet does not have JSON module by default. Racket and Ruby do. Also, Janet's `jpm install spork` failed to work under nix on macOS. Its trying to install in /nix/store/.../janet/.cache. Even `jpm --modpath=<custom_cache_dir> install spork` didn't work.
 
 Dropping Janet for now.
+
+Summary:
+
+My idea of a script is a single file program that can run without having to install packages separate from the language's stdlib. However, none of the languages seems to have it. Every language has one or the other use case where we have to pull out its package manager. e.g., Janet's jpm for JSON parsing, Racket's raco for threading macros. In this scenario, I would want a language that can compile the code into a reasonably-sized executable. If that is the case, then might as well use OCaml for most things!
