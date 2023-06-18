@@ -1,99 +1,154 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-*+* {
-  /* https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/ */
-  margin-top: 1.5em;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 :root {
-  font-family: Gentium Book Plus, serif;
-  line-height: 1.5;
-  padding-left: 1rem;
-  background-color: #f5f5f5;
+    /*Ref: https://every-layout.dev/rudiments/modular-scale/*/
+    /*See https://type-scale.com and https://www.modularscale.com/*/
+    /*to play with other values.*/
+    --base-size: 1rem;
+    --ratio: 1.25;
+    --measure: 75ch;
+    line-height: 1.5;
+
+    --s-4: calc(var(--s-3) / var(--ratio));
+    --s-3: calc(var(--s-2) / var(--ratio));
+    --s-2: calc(var(--s-1) / var(--ratio));
+    --s-1: calc(var(--s0) / var(--ratio));
+    --s0: var(--base-size);
+    --s1: calc(var(--s0) * var(--ratio));
+    --s2: calc(var(--s1) * var(--ratio));
+    --s3: calc(var(--s2) * var(--ratio));
+    --s4: calc(var(--s3) * var(--ratio));
+}
+
+body {
+    font-size: calc(var(--s0) + 0.5vw);
+    font-family: "Gentium Plus", serif;
+    background-color: #f3f3f3;
+    padding: var(--s0) var(--s4);
 }
 
 * {
-  max-width: 80ch;
+    max-inline-size: var(--measure);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Sans", sans-serif;
+/*
+The point of using measure is to limit each column of *content* to a readable length.
+There might as well be multiple such columns horizontally.
+Each column length ideally is equal to the value of the measure. ￼
+So the exceptions to the rule that applies measure should be those elements which could be used to lay out horizontal columns of content. ￼
+ */
+html,
+body,
+section,
+nav,
+header,
+footer,
+ol,
+ul,
+dl,
+menu,
+main,
+div,
+form,
+fieldset,
+hgroup,
+h1,
+table,
+tbody,
+tr,
+canvas,
+svg {
+    max-inline-size: none;
+}
+
+body * + * {
+    margin-top: 1em;
+}
+
+h1, h2, h3 {
+    font-family: "PT Sans", sans-serif;
+    line-height: 1.1;
 }
 
 h1 {
-  font-size: 2.5rem;
+    font-size: var(--s4);
 }
 
 h2 {
-  font-size: 2.25rem;
+    font-size: var(--s3);
 }
 
 h3 {
-  font-size: 2rem;
+    font-size: var(--s2);
 }
 
-h4 {
-  font-size: 1.75rem;
+hgroup > * + *,
+:is(h1, h2, h3, h4, h5, h6) + p,
+figure > * + *
+{
+    margin-top: 2px;
 }
 
-h5 {
-  font-size: 1.5rem;
+figure {
+    display: inline-block;
+    border: 1px solid;
 }
 
-h6 {
-  font-size: 1.25rem;
-}
-
-code,
-pre {
-  font-family: Menlo, Consolas, monospace;
+figcaption {
+    padding: var(--s-4) var(--s-3);
 }
 
 code {
-  padding: 0 4px;
-  background-color: rgba(0, 0, 0, 0.1);
-  font-size: 0.8em;
+    font-family: Monaco, Menlo, "DejaVu Sans Mono", Consolas, monospace;
+    background-color: #DFDBC3;
+    color: black;
+    padding: 2px 4px;
+    font-size: 0.8em;
 }
 
 pre {
-  display: inline-block;
-  padding: 8px;
-  background-color: rgba(0, 0, 0);
-  color: white;
+    background-color: black;
+    color: #28FE14;
+    padding: var(--s-3) var(--s0);
+    overflow: auto;
 }
 
-ol {
-  padding: 2em;
+pre > code {
+    background-color: inherit;
+    color: inherit;
+    padding: 0;
 }
 
 ins {
-  text-decoration: none;
-  background-color: rgba(0, 128, 0, 0.2);
-  padding: 0 4px 0 0;
+    text-decoration: none;
+    background-color: rgba(0, 128, 0, 0.2);
+    padding: 0 4px 0 0;
 }
 
 ins::before {
-  content: "+ " attr(datetime);
-  background-color: green;
-  color: white;
-  padding: 0 4px 0 4px;
+    content: "+ " attr(datetime);
+    background-color: green;
+    color: white;
+    padding: 0 4px 0 4px;
 }
 
 caption {
-  text-align: left;
-  width: 100%;
+    text-align: left;
+    width: 100%;
 }
 
 table, th, td {
-  border: 1px solid;
-  border-collapse: collapse;
+    border: 1px solid;
+    border-collapse: collapse;
 }
 
 th, td {
-  text-align: left;
-  padding: 0.5rem;
+    text-align: left;
+    padding: var(--s-4);
 }
