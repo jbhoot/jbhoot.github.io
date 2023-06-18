@@ -58,7 +58,7 @@ fallback_to_content = false
 [index.views.main-list]
 index_selector = "ul"
 index_item_template = """
-  <!-- 
+  <!--
     If I ever decide to add an excerpt for each article, then I should use:
     <article>
         <hgroup>
@@ -68,9 +68,9 @@ index_item_template = """
         <p> excerpt </p>
     </article>
   -->
-  
+
   <li>
-    <p><a href="{{url}}">{{title}}</a></p>
+    <h2><a href="{{url}}">{{title}}</a></h2>
     <p><time datetime="{{timestamp}}">{{date}}</time></p>
   </li>
   """
