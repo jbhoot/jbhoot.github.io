@@ -98,19 +98,20 @@ figcaption,
 caption {
     padding: var(--s-4) var(--s-3);
     border-top: 1px solid black;
+    font-size: 0.8em;
 }
 
 code {
     font-family: Monaco, Menlo, "DejaVu Sans Mono", Consolas, monospace;
-    background-color: #DFDBC3;
+    background-color: #DFDBC322;
     color: black;
-    padding: 2px 4px;
+    padding: 0 4px;
     font-size: 0.8em;
 }
 
 pre {
-    background-color: black;
-    color: #28FE14;
+    background-color: #DFDBC311;
+    color: black;
     padding: var(--s-3) var(--s0);
     overflow: auto;
 }
