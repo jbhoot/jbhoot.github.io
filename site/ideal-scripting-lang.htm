@@ -1,4 +1,44 @@
-What I want in a scripting lang
+<h1>What I want in a scripting lang</h1>
+
+<h2> Problem with shell and its utilities </h2>
+
+Nothing is going to beat the readiness of the shell. That and the baked-in text processing and regex tooling. But it
+fails at most of the other things.
+
+In general, if a shell script needs to be saved, then chances are that it should be converted into a better programming
+language. Shell scripts should only be throwaway lines.
+
+Quoting Eric Raymond
+As a general scripting language shell sucks really badly compared to anything new-school. Performance, portability, you
+name it, it’s a mess. It’s not so much the shell interpreters itself that are the portabilty [sic] problem, but (as
+Magnus implicitly points out) all those userland dependencies on sed and tr and awk and even variants of expr(!) that
+get dragged in the second you try to get any actual work done.
+Some old-school Unix habits have persisted long past the point that they’re even remotely sane. Shell programming at any
+volume above a few lines of throwaway code is one of them - it’s nuts and we should stop doing it.
+
+Only stringly data types. Complex datatypes beyond strings, readability, refactorability, portability.
+
+<h2> The programs (vim, shell) v/s functions in repl (emacs, racket) debate </h2>
+
+Shell is an repl. What If we have another equally effective repl, where functions take place of shell utilities? This is
+what I wa sthinking of emacs, and now racket. Both need a runtime to be installed. Though nothing beats shell in terms
+of system utilities. So probably this is limited to text and data processing tools? Or more?
+Lisp is the best bet. You get an REPL on which to evaluate code live. On top of that, you can edit your code more
+efficiently in an editor and send it for evaluation to REPL. Even bash doesnt have that, and we have to end up editing
+on the pesky readline prompt.
+
+<h2> At what point does a script stop becoming a script and turns into a program? </h2>
+
+When we need to install a package other than what the scripting lang's stdlib provides, because now we need to ensure
+that not only the language's runtime is installed, but that the required packages are too.
+Beyond this point, a language that can compile everything into a single executable is preferable, so that only the
+runtime is needed on another machine. OCaml's time to shine here!
+
+<h2>Criteria</h2>
+
+Built-in File watcher or REPL or both
+racket needs to install raco-watch
+In-file dependency specification with versioning
 No setup ceremony
 IO - file
 IO - network
@@ -6,86 +46,130 @@ Immutable by default. Functional paradigm.
 Parsing of common data structures: JSON, XML?, YAML?, CSV
 Text processing
 Error handling, at least something like perl's die. Not bash's set -o etc.
-Should be able to shell out to shell without boilerplate. If it cant then it should provide replacements for most/all of them (mostly text manipulation)
+Should be able to shell out to shell without boilerplate. If it cant then it should provide replacements for most/all
+of them (mostly text manipulation)
 LSP/IDE integration, autocomplete
 All of the above should be the stdlib bundled with runtime
-    Its not that shell comes with all of this built-in, but that the system ensures that associated tools are pre-installed. But then we need to install jq separately for example.
-    Then there are incompatibilities across Linux/macOS/Windows, and across POSIX/GNU and across different versions.
-    So bash is not at all better at this when it comes to defaults.
+Its not that shell comes with all of this built-in, but that the system ensures that associated tools are
+pre-installed. But then we need to install jq separately for example.
+Then there are incompatibilities across Linux/macOS/Windows, and across POSIX/GNU and across different versions.
+So bash is not at all better at this when it comes to defaults.
 Ecosystem of libraries, along with a decent package manager
-  SQLite if possible
-  Excel if possible
+SQLite if possible
+Excel if possible
 Quick to start
 Portable - cross-platform (Linux, macOS, Windows at least)
-    Shell scripts and tools are NOT portable at all.
-    A system may not have a tool installed.
-    A system may have an outdated version of a tool, rendering a used option unusable.
-    GNU and POSIX versions have differences.
-    macOS has a very outdated bash shell. So even bash is not portable.
-    All of this makes me think: why not just use perl over shell tools? It is at least portable. No differences like GNU and POSIX.
+Shell scripts and tools are NOT portable at all.
+A system may not have a tool installed.
+A system may have an outdated version of a tool, rendering a used option unusable.
+GNU and POSIX versions have differences.
+macOS has a very outdated bash shell. So even bash is not portable.
+All of this makes me think: why not just use perl over shell tools? It is at least portable. No differences like GNU
+and POSIX.
 Default presence of the runtime in system? Only Perl would qualify, and that too not everywhere.
 Ability to compile into a *small*-sized executable if extra packages are used beyond what stdlib provides.
-REPL like shell to experiment and evaluate, with an ability to edit in a separate editor and "send to repl" facility. This is a huge improvement over the shell's GNU readline. Ruby probably fails here.
+REPL like shell to experiment and evaluate, with an ability to edit in a separate editor and "send to repl" facility.
+This is a huge improvement over the shell's GNU readline. Ruby probably fails here.
 Alive - decent-sized community that I can turn to for support
 
-Combining 'shell as repl', 'sizeable stdlib', 'sizeable ecosystem', 'ability to compile into a single exe', many lisps qualify: Common Lisp, Racket, Janet, Guile (though Guile fails at having a package manager)
+<h2>Candidates</h2>
 
-Nothing is going to beat the readiness of the shell. That and the baked-in text processing and regex tooling. But it fails at most of the other things.
+OCaml
+Scala
+F#
+Racket
+Common Lisp
+Clojure - then why not a better lisp like Common Lisp or Racket, or better JVM lang Scala?
+OCaml + Node.js
+ReScript + Node.js
 
-Problem with shell and its utilities
-In general, if a shell script needs to be saved, then chances are that it should be converted into a better programming language. Shell scripts should only be throwaway lines.
-Quoting Eric Raymond
-As a general scripting language shell sucks really badly compared to anything new-school. Performance, portability, you name it, it’s a mess. It’s not so much the shell interpreters itself that are the portabilty [sic] problem, but (as Magnus implicitly points out) all those userland dependencies on sed and tr and awk and even variants of expr(!) that get dragged in the second you try to get any actual work done.
-Some old-school Unix habits have persisted long past the point that they’re even remotely sane. Shell programming at any volume above a few lines of throwaway code is one of them - it’s nuts and we should stop doing it.
-Only stringly data types. Complex datatypes beyond strings, readability, refactorability, portability. Perl - only portable. Ruby - only portable (may be) and readable.
+<h2>OCaml</h2>
+Use the #require directive to specify dependencies.
+But cannot download/install dependencies on-the-fly; need opam to install the deps and configure the env.
+Ideally, ocaml script.ml should have worked too, with #require directive, but it needs a lot of findlib + topfind +
+project-level ocaml compiler + opam configuration to make things work.
 
-The programs (vim, shell) v/s functions in repl (emacs, racket) debate
-Shell is an repl. What If we have another equally effective repl, where functions take place of shell utilities? This is what I wa sthinking of emacs, and now racket. Both need a runtime to be installed. Though nothing beats shell in terms of system utilities. So probably this is limited to text and data processing tools? Or more?
-Lisp is the best bet. You get an REPL on which to evaluate code live. On top of that, you can edit your code more efficiently in an editor and send it for evaluation to REPL. Even bash doesnt have that, and we have to end up editing on the pesky readline prompt.
+Send to REPL: Emacs tuareg mode
+Watcher + reload: echo script.ml | entr -s "utop script.ml"
+
+But lightning fast man. Much much faster than Scala or F#
+
+<h2>Racket</h2>
+Send to REPL: only full file from drracket?
+
+File watcher:
+raco install raco-watch
+raco watch -c "racket prg.rkt" prg.rkt
+
+I can't shake off the feeling that DrRacket is geared towards students.
+
+racket-mode seems adequate, however.
+package manager works on https, unliked Common Lisp's quicklisp, which works on http.
+gui library is one of a kind. Remember the tk/python cxfreeze project I did for a client? Racket would have been sooo much better there! A guy name Bogdan Popa has even integrated SwiftUI and Racket for his app Franz Kafka.
+And its not like Racket cannot use REPL at all. Watch this: https://www.youtube.com/watch?app=desktop&v=7uGJJmjcxzY&t=495s. 
+Racket probably beats Common Lisp with these two points.
+
+<h2>F#</h2>
+Send to REPL: available in Rider
+
+File watcher: echo script.fsx | entr -s "dotnet fsi script.fsx"
+ideally, dotnet watch, but it doesn't run, nor will it ever run, an fsx file
+
+Dependencies: #r "dependency"
+
+On-the-fly dependency download: ?
+
+Allows versioning of dependencies?: Yes
+
+Speed: fast enough, but noticeable startup time, will probably only increase with increasing size of file
+
+F# interactive is a development tool first, production tool second. It's not optimized for executing F# scripts as a new
+process each time. It was originally designed as a long-running process on your machine that you send code over to for
+it to evaluate and pretty-print constructs and results
+- https://old.reddit.com/r/fsharp/comments/i32j13/purpose_and_performance_of_fsx_scripts/g096exw/
+
+Have you found yourself waiting many seconds until your big script is parsed by FSI and run? This is unacceptable when
+doing many small changes and expecting a quick feedback loop to test them.
+Do you have long-running F# scripts that cause too much memory usage in your server?
+- https://github.com/nblockchain/fsx/
+
+// Cons:
+// Because String Ops are .NET OO, type annotations are required.
+// Space sensitive syntax
+// Relatively slow reload-and-run
+
+<h2>Perl </h2>
+
+Perl could work best for one-liners where it could replace shell's text processing programs. Any more perl than that is
+write-only. So not even perl beyond a single loop (which could be done with -n or whatever) or if condition (which is
+elegant
+oneliner in perl). But then why not learn the shell tools themselves? Perl by itself is stitched together from concepts
+borrowed from shells, sed, awk, tr, etc. (e.g., join command is mirrored by join() function in Perl).
+We will see. For now, shell tools it is. Because shell tools provide much more than just text processing. No escape from
+them.
+
+<h2> Common Lisp </h2>
+
+<p>People heavily prefer REPL-driven dev over watch-and-realod.</p>
+<p> QuickLisp does not support versioning of dependencies. </p>
+<p> QuickLisp does not use https, making itself vulnerable to MITM attacks. </p>
+<p> QuickLisp operates over a 'curated repository' model that only its author Xach is managing.</p>
+<p>The alternative to Quicklisp is to use distro's package manager, or Nix, or Guix. </p>
+https://lisp-journey.gitlab.io/blog/why-do-we-have-to-wait-one-month-before-quicklisp-updates/
 
 
+<h2>Summary</h2>
 
-At what point does a script stop becoming a script and turns into a program?
-When we need to install a package other than what the scripting lang's stdlib provides, because now we need to ensure that not only the language's runtime is installed, but that the required packages are too.
-Beyond this point, a language that can compile everything into a single executable is preferable, so that only the runtime is needed on another machine. OCaml's time to shine here!
+<h3> Dynamism of Common Lisp and Racket </h3>
 
-Text processing
-Perl can replace all shell programs related to text processing: sed, awk, grep, tr, cut, join, etc
+Both Common Lisp and Racket have one limitation - their default dynamic nature. 
 
-Ideal: ML language
-Sadly nothing close in ML languages. All of them have either heavy runtimes or thing core libs
-OCaml (no core libs)
-F# (heavy runtime)
-ReScript + Node: Needs node bindings. Needs bsconfig.json
+It does not take much for a script to grow into a program/project. At that point, I would sorely miss ML-like static typing.
 
-Perl, rather Raku (which is more FP)
-Ruby
-JavaScript
+I could use types from the beginning in Common Lisp and Racket. But that's not very natural or ergonomic.
 
-Lisps
-Clojure? Good IDE support. Too slow to start for scripting. But my usecase is Send to REPL, which clojure is good at. Not babashka though - as limited as schemes. But you simply cant escape Java libs. Needs separate file to specify additional libs.
-Common Lisp: Good IDE support. But mutability by default. Not too functional. Send to REPL possible.
-Why not Common Lisp: https://news.ycombinator.com/item?id=26072351
-Guile (Geiser as LSP): lame ide support
-Racket (Magic Racket VSCode): lame ide support
-Zuo: lame ide support
+Their communities also don't care much about versioned dependencies, believing instead in "strong community ethos of backward compatibility" and in "library updates not breaking much". I am a bit skeptical.
 
-Aside
-For scripting, isnt less typing better? Parens in lisps might become a hindrance more than elegance.
+<h3> Fast watch-and-rerun loop v/s REPL-driven development </h3>
 
-Elixir! Elixir has immutability by default, in contrast to Common Lisp.
-
-Perl could work best for one-liners where it could replace shell's text processing programs. Any more perl than that is write-only.
-So not even perl beyond a single loop (which could be done with -n or whatever) or if condition (which is elegant oneliner in perl).
-But then why not learn the shell tools themselves? Perl by itself is stitched together from concepts borrowed from shells, sed, awk, tr, etc. (e.g., join command is mirrored by join() function in Perl).
-We will see. For now, shell tools it is. Because shell tools provide much more than just text processing. No escape from them.
-
-Beyond that, actually Racket, Ruby, or may be Guile or Janet could fit the bill.
-
-Janet does not have JSON module by default. Racket and Ruby do. Also, Janet's `jpm install spork` failed to work under nix on macOS. Its trying to install in /nix/store/.../janet/.cache. Even `jpm --modpath=<custom_cache_dir> install spork` didn't work.
-
-Dropping Janet for now.
-
-Summary:
-
-My idea of a script is a single file program that can run without having to install packages separate from the language's stdlib. However, none of the languages seems to have it. Every language has one or the other use case where we have to pull out its package manager. e.g., Janet's jpm for JSON parsing, Racket's raco for threading macros. In this scenario, I would want a language that can compile the code into a reasonably-sized executable. If that is the case, then might as well use OCaml for most things!
+What I like is Fast watch-and-rerun loop as the primary mode of feedback, with REPL-driven development as the secondary mode of feedback.

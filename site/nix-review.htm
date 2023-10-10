@@ -1,0 +1,48 @@
+Nix:
+- reproducible envs
+  - base OS system
+  - user env
+  - project env
+  - dev env
+    - IDEs: no
+- package management
+  - system packages: yep
+    - works well
+  - language toolchain (node, npm)
+    - works for node
+    - not so much for ocaml + opam; nix-based opam often fails to install packages. Need to use ocaml packages packaged with Nix. But not all of them available or up-to-date all the time.
+  - language ecosystem (npm packages)
+    - nope
+    - npm, pip, ruby - not at all
+    - ocaml packages are often out-of-odate or unavailable
+  - graphical software: no
+- containerisation?
+- deployment env?
+
+Nix is not as cross-platform as you might think. Windows is not supported directly. macOS support barely manages to be first-class. Ironically, language-specific tools are more cross-platform.
+
+NixOS is excellent as a reproducible OS + user env. But it is very inflexible in supporting packages that does not go well with Nix philosophy. MAintaining such packages for Nix is an extra burden.
+
+e.g., JetBrains, VS Code. These packages can take care of themselves w.r.t. updates, etc.
+
+e.g., packages that are wrappers over C/C++ libs. e.g., some OCaml packages, certain npm packages, running puppeteer or chrome through chromedriver in a node project.
+
+Nix also suffers from centralised approach. Everything is an overhead because it tries to act as a wrapper to all ecosystems. Not sure how long this can remain sustainable.
+
+May be Silverblue is a more pragmatic solution? Immutable, reproducible base OS, but user packages can auto-manage themselves.
+
+If NixOS can support first-class FHS-compliant packages, like say, VS Code, seamlessly, then it could become a perfect choice.
+
+Nix is an excellent:
+- package manager (so it could build your dependencies)
+- containerised deployment tool
+BUT not a build tool to build your source code. Nix's most granual unit is a derivation/package, while build tool needs a file to be its most granular unit in order to enable incremental builds
+
+Language-specific build tools:
+dune, webpack, vite
+
+Generic/polyglot build tools:
+make, tup, bazel, please, buck2, ninja
+
+v/s MirageOS?
+v/s Docker?

@@ -56,7 +56,7 @@ True lisps
 Lispish:
 - Fennel is just Lua with a lispy syntax. Fennel gives you nothing over Lua but parentheses. Its as imperative and mutable as Lua. In contrast, ReScript provides a huge value over JavaScript wrt its immutability and ML-like type system, even while sacrificing other FP principles.
 - Janet: Better than Fennel wrt lispyness. But doesn't call itself a lisp on its own repo. More a competitor to lua itself. Serves same niche as Lua.
-- Urn: Lisp that compiles to Lua. Actual lisp compared to Fennel. If we really want to use Lua, then urn is better. Even has bindigns to love2d lib.
+- Urn: Is Dead. Lisp that compiles to Lua. Actual lisp compared to Fennel. If we really want to use Lua, then urn is better. Even has bindigns to love2d lib.
 
 Scripting
 - Guile seems to have the most bindings for shell
@@ -67,8 +67,9 @@ Scripting
   Zuo, a mini-Racket: Has shell wrappers, and all io utilities, etc.
 
 
-Summary
-- Racket: all-rounder Scheme-ish lang. Most usable in terms of ecosystem. GUI. Cross-platform (on Windows too). - Guile: good stdlib. Good for scripting (but Racket should be too). Official scripting language for GNU. Probably the most full-features Scheme
-- Chicken: 2nd most full-featured Scheme.
-- CL: Different from all others. Best REPL. Best commercial support. Probably not as seamless as others for scripting. Does not care about being FP-focused.
-- Others
+Summary of final choices
+- Racket: all-rounder Scheme-ish lang. Most usable in terms of ecosystem. GUI. Cross-platform (on Windows too). Has Typed Racket.
+- Guile: non-cross-platform, within GNU/Linux and Guix world only. good stdlib. Good for scripting (but Racket should be too). Official scripting language for GNU. Probably the most full-features Scheme. Best IDE and REPL tooling among schemes.
+- CL: Different from all others. Best REPL and tooling. Probably not as seamless as others for scripting. Does not care about being FP-focused, but has ML-like Coalton
+- Clojure
+- None of the other schemes
