@@ -27,10 +27,10 @@
 }
 
 body {
-    font-size: calc(var(--s0) + 0.5vw);
+    font-size: calc(var(--s0) + 0.25vw);
     font-family: "Gentium Plus", serif;
     background-color: #f3f3f3;
-    padding: var(--s4);
+    padding: var(--s2);
 }
 
 * {
