@@ -27,10 +27,10 @@
 }
 
 body {
-    font-size: calc(var(--s0) + 0.25vw);
+    font-size: calc(var(--s0) + 0.5vw);
     font-family: "Gentium Plus", serif;
     background-color: #f3f3f3;
-    padding: var(--s2);
+    padding: calc(var(--s0) + 1vw);
 }
 
 * {
@@ -74,18 +74,6 @@ body * + * {
 h1, h2, h3 {
     font-family: "PT Sans", sans-serif;
     line-height: 1.1;
-}
-
-h1 {
-    font-size: var(--s4);
-}
-
-h2 {
-    font-size: var(--s3);
-}
-
-h3 {
-    font-size: var(--s2);
 }
 
 hgroup > * + *
