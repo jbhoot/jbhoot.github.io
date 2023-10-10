@@ -2,3 +2,4 @@
 *.org~
 *.html~
 .DS_Store
+build/
