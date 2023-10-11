@@ -1,0 +1,16 @@
+Example problem:
+
+* {
+max-inline-size: var(--measure);
+}
+
+You would want caption size to be smaller than the rest of the body text.
+It should also employ the measure width.
+
+figcaption,
+caption {
+font-size: 0.8em;
+border: 1px solid black;
+}
+
+But the border around the caption will be shorter in width than the rest of the text, because of the font-size 0.8em;.
