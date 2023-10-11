@@ -1,5 +1,6 @@
 .idea/
 *.org~
+*.htm~
 *.html~
 .DS_Store
 build/
