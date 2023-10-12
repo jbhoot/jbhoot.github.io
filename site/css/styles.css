@@ -25,13 +25,14 @@
     --s3: calc(var(--s2) * var(--ratio));
     --s4: calc(var(--s3) * var(--ratio));
 
-    --padding-large: calc(var(--s0) + 1vw);
+    --padding-large: calc(var(--s0) + 1.5vw);
     --padding: calc(var(--s0) - 0.25vw);
 }
 
 body {
+    font-family: sans-serif;
     font-size: calc(var(--s0) + 0.25vw);
-    padding: var(--padding-large);
+    padding: var(--padding) var(--padding-large);
 }
 
 * {
@@ -126,4 +127,8 @@ td {
 
 tr:hover {
     background-color: #f0f0f0;
+}
+
+ul:has(li :is(h1, h2, h3, h4, h5, h6)) {
+    list-style: circle;
 }
