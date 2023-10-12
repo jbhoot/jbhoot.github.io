@@ -80,9 +80,8 @@ figcaption {
 }
 
 code {
-    padding-inline: 4px;
-    margin-inline: 2px;
-    outline: 1px solid green;
+    padding-inline: 3px;
+    outline: 1px solid #f3efef;
 }
 
 pre {
