@@ -35,6 +35,9 @@ plugin_dirs = ["plugins"]
 
 [index]
 index = true
+# Treat a folder containing an index.html and a .leaf file as a normal page. This allows putting assets (e.g., images) of a page alongside itself)
+# https://soupault.app/reference-manual/#treating-index-pages-as-normal-pages
+leaf_file = ".leaf"
 sort_by = "timestamp"
 sort_type = "calendar"
 sort_descending = true
