@@ -1,0 +1,74 @@
+[
+  {
+    "url": "/movie-is-better-than-book",
+    "page_file": "site/movie-is-better-than-book.html",
+    "nav_path": [],
+    "timestamp": "2023-10-09",
+    "date": "9th October 2023",
+    "title": "List of movies better than their book counterparts"
+  },
+  {
+    "url": "/an-elegant-triplet-of-fonts",
+    "page_file": "site/an-elegant-triplet-of-fonts/index.html",
+    "nav_path": [],
+    "timestamp": "2023-06-12",
+    "date": "12th June 2023",
+    "title": "An elegant triplet of fonts"
+  },
+  {
+    "url": "/how-to-mark-up-a-code-snippet-in-html",
+    "page_file": "site/how-to-mark-up-a-code-snippet-in-html.html",
+    "nav_path": [],
+    "timestamp": "2022-10-06",
+    "date": "6th October 2022",
+    "title": "How to mark up a code snippet in HTML"
+  },
+  {
+    "url": "/location-of-emacs-config",
+    "page_file": "site/location-of-emacs-config.html",
+    "nav_path": [],
+    "timestamp": "2022-09-24",
+    "date": "24th September 2022",
+    "title": "Location of emacs config"
+  },
+  {
+    "url": "/dns",
+    "page_file": "site/dns.html",
+    "nav_path": [],
+    "timestamp": "2022-09-19",
+    "date": "19th September 2022",
+    "title": "Learnings on DNS"
+  },
+  {
+    "url": "/box-sizing",
+    "page_file": "site/box-sizing.html",
+    "nav_path": [],
+    "timestamp": "2022-09-17",
+    "date": "17th September 2022",
+    "title": "What <code>box-sizing</code> does"
+  },
+  {
+    "url": "/fake-sha256-in-a-nix-derivation",
+    "page_file": "site/fake-sha256-in-a-nix-derivation.html",
+    "nav_path": [],
+    "timestamp": "2022-09-09",
+    "date": "9th September 2022",
+    "title": "Fake SHA256 in a Nix derivation"
+  },
+  {
+    "url": "/hover-to-click-without-animation-in-gnome",
+    "page_file": "site/hover-to-click-without-animation-in-gnome/index.html",
+    "nav_path": [],
+    "timestamp": "2020-07-05",
+    "date": "5th July 2020",
+    "title": "How to use GNOME's <i>Hover Click</i> without animation"
+  },
+  {
+    "url": "/firefox-add-on-with-clojurescript",
+    "page_file": "site/firefox-add-on-with-clojurescript/index.html",
+    "nav_path": [],
+    "timestamp": "2020-07-04",
+    "date": "4th July 2020",
+    "title": "How to write a Firefox add-on in ClojureScript"
+  }
+]
