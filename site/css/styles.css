@@ -99,6 +99,10 @@ pre>code {
     margin-inline: inherit;
 }
 
+img {
+    outline: 1px solid black;
+}
+
 ins {
     text-decoration: none;
     background-color: rgba(0, 128, 0, 0.2);
