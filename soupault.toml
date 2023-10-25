@@ -76,7 +76,7 @@ index_item_template = """
 
   <li>
     <hgroup>
-      <h2><a href="{{url}}">{{title}}</a></h2>
+      <h2><a href="{{url}}/">{{title}}</a></h2>
       <p>Published: <time datetime="{{timestamp}}">{{date}}</time></p>
     </hgroup>
   </li>
