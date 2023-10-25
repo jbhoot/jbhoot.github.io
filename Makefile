@@ -1,6 +1,14 @@
+.PHONY: clean
+clean:
+	rm -rf build
+
+.PHONY: dev
+dev:
+	ls soupault.toml site/**/*.* templates/**/*.* | entr -s 'soupault'
+
 .PHONY: build
 build:
-	ls soupault.toml site/**/*.* templates/**/*.* | entr -s 'soupault'
+	soupault
 
 .PHONY: serve
 serve:
