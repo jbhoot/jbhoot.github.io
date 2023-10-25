@@ -75,10 +75,8 @@ index_item_template = """
   -->
 
   <li>
-    <hgroup>
-      <h2><a href="{{url}}/">{{title}}</a></h2>
-      <p>Published: <time datetime="{{timestamp}}">{{date}}</time></p>
-    </hgroup>
+    <a href="{{url}}/" style="font-size:1.25em">{{title}}</a>
+    <p style="margin-block-start:2px; font-size:0.9em">Published: <time datetime="{{timestamp}}">{{date}}</time></p>
   </li>
   """
 
