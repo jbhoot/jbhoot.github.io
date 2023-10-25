@@ -1,0 +1,73 @@
+@keyframes animation-kf-apparate {
+    0% {
+        width: 0;
+        transform: translateY(-100%);
+    }
+
+    33% {
+        width: 1ch;
+        transform: translateY(-100%);
+    }
+
+    to {
+        width: 1ch;
+        transform: translateY(0%);
+    }
+}
+
+.animation-apparate {
+    display: inline-block;
+    width: 0;
+    transform: translateY(-100%);
+    animation-name: animation-kf-apparate;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animation-kf-grow-up {
+    0% {
+        opacity: 1;
+        transform: translateY(0%);
+        text-transform: lowercase;
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateY(100%);
+        text-transform: lowercase;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+        text-transform: uppercase;
+    }
+}
+
+.animation-grow-up {
+    display: inline-block;
+    animation-name: animation-kf-grow-up;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.apparate-parent {
+    overflow: hidden;
+    font-family: monospace;
+}
+
+.apparate-parent *+* {
+    margin-top: 0;
+}
+
+.animation-delay\:1s {
+    animation-delay: 1s;
+}
+
+.animation-delay\:2s {
+    animation-delay: 2s;
+}
+
+.animation-delay\:3s {
+    animation-delay: 3s;
+}
