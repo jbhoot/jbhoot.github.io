@@ -4,7 +4,10 @@ clean:
 
 .PHONY: dev
 dev:
-	ls soupault.toml site/**/*.* templates/**/*.* | entr -s 'soupault'
+	while true ; do \
+		soupault ; \
+		sleep 2 ; \
+	done
 
 .PHONY: build
 build:
