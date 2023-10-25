@@ -39,6 +39,12 @@ body {
     max-inline-size: var(--measure);
 }
 
+/* Make every img responsive by default.
+ * As recommended by Every Layout - The Frame */
+img {
+    max-inline-size: 100%;
+}
+
 /*
 The point of using measure is to limit each column of *content* to a readable length.
 There might as well be multiple such columns horizontally.
