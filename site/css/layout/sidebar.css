@@ -1,0 +1,27 @@
+.with-sidebar {
+    --sidebar-gap: var(--s0, 1rem);
+    --sidebar-width: auto;
+    --sidebar-main-min-width: 70%;
+    /* Must be in percentage. */
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sidebar-gap);
+    /* NOTE: sets the height of each flex item to fit to its content. */
+}
+
+.with-sidebar> :first-child {
+    flex-basis: var(--sidebar-width);
+    flex-grow: 1;
+}
+
+.with-sidebar> :last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: var(--sidebar-main-min-width);
+}
+
+.with-sidebar>*+* {
+    /* Eliminate the global owl selector spacing */
+    margin-block-start: 0;
+}

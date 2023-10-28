@@ -13,3 +13,7 @@
 .font-weight\:600 {
     font-weight: 600;
 }
+
+.font-size\:s4 {
+    font-size: var(--s4);
+}

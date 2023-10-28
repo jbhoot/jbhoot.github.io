@@ -1,0 +1,14 @@
+.stack {
+    --stack-gap: var(--s0, 1rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.stack>* {
+    margin-block: 0;
+}
+
+.stack>*+* {
+    margin-block-start: var(--stack-gap);
+}

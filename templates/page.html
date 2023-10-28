@@ -9,13 +9,34 @@
     </title>
 </head>
 
-<body>
-    <div>
-        <!-- 
+<body class="box-borderless" style="--box-padding: var(--s2)">
+    <div class="with-sidebar"
+        style="--sidebar-width: calc(var(--measure) * 0.20); --sidebar-gap: var(--padding-large)">
+        <header class="box-borderless" style="border-inline-end: 1px solid black;">
+            <a href="/">Jayesh Bhoot</a>
+            <!-- <p class="apparate-parent">
+            <span class="animation-grow-up animation-delay:3s">j</span><span
+                class="animation-apparate animation-delay:1s">a</span>y<span
+                class="animation-apparate animation-delay:1s">e</span>sh <span
+                class="animation-apparate animation-delay:2s"><span
+                    class="animation-grow-up animation-delay:3s">b</span></span><span
+                class="animation-apparate animation-delay:2s">hoot</span>
+            </p> -->
+            <nav style="position: sticky; top: 10px;">
+                <ul class="stack">
+                    <li><a href="/">Home</a></li>
+                    <li>Writings</li>
+                    <li>About</li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <!-- 
             This placeholder div is *replaced* with actual content,
             thus getting rid of unnecessary div element,
             and keeping HTML semantic.
         -->
+        </main>
     </div>
 </body>
 
