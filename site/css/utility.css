@@ -14,6 +14,14 @@
     font-weight: 600;
 }
 
+.font-size\:s1 {
+    font-size: var(--s1);
+}
+
+.font-size\:s2 {
+    font-size: var(--s2);
+}
+
 .font-size\:s4 {
     font-size: var(--s4);
 }
