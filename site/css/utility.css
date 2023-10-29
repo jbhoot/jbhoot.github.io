@@ -2,10 +2,6 @@
     margin-block-start: 2px;
 }
 
-.font-size\:1\.25em {
-    font-size: 1.25em;
-}
-
 .font-size\:0\.9em {
     font-size: 0.9em;
 }
@@ -20,8 +16,4 @@
 
 .font-size\:s2 {
     font-size: var(--s2);
-}
-
-.font-size\:s4 {
-    font-size: var(--s4);
 }

@@ -63,19 +63,8 @@ fallback_to_content = false
 [index.views.main-list]
 index_selector = "ul#article-list"
 index_item_template = """
-  <!--
-    If I ever decide to add an excerpt for each article, then I should use:
-    <article>
-        <hgroup>
-            <h2> title </h2>
-            <p> <time datetime=""> date </time> </p>
-        </hgroup>
-        <p> excerpt </p>
-    </article>
-  -->
-
   <li>
-    <a href="{{url}}/" class="font-size:1.25em font-weight:600">{{title}}</a>
+    <a href="{{url}}/" class="font-size:s2 font-weight:600">{{title}}</a>
     <p class="margin-block-start:2px font-size:0.9em">Published: <time datetime="{{timestamp}}">{{date}}</time></p>
   </li>
   """
