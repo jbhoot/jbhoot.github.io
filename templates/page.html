@@ -9,9 +9,9 @@
     </title>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            function styleSiteNavMenuAsStackOrCluster(query) {
+            function styleSiteNavMenuAsStackOrCluster(mediaQuery) {
                 const siteNavMenuEle = document.querySelector('.site-nav > ul');
-                if (query.matches) {
+                if (mediaQuery.matches) {
                     siteNavMenuEle.classList.remove('stack');
                     siteNavMenuEle.classList.add('cluster');
                 } else {
@@ -20,14 +20,29 @@
                 }
             }
 
+            function stretchOrShrinkSidebar(mediaQuery) {
+                const mainSidebar = document.querySelector('.with-sidebar');
+                if (mediaQuery.matches) {
+                    mainSidebar.style.minBlockSize = 'initial';
+                } else {
+                    mainSidebar.style.minBlockSize = '100%';
+                }
+            }
+
+            function applyMediaQueryChange(mediaQuery) {
+                styleSiteNavMenuAsStackOrCluster(mediaQuery);
+                stretchOrShrinkSidebar(mediaQuery);
+            }
+
             const mediaQuery = window.matchMedia('(width <= 70ch)');
-            styleSiteNavMenuAsStackOrCluster(mediaQuery);
-            mediaQuery.addEventListener('change', styleSiteNavMenuAsStackOrCluster);
+            applyMediaQueryChange(mediaQuery);
+            mediaQuery.addEventListener('change', applyMediaQueryChange);
         });
     </script>
 </head>
 
 <body>
+
 <!-- <p class="apparate-parent">
 <span class="animation-grow-up animation-delay:3s">j</span><span
     class="animation-apparate animation-delay:1s">a</span>y<span
