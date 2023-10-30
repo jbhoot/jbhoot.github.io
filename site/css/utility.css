@@ -18,6 +18,10 @@
     font-size: var(--s2);
 }
 
+.font-size\:s3 {
+    font-size: var(--s3);
+}
+
 .background-color\:lavenderblush {
     background-color: lavenderblush;
 }
