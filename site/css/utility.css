@@ -17,3 +17,11 @@
 .font-size\:s2 {
     font-size: var(--s2);
 }
+
+.background-color\:lavenderblush {
+    background-color: lavenderblush;
+}
+
+.text-transform\:uppercase {
+    text-transform: uppercase;
+}

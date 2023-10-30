@@ -1,0 +1,11 @@
+.site-title {
+    font-size: var(--s2);
+    font-weight: 600;
+    text-decoration: none;
+    color: lightsalmon;
+}
+
+.site-nav {
+    position: sticky;
+    top: 10px;
+}
