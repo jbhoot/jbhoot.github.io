@@ -7,6 +7,24 @@
     <title>
         <!-- Will be inserted by [widgets.page-title] configuration in soupault.toml -->
     </title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function styleSiteNavMenuAsStackOrCluster(query) {
+                const siteNavMenuEle = document.querySelector('.site-nav > ul');
+                if (query.matches) {
+                    siteNavMenuEle.classList.remove('stack');
+                    siteNavMenuEle.classList.add('cluster');
+                } else {
+                    siteNavMenuEle.classList.remove('cluster');
+                    siteNavMenuEle.classList.add('stack');
+                }
+            }
+
+            const mediaQuery = window.matchMedia('(width <= 70ch)');
+            styleSiteNavMenuAsStackOrCluster(mediaQuery);
+            mediaQuery.addEventListener('change', styleSiteNavMenuAsStackOrCluster);
+        });
+    </script>
 </head>
 
 <body>
@@ -25,7 +43,7 @@
             style="--box-padding: var(--s2);">
         <a href="/" class="site-title">Jayesh Bhoot</a>
         <nav class="site-nav">
-            <ul class="cluster">
+            <ul>
                 <li><a href="/">Home</a></li>
                 <li>Writings</li>
                 <li>About</li>
