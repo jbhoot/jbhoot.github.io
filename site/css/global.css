@@ -64,11 +64,11 @@ body {
     max-inline-size: none;
 }
 
-body *+* {
+body * + * {
     margin-block-start: 1em;
 }
 
-hgroup>*+* {
+hgroup > * + * {
     margin-block-start: 2px;
 }
 
@@ -109,7 +109,7 @@ pre {
 
 :is(h1, h2, h3, h4, h5, h6) code,
 a code,
-pre>code {
+pre > code {
     outline: none;
     padding-inline: 0;
     margin-inline: inherit;
@@ -149,9 +149,15 @@ tr:hover {
     background-color: #f0f0f0;
 }
 
+a {
+    text-underline-offset: 0.25em;
+    text-decoration-thickness: 2px;
+}
+
 a:hover {
+    outline: 2px solid;
+    outline-offset: 1px;
     background-color: bisque;
-    outline: 1px solid black;
     text-decoration: none;
 }
 
