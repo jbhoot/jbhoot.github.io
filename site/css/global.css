@@ -38,7 +38,7 @@ html {
 
 body {
     block-size: 100%;
-    font-family: sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-size: calc(var(--s0) + 0.25vw);
 }
 
@@ -70,6 +70,10 @@ body * + * {
 
 hgroup > * + * {
     margin-block-start: 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Gentium Book Plus', 'PT Serif', serif;
 }
 
 h1,
