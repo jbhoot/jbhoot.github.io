@@ -73,7 +73,7 @@ hgroup > * + * {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Gentium Book Plus', 'PT Serif', serif;
+    font-family: 'Averia Serif Libre', 'Gentium Book Plus', 'PT Serif', serif;
 }
 
 h1,
@@ -81,7 +81,6 @@ h2,
 h3 {
     line-height: 1.25;
 }
-
 
 figcaption,
 caption {

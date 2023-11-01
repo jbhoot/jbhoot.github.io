@@ -1,4 +1,5 @@
 .site-title {
+    font-family: 'Averia Serif Libre', 'Gentium Book Plus', serif;
     font-size: var(--s2);
     font-weight: 600;
     text-decoration: none;
