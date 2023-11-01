@@ -7,6 +7,7 @@
 }
 
 .site-nav {
+    font-family: 'Averia Serif Libre', 'Gentium Book Plus', serif;
     position: sticky;
     top: 10px;
 }
