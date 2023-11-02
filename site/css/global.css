@@ -82,20 +82,17 @@ h3 {
     line-height: 1.25;
 }
 
-figcaption,
-caption {
+caption,
+figcaption {
+    font-family: "Averia Serif Libre", "Gentium Book Plus", serif;
     font-size: 0.9em;
     font-style: italic;
+    margin-block-start: 0;
 }
 
 caption {
-    margin-block-start: 5px;
     text-align: left;
     caption-side: bottom;
-}
-
-figcaption {
-    margin-block-start: 5px;
 }
 
 code {
