@@ -1,10 +1,11 @@
 .PHONY: clean
 clean:
-	rm -rf build
+	rm -rf build/*
 
 .PHONY: dev
 dev:
 	while true ; do \
+		rm -rf build/* ; \
 		soupault ; \
 		sleep 2 ; \
 	done
