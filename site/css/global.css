@@ -96,6 +96,7 @@ caption {
 }
 
 code {
+    font-family: Courier, "Courier New Bold", monospace;
     padding-inline: 3px;
     outline: 1px solid #f3efef;
 }
