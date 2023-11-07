@@ -1,0 +1,17 @@
+.flex-grid {
+    --flex-grid-gap: var(--s0, 1rem);
+    --flex-grid-align-items: stretch;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: var(--flex-grid-align-items);
+    gap: var(--flex-grid-gap);
+}
+
+.flex-grid > * {
+    flex: 1 1 30ch;
+}
+
+.flex-grid > * + * {
+    margin-block-start: 0;
+}
