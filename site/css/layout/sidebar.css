@@ -10,12 +10,12 @@
     /* NOTE: sets the height of each flex item to fit to its content. */
 }
 
-.with-sidebar> :first-child {
+.with-sidebar > :first-child {
     flex-basis: var(--sidebar-width);
     flex-grow: 1;
 }
 
-.with-sidebar> :last-child {
+.with-sidebar > :last-child {
     flex-basis: 0;
     flex-grow: 999;
     min-inline-size: var(--sidebar-main-min-width);
@@ -26,7 +26,7 @@
     max-inline-size: none;
 }
 
-.with-sidebar>*+* {
+.with-sidebar > * + * {
     /* Eliminate the global owl selector spacing */
     margin-block-start: 0;
 }
