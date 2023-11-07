@@ -1,6 +1,7 @@
 .grid {
     --grid-gap: var(--s0, 1rem);
     --grid-align-items: stretch;
+    --grid-item-max-width: 1fr;
 
     display: grid;
     align-items: var(--grid-align-items);
@@ -9,7 +10,7 @@
 
 @supports (width: min(30ch, 100%)) {
     .grid {
-        grid-template-columns: repeat(auto-fit, minmax(min(30ch, 100%), 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(30ch, 100%), var(--grid-item-max-width)));
     }
 }
 
