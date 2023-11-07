@@ -58,9 +58,9 @@ There might as well be multiple such columns horizontally.
 Each column length ideally is equal to the value of the measure. ￼
 So the exceptions to the rule that applies measure should be those elements which could be used to lay out horizontal columns of content. ￼
  */
-
 html,
-body {
+body,
+div {
     max-inline-size: none;
 }
 
