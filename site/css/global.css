@@ -12,7 +12,7 @@
     /*to play with other values.*/
     --base-size: 1rem;
     --ratio: 1.25;
-    --measure: 90ch;
+    --measure: 60ch;
     line-height: 1.5;
 
     --s-4: calc(var(--s-3) / var(--ratio));
