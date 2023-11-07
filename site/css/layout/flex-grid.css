@@ -1,6 +1,7 @@
 .flex-grid {
     --flex-grid-gap: var(--s0, 1rem);
     --flex-grid-align-items: stretch;
+    --flex-grid-ideal-inline-size: 30ch;
 
     display: flex;
     flex-wrap: wrap;
@@ -9,7 +10,7 @@
 }
 
 .flex-grid > * {
-    flex: 1 1 30ch;
+    flex: 1 1 var(--flex-grid-ideal-inline-size);
 }
 
 .flex-grid > * + * {
