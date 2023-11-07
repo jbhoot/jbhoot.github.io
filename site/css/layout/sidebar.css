@@ -21,6 +21,11 @@
     min-inline-size: var(--sidebar-main-min-width);
 }
 
+.with-sidebar > * {
+    /* reset the measure axiom for the children of with-sidebar */
+    max-inline-size: none;
+}
+
 .with-sidebar>*+* {
     /* Eliminate the global owl selector spacing */
     margin-block-start: 0;
