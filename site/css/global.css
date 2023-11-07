@@ -142,7 +142,7 @@ td {
 th,
 td {
     border: 1px solid #e0e0e0;
-    padding: var(--padding);
+    padding: var(--s-2) var(--s-1);
     text-align: left;
 }
 
