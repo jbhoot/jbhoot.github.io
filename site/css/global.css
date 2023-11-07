@@ -33,11 +33,11 @@
 }
 
 html {
-    block-size: 100%;
+    /*block-size: 100%;*/
 }
 
 body {
-    block-size: 100%;
+    /*block-size: 100%;*/
     font-family: 'PT Sans', sans-serif;
     font-size: calc(var(--s0) + 0.25vw);
 }
