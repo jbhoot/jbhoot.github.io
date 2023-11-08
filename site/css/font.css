@@ -6,58 +6,146 @@
 // bold => 700
 src: https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight  */
 
+/* pt-sans-regular - latin */
 @font-face {
-    font-family: "PT Sans";
-    font-weight: normal;
-    font-style: normal;
-    src: local("PT Sans Regular"), url("/static/fonts/pt-sans/PTSans-Regular.ttf") format("truetype");
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/static/fonts/pt-sans-v17-latin/pt-sans-v17-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* pt-sans-italic - latin */
 @font-face {
-    font-family: "PT Sans";
-    font-weight: normal;
-    font-style: italic;
-    src: local("PT Sans Italic"), url("/static/fonts/pt-sans/PTSans-Italic.ttf") format("truetype");
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/static/fonts/pt-sans-v17-latin/pt-sans-v17-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* pt-sans-700 - latin */
 @font-face {
-    font-family: "PT Sans";
-    font-weight: bold;
-    font-style: normal;
-    src: local("PT Sans Bold"), url("/static/fonts/pt-sans/PTSans-Bold.ttf") format("truetype");
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/static/fonts/pt-sans-v17-latin/pt-sans-v17-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* pt-sans-700italic - latin */
 @font-face {
-    font-family: "PT Sans";
-    font-weight: bold;
-    font-style: italic;
-    src: local("PT Sans Bold Italic"), url("/static/fonts/pt-sans/PTSans-BoldItalic.ttf") format("truetype");
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: url('/static/fonts/pt-sans-v17-latin/pt-sans-v17-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* gentium-book-plus-regular - latin */
 @font-face {
-    font-family: "Gentium Book Plus";
-    font-weight: normal;
-    font-style: normal;
-    src: local("Gentium Book Plus"), local("GentiumBookPlus"), url("/static/fonts/gentium-book-plus/GentiumBookPlus-Regular.ttf") format("truetype");
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Gentium Book Plus';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/static/fonts/gentium-book-plus-v1-latin/gentium-book-plus-v1-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* gentium-book-plus-italic - latin */
 @font-face {
-    font-family: "Gentium Book Plus";
-    font-weight: normal;
-    font-style: italic;
-    src: local("Gentium Book Plus"), local("GentiumBookPlus-Italic"), url("/static/fonts/gentium-book-plus/GentiumBookPlus-Italic.ttf") format("truetype");
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Gentium Book Plus';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/static/fonts/gentium-book-plus-v1-latin/gentium-book-plus-v1-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* gentium-book-plus-700 - latin */
 @font-face {
-    font-family: "Gentium Book Plus";
-    font-weight: bold;
-    font-style: normal;
-    src: local("Gentium Book Plus Bold"), local("GentiumBookPlus-Bold"), url("/static/fonts/gentium-book-plus/GentiumBookPlus-Bold.ttf") format("truetype");
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Gentium Book Plus';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/static/fonts/gentium-book-plus-v1-latin/gentium-book-plus-v1-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* gentium-book-plus-700italic - latin */
 @font-face {
-    font-family: "Gentium Book Plus";
-    font-weight: bold;
-    font-style: italic;
-    src: local("Gentium Book Plus Bold Italic"), local("GentiumBookPlus-BoldItalic"), url("/static/fonts/gentium-book-plus/GentiumBookPlus-BoldItalic.ttf") format("truetype");
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Gentium Book Plus';
+  font-style: italic;
+  font-weight: 700;
+  src: url('/static/fonts/gentium-book-plus-v1-latin/gentium-book-plus-v1-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* gentium-plus-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Gentium Plus';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/static/fonts/gentium-plus-v2-latin/gentium-plus-v2-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* gentium-plus-italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Gentium Plus';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/static/fonts/gentium-plus-v2-latin/gentium-plus-v2-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* gentium-plus-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Gentium Plus';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/static/fonts/gentium-plus-v2-latin/gentium-plus-v2-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* gentium-plus-700italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Gentium Plus';
+  font-style: italic;
+  font-weight: 700;
+  src: url('/static/fonts/gentium-plus-v2-latin/gentium-plus-v2-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* courier-prime-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/static/fonts/courier-prime-v9-latin/courier-prime-v9-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* courier-prime-italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Courier Prime';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/static/fonts/courier-prime-v9-latin/courier-prime-v9-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* courier-prime-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/static/fonts/courier-prime-v9-latin/courier-prime-v9-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* courier-prime-700italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Courier Prime';
+  font-style: italic;
+  font-weight: 700;
+  src: url('/static/fonts/courier-prime-v9-latin/courier-prime-v9-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
