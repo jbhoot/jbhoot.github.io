@@ -5,7 +5,7 @@
 
     display: block;
     padding: var(--box-padding);
-    border: var(--border-thin) solid var(--border-light);
+    border: var(--border-thin) solid var(--border-dark);
     color: var(--color-dark);
     background-color: var(--color-light);
 }
