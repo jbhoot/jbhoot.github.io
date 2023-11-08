@@ -34,6 +34,10 @@
     --border-light: #e2e2e2;
 
     --border-radius: 4px;
+
+    --font-serif: "Gentium Book Plus", Georgia, serif;
+    --font-sans: Overpass, "PT Sans", sans-serif;
+    --font-monospaced: Courier, "Courier New Bold", monospace;
 }
 
 html {
@@ -42,7 +46,7 @@ html {
 
 body {
     /*block-size: 100%;*/
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-serif);
     font-size: calc(var(--s0) + 0.25vw);
 }
 
@@ -77,7 +81,7 @@ hgroup > * + * {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Averia Serif Libre', 'Gentium Book Plus', 'PT Serif', serif;
+    font-family: var(--font-sans);
 }
 
 h1,
@@ -104,7 +108,7 @@ h4, h5, h6 {
 
 caption,
 figcaption {
-    font-family: "Averia Serif Libre", "Gentium Book Plus", serif;
+    font-family: var(--font-sans);
     font-size: 0.9em;
     font-style: italic;
     margin-block-start: 0;
@@ -120,7 +124,7 @@ caption {
 }
 
 code {
-    font-family: Courier, "Courier New Bold", monospace;
+    font-family: var(--font-monospaced);
     padding-inline: 3px;
     outline: 1px solid var(--border-light);
 }
