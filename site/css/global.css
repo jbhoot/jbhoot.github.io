@@ -115,6 +115,10 @@ caption {
     caption-side: bottom;
 }
 
+:is(figcaption, caption) code {
+    font-style: normal;
+}
+
 code {
     font-family: Courier, "Courier New Bold", monospace;
     padding-inline: 3px;
