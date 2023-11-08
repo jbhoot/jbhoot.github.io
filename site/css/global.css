@@ -175,15 +175,14 @@ tr:hover {
 }
 
 a {
+    text-decoration-style: solid;
+    text-decoration-thickness: 1px;
     text-underline-offset: 0.25em;
-    text-decoration-thickness: 2px;
+    text-decoration-skip-ink: none;
 }
 
 a:hover {
-    outline: 2px solid;
-    outline-offset: 1px;
-    background-color: bisque;
-    text-decoration: none;
+    text-decoration-style: wavy;
 }
 
 nav ul {
