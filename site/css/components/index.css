@@ -8,7 +8,7 @@
 }
 
 .site-nav {
-    font-family: 'Averia Serif Libre', 'Gentium Book Plus', serif;
     position: sticky;
-    top: 10px;
+    top: var(--s2);
+    text-transform: lowercase;
 }
