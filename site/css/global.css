@@ -29,7 +29,11 @@
     --padding: calc(var(--s0) + 0.25vw);
 
     --border-thin: 1px;
-    --color-border: black;
+
+    --border-dark: black;
+    --border-light: #e2e2e2;
+
+    --border-radius: 4px;
 }
 
 html {
@@ -98,11 +102,11 @@ caption {
 code {
     font-family: Courier, "Courier New Bold", monospace;
     padding-inline: 3px;
-    outline: 1px solid #f3efef;
+    outline: 1px solid var(--border-light);
 }
 
 pre {
-    outline: 1px solid black;
+    outline: 1px solid var(--border-light);
     padding: var(--padding);
     color: black;
     overflow: auto;
@@ -117,7 +121,7 @@ pre > code {
 }
 
 img {
-    outline: 1px solid black;
+    outline: 1px solid var(--border-light);
 }
 
 ins {
@@ -141,7 +145,7 @@ td {
 
 th,
 td {
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border-light);
     padding: var(--s-2) var(--s-1);
     text-align: left;
 }

@@ -1,8 +1,8 @@
 .box {
     --box-padding: var(--s0, 1rem);
     display: block;
-    border: var(--border-thin) solid var(--color-border);
-    border-radius: var(--border-radius-sz0);
+    border: var(--border-thin) solid var(--border-light);
+    border-radius: var(--border-radius);
     padding: var(--box-padding);
 }
 
@@ -10,7 +10,7 @@
     --box-padding: var(--s0, 1rem);
     display: block;
     border: 0 solid;
-    border-radius: var(--border-radius-sz0);
+    border-radius: var(--border-radius);
     padding: var(--box-padding);
     outline: var(--border-thin) solid transparent;
     outline-offset: calc(var(--border-thin) * -1);
