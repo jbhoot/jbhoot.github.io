@@ -189,6 +189,11 @@ a:hover {
     text-decoration-style: wavy;
 }
 
+ul, ol {
+    margin-inline-start: 1em;
+}
+
 nav ul {
+    padding: 0;
     list-style: none;
 }
