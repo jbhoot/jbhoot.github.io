@@ -23,7 +23,7 @@ a.site-title {
     outline-offset: 2px;
     
     animation-name: animate-site-title;
-    animation-delay: 1s;
+    animation-delay: 5s;
     animation-duration: 200ms;
     animation-fill-mode: forwards;
 
