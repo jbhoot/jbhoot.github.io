@@ -1,10 +1,89 @@
-.site-title {
-    font-family: 'Averia Serif Libre', 'Gentium Book Plus', serif;
+@keyframes animate-site-title {
+    0% {
+        transform-origin: top left;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform-origin: top left;
+        transform: rotate(6deg);
+    }
+}
+
+a.site-title {
+    display: block;
+    inline-size: fit-content;
+
     font-size: var(--s2);
     font-family: var(--font-sans);
     font-weight: 600;
+    text-transform: lowercase;
     text-decoration: none;
-    color: lightsalmon;
+    outline: 1px solid;
+    outline-offset: 2px;
+    
+    animation-name: animate-site-title;
+    animation-delay: 1s;
+    animation-duration: 200ms;
+    animation-fill-mode: forwards;
+
+    color: #fee;
+    text-shadow:
+            0 -40px 100px,
+            0 0 2px,
+            0 0 1em #ff4444,
+            0 0 0.5em #ff4444,
+            0 0 0.1em #ff4444,
+            0 10px 3px #000;
+}
+
+a.site-title:hover {
+    background-color: transparent;
+    text-decoration: underline;
+    outline: none
+}
+
+/* Source: https://codepen.io/nodws/pen/WNjXbr */
+@keyframes blink {
+  78% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  79%{
+     color: #333;
+  }
+  80% {
+
+    text-shadow: none;
+  }
+  81% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  82% {
+    color: #333;
+    text-shadow: none;
+  }
+  83% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  92% {
+    color: #333;
+    text-shadow: none;
+  }
+  92.5% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+}
+
+.site-title span {
+    animation: blink linear infinite 2s;
+}
+
+.site-title span:nth-of-type(2) {
+    animation: blink linear infinite 3s;
 }
 
 .site-nav {
