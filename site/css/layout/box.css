@@ -1,17 +1,26 @@
 .box {
     --box-padding: var(--s0, 1rem);
+    --color-light: #fff;
+    --color-dark: #000;
+
     display: block;
-    border: var(--border-thin) solid var(--border-light);
-    border-radius: var(--border-radius);
     padding: var(--box-padding);
+    border: var(--border-thin) solid var(--border-light);
+    color: var(--color-dark);
+    background-color: var(--color-light);
 }
 
-.box-borderless {
-    --box-padding: var(--s0, 1rem);
-    display: block;
+.box * {
+    color: inherit;
+}
+
+.box.invert {
+    color: var(--color-light);
+    background-color: var(--color-dark);
+}
+
+.box.borderless {
     border: 0 solid;
-    border-radius: var(--border-radius);
-    padding: var(--box-padding);
     outline: var(--border-thin) solid transparent;
     outline-offset: calc(var(--border-thin) * -1);
 }
