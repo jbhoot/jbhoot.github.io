@@ -86,6 +86,22 @@ h3 {
     line-height: 1.25;
 }
 
+h1 {
+    font-size: var(--s4);
+}
+
+h2 {
+    font-size: var(--s3);
+}
+
+h3 {
+    font-size: var(--s2);
+}
+
+h4, h5, h6 {
+    font-size: var(--s1);
+}
+
 caption,
 figcaption {
     font-family: "Averia Serif Libre", "Gentium Book Plus", serif;
