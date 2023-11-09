@@ -1,0 +1,12 @@
+Network -> LAN -> (Primary DNS, Secondary DNS) -> Save -> Wait for reboot
+
+Network -> WAN -> IP Mode = IPv4&IPv6 -> Address Method = AutoConfigured -> Save -> Wait for form submission
+
+Verify the DNS being used at https://which.nameserve.rs/
+
+Note that even after all this, Status -> WAN Status -> (Primary DNS, Secondary DNS) does not show the configured DNS servers, but some other ones (may be configured by Tata Play Fiber).
+
+DNS currently set to (NextDNS, CloudFlare)
+
+Quad9 DNSes did not work for some reason. The DNS fell back to the ISP-configured ones.
+
