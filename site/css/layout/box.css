@@ -1,22 +1,9 @@
 .box {
     --box-padding: var(--s0, 1rem);
-    --color-light: #fff;
-    --color-dark: #000;
 
     display: block;
     padding: var(--box-padding);
     border: var(--border-thin) solid var(--border-dark);
-    color: var(--color-dark);
-    background-color: var(--color-light);
-}
-
-.box * {
-    color: inherit;
-}
-
-.box.invert {
-    color: var(--color-light);
-    background-color: var(--color-dark);
 }
 
 .box.borderless {
@@ -24,3 +11,21 @@
     outline: var(--border-thin) solid transparent;
     outline-offset: calc(var(--border-thin) * -1);
 }
+
+.box.coloured {
+    --color-light: #fff;
+    --color-dark: #000;
+
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+.box.coloured * {
+    color: inherit;
+}
+
+.box.coloured.invert {
+    color: var(--color-light);
+    background-color: var(--color-dark);
+}
+
