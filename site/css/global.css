@@ -37,7 +37,10 @@
 
     --font-serif: "Gentium Book Plus", Georgia, serif;
     --font-sans: "PT Sans", Overpass, sans-serif;
-    --font-monospaced: Courier, "Courier Prime", "Courier New Bold", monospace;
+    /* Primacy to Courier Prime because
+     * Samsung Internet and Chrome on Android render very thin Courier fonts.
+     */
+    --font-monospaced: "Courier Prime", Courier, "Courier New Bold", monospace;
 }
 
 html {
