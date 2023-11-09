@@ -61,7 +61,7 @@ fallback_to_content = false
 index_selector = "ul#article-list"
 index_item_template = """
   <li>
-    <a href="{{url}}/" class="font-size:s2 font-weight:600">{{title}}</a>
+    <a href="{{url}}/" class="font-weight:600">{{title}}</a>
     <p class="margin-block-start:2px font-size:0.9em">Published: <time datetime="{{timestamp}}">{{date}}</time></p>
   </li>
   """
@@ -72,7 +72,7 @@ max_items = 5
 index_selector = "ul.recent-posts"
 index_item_template = """
   <li>
-    <a href="{{url}}/" class="font-size:s1 font-weight:600">{{title}}</a>
+    <a href="{{url}}/" class="font-weight:600">{{title}}</a>
     <p class="margin-block-start:2px font-size:0.9em">Published: <time datetime="{{timestamp}}">{{date}}</time></p>
   </li>
   """

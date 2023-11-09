@@ -52,7 +52,22 @@ html {
 body {
     flex: 1;
     font-family: var(--font-serif);
-    font-size: calc(var(--s0) + 0.25vw);
+
+    /***
+     Increase the base font-size to --s1.
+
+     --s0 = 1rem is too small.
+
+     In case of (--s0 + Xvw),  0.25vw or 0.5vw values are too small on mobile devices to add anything to the tiny 1rem.
+        But 1vw is so large on a desktop screen that text becomes huge.
+
+     (--s0 + Xvh) might be a better approach than (--s0 + Xvw) because 0.5vh is neither too small on mobile device, nor too large on desktop screen. But I am not sure of any side-effects. But there don't seem to be any because people don't play around with viewport height as much as they do with the viewport width. In any case, the minimum size fonts can shrink to is 1rem, but at least we get a much better default from it than from (--s0 + Xvw).
+
+     But all this mental gymnastics led me to wonder what the hell do I care about scaling the fonts in accordance with the viewport size, as long as the base font size is large enough on all screens? So for now I have resorted to --s1 as the base font-size.
+
+     Updating --s0 = 1rem * module scale does not make sense because the default --s0 would become too large for spacing purposes.
+     ***/
+    font-size: var(--s1);
 }
 
 * {
