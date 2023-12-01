@@ -1,0 +1,72 @@
+<hgroup>
+    <h1>Fixing build of OCaml compiler on Apple Silicon</h1>
+    <p><time datetime="2023-12-01">1st December 2023</time></p>
+</hgroup>
+
+<p>I got OCaml compiler failing to build on my Macbook with Silicon architecture. </p>
+
+<pre>$ opam switch create . 4.14.1 -y --deps-only
+
+<><> Installing new switch packages <><><><><><><><><><><><><><><><><><><><>  🐫 
+Switch invariant: ["ocaml-base-compiler" {= "4.14.1"} | "ocaml-system" {= "4.14.1"}]
+[NOTE] External dependency handling not supported for OS family 'macos'.
+        You can disable this check using 'opam option --global depext=false'
+
+<><> Processing actions <><><><><><><><><><><><><><><><><><><><><><><><><><>  🐫 
+∗ installed base-bigarray.base
+∗ installed base-threads.base
+∗ installed base-unix.base
+∗ installed ocaml-options-vanilla.1
+⬇ retrieved ocaml-base-compiler.4.14.1  (cached)
+[ERROR] The compilation of ocaml-base-compiler.4.14.1 failed at
+        "make -j7".
+
+#=== ERROR while compiling ocaml-base-compiler.4.14.1 ===========#
+# context     2.1.5 | macos/arm64 |  | https://opam.ocaml.org#bc52affc
+# path        ~/projects/aoc-2023/ocaml/_opam/.opam-switch/build/ocaml-base-compiler.4.14.1
+# command     ~/.opam/opam-init/hooks/sandbox.sh build make -j7
+# exit-code   2
+# env-file    ~/.opam/log/ocaml-base-compiler-11985-7b627b.env
+# output-file ~/.opam/log/ocaml-base-compiler-11985-7b627b.out
+### output ###
+# [...]
+# signals_nat.c:221:5: error: no member named '__pc' in 'struct __darwin_x86_thread_state64'
+#     CONTEXT_PC = (context_reg) &caml_stack_overflow;
+#     ^~~~~~~~~~
+# ./signals_osdep.h:182:37: note: expanded from macro 'CONTEXT_PC'
+#   #define CONTEXT_PC (CONTEXT_STATE.__pc)
+#                       ~~~~~~~~~~~~~ ^
+# 4 errors generated.
+# make[3]: *** [signals_nat.n.o] Error 1
+# make[3]: *** Waiting for unfinished jobs....
+# make[2]: *** [makeruntimeopt] Error 2
+# make[1]: *** [opt.opt] Error 2
+# make: *** [world.opt] Error 2
+
+
+
+<><> Error report <><><><><><><><><><><><><><><><><><><><><><>  🐫 
+┌─ The following actions failed
+│ λ build ocaml-base-compiler 4.14.1
+└─ 
+┌─ The following changes have been performed (the rest was aborted)
+│ ∗ install base-bigarray         base
+│ ∗ install base-threads          base
+│ ∗ install base-unix             base
+│ ∗ install ocaml-options-vanilla 1
+└─ 
+
+<><> ocaml-base-compiler.4.14.1 troubleshooting <><><><><><><>  🐫 
+=> A failure in the middle of the build may be caused by build
+    parallelism
+        (enabled by default).
+        Please file a bug report at
+    https://github.com/ocaml/opam-repository/issues
+=> You can try installing again including --jobs=1
+        to force a sequential build instead.
+Switch initialisation failed: clean up? ('n' will leave the
+switch partially installed) [Y/n] y</pre>
+
+<p>If you have the same issue, then try specifying the architecture explicitly. </p>
+
+<pre><code>$ arch -arm64 opam switch create . 4.14.1 -y --deps-only</code></pre>

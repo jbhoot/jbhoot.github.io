@@ -1,5 +1,15 @@
 [
   {
+    "url": "/blog/fixing-ocaml-compiler-build-on-apple-silicon",
+    "page_file": "site/blog/fixing-ocaml-compiler-build-on-apple-silicon.html",
+    "nav_path": [
+      "blog"
+    ],
+    "timestamp": "2023-12-01",
+    "date": "1st December 2023",
+    "title": "Fixing build of OCaml compiler on Apple Silicon"
+  },
+  {
     "url": "/blog/movie-is-better-than-book",
     "page_file": "site/blog/movie-is-better-than-book.html",
     "nav_path": [
