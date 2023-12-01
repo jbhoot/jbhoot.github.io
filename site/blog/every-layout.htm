@@ -1,0 +1,82 @@
+From mastodon
+
+So, after 10 days of mugs of tea and coffee and existential despair, I have finally replaced the CSS Modules-based styling of a project at work with Every Layout-based styling.
+
+- Reduced the final payload by one-third. This would have gone down further had the project not been using third-party widgets and its styles.
+
+- Reduced the number of files by two-third. This would have gone down further had I not put each layout in its own file.
+
+(1/7)
+
+The freely available Rudiments are invaluable. Even if one skips everything else, they can come away with a lot by just applying the principles of Rudiments.
+
+Lots of hidden gems in https://every-layout.dev/rudiments/global-and-local-styling/ . Even before, I always used to separate (with a blank line) the layout and aesthetic properties inside a rule, without really trying to understand why. All of it finally clicked with this article.
+
+measure is so intuitive (https://every-layout.dev/rudiments/axioms/). Just set the sizes of elements based on a length of a comfortably readable column of text. I got rid of a lot of arbitrary inline-sizes, replacing them with values like measure * 0.5, and so on.
+
+(2/7)
+
+I ended up using almost all of the layouts, including reel!
+
+- customized a few like imposter-in-place, imposter-centered
+
+- used both stack and flow
+
+- added a variant flex-grid that auto-fits.
+
+- split center into center-self and center-children
+
+(3/7)
+
+I even added a few layouts!
+
+- moat (uses margins on all sides to keep itself away from surroundings.)
+
+- rack (like stack, but uses borders to separate items)
+
+- kv-list (gridded list of key-value pairs)
+
+(4/7)
+
+A side-advantage of Every Layout approach is that one does not have to fight their colleagues who insist on using Tailwind - just use it for the utility classes, thus limiting its scope. I personally prefer the on-the-nose naming approach towards utility classes though.
+
+(5/7)
+
+All in all, this book of yours has ignited my love for CSS. So glad that I didn't go down the Tailwind path!
+
+(6/7)
+
+I believe that none of the preceding notes give away the non-free content of your book. But let me know if anything is problematic, and I will remove it.
+
+(7/7)
+
+ Every Layout is a wish come true. The only non-fiction book for me that was worth the cost.
+
+ 
+
+other css obs from mastodon:
+
+Without `span minmax(x)`, CSS Grid doesn't seem much useful to make a responsive layout with custom-sized cells.
+
+Reading my copy of your excellent Every Layout.
+
+Am I missing anything if I replace 
+
+```
+.stack > * + * {
+  margin-block-start: var(--space);
+}
+``` 
+
+with 
+
+```
+.stack {
+  gap: var(--space);
+}
+``` 
+
+in the `.stack` layout?
+
+This would allow me to have nested stacks by just updating the `--space` custom property.
+
