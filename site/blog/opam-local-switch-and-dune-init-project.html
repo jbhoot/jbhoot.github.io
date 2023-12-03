@@ -1,0 +1,162 @@
+<hgroup>
+    <h1>Make an opam local switch and <code>dune init project</code> work together</h1>
+    <p><time datetime="2023-12-03">3rd December 2023</time></p>
+    <p class="tags">ocaml</p>
+</hgroup>
+
+<p>In the OCaml ecosystem, opam is the most popular package management tool, while dune is the foremost build tool.</p>
+
+<p>Both have evolved independently. While they manage to work in tandem, there are a lot of irregularities to trip on where they meet.</p>
+
+<h2>Local switch in opam</h2>
+
+<p>opam's local switch feature can set up and isolate development environment and dependencies per project.</p>
+
+<p><code>opam switch create</code> creates a local switch if it is given the path to an <em>existing</em> directory.</p>
+
+<pre><code>opam switch create ./path/to/existing/dir</code></pre>
+
+<p>The above command creates an <i>_opam</i> directory inside the given path, inside which all of the opam-related artifacts for this project are stored.</p>
+
+<p>A cool side-effect is that when a directory containing a local opam switch is visited, that switch is activated automatically. No need to <code>opam switch set</code> the switch explicitly.</p>
+
+<h2>dune init project</h2>
+
+<p><code>dune init project</code>is the recommended way to bootstrap an OCaml project.</p>
+
+<pre><code>dune init project prj_name</code></pre>
+
+<p> The above command creates a directory named <i>prj_name</i> in the current directory, and populates it with project artifacts.</p>
+
+<p>I found that dune cannot bootstrap a project in the current directory itself. So <code>dune init project .</code> fails to work.</p>
+
+<h2>The chicken and egg problem</h2>
+
+<p> I prefer to use opam's local switch feature to ensure the isolatation of all dependencies and tools related to an OCaml project. This means I also prefer to install dune per-project. </p>
+
+<p>So,</p>
+
+<ol>
+<li>I want to use dune to bootstrap a project</li>
+<li>dune is installed through opam</li>
+<li>opam needs a local switch for per-project installation</li>
+<li>A local switch needs an existing empty project directory</li>
+<li>dune cannot bootstrap a project in a current directory</li>
+</ol>
+
+<p>The chicken and egg problem looks easy now, huh?</p>
+
+<p>I started guessing a solution. </p>
+
+<h3>Attempt 1 - execute opam and dune commands from parent directory</h3>
+
+<p>I planned the following idealised sequence of commands:</p>
+
+<pre><code># create an empty project dir
+~/projects $ mkdir my_prj
+
+# create a local switch
+~/projects $ opam switch create ./my_prj
+
+# install dune in our local switch
+~/projects $ opam install dune
+
+# bootstrap project
+~/projects $ dune init project my_prj</code></pre>
+
+<p>I didn't make it past the 3rd command of installing dune because of the following (reasonable) error:</p>
+
+<pre>$ opam install dune
+[ERROR] No switch is currently set. Please use 'opam switch' to set or install a switch.</pre> 
+
+<p>Ok, then. I tried to set the switch after creating it.</p>
+
+<pre><code>~/projects $ mkdir my_prj
+~/projects $ opam switch create ./my_prj
+~/projects $ opam switch set ./my_prj
+[ERROR] Can not set external switch '/Users/jb/projects/my_prj' globally. To set
+        it in the current shell use:
+         eval $(opam env --switch=/Users/jb/projects/my_prj --set-switch)</code></pre>
+
+<p>The advice felt like a long-winded solution to me. I wanted a simpler solution.</p>
+
+<p>So may be, first, I should enter the empty project directory to set up the project.</p>
+
+<h3>Attempt 2 - execute opam and dune commands from project directory</h3>
+
+<p>I carried out the following sequence of commands:</p>
+
+<pre><code>~/projects $ mkdir my_prj
+~/projects $ cd my_prj 
+~/projects/my_prj $ opam switch create . 
+~/projects/my_prj $ opam install dune
+~/projects/my_prj $ dune init project my_prj</code></pre>
+
+<p>The above sequence creates a <code>my_prj/my_prj/</code> directory tree. That's not what I wanted.</p>
+
+<p>Now what?</p>
+
+<h3>Solution - exploit opam's auto-activation of local switch</h3>
+
+<p>Now, consider the following sequence of commands:</p>
+
+<pre><code># create an empty project dir
+~/projects $ mkdir my_prj
+
+~/projects $ cd my_prj 
+
+# create a local switch, which is auto-activated after a successful creation because the switch is created in the current directory itself.
+~/projects/my_prj $ opam switch create . 
+
+~/projects/my_prj $ opam install dune
+
+# go back to parent, with opam still pointing to the local switch env until the current session ends or until another switch is activated
+~/projects $ cd .. 
+
+# bootstrap our project
+~/projects/my_prj $ dune init project my_prj</code></pre>
+
+<p>Note the 3rd command <code>opam switch create .</code>. After the command finishes execution, the switch is auto-activated because the local switch lives in the current directory <code>.</code> itself.</p>
+
+<p>opam also sets an env var <code>OPAM_SWITCH_PREFIX</code> to the path of this activated switch.</p>
+
+<pre><code>$ echo $OPAM_SWITCH_PREFIX 
+/Users/jb/projects/my_prj/_opam</code></pre>
+
+<p>This env var probably lives on until the current shell session ends even if the directory changes, or until another switch is activated.</p>
+
+<aside>
+<p>If the directory is changed at this point, then <code>opam switch list</code> no longer shows an active switch. However, <code>OPAM_SWITCH_PREFIX</code> still points to our my_prj local switch until a directory with another local switch is visited.</p>
+
+<p>Also, my machine's opam setup does not a global switch at all. I am not sure how opam would behave amidst all of this in presence of a global switch. A case for another time, may be.</p>
+</aside>
+
+<p>That means that when the above command sequence goes one directory up to execute <code>dune init project</code>, opam is still pointing to the right local switch env.</p>
+
+<p>Also dune does not mind if the directory <i>my_prj</i> already exists.</p>
+
+<p>Case solved!</p>
+
+<p>I can imagine a variation of the above sequence:</p>
+
+<pre><code># create an empty project dir
+~/projects $ mkdir my_prj
+
+# create our local switch
+~/projects $ opam switch create ./my_prj 
+
+# activate our local switch
+~/projects $ cd my_prj 
+
+# go back to parent, with opam still pointing to the local switch env until the current session ends or until another switch is activated
+~/projects/my_prj $ cd .. 
+
+# install dune in our local switch
+~/projects $ opam install dune
+
+# bootstrap our project
+~/projects $ dune init project my_prj</code></pre>
+
+<h2>What next?</h2>
+
+<p>There is <a href="https://discuss.ocaml.org/t/extending-dune-with-package-management/5649">work under progress</a> to wrap dune around opam, thus making dune as the unifying package management and build solution.</p>
