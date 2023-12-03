@@ -152,7 +152,11 @@ code {
 }
 
 pre {
-    outline: 1px solid var(--border-dark);
+    /* pre max-width computes to be wider than other tags because by default it uses monospaced font-family, thus causing the --measure=60ch to compute a wider size. */
+    /* Set the font-family to serif to set its measure similar to other tags. */
+    /* font-family: var(--font-serif); */
+
+    outline: 1px solid var(--border-light);
     padding: var(--padding);
     color: black;
     overflow: auto;
