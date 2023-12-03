@@ -1,5 +1,15 @@
 [
   {
+    "url": "/blog/opam-local-switch-and-dune-init-project",
+    "page_file": "site/blog/opam-local-switch-and-dune-init-project.html",
+    "nav_path": [
+      "blog"
+    ],
+    "timestamp": "2023-12-03",
+    "date": "3rd December 2023",
+    "title": "Make an opam local switch and <code>dune init project</code> work together"
+  },
+  {
     "url": "/blog/fixing-ocaml-compiler-build-on-apple-silicon",
     "page_file": "site/blog/fixing-ocaml-compiler-build-on-apple-silicon.html",
     "nav_path": [

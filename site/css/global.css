@@ -219,3 +219,16 @@ nav ul {
     margin-inline-start: 0;
     list-style: none;
 }
+
+aside {
+    color: gray;
+    border: 1px dashed gray;
+    padding: var(--s0);
+}
+
+aside::before {
+    display: block;
+    content: "ASIDE";
+    margin-bottom: var(--s0);
+    text-decoration: underline;
+}
