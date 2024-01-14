@@ -12,7 +12,7 @@
 
 <p>opam's local switch feature can set up and isolate development environment and dependencies per project.</p>
 
-<p><code>opam switch create</code> creates a local switch if it is given the path to an <em>existing</em> directory.</p>
+<p><code>opam switch create</code> creates a local switch if it is given the path to a directory. If the specified directory does not exist, then its is created.</p>
 
 <pre><code>opam switch create ./path/to/existing/dir</code></pre>
 
@@ -30,7 +30,7 @@
 
 <p>I found that dune cannot bootstrap a project in the current directory itself. So <code>dune init project .</code> fails to work.</p>
 
-<h2>The chicken and egg problem</h2>
+<h2>The problem</h2>
 
 <p> I prefer to use opam's local switch feature to ensure the isolatation of all dependencies and tools related to an OCaml project. This means I also prefer to install dune per-project. </p>
 
