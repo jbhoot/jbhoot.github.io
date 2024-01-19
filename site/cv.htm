@@ -1,0 +1,100 @@
+<hgroup>
+<h1>Jayesh Bhoot</h1>
+<p>Pune, India</p>
+<p><a href="https://jysh.net">https://jysh.net</a></p>
+<p>jysh@jysh.net</p>
+</hgroup>
+
+<p>I am an independent software developer with <span class="exp-years">12+</span> years of experience. I have
+architected and built complex web frontends, desktop apps, API backends, and job processing systems.</p>
+
+<p>My clients have entrusted me with roles ranging from Software Developer, Senior Software Engineer, to Project Manager
+in my recent contracts.</p>
+
+<h2>Work Experience</h2>
+
+<ol class="timeline">
+<li>
+<p>2019-Present</p>
+<p><strong>Hillridge Technology</strong></p>
+<p>Skills employed: ReScript, API development, Frontend design and development</p>
+<p>Technology stack: ReScript, OCaml, JavaScript, React</p>
+</li>
+
+<li>
+<p>2018-2019</p>
+<p><strong>Isotel</strong></p>
+<p>React, JavaScript, Python, Flask, IoT</p>
+</li>
+
+<li>
+<p>2014-2016</p>
+<p><strong>Isotel</strong></p>
+<p>React, JavaScript, Python, Flask, IoT</p>
+</li>
+
+<li>
+<p>2012-2016</p>
+<p><strong>Contracts</strong></p>
+<p>Qt, </p>
+</li>
+
+<li>
+<p>2011-2012</p>
+<p><strong>Indigo Architects</strong></p>
+<p>.NET</p>
+</li>
+
+</ol>
+
+<h2>Projects</h2>
+
+<p>Github: <a href="https://github.com/jyssh">https://github.com/jyssh</a></p>
+
+<ul>
+<li>
+<p>Pomodoro Timer</p>
+<p>Design, Architecture</p>
+<p>Qt, BB10</p>
+</li>
+</ul>
+
+<h2>Education</h2>
+
+<ol class="timeline">
+<li>
+<p>2009-2011</p>
+<p>M.Sc. (Information Technology)</p>
+<p>Dhirubhai Ambani Institute of Information and Communication Technology</p>
+<p>Gandhinagar, India</p>
+</li>
+
+<li>
+<p>2006-2009</p>
+<p>B.Sc. (Information Technology)</p>
+<p>J.P. Dawer Institute of Information Science and Technology</p>
+<p>Surat, India</p>
+</li>
+</ol>
+
+<h2>Reviews</h2>
+Read more at: upwork? linkedin?
+
+<script>
+    function calculateYearsOfWorkExperience() {
+        const firstYearOfWork = new Date(2012, 0, 1).getFullYear();
+        const now = new Date().getFullYear();
+        return now - firstYearOfWork;
+    }
+
+    function displayYearsOfWorkExperience() {
+        const expNode = document.querySelector('.exp-years');
+        if (expNode) {
+            expNode.textContent = calculateYearsOfWorkExperience().toString();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        displayYearsOfWorkExperience();
+    })
+</script>
