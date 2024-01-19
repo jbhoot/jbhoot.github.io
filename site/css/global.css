@@ -236,3 +236,7 @@ aside::before {
     margin-bottom: var(--s0);
     text-decoration: underline;
 }
+
+main {
+    background-color: #fbf4e9;
+}
