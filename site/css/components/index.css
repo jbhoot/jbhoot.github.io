@@ -17,7 +17,6 @@ a.site-title {
     font-size: var(--s2);
     font-family: var(--font-sans);
     font-weight: 600;
-    text-transform: lowercase;
     text-decoration: none;
     outline: 1px solid;
     outline-offset: 2px;
