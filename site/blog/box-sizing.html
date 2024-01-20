@@ -1,10 +1,13 @@
 <hgroup>
-    <h1>What <code>box-sizing</code> does</h1>
-    <p><time datetime="2022-09-17">17th September 2022</time></p>
+<h1>What <code>box-sizing</code> does</h1>
+<p>
+<time datetime="2022-09-17">17th September 2022</time>
+</p>
 </hgroup>
 
-<p><code>box-sizing</code> specifies the part of an element's CSS box, to which the properties <code>width, min-width, max-width,
-    height, min-height, max-height</code> apply.</p>
+<p><code>box-sizing</code> specifies the part of an element's CSS box, to which the properties <code>width, min-width,
+max-width,
+height, min-height, max-height</code> apply.</p>
 
 <figure>
     <pre><code class="language-css">
@@ -13,7 +16,7 @@ p {
     box-sizing: content-box;
 }
 </code></pre>
-    <figcaption>Result: brown content box is 3rem tall </figcaption>
+    <figcaption>Result: brown content box is 3rem tall</figcaption>
 </figure>
 
 <figure>
@@ -23,7 +26,7 @@ p {
     box-sizing: border-box;
 }
 </code></pre>
-    <figcaption>Result: black border box is 3rem tall </figcaption>
+    <figcaption>Result: black border box is 3rem tall</figcaption>
 </figure>
 
 <style>
@@ -36,11 +39,11 @@ p {
         line-height: 1;
     }
 
-    figure>* {
+    figure > * {
         margin: 0;
     }
 
-    figure:first-of-type>figcaption {
+    figure:first-of-type > figcaption {
         display: inline-block;
         font-weight: 600;
         color: white;
@@ -52,7 +55,7 @@ p {
         padding: 0.5rem;
     }
 
-    figure:last-of-type>figcaption {
+    figure:last-of-type > figcaption {
         display: inline-block;
         font-weight: 600;
         color: white;

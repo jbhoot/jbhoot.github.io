@@ -1,41 +1,47 @@
 <hgroup>
-    <h1>How to write a Firefox add-on in ClojureScript</h1>
-    <p><time datetime="2020-07-04">4th July 2020</time></p>
+<h1>How to write a Firefox add-on in ClojureScript</h1>
+<p>
+<time datetime="2020-07-04">4th July 2020</time>
+</p>
 </hgroup>
+
 <h2>Table of Contents</h2>
+
 <ol>
-    <li><a href="#org891f312">Introduction</a></li>
-    <li><a href="#org9a73bf2">Project Layout</a></li>
-    <li><a href="#org4352a07">ClojureScript to JavaScript</a></li>
-    <li><a href="#org9d85caf">Live reload</a></li>
+<li><a href="#org891f312">Introduction</a></li>
+<li><a href="#org9a73bf2">Project Layout</a></li>
+<li><a href="#org4352a07">ClojureScript to JavaScript</a></li>
+<li><a href="#org9d85caf">Live reload</a></li>
 </ol>
 
 <h2 id="org891f312">Introduction</h2>
+
 <p>
-    I found writing Firefox add-ons to be a good way to learn the ropes in ClojureScript in a productive manner.
+I found writing Firefox add-ons to be a good way to learn the ropes in ClojureScript in a productive manner.
 </p>
 
 <p>
-    You can find a sample add-on on my <a href="https://github.com/jayesh-bhoot/firefox-add-on-in-cljs">GitHub</a>.
-    I won't go through the code here, but will lay out the quirky development process. I will mostly focus on the
-    plumbing - how ClojureScript hands over the compiled JavaScript code to the add-on.
+You can find a sample add-on on my <a href="https://github.com/jayesh-bhoot/firefox-add-on-in-cljs">GitHub</a>.
+I won't go through the code here, but will lay out the quirky development process. I will mostly focus on the
+plumbing - how ClojureScript hands over the compiled JavaScript code to the add-on.
 </p>
 
 <p>
-    The sample add-on tries to mirror the functionality of the one found in the <a
-        href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension">official
-        tutorial</a> - wrap a border around the pages at mozilla.org.
+The sample add-on tries to mirror the functionality of the one found in the <a
+href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension">official
+tutorial</a> - wrap a border around the pages at mozilla.org.
 </p>
 
 
 <figure>
-    <img src="demo.png" alt="The addon puts a purple border around the current webpage" />
-    <figcaption>The demo add-on puts a purple border around the current webpage</figcaption>
+<img src="demo.png" alt="The addon puts a purple border around the current webpage"/>
+<figcaption>The demo add-on puts a purple border around the current webpage</figcaption>
 </figure>
 
 <h2 id="org9a73bf2">Project Layout</h2>
+
 <p>
-    Figuring out a clean project layout took some effort. I am satisfied with the following structure:
+Figuring out a clean project layout took some effort. I am satisfied with the following structure:
 </p>
 
 <pre>
@@ -50,42 +56,43 @@ project-root
 </pre>
 
 <p>
-    The goal is to isolate the artefacts of the add-on from the ClojureScript code. The add-on gets only its
-    JavaScript from ClojureScript. So, isolating the rest of its artefacts - icons, manifest, etc. - into its own
-    directory works out well. ClojureScript dominates the rest of the project layout.
+The goal is to isolate the artefacts of the add-on from the ClojureScript code. The add-on gets only its
+JavaScript from ClojureScript. So, isolating the rest of its artefacts - icons, manifest, etc. - into its own
+directory works out well. ClojureScript dominates the rest of the project layout.
 </p>
 
 <p>
-    The only time the ClojureScript compiler touches the <i>addon</i> folder is to put the compiled JavaScript in
-    it.
+The only time the ClojureScript compiler touches the <i>addon</i> folder is to put the compiled JavaScript in
+it.
 </p>
 
 <h2 id="org4352a07">ClojureScript to JavaScript</h2>
+
 <p>
-    The compilation process by default uses <code>:optimizations :none</code>, which produces a set of JavaScript
-    files, with the main file pointing at the others. This does not work here as the add-on does not seem to pick up
-    the secondary files from the main file.
+The compilation process by default uses <code>:optimizations :none</code>, which produces a set of JavaScript
+files, with the main file pointing at the others. This does not work here as the add-on does not seem to pick up
+the secondary files from the main file.
 </p>
 
 <p>
-    The rest of the <code>:optimizations</code> options - <code>:whitespace</code>, <code>:simple</code>,
-    <code>:advanced</code> - produce a single standalone JavaScript file, which the add-on happily accepts.
+The rest of the <code>:optimizations</code> options - <code>:whitespace</code>, <code>:simple</code>,
+<code>:advanced</code> - produce a single standalone JavaScript file, which the add-on happily accepts.
 </p>
 
 <p>
-    However, <code>:optimizations :none</code> is the default because it compiles the fastest, lending a speedy
-    development process. I went with the second fastest - <code>:whitespace</code> - for development purpose, and
-    <code>:advanced</code> to compile a production build.
+However, <code>:optimizations :none</code> is the default because it compiles the fastest, lending a speedy development
+process. I went with the second fastest - <code>:whitespace</code> - for development purpose, and
+<code>:advanced</code> to compile a production build.
 </p>
 
 <p>
-    Two other compilation options helps keep the plumbing short and clean: <code>:target</code> diverts the
-    temporary files produced during compilation to a <i>tmp</i> folder, while <code>:target-to</code> puts the
-    standalone compile JavaScript file directly into the <i>addon</i> folder.
+Two other compilation options helps keep the plumbing short and clean: <code>:target</code> diverts the
+temporary files produced during compilation to a <i>tmp</i> folder, while <code>:target-to</code> puts the
+standalone compile JavaScript file directly into the <i>addon</i> folder.
 </p>
 
 <p>
-    To summarise, we tweak the default compilation process with the following three options to keep life simple:
+To summarise, we tweak the default compilation process with the following three options to keep life simple:
 </p>
 
 <pre><code class="language-clojure">{:optimizations :whitespace
@@ -94,8 +101,8 @@ project-root
 
 <h2 id="org9d85caf">Live reload</h2>
 <p>
-    Basically, we instruct the ClojureScript compiler to watch over the ClojureScript files and recompile them into
-    JavaScript on change.
+Basically, we instruct the ClojureScript compiler to watch over the ClojureScript files and recompile them into
+JavaScript on change.
 </p>
 
 <pre><code class="language-sh"># in project-root
@@ -105,8 +112,8 @@ clj --main cljs.main \
     --compile demo.core</code></pre>
 
 <p>
-    In turn, Mozilla's web-ext tool by default watches over the add-on folder and reloads the add-on on detecting a
-    change.
+In turn, Mozilla's web-ext tool by default watches over the add-on folder and reloads the add-on on detecting a
+change.
 </p>
 
 <pre><code class="language-sh"># in addon folder

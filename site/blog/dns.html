@@ -1,6 +1,8 @@
 <hgroup>
-    <h1>Learnings on DNS</h1>
-    <p><time datetime="2022-09-19">19th September 2022</time></p>
+<h1>Learnings on DNS</h1>
+<p>
+<time datetime="2022-09-19">19th September 2022</time>
+</p>
 </hgroup>
 
 <p>Syntax of a DNS record, along with examples:</p>
@@ -10,18 +12,23 @@
 ; Syntax #2: name [record_class] [ttl] record_type record_data 
 foo.example.com. CNAME example.com.
 example.com.     A     1.2.3.4</code></pre>
-<figcaption> Syntax of a DNS record </figcaption>
+<figcaption> Syntax of a DNS record</figcaption>
 </figure>
 
 
-<p>Here, <code>foo.example.com</code> resolves to <code>example.com</code>, which in turn resolves to <code>1.2.3.4</code>.</p>
+<p>Here, <code>foo.example.com</code> resolves to <code>example.com</code>, which in turn resolves to
+<code>1.2.3.4</code>.</p>
 
-<p>In a CNAME mapping, <code>@ CNAME example.com</code>, example.com is the canonical name, while <code>@</code> is the domain being mapped to the canonical name.</p>
+<p>In a CNAME mapping, <code>@ CNAME example.com</code>, example.com is the canonical name, while <code>@</code> is the
+domain being mapped to the canonical name.</p>
 
-<p>In a record, <code>@</code> means the current origin. Usually, the current origin means the apex domain (like bhoot.sh).</p>
+<p>In a record, <code>@</code> means the current origin. Usually, the current origin means the apex domain (like
+bhoot.sh).</p>
 
 <p>In a record, <code>www</code> implies the <em>www</em> subdomain of the current origin. e.g., www.bhoot.sh.</p>
 
-<p>Prefer ANAME to CNAME even if the the former is not yet standardized because CNAME does not allow multiple records for the same canonical name. Also, CNAME does not allow mapping the apex domain to a canonical name.</p>
+<p>Prefer ANAME to CNAME even if the the former is not yet standardized because CNAME does not allow multiple records
+for the same canonical name. Also, CNAME does not allow mapping the apex domain to a canonical name.</p>
 
-<p>Ideally, several domain names map to a canoical name via CNAME/ANAME records. This canonical name is then mapped to the actual IP address in an A record.</p>
+<p>Ideally, several domain names map to a canoical name via CNAME/ANAME records. This canonical name is then mapped to
+the actual IP address in an A record.</p>
