@@ -15,32 +15,32 @@ in my recent contracts.</p>
 
 <ol class="timeline">
 <li>
-<p>2019-Present</p>
+<p class="date-duration"><time datetime="2019-08">Aug 2019</time> - <time>Present</time></p>
 <p><strong>Hillridge Technology</strong></p>
 <p>Skills employed: ReScript, API development, Frontend design and development</p>
 <p>Technology stack: ReScript, OCaml, JavaScript, React</p>
 </li>
 
 <li>
-<p>2018-2019</p>
+<p class="date-duration"><time datetime="2018-07">Jul 2018</time> - <time datetime="2019-02">Feb 2019</time></p>
 <p><strong>Isotel</strong></p>
 <p>React, JavaScript, Python, Flask, IoT</p>
 </li>
 
 <li>
-<p>2014-2016</p>
+<p class="date-duration"><time datetime="2014-03">Mar 2014</time> - <time datetime="2016-02">Feb 2016</time></p>
 <p><strong>Isotel</strong></p>
 <p>React, JavaScript, Python, Flask, IoT</p>
 </li>
 
 <li>
-<p>2012-2016</p>
+<p class="date-duration"><time datetime="2012-09">Sep 2012</time> - <time datetime="2014-02">Feb 2014</time></p>
 <p><strong>Contracts</strong></p>
 <p>Qt, </p>
 </li>
 
 <li>
-<p>2011-2012</p>
+<p class="date-duration"><time datetime="2011-01">Jan 2011</time> - <time datetime="2012-08">Aug 2012</time></p>
 <p><strong>Indigo Architects</strong></p>
 <p>.NET</p>
 </li>
@@ -63,14 +63,14 @@ in my recent contracts.</p>
 
 <ol class="timeline">
 <li>
-<p>2009-2011</p>
+<p><time datetime="2009">2009</time> - <time datetime="2011">2011</time></p>
 <p>M.Sc. (Information Technology)</p>
 <p>Dhirubhai Ambani Institute of Information and Communication Technology</p>
 <p>Gandhinagar, India</p>
 </li>
 
 <li>
-<p>2006-2009</p>
+<p><time datetime="2006">2006</time> - <time datetime="2009">2009</time></p>
 <p>B.Sc. (Information Technology)</p>
 <p>J.P. Dawer Institute of Information Science and Technology</p>
 <p>Surat, India</p>
@@ -94,7 +94,77 @@ Read more at: upwork? linkedin?
         }
     }
 
+    function printMonth(m) {
+        switch (m) {
+            case 1:
+                return `${m} month`;
+
+            case 0:
+            default:
+                return `${m} months`;
+        }
+    }
+
+    function printYear(y) {
+        switch (y) {
+            case 1:
+                return `${y} year`;
+
+            case 0:
+            default:
+                return `${y} years`;
+        }
+    }
+
+    function convertDateToMonths(d) {
+        return d.getFullYear() * 12 + d.getMonth() + 1;
+    }
+
+    function doesTimeNodeRepresentNow(n) {
+        return n.dateTime.length <= 0 && n.textContent.toLowerCase() === 'present';
+    }
+
+    function calculateDurationInMonths(startNode, endNode) {
+        const startDate = new Date(startNode.dateTime);
+        if (!Number.isNaN(startDate.getTime())) {
+            let endDate;
+            if (doesTimeNodeRepresentNow(endNode)) {
+                endDate = new Date();
+            } else {
+                endDate = new Date(endNode.dateTime);
+            }
+            return convertDateToMonths(endDate) - convertDateToMonths(startDate);
+        } else {
+            return NaN;
+        }
+    }
+
+    function formatMonthDuration(durationInMonths) {
+        const yearPart = Math.trunc(durationInMonths / 12);
+        const yearPartAsText = yearPart > 0 ? `${printYear(yearPart)} ` : '';
+        const monthPart = durationInMonths % 12;
+        const monthPartAsText = printMonth(monthPart);
+        return `${yearPartAsText}${monthPartAsText}`;
+    }
+
+    function displayDurationOfEmployment() {
+        const dateDurationNodes = document.querySelectorAll('.date-duration');
+        for (const node of dateDurationNodes) {
+            const startNode = node.querySelector('time:first-of-type');
+            const endNode = node.querySelector('time:nth-of-type(2)');
+            if (startNode && endNode) {
+                const duration = calculateDurationInMonths(startNode, endNode);
+                if (!Number.isNaN(duration)) {
+                    const durationNode = document.createElement('time');
+                    durationNode.textContent = `(${formatMonthDuration(duration)})`;
+                    node.appendChild(durationNode);
+                }
+            }
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         displayYearsOfWorkExperience();
+        displayDurationOfEmployment();
     })
 </script>
