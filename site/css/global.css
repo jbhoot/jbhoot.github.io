@@ -240,3 +240,8 @@ aside::before {
 main {
     background-color: #fbf4e9;
 }
+
+.no-show {
+    display: none;
+}
+
