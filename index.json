@@ -108,5 +108,13 @@
     "timestamp": "2020-07-04",
     "date": "4th July 2020",
     "title": "How to write a Firefox add-on in ClojureScript"
+  },
+  {
+    "url": "/cv",
+    "page_file": "site/cv.html",
+    "nav_path": [],
+    "timestamp": "2019-08",
+    "date": "Aug 2019",
+    "title": "Jayesh Bhoot"
   }
 ]
