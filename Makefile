@@ -6,13 +6,13 @@ clean:
 dev:
 	while true ; do \
 		rm -rf build/* ; \
-		soupault ; \
+		./soupault ; \
 		sleep 2 ; \
 	done
 
 .PHONY: build
 build:
-	soupault
+	./soupault
 
 .PHONY: serve
 serve:
