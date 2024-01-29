@@ -241,6 +241,12 @@ main {
     background-color: #fbf4e9;
 }
 
+blockquote {
+    border-inline-start: 2px solid #0097db;
+    padding-inline-start: var(--s0);
+    font-style: italic;
+}
+
 .no-show {
     display: none;
 }
