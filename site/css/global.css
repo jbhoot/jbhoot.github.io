@@ -40,7 +40,7 @@
     /* Primacy to Courier Prime because
      * Samsung Internet and Chrome on Android render very thin Courier fonts.
      */
-    --font-monospaced: "Courier Prime", Courier, "Courier New Bold", monospace;
+    --font-monospaced: "DejaVu Sans Mono", "Courier Prime", Courier, "Courier New Bold", monospace;
 }
 
 html {
