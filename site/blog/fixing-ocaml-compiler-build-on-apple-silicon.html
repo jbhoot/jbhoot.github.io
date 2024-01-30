@@ -7,7 +7,7 @@
 
 <p>I got OCaml compiler failing to build on my Macbook with Silicon architecture. </p>
 
-<pre>$ opam switch create . 4.14.1 -y --deps-only
+<pre><code>$ opam switch create . 4.14.1 -y --deps-only
 
 <><> Installing new switch packages <><><><><><><><><><><><><><><><><><><><>  🐫 
 Switch invariant: ["ocaml-base-compiler" {= "4.14.1"} | "ocaml-system" {= "4.14.1"}]
@@ -67,7 +67,7 @@ Switch invariant: ["ocaml-base-compiler" {= "4.14.1"} | "ocaml-system" {= "4.14.
 => You can try installing again including --jobs=1
         to force a sequential build instead.
 Switch initialisation failed: clean up? ('n' will leave the
-switch partially installed) [Y/n] y</pre>
+switch partially installed) [Y/n] y</code></pre>
 
 <p>If you have the same issue, then try specifying the architecture explicitly. </p>
 
