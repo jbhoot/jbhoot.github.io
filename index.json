@@ -1,5 +1,15 @@
 [
   {
+    "url": "/blog/switching-to-fish-shell",
+    "page_file": "site/blog/switching-to-fish-shell.html",
+    "nav_path": [
+      "blog"
+    ],
+    "timestamp": "2024-02-06",
+    "date": "6th Feb 2024",
+    "title": "I switched to fish shell"
+  },
+  {
     "url": "/blog/opam-local-switch-and-dune-init-project",
     "page_file": "site/blog/opam-local-switch-and-dune-init-project.html",
     "nav_path": [
