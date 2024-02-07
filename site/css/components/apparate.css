@@ -53,7 +53,7 @@
 
 .apparate-parent {
     overflow: hidden;
-    font-family: var(--font-monospaced);
+    font-family: var(--font-monospaced-sans);
 }
 
 .apparate-parent *+* {

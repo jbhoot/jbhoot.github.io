@@ -37,10 +37,8 @@
 
     --font-serif: "Gentium Book Plus", Georgia, serif;
     --font-sans: "PT Sans", Overpass, sans-serif;
-    /* Primacy to Courier Prime because
-     * Samsung Internet and Chrome on Android render very thin Courier fonts.
-     */
-    --font-monospaced: "DejaVu Sans Mono", "Courier Prime", Courier, "Courier New Bold", monospace;
+    --font-monospaced-sans: "Liberation Mono", "Roboto Mono", "Droid Sans Mono", Consolas, "Source Code Pro", Monaco, "Fantasque Sans Mono", "DejaVu Sans Mono", Menlo, monospace;
+    --font-monospaced-serif: "Courier Screenplay", "Final Draft Heavy", "PT Mono", "Latin Modern Mono", "Courier Prime", Courier, monospace;
 }
 
 html {
@@ -145,7 +143,7 @@ caption {
 
 code {
     margin-inline: 4px;
-    font-family: var(--font-monospaced);
+    font-family: var(--font-monospaced-sans);
     font-size: 0.9em;
     outline: 2px solid #efde72;
     outline-offset: 2px;
