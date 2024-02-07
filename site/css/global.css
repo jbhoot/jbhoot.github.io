@@ -147,8 +147,9 @@ code {
     margin-inline: 4px;
     font-family: var(--font-monospaced);
     font-size: 0.9em;
-    outline: 1px dashed var(--border-light);
+    outline: 2px solid #efde72;
     outline-offset: 2px;
+    background-color: #fff4b0;
 }
 
 pre {
@@ -162,12 +163,14 @@ pre {
     overflow: auto;
 }
 
-:is(h1, h2, h3, h4, h5, h6) code,
-a code,
+pre:has(> code) {
+    outline: 2px solid #efde72;
+    background-color: #fff4b0;
+}
+
 pre > code {
     outline: none;
-    padding-inline: 0;
-    margin-inline: inherit;
+    background-color: inherit;
 }
 
 img {
