@@ -27,7 +27,7 @@
     ],
     "timestamp": "2023-12-01",
     "date": "1st December 2023",
-    "title": "Fixing build of OCaml compiler on Apple Silicon"
+    "title": "Spoonfeeding machine architecture to OCaml toolchain on Apple Silicon"
   },
   {
     "url": "/blog/movie-is-better-than-book",
