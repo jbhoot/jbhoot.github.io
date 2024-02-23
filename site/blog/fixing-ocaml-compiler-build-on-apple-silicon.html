@@ -1,11 +1,12 @@
 <hgroup>
-<h1>Fixing build of OCaml compiler on Apple Silicon</h1>
+<h1>Spoonfeeding machine architecture to OCaml toolchain on Apple Silicon</h1>
 <p>
 <time datetime="2023-12-01">1st December 2023</time>
 </p>
+<p class="tags"><span>ocaml</span></p>
 </hgroup>
 
-<p>I got OCaml compiler failing to build on my Macbook with Silicon architecture. </p>
+<p>OCaml compiler failed to build on my M1 Macbook with Apple's Silicon architecture.</p>
 
 <pre><code>$ opam switch create . 4.14.1 -y --deps-only
 
@@ -82,3 +83,13 @@ switch partially installed) [Y/n] y</code></pre>
 <p>P.S.: Even dune does not work without it!</p>
 
 <pre><code>$ arch -arm64 dune exec bin/main.exe</code></pre>
+
+<h2>Update: <time datetime="2024-02-23"> 23 Feb 2024</time></h2>
+
+<p>JM from OCaml discord helped me to discover the underlying issue - my Terminal.app was running in Rosetta mode. I had configured it to run on Rosetta during the initial Silicon-Rosetta churn, but forgotten all about it.</p>
+
+<p>So, opam, which uses <a href="https://github.com/ocaml/opam/issues/5853"><code>uname -a</code></a> to find the underlying architecture, always got <code>x86_64</code>. </p>
+
+<p>Once I unchecked the <i>Open using Rosetta</i> option, <code>arch -arm64</code> was no longer needed.</p>
+
+<p><a href="https://apple.stackexchange.com/a/453954">From what I understand</a>, if <i>any</i> tool or binary across a toolchain is configured to run through Rosetta - be it the Terminal.app, or the shell, or a helper binary like <code>uname</code> - then the program using this toolchain could end up using the wrong architecture.</p>
