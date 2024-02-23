@@ -95,7 +95,7 @@ body * + * {
 }
 
 hgroup > * + * {
-    margin-block-start: 2px;
+    margin-block-start: 5px;
 }
 
 h1, h2, h3, h4, h5, h6 {
