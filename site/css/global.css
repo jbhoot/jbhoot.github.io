@@ -138,33 +138,43 @@ caption {
 }
 
 code {
-    margin-inline: 4px;
     font-family: var(--font-monospaced-sans);
+    font-weight: normal;
     font-size: 0.9em;
-    outline: 2px solid #efde72;
-    outline-offset: 2px;
-    background-color: #fff4b0;
+    color: green;
+}
+
+:is(h1, h2, h3, h4, h5, h6) > code {
+    font-size: 0.8em;
 }
 
 pre {
-    /* pre max-width computes to be wider than other tags because by default it uses monospaced font-family, thus causing the --measure=60ch to compute a wider size. */
-    /* Set the font-family to serif to set its measure similar to other tags. */
-    /* font-family: var(--font-serif); */
-
-    outline: 1px solid var(--border-light);
-    padding: var(--padding);
+    /* max-inline-size of <pre> computes to be wider than other tags because it uses monospaced font-family by default, thus causing the --measure=60ch to compute a wider size.
+     * Various approaches to tackle this are:
+     * 1. Set the font-family to serif to set its measure similar to other tags.
+     *    font-family: var(--font-serif);
+     *    But code become (subjectively) illegible to an extent.
+     * 2. Decrease the max-inline-size of <pre> a bit.
+     *    max-inline-size: calc(var(--measure) * 0.9);
+     *    But <60ch is too narrow for code snippets The effort of scrolling to see a line of code increases.
+     * 3. Decrease the font-size so that max-inline-size reduces by itself.
+     *    font-size: 0.9em;
+     *    But code snippets become small and a bit hard to read.
+     * 4. Let the width consistency go to hell. Size the width of <pre> to a proper 75-80ch.
+     *    This is in accordance with the line width of 80 chars used by editors and formatters.
+     *    max-inline-size: 80ch;
+     *    In order to alleviate the inconsistent widths of normal content and <pre> content,
+     *    increase the styling contrast between the two.
+     */
+    max-inline-size: 75ch;
+    background-color: black;
+    color: #4AF626;
     overflow: auto;
-}
-
-pre:has(> code) {
-    outline: 2px solid #efde72;
-    background-color: #fff4b0;
+    padding: 10px;
 }
 
 pre > code {
-    margin-inline: 0;
-    outline: none;
-    background-color: inherit;
+    color: #4AF626;
 }
 
 img {
