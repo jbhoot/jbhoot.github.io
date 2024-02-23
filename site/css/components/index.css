@@ -159,6 +159,13 @@ a.site-title:hover {
     list-style-type: none;
 }
 
+.tags > * {
+    outline: 2px solid #0097db;
+    background-color: #0097db;
+    padding: 1px;
+    color: white;
+}
+
 @media print {
     .cv * {
         max-inline-size: calc(var(--measure) * 2);
