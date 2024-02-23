@@ -157,7 +157,6 @@ pre {
 
     outline: 1px solid var(--border-light);
     padding: var(--padding);
-    color: black;
     overflow: auto;
 }
 
@@ -167,6 +166,7 @@ pre:has(> code) {
 }
 
 pre > code {
+    margin-inline: 0;
     outline: none;
     background-color: inherit;
 }
