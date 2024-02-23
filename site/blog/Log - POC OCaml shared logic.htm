@@ -1,0 +1,28 @@
+<hgroup>
+<h1>Make an opam local switch and <code>dune init project</code> work together</h1>
+<p>
+<time datetime="2023-12-03">3rd December 2023</time>
+</p>
+<p class="tags"><span>OCaml</span></p>
+</hgroup>
+
+<h2>15 Feb</h2>
+<p>Successfully passed data from Swift as a C struct</p>
+
+<pre><code lang="c">// poc.h
+</code></pre>
+
+<pre><code lang="swift">var msgType: NSString = "greet"
+var msgType_c = UnsafeMutablePointer&lt;CChar&gt;(mutating: msgType.utf8String)
+
+let data_pointer = UnsafeMutablePointer&lt;UInt8&gt;.allocate(capacity: binaryDataAsBytes.count)
+data_pointer.update(from: binaryDataAsBytes, count: binaryDataAsBytes.count)
+
+var msg_struct = Message()
+msg_struct.type = msgType_c
+msg_struct.data = data_pointer
+msg_struct.length = UInt32(binaryDataAsBytes.count)
+
+let msg_struct_ptr = UnsafeMutablePointer&lt;Message&gt;.allocate(capacity: 1)
+msg_struct_ptr.update(from: &msg_struct, count: 1)
+print(String.init(cString: ModKit.message2(msg_struct_ptr)))</code></pre>

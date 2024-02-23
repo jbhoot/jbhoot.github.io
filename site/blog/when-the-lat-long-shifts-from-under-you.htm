@@ -1,0 +1,197 @@
+<hgroup>
+<h1>When the lat-long shifts beneath your feet</h1>
+<p>
+<time datetime="2024-02-17">17 February 2024</time>
+</p>
+<p class="tags">
+<span>MySQL</span>
+<span>node-mysql2</span>
+</p>
+</hgroup>
+
+<p>I recently experienced the digital version of ground shifting beneath my feet.</p>
+
+<p>The production server at work uses MySQL 5.7. My work machine runs macOS. But Oracle no longer provides an installer
+for MySQL 5.7 for macOS. </p>
+
+<p>I was too lazy to set up Homebrew or MacPorts to install v5.7. So I grabbed Oracle's MySQL 8 thinking how different
+would the two versions be anyway.</p>
+
+<p>Well, enough to shift the lat-long beneath your feet!</p>
+
+<p>But before that, a bit of background!</p>
+
+<h2>Points on a Plane!</h2>
+
+<p>A geographic co-ordinate is best stored as a Point in a database.</p>
+
+<p>However, simply specifying the latitude and longitude values does not recognise it as a geographic co-ordinate. It might as well be a simple Point with x and y value. Adding the co-ordinate system in which the point exists completes the point's identity.</p>
+
+<p>This system is also called the Spatial Reference System.</p>
+
+<h2>Spatial Reference System - the plane of existence of a Point</h2>
+
+<p>Quoting <a href="https://dev.mysql.com/blog-archive/spatial-reference-systems-in-mysql-8-0/">an article</a> from MySQL blog:</p>
+
+<blockquote cite="https://dev.mysql.com/blog-archive/spatial-reference-systems-in-mysql-8-0/">
+<p>All geometric objects (geometries for short), whether they are points, linestrings or polygons, exist in one, and only one, spatial reference system. The same applies to collection types. All elements in a geometry collection, multipoint, etc. must be in the same SRS.</p>
+
+<p>Let’s use a point as an example. A point has X and Y coordinates, but those coordinates don’t mean anything unless we know if those are the coordinates on the same surface. E.g., POINT(1 2) on the soccer field outside my window is not the same as POINT(1 2) on a page in my notebook. The soccer field and my notebook are two distinct SRSs, and the two points aren’t the same even though both X and Y coordinates are equal. To be the same, they also have to be in the same SRS.</p>
+
+<p>Each SRS is assigned an identifier, the spatial reference system identifier (SRID). For the two points to match, not only must X and Y coordinates match, but the SRIDs of the two points must also be the same. In fact, MySQL and other DBMSs will refuse to do any sort of computation unless all parameters are in the same SRS, i.e., unless they have the same SRID.</p>
+</blockquote>
+
+<p>In summary, a geographic point should always be stored in a database along with an SRID - id of the Spatial Reference System that the point is located in.</p>
+
+<p>Evaluating a point with an incorrect SRID will either throw an error, or give mildly or wildly inaccurate results.</p>
+
+<h3>How do x and y in a Point map to an SRID in MySQL</h3>
+
+<p id="point-x-y-definition">When a Point is defined with an SRID, the x coordinate refers to the axis that appears first in the Point spatial reference system (SRS) definition, while the y coordinate refers to the axis that appears second in the Point spatial reference system (SRS) definition. </p>
+
+<h3> SRID 4326 - the latitude/longitude coordinate system</h3>
+
+<p>SRID 4326 is based on the geoid shape of the Earth, and provides the lat-long coordinate system used by GPS
+systems.</p>
+
+<aside>SRID 3857, based on the flat Mercator map projection, is used by mapping tools like Google Maps and OpenStreetMap. </aside>
+
+<h3>SRID 4326 - Point(lat, long) or Point(long, lat)?</h3>
+
+<p>There are two camps when it comes to mapping x and y of a Point to latitude and longitude.</p>
+
+<ul>
+<li>Latitude maps to y because latitude values run along North-South axis, which aligns with y-axis in high school maths. And because standards. Thus, a geographic Point(x, y) should be denoted as Point(longitude, latitude).</li>
+
+<li>Latitude maps to x because the normally spoken order of the pair is latitude-longitude. And because standards. So, a geographic Point(x, y) should be denoted as Point(latitude, longitude).</li>
+</ul>
+
+<h4>How does MySQL do it?</h4>
+
+<p>MySQL defines 4326 as follows:</p>
+
+<pre><code>mysql> SELECT ORGANIZATION, DEFINITION FROM INFORMATION_SCHEMA.ST_SPATIAL_REFERENCE_SYSTEMS WHERE SRS_ID=4326;
+| ORGANIZATION | DEFINITION
+| EPSG         | GEOGCS["WGS 84",DATUM["World Geodetic System 1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.017453292519943278,AUTHORITY["EPSG","9122"]],AXIS["Lat",NORTH],AXIS["Lon",EAST],AUTHORITY["EPSG","4326"]] |
+
+1 row in set (0.00 sec)</code></pre>
+
+<p>Focus on the <code>AXIS["Lat",NORTH],AXIS["Lon",EAST]</code> part.</p>
+
+<p><a href="#point-x-y-definition">Going by the definition mentioned here</a>, x refers to the axis that appears first in the SRS definition, i.e., latitude. Similarly, y refers to the axis that appears second in the SRS definition, i.e., longitude.</p>
+
+<p>Thus, a Point with SRID 4326 is stored as <code>Point(latitude, longitude)</code>.</p>
+
+<p>As MySQL has chosen Point(latitude, longitude) convention, I will ignore the Point(longitude, latitude) convention in this post, <a href="#point-fn-long-lat">except here</a>.</p>
+
+<h2>How to define a geographic point within an SRID in MySQL?</h2>
+
+<p>I have used 2 methods.</p>
+
+<aside>
+<h3>Well Known Text (WKT) format</h3>
+<p><dfn>Well-Known Text (WKT)</dfn> is an ASCII representation of a spatial object.</p>
+<p>A point is defined in WKT format as <code>'POINT(x y)'</code>.</p>
+<p>Note that there is no comma between <code>x</code> and <code>y</code>.</p>
+</aside>
+
+<ul>
+
+<li>
+<p><code>ST_PointFromText()</code> accepts a Point in <abbr title="Well Known Text">WKT</abbr> format, with an SRID to go with it.</p>
+
+<pre><code class="sql">mysql> select ST_PointFromText('POINT(80 120)', 4326);
++----------------------------------------------------------------------------------+
+| ST_PointFromText('POINT(80 120)', 4326)                                          |
++----------------------------------------------------------------------------------+
+| 0xE610000001010000000000000000005E400000000000005440                             |
++----------------------------------------------------------------------------------+
+1 row in set (0.00 sec)</code></pre>
+</li>
+
+<li>
+<p><code>ST_GeomFromText()</code> can accept a Point, among other geometry values, in <abbr title="Well Known Text">WKT</abbr> format, with an SRID to go with it.</p>
+
+<pre><code class="sql">mysql> select ST_GeomFromText('POINT(80 120)', 4326);
++--------------------------------------------------------------------------------+
+| ST_GeomFromText('POINT(80 120)', 4326)                                         |
++--------------------------------------------------------------------------------+
+| 0xE610000001010000000000000000005E400000000000005440                           |
++--------------------------------------------------------------------------------+
+1 row in set (0.00 sec)</code></pre>
+</li>
+
+</ul>
+
+<h3>Exploring a stored Point</h3>
+
+<code>ST_X()</code>
+
+<aside id="point-fn-long-lat">
+<p>There is another way - through a combination of <code class="sql">Point()</code> <i>function</i> to specify the point value, and <code class="sql">ST_SRID()</code> function to specify the SRID.</p>
+
+<p>The combined syntax is: <code class="sql">ST_SRID(POINT(long, lat), 4326)</code></p>
+
+<p>Two caveats here:</p>
+
+<code>Note that Point(x, y)</code> function takes two arguments: <code>x</code> and <code>y</code>. Naturally, it needs a comma between the two, unlike the WKT format.
+
+<p>Absurdly, a geographic point defined with <code class="sql">ST_SRID(POINT(long, lat), 4326)</code> needs to specify the order as <i>(long, lat)</i>, not the usual MySQL convention of <i>(lat, long)</i>. No idea why MySQL does this.</p>
+<pre><code>-- Our usual (lat, long) pair (80, 120) throws an error for ST_SRID(POINT(80, 120), 4326)
+-- because MySQL interprets 120 as the latitude, not the longitude. 120 is out of bounds for a latitude value.
+mysql> select ST_SRID(Point(80, 120), 4326);
+ERROR 3732 (22S03): A parameter of function st_srid contains a geometry with latitude 120.000000, which is out of range. It must be within [-90.000000, 90.000000].
+
+-- When we define a Point following this (long, lat) rule, st_x() on such a point also returns the second value of the pair
+mysql> select st_x(ST_SRID(Point(100, 90), 4326));
++-------------------------------------+
+| st_x(ST_SRID(Point(100, 90), 4326)) |
++-------------------------------------+
+|                                  90 |
++-------------------------------------+
+1 row in set (0.00 sec)
+
+-- Similarly, st_latitude() returns the second value of the pair.
+mysql> select st_latitude(ST_SRID(Point(100, 90), 4326));
++--------------------------------------------+
+| st_latitude(ST_SRID(Point(100, 90), 4326)) |
++--------------------------------------------+
+|                                         90 |
++--------------------------------------------+
+1 row in set (0.00 sec)
+</code></pre>
+
+<p>More inconsistent than unintuitive.</p>
+</aside>
+
+<h2>Enforcement of SRID - MySQL 5 v/s MySQL 8</h2>
+
+<p>Both versions accept SRID while defining a Point.</p>
+
+<p>But, MySQL 5 ignores the SRID while making calculations and validations. So, it would allow a Point defined within SRID 4326 to have a latitude greater than 90 degrees or smaller than -90 degrees, or a longitude greater than 180 degrees or smaller than -180 degrees.</p>
+
+<p>MySQL 8 not only accepts SRID, but also enforces the constraints of the relevant Spatial Reference System. So, it would throw an error if a Point is defined within SRID 4326 that violate the lat-long bounds.</p>
+
+<h2>MySQL v5 v/s MySQL v8</h2>
+
+<p>In MySQL v8, when a Point() is defined with its SRID, then the value of point is validated and an error is thrown for an invalid Point within the specified SRS.</p>
+
+<pre><code>mysql> select st_geomfromtext('POINT(80 50)', 4326);
++------------------------------------------------------------------------------+
+| st_geomfromtext('POINT(80 50)', 4326)                                        |
++------------------------------------------------------------------------------+
+| 0xE6100000010100000000000000000049400000000000005440                         |
++------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+</code></pre>
+
+<blockquote cite="https://dev.mysql.com/doc/refman/8.0/en/gis-point-property-functions.html#function_st-x">As of MySQL 8.0.12, if the Point object has a geographic SRS, the second argument must be in the proper range for
+longitude or latitude values.</blockquote>
+
+https://dev.mysql.com/doc/refman/8.0/en/gis-point-property-functions.html
+With a single argument representing a valid Point object p, ST_X() returns the X-coordinate value of p as a double-precision number. As of MySQL 8.0.12, the X coordinate is considered to refer to the axis that appears first in the Point spatial reference system (SRS) definition.
+With a single argument representing a valid Point object p, ST_Y() returns the Y-coordinate value of p as a double-precision number. As of MySQL 8.0.12, the Y coordinate is considered to refer to the axis that appears second in the Point spatial reference system (SRS) definition.
+
+MySQL 8 now comes with two specialised functions, which require that a Point must have a specified SRS for the functions to work with it.
+With a single argument representing a valid Point object p that has a geographic spatial reference system (SRS), ST_Longitude() returns the longitude value of p as a double-precision number.
+With a single argument representing a valid Point object p that has a geographic spatial reference system (SRS), ST_Latitude() returns the latitude value of p as a double-precision number.
