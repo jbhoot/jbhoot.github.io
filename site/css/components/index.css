@@ -143,6 +143,22 @@ a.site-title:hover {
     font-family: var(--font-sans);
 }
 
+.toc-1:has(*) {
+    list-style-position: inside;
+    margin-inline-start: 0;
+    border: 2px solid #efde72;
+    padding: 8px;
+    font-size: 0.9em;
+}
+
+.toc-1 * + * {
+    margin-block-start: 5px;
+}
+
+.toc-1 ol {
+    list-style-type: none;
+}
+
 @media print {
     .cv * {
         max-inline-size: calc(var(--measure) * 2);

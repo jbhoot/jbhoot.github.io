@@ -80,3 +80,14 @@ index_item_template = """
 [widgets.page-title]
 widget = "title"
 selector = "h1"
+
+# Look at https://soupault.app/blog/toc/ for more options
+[widgets.table-of-contents]
+widget = "toc"
+selector = "hgroup:nth-of-type(1)"
+action = "insert_after"
+min_level = 2
+numbered_list = true
+use_heading_slug = true
+toc_list_class = "toc"
+toc_class_levels = true
