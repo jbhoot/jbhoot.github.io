@@ -155,10 +155,6 @@ a.site-title:hover {
     margin-block-start: 5px;
 }
 
-.toc-1 ol {
-    list-style-type: none;
-}
-
 .tags > * {
     background-color: #0097db;
     padding: 2px 4px;
