@@ -76,7 +76,8 @@ OCaml project. This means I also prefer to install dune per-project. So </p>
 <p>I didn't make it past the 3rd command of installing dune because of the following (reasonable) error:</p>
 
 <pre><code>$ opam install dune
-[ERROR] No switch is currently set. Please use 'opam switch' to set or install a switch.</code></pre>
+[ERROR] No switch is currently set. Please use 'opam switch'
+to set or install a switch.</code></pre>
 
 <p>Ok, then. I tried to set the switch after creating it.</p>
 
@@ -84,8 +85,8 @@ OCaml project. This means I also prefer to install dune per-project. So </p>
 ~/projects $ opam switch create ./my_prj
 ~/projects $ opam switch set ./my_prj
 [ERROR] Can not set external switch '/Users/jb/projects/my_prj' globally. To set
-        it in the current shell use:
-         eval $(opam env --switch=/Users/jb/projects/my_prj --set-switch)</code></pre>
+it in the current shell use:
+eval $(opam env --switch=/Users/jb/projects/my_prj --set-switch)</code></pre>
 
 <p>The advice felt like a long-winded solution to me. I wanted a simpler solution.</p>
 
@@ -114,12 +115,14 @@ OCaml project. This means I also prefer to install dune per-project. So </p>
 
 ~/projects $ cd my_prj 
 
-# create a local switch, which is auto-activated after a successful creation because the switch is created in the current directory itself.
+# create a local switch, which is auto-activated after a successful creation
+# because the switch is created in the current directory itself.
 ~/projects/my_prj $ opam switch create . 
 
 ~/projects/my_prj $ opam install dune
 
-# go back to parent, with opam still pointing to the local switch env until the current session ends or until another switch is activated
+# go back to parent, with opam still pointing to the local switch env
+# until the current session ends or until another switch is activated
 ~/projects $ cd .. 
 
 # bootstrap our project
@@ -163,7 +166,8 @@ is still pointing to the right local switch env.</p>
 # activate our local switch
 ~/projects $ cd my_prj 
 
-# go back to parent, with opam still pointing to the local switch env until the current session ends or until another switch is activated
+# go back to parent, with opam still pointing to the local switch env
+# until the current session ends or until another switch is activated
 ~/projects/my_prj $ cd .. 
 
 # install dune in our local switch
