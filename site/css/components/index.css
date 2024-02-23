@@ -160,10 +160,13 @@ a.site-title:hover {
 }
 
 .tags > * {
-    outline: 2px solid #0097db;
     background-color: #0097db;
-    padding: 1px;
+    padding: 2px 4px;
     color: white;
+}
+
+.tags > * + * {
+    margin-inline-start: 5px;
 }
 
 @media print {
