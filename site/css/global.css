@@ -24,6 +24,7 @@
     --s2: calc(var(--s1) * var(--ratio));
     --s3: calc(var(--s2) * var(--ratio));
     --s4: calc(var(--s3) * var(--ratio));
+    --s5: calc(var(--s4) * var(--ratio));
 
     --padding-large: calc(var(--s0) + 2vw);
     --padding: calc(var(--s0) + 0.25vw);
@@ -99,23 +100,24 @@ hgroup > * + * {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
+    line-height: 1.25;
 }
 
 h1 {
-    font-size: var(--s4);
+    font-size: var(--s5);
 }
 
 h2 {
-    font-size: var(--s3);
+    font-size: var(--s4);
 }
 
 h3 {
-    font-size: var(--s2);
+    font-size: var(--s3);
 }
 
 h4, h5, h6 {
-    font-size: var(--s1);
+    font-size: var(--s2);
 }
 
 caption,
