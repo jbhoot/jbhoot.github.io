@@ -155,6 +155,10 @@ a.site-title:hover {
     margin-block-start: 5px;
 }
 
+.tags::before {
+    content: "Tags";
+}
+
 .tags > * {
     background-color: #0097db;
     padding: 2px 4px;
