@@ -1,5 +1,15 @@
 [
   {
+    "url": "/blog/memorising-git-rebase",
+    "page_file": "site/blog/memorising-git-rebase.html",
+    "nav_path": [
+      "blog"
+    ],
+    "timestamp": "2024-03-05",
+    "date": "5th March 2024",
+    "title": "Memorising branch order in git rebase"
+  },
+  {
     "url": "/blog/switching-to-fish-shell",
     "page_file": "site/blog/switching-to-fish-shell.html",
     "nav_path": [

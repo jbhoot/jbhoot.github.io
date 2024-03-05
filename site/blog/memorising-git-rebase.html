@@ -1,0 +1,21 @@
+<hgroup>
+<h1>Memorising branch order in git rebase</h1>
+<p>
+<time datetime="2024-03-05">5th March 2024</time>
+</p>
+<p class="tags"><span>git</span></p>
+</hgroup>
+
+<h2>Problem</h2>
+
+<p>In a <code>git rebase</code> command, which branch comes first? The branch being rebased, or the branch on which a branch is being rebased?</p>
+
+<h2>Tip</h2>
+
+<p>Add <i>on</i> before the first branch in a <code>git rebase</code> command.</p>
+
+<p>So, read <code>git rebase master</code> as <i>git, rebase on master</i>.</p>
+
+<p>Read <code>git rebase master feat/x</code> as <i>git, rebase on master, feat/x</i>.</p>
+
+<p>A bit clunky, but good enough for me.</p>
