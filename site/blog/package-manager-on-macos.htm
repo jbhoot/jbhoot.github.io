@@ -1,0 +1,22 @@
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with C-x C-f and enter text in its buffer.
+
+Why MacPorts on macOS?
+
+MacPorts: only one with first-tier support of macOS and worth its salt.
+
+Not Nix: clearly 2nd tier support, or less. Also a *tonne* of abstractions to wade through - OS-specific flags/env, nix lang's undocumented abstraction. It also has too much baggage and tooling to carry around due to the high-level abstraction it provides. macos being antagonistic towards tooling also makes nix's job more difficult, like jumping through security hoops to install the /nix root. Praying that nothing breaks on OS upgrade, etc.
+
+Nix lang never felt comfortable even after building several derivations of my own. Much of it always was a copy-paste job. In contrast, even when I was tinkering with low-level makefiles in fixing mysql compilation errors in pkgsrc, I felt much more at home, even though I am not experienced with makefiles and the over all build process! My guess is that nix lang adds too much abstraction on top of throwing arcane errors. Errors in pkgsrc belonged to the package being built itself instead of the tooling.
+
+With nix, there is a feeling that you have to learn everything together. That never went away. Even guix doesn't give that feeling. Guix feels like it has fewer levels of abstraction than nix does.
+
+pkgsrc builds from source better than plain build from source, because pkgsrc has lot of macos environment set up well. For example, I couldn't build guile from plain source. But pkgsrc's guile setup got built.
+
+pkgsrc docs are quite good too. I was able to make changes swiftly due to the docs. There is nothing much to learn too in contrast to nix, because all that is involved is the makefiles and the usual build conventions and some low-level tools provided by pkgsrc.
+
+However, pkgsrc fails at providing macOS-specific settings and service launchers out-of-the-box. For example, MacPorts's mysql57 port also provides a launcher plist, but pkgsrc, while I was able to build and install its mysql57, did not have an out-of-the-box launcher daemon plist.
+
+ASIDE: All 3 of them are source-based package managers, follow the usual configre-make-install process, and provide specifications to build a package in the end. MacPorts uses Tcl-based Portfil to define a specification, Nix uses the arcane nix lang, pkgsrc uses low-level tools and a heirarchy of Makefiles. In terms of abstraction, Nix > Macports > pkgsrc
+
+Conclusion: For anything complex, see if the software vendor themselves provides a .dmg or .pkg. Use MacPorts as main package manager for its larger number of binaries and macOS-specific support. Use pkgsrc where MacPorts falls short (e.g., guile). Writing a specification in either of them should be the last resort.

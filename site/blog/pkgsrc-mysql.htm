@@ -1,0 +1,24 @@
+1. Install mysql
+
+2. Initialize data directory
+
+Follow step 2 from https://trac.macports.org/wiki/howto/MySQL#Step2:Createadatabase
+
+3. Start mysqld with
+
+sudo mysqld_safe --skip-networking=0
+
+Verify with: $ ps -ax | grep mysql
+
+4. Set password for root user from https://trac.macports.org/wiki/howto/MySQL#Step4:SettheMySQLpassword
+
+5. Set up a daemon with https://dev.mysql.com/doc/refman/8.0/en/macos-installation-launchd.html
+
+6. In case I decide to use pkgsrc + netbsd's rc.conf, try this link: https://wiki.netbsd.org/pkgsrc/how_to_install_a_mysql_server/
+
+
+23:53 jysh: How do I enable a service installed through pkgsrc on macOS? I want to start mysql-server to be specific.
+00:02 schmonz: I suggest pkgtools/rc.d-boot
+00:02 schmonz: Then enable mysqld in rc.conf as usual
+00:02 schmonz: (As usual for BSD systems, not as usual for macOS systems)
+00:04 schmonz: If you installed mysql-server without PKG_RCD_SCRIPTS=yes, then also copy over the mysqld rc.d script from share/examples/rc.d into /etc/rc.d

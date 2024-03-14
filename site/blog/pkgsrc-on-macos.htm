@@ -1,0 +1,105 @@
+If the following error is encountered:
+
+```
+> bmake install clean
+ERROR: This package has set PKG_FAIL_REASON:
+ERROR: Unable to find macOS SDK at /nonexistent
+ERROR: Check MACOSX_DEPLOYMENT_TARGET points to a valid SDK
+ERROR: guile30-3.0.9nb1 requires a working dlopen().
+*** Error code 1
+
+Stop.
+bmake: stopped in /Users/jb/projects/pkgsrc/lang/guile30
+```
+
+then don't chase after MACOSX_DEPLOYMENT_TARGET, but set OSX_SDK_PATH (https://github.com/NetBSD/pkgsrc/issues/93#issuecomment-920350019)
+
+OSX_SDK_PATH=`/usr/bin/xcrun --sdk macosx --show-sdk-path` bmake install clean
+
+-----
+
+For error
+
+```
+===> Installing binary package of digest-20220214
+pkg_add: No valid signature found, rejected
+pkg_add: 1 package addition failed
+*** Error code 1
+```
+comment VERIFIED_INSTALLATION=always in /opt/pkg/etc/pkg_install.conf (https://github.com/TritonDataCenter/pkgsrc-legacy/issues/434)
+
+-----
+
+For an error similar to
+
+```
+=> Automatic manual page handling
+=> Generating post-install file lists
+=> Checking file-check results for guile30-3.0.9nb1
+ERROR: ************************************************************
+ERROR: The following files are in the PLIST but not in /Users/jb/projects/pkgsrc/lang/guile30/work/.destdir/opt/pkg:
+ERROR:         /Users/jb/projects/pkgsrc/lang/guile30/work/.destdir/opt/pkg/guile/3.0/lib/libguile-3.0.so.1.6.0-gdb.scm
+ERROR: ************************************************************
+ERROR: The following files are in /Users/jb/projects/pkgsrc/lang/guile30/work/.destdir/opt/pkg but not in the PLIST:
+ERROR:         /Users/jb/projects/pkgsrc/lang/guile30/work/.destdir/opt/pkg/guile/3.0/lib/libguile-3.0.a-gdb.scm
+*** Error code 1
+```
+
+we need to update the PLIST file, and sometimes unfortunately `bmake` again.
+
+- https://www.unitedbsd.com/d/165-difference-between-plistand-destdir-while-building-from-source/2
+- https://old.reddit.com/r/NetBSD/comments/po2ezv/error_the_following_files_are_in_the_plist_but/
+
+```
+ bmake
+ bmake install
+# PLIST ERROR
+ bmake print-PLIST >PLIST
+ bmake deinstall
+ bmake install
+```
+
+or if today is a bad day, then
+
+```
+bmake
+bmake install
+# PLIST ERROR
+bmake print-PLIST >PLIST
+bmake deinstall
+bmake clean
+bmake
+bmake install
+```
+============
+
+Why pkgsrc over others?
+
+No intermediary like Portfile or Homebrew formula (or .nix or .scm for that matter). Either there is a pre-built binary or you build from source. If building from source throws an error, you know you don't have to deal with an intermediary error. This will increase my know-how of the build-from-source world (Makefile, cmake, etc.) better than others.
+
+For example, building mysql-server-5.7 threw the following error:
+
+```
+/Users/jb/projects/pkgsrc/databases/mysql57-server/work/mysql-5.7.44/version:1:1: error: expected unqualified-id
+MYSQL_VERSION_MAJOR=5
+```
+
+Googling led me straight to the problem - an error in the source itself (https://bugs.mysql.com/bug.php?id=104126)
+
+<blockquote cite="https://bugs.mysql.com/bug.php?id=104126">
+/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/locale:189 ，the code is #include <version>.  At the same time, there is a VERSION file in the compilation root directory . It looks like the file has the same name. So, I renamed the file VERSION to VERSION_BAK, and modified the mysql_version.cmake file, changed several VERSION in the file to VERSION_BAK, and then recompiled with make to be normal.
+</blockquote>
+
+Fixing this made me more confident of building from source.
+
+=======
+
+What advantage does pkgsrc have over building from source over MacPorts?
+
+pkgsrc's macos support for building from source is top-notch. It has taken care to correctly set the build environment relevant to macos.
+
+In case of MacPorts, while that is probabaly equally or doubly true, I have to write a Portfile. And trying to write a Portfile for guile was scary.
+
+====
+
+Strategy for post-installation setup: If I am building from source, then I should also initialise from official docs. e.g., mysql57
