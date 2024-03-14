@@ -91,3 +91,7 @@ numbered_list = true
 use_heading_slug = true
 toc_list_class = "toc"
 toc_class_levels = true
+
+[widgets.delete_footer]
+widget = "delete_element"
+selector = ".draft-text"
