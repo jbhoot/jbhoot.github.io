@@ -1,0 +1,38 @@
+
+<h3>Add pub key to authorized_keys</h3>
+
+<p>Make sure to prepend the following options to the .pub file: <code>no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa... </code> </p>
+
+src: https://git-scm.com/book/en/v2/Git-on-the-Server-Setting-Up-the-Server
+src: https://davidtsadler.com/posts/git/2021-05-29/setting-up-a-self-host-git-server/
+
+<h3>Restrict access to the gituser account</h3>
+
+src for git-shell: https://git-scm.com/book/en/v2/Git-on-the-Server-Setting-Up-the-Server
+src: https://davidtsadler.com/posts/git/2021-05-29/setting-up-a-self-host-git-server/
+
+
+> ssh gituser@gitserver
+Last login: Sat Mar 16 22:27:45 2024 from localmachine
+fatal: Interactive git shell is not enabled.
+hint: ~/git-shell-commands should exist and have read and execute access.
+Connection to gitserver closed.
+
+<h3>Custom git-shell commands</h3>
+
+https://web.archive.org/web/20170409185637/http://planzero.org/blog/2012/10/24/hosting_an_admin-friendly_git_server_with_git-shell
+
+https://oscarbenedito.com/blog/2020/06/setting-up-a-personal-git-server/
+
+<p>So far I havent found a way to write these files to git user account during it creation itself. I resorted to `sudo cp -r ~/dotfiles/.../git-shell-commands /srv/git`. </p>
+
+15:48 jysh: Hello. I am trying to set up a git server on guix os. The setup has a `git` user-account, locked down through git-shell, and which is also supposed to have a few files right from its creation in ~/git-shell-commands/*. What is the best way to copy these files in this specific user-account during `guix system reconfigure`? I found (skeletons) but that probably adds the specified files to all user-accounts.
+
+<h3>empty list on cgit</h3>
+
+Permission issue most likely.
+
+$ ls -ld /srv/git
+drwx------ 5 git git 4096 Mar 17 16:18 /srv/git/
+
+So apparently i need to allow r-x permission to the group and then add nginx to git group. Would that be enough and secure?

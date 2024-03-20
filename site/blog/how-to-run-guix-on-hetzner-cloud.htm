@@ -1,0 +1,14 @@
+<p>Hetzner does not provide Guix as one of its ready offerings. I had to request them to provide me a Guix ISO via their (pleasingly responsive and swift) support.</p>
+
+<p>Now the catch is they probably don't want to entertain burdensome requests from freeloaders. I needed to have a server already spun up to file the support ticket against.</p>
+
+<ol>
+    <li>I spun up a Debian server through their normal <i>Create a Server</i> workflow.</li>
+    <li>I filed a support ticket requesting Guix ISO. I had to provide them a <i>direct</i> download link, clicking on which should begin the ISO download directly.</li>
+    <li>Once they approve it, they asked me to look for it in the project > server > ISO Images tab.</li>
+    <li>Find the Guix ISO in the list there, and mount it.</li>
+    <li>Reboot the server so that the server boots directly into the mounted bootable ISO image.</li>
+    <li>In the server's dashboard, there should be a terminal icon on the top right corner. Click on it to open a remote console. Note that ssh won't work anymore because the server is now booted into the bootable ISO image. Remote console is the only way to access it at this point.</li>
+
+
+</ol>
