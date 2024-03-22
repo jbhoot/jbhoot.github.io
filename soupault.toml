@@ -64,6 +64,7 @@ selector = ["hgroup ~ p"]
 selector = ["hgroup ~ p + p"]
 
 [index.views.all-posts-grid]
+section = "blog/"
 index_selector = ".all-posts.grid"
 index_item_template = """
   <article class="box">
@@ -76,6 +77,7 @@ index_item_template = """
   """
 
 [index.views.all-posts-list]
+section = "blog/"
 index_selector = "ul.all-posts"
 index_item_template = """
   <li>
