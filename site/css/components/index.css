@@ -101,46 +101,11 @@ a.site-title:hover {
     margin-inline-start: 10px;
 }
 
-.cv :is(ol,ul):has(h3) {
-    list-style-type: none;
-    margin-inline-start: 0;
-}
-
-.cv * + * {
-    margin-block-start: 0.25em;
-}
-
-.cv h3 {
-    margin-block-start: 0.75em;
-}
-
-.cv h2 {
-    margin-block-start: 1em;
-}
-
-.cv blockquote {
-    margin-block-start: 1em;
-}
-
-.cv li hgroup > * + * {
-    margin-block-start: 0;
-}
-
 /*.cv li h3 + p:has(time),*/
 /*.cv li hgroup p:has(time), */
-.cv .date-duration {
+.cv hgroup .date-duration {
     color: #5b5a5a;
     font-size: 0.9em;
-}
-
-.cv h2 {
-    text-decoration: underline;
-    text-underline-offset: 5px;
-    text-decoration-color: gray;
-}
-
-.cv h3 {
-    font-family: var(--font-sans);
 }
 
 .toc-1:has(*) {
