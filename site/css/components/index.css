@@ -6,7 +6,7 @@
 
     100% {
         transform-origin: top left;
-        transform: rotate(6deg);
+        transform: rotate(4deg);
     }
 }
 
@@ -19,7 +19,7 @@ a.site-title {
     font-weight: 600;
     text-decoration: none;
     outline: 1px solid;
-    outline-offset: 2px;
+    outline-offset: 5px;
     
     animation-name: animate-site-title;
     animation-delay: 5s;

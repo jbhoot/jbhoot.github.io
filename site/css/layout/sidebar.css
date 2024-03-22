@@ -1,8 +1,8 @@
 .with-sidebar {
-    --sidebar-gap: var(--s0, 1rem);
     --sidebar-width: auto;
-    --sidebar-main-min-width: 70%;
     /* Must be in percentage. */
+    --sidebar-main-min-width: 70%;
+    --sidebar-gap: var(--s0, 1rem);
 
     display: flex;
     flex-wrap: wrap;
@@ -19,11 +19,6 @@
     flex-basis: 0;
     flex-grow: 999;
     min-inline-size: var(--sidebar-main-min-width);
-}
-
-.with-sidebar > * {
-    /* reset the measure axiom for the children of with-sidebar */
-    max-inline-size: none;
 }
 
 .with-sidebar > * + * {

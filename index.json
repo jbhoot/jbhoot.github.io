@@ -5,6 +5,8 @@
     "nav_path": [
       "blog"
     ],
+    "excerpt_2": "So, read <code>git rebase master</code> as <i>git, rebase on master</i>.",
+    "excerpt": "In a <code>git rebase</code> command, which branch comes first? The branch being rebased, or the branch on which a branch is being rebased?",
     "timestamp": "2024-03-05",
     "date": "5th March 2024",
     "title": "Memorising branch order in git rebase"
@@ -15,6 +17,8 @@
     "nav_path": [
       "blog"
     ],
+    "excerpt_2": "All I want is a shell that is",
+    "excerpt": "Here, I am putting down my reasons to choose <code>fish</code> shell for my future self.",
     "timestamp": "2024-02-06",
     "date": "6th Feb 2024",
     "title": "I switched to fish shell"
@@ -25,6 +29,8 @@
     "nav_path": [
       "blog"
     ],
+    "excerpt_2": "Both have evolved independently. While they manage to work in tandem, there are a lot of irregularities to trip on\nwhere they meet.",
+    "excerpt": "In the OCaml ecosystem, opam is the most popular package management tool, while dune is the foremost build tool.",
     "timestamp": "2023-12-03",
     "date": "3rd December 2023",
     "title": "Make an opam local switch and <code>dune init project</code> work together"
@@ -35,6 +41,8 @@
     "nav_path": [
       "blog"
     ],
+    "excerpt_2": "P.S.: Even dune does not work without it!",
+    "excerpt": "OCaml compiler failed to build on my M1 Macbook with Apple's Silicon architecture.",
     "timestamp": "2023-12-01",
     "date": "1st December 2023",
     "title": "Spoonfeeding machine architecture to OCaml toolchain on Apple Silicon"
@@ -45,6 +53,8 @@
     "nav_path": [
       "blog"
     ],
+    "excerpt_2": null,
+    "excerpt": "This list will likely remain short.",
     "timestamp": "2023-10-09",
     "date": "9th October 2023",
     "title": "List of movies better than their book counterparts"
@@ -55,6 +65,8 @@
     "nav_path": [
       "blog"
     ],
+    "excerpt_2": "On top of that, Twitter started dishing out blue ticks on subscriptions.",
+    "excerpt": "I use the following set of fonts.",
     "timestamp": "2023-06-12",
     "date": "12th June 2023",
     "title": "An elegant triplet of fonts"
@@ -65,6 +77,8 @@
     "nav_path": [
       "blog"
     ],
+    "excerpt_2": "Clearly, <code>pre</code> tag is not enough to represent a code snippet. How do we distinguish a code snippet from\nother\npre-formatted content? By marking up the snippet with <code>code</code>, and then wrapping it in a\n<code>pre</code> tag.",
+    "excerpt": "Suppose, we want to mark up the following multi-line snippet of JavaScript code:",
     "timestamp": "2022-10-06",
     "date": "6th October 2022",
     "title": "How to mark up a code snippet in HTML"
@@ -75,6 +89,8 @@
     "nav_path": [
       "blog"
     ],
+    "excerpt_2": "So I chose <code>~/.emacs.d</code> as emacs's config location.",
+    "excerpt": "If <code>~/.emacs.d</code> exists in the system, which always does because emacs auto-creates it, then emacs does not\npick up <code>init.el</code> from <code>~/.config/emacs</code> for some reason...even if <code>~/.emacs.d</code> is\nempty.",
     "timestamp": "2022-09-24",
     "date": "24th September 2022",
     "title": "Location of emacs config"
@@ -85,6 +101,8 @@
     "nav_path": [
       "blog"
     ],
+    "excerpt_2": "In a CNAME mapping, <code>@ CNAME example.com</code>, example.com is the canonical name, while <code>@</code> is the\ndomain being mapped to the canonical name.",
+    "excerpt": "Syntax of a DNS record, along with examples:",
     "timestamp": "2022-09-19",
     "date": "19th September 2022",
     "title": "Learnings on DNS"
@@ -95,6 +113,8 @@
     "nav_path": [
       "blog"
     ],
+    "excerpt_2": null,
+    "excerpt": "<code>box-sizing</code> specifies the part of an element's CSS box, to which the properties <code>width, min-width,\nmax-width,\nheight, min-height, max-height</code> apply.",
     "timestamp": "2022-09-17",
     "date": "17th September 2022",
     "title": "What <code>box-sizing</code> does"
@@ -105,6 +125,8 @@
     "nav_path": [
       "blog"
     ],
+    "excerpt_2": "One approach is to fake the hash with zeroes.",
+    "excerpt": "Discovering the SHA256 hash for a derivation is a chore.",
     "timestamp": "2022-09-09",
     "date": "9th September 2022",
     "title": "Fake SHA256 in a Nix derivation"
@@ -115,6 +137,8 @@
     "nav_path": [
       "blog"
     ],
+    "excerpt_2": "Not having to press the mouse button makes for a much more pleasurable and efficient experience. Coupled\nwith <i>Sticky Keys</i>, <i>Hover Click</i> has also helped me recover from a hand injury.",
+    "excerpt": "Desktop systems usually provide an accessibility feature, with which a user only has to hover the cursor\nover where he wants to click. The click goes off automatically. In GNOME, this feature is called <i>Hover\nClick</i>.",
     "timestamp": "2020-07-05",
     "date": "5th July 2020",
     "title": "How to use <i>Hover Click</i> without animation in GNOME"
@@ -125,6 +149,8 @@
     "nav_path": [
       "blog"
     ],
+    "excerpt_2": "You can find a sample add-on on my <a href=\"https://github.com/jayesh-bhoot/firefox-add-on-in-cljs\">GitHub</a>.\nI won't go through the code here, but will lay out the quirky development process. I will mostly focus on the\nplumbing - how ClojureScript hands over the compiled JavaScript code to the add-on.",
+    "excerpt": "I found writing Firefox add-ons to be a good way to learn the ropes in ClojureScript in a productive manner.",
     "timestamp": "2020-07-04",
     "date": "4th July 2020",
     "title": "How to write a Firefox add-on in ClojureScript"
@@ -133,6 +159,8 @@
     "url": "/cv",
     "page_file": "site/cv.html",
     "nav_path": [],
+    "excerpt_2": "My clients have entrusted me with roles ranging from Software Developer, Senior Software Engineer, to Project Manager.",
+    "excerpt": "I am a full-stack software developer with <span class=\"exp-years\">12+</span> years of experience. I have designed and implemented complex web applications, API interfaces, desktop apps, and in-house CLI utilities.",
     "timestamp": "2019-08",
     "date": "Aug 2019",
     "title": "Jayesh Bhoot"

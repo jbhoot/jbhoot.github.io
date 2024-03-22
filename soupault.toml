@@ -57,8 +57,26 @@ selector = ["hgroup time"]
 extract_attribute = "datetime"
 fallback_to_content = false
 
-[index.views.main-list]
-index_selector = "ul#article-list"
+[index.fields.excerpt]
+selector = ["hgroup ~ p"]
+
+[index.fields.excerpt_2]
+selector = ["hgroup ~ p + p"]
+
+[index.views.all-posts-grid]
+index_selector = ".all-posts.grid"
+index_item_template = """
+  <article class="box">
+    <hgroup>
+    <p>Published: <time datetime="{{timestamp}}">{{date}}</time></p>
+    <h2><a href="{{url}}">{{title}}</a></h2>
+    </hgroup>
+    <p>{{excerpt}} [...]</p>
+  </article>
+  """
+
+[index.views.all-posts-list]
+index_selector = "ul.all-posts"
 index_item_template = """
   <li>
     <a href="{{url}}" class="font-weight:600">{{title}}</a>
@@ -66,7 +84,7 @@ index_item_template = """
   </li>
   """
 
-[index.views.recent-posts]
+[index.views.recent-posts-list]
 section = "blog/"
 max_items = 5
 index_selector = "ul.recent-posts"
@@ -77,6 +95,21 @@ index_item_template = """
   </li>
   """
 
+[index.views.recent-posts-grid]
+section = "blog/"
+max_items = 6
+index_selector = ".recent-posts.grid"
+index_item_template = """
+  <article class="box">
+    <hgroup>
+    <p>Published: <time datetime="{{timestamp}}">{{date}}</time></p>
+    <h3><a href="{{url}}">{{title}}</a></h3>
+    </hgroup>
+    <p>{{excerpt}} [...]</p>
+    <!-- <p>{{excerpt_2}} [...]</p> -->
+  </article>
+  """
+
 [widgets.page-title]
 widget = "title"
 selector = "h1"
@@ -84,8 +117,8 @@ selector = "h1"
 # Look at https://soupault.app/blog/toc/ for more options
 [widgets.table-of-contents]
 widget = "toc"
-selector = "hgroup:nth-of-type(1)"
-action = "insert_after"
+selector = ".toc-placeholder"
+action = "replace_element"
 min_level = 2
 numbered_list = true
 use_heading_slug = true
