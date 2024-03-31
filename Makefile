@@ -18,6 +18,11 @@ build:
 serve:
 	caddy file-server --root build
 
+.PHONY: deploy
+deploy:
+	tar -C build -cvz . > publish.tar.gz \
+	&& hut pages publish -d jysh.net publish.tar.gz \
+	&& rm publish.tar.gz
+
 .PHONY: publish
-publish: 
-	tar -C build -cvz . > publish.tar.gz && hut pages publish -d jysh.net publish.tar.gz && rm publish.tar.gz
+publish : clean build deploy
