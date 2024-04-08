@@ -43,6 +43,9 @@
     --font-serif: "Droid Serif", "Noto Serif", serif;
     --font-monospaced-sans: "Source Code Pro", "Droid Sans Mono SW", "Droid Sans Mono", "DejaVu Sans Mono", Menlo, "Roboto Mono", monospace;
     --font-monospaced-serif: "Courier Screenplay", "Final Draft Heavy", "PT Mono", "Latin Modern Mono", "Courier Prime", Courier, monospace;
+
+    --color-light-1: #fbf4e9;
+    --color-light-2: #ffeebf;
 }
 
 html {
@@ -70,7 +73,7 @@ body {
      Updating --s0 = 1rem * module scale does not make sense because the default --s0 would become too large for spacing purposes.
      ***/
     font-size: var(--s1);
-    background-color: #fbf4e9;
+    background-color: var(--color-light-1);
 }
 
 * {
@@ -91,7 +94,6 @@ So the exceptions to the rule that applies measure should be those elements whic
  */
 html,
 body,
-main,
 div {
     max-inline-size: none;
 }
@@ -284,10 +286,6 @@ aside::before {
     content: "ASIDE";
     margin-bottom: var(--s0);
     text-decoration: underline;
-}
-
-main {
-    background-color: #fbf4e9;
 }
 
 blockquote {

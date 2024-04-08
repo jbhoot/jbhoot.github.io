@@ -1,9 +1,21 @@
+/* box deals with following properties:
+ * padding (all or none),
+ * border/outline (all or none),
+ * background-color,
+ * color
+ */
+
 .box {
     --box-padding: var(--s0, 1rem);
+    --box-border: var(--border-thin) solid var(--border-dark);
+    --box-color-bg: inherit;
+    --box-color-fg: inherit;
 
     display: block;
     padding: var(--box-padding);
-    border: var(--border-thin) solid var(--border-dark);
+    border: var(--box-border);
+    background-color: var(--box-color-bg);
+    color: var(--box-color-fg);
 }
 
 .box.borderless {
@@ -28,4 +40,3 @@
     color: var(--color-light);
     background-color: var(--color-dark);
 }
-

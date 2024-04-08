@@ -17,11 +17,17 @@ ignore_extensions = ["htm", "htm~", "html~"]
 generator_mode = true
 complete_page_selector = "html"
 
-default_template_file = "templates/page.html"
-# The content will be inserted into its <body> element,
-# before its last already existing child.
-default_content_selector = "main"
-# default_content_action = "replace_element"
+default_template_file = "templates/default.html"
+# The content will be inserted into element selected by default_content_selector,
+default_content_selector = "body > .with-sidebar > :last-child"
+
+[templates.blog-post]
+file = "templates/blog-post.html"
+content_selector = "main"
+section = "blog/"
+page = ["cv.html", "cover-letter.htm"]
+include_subsections = true
+exclude_path_regex = '^(.*)/index\.html$'
 
 # Set the document type to HTML5, unless the page already has
 # a doctype declaration.
@@ -67,7 +73,7 @@ selector = ["hgroup ~ p + p"]
 section = "blog/"
 index_selector = ".all-posts.grid"
 index_item_template = """
-  <article class="box">
+  <article class="box" style="--box-color-bg: var(--color-light-2);">
     <hgroup>
     <p>Published: <time datetime="{{timestamp}}">{{date}}</time></p>
     <h2><a href="{{url}}">{{title}}</a></h2>
@@ -102,7 +108,7 @@ section = "blog/"
 max_items = 6
 index_selector = ".recent-posts.grid"
 index_item_template = """
-  <article class="box">
+  <article class="box" style="--box-color-bg: var(--color-light-2);">
     <hgroup>
     <p>Published: <time datetime="{{timestamp}}">{{date}}</time></p>
     <h3><a href="{{url}}">{{title}}</a></h3>
