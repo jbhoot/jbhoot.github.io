@@ -74,7 +74,7 @@ selector = ["hgroup ~ p + p"]
 section = "blog/"
 index_selector = ".all-posts.grid"
 index_item_template = """
-  <article class="box" style="--box-color-bg: var(--color-light-2);">
+  <article class="box" style="--box-color-bg: var(--color-light-2); --box-padding: var(--s-3);">
     <hgroup>
     <p>Published: <time datetime="{{timestamp}}">{{date}}</time></p>
     <h2><a href="{{url}}">{{title}}</a></h2>
@@ -109,7 +109,7 @@ section = "blog/"
 max_items = 6
 index_selector = ".recent-posts.grid"
 index_item_template = """
-  <article class="box" style="--box-color-bg: var(--color-light-2);">
+  <article class="box" style="--box-color-bg: var(--color-light-2); --box-padding: var(--s-3);">
     <hgroup>
     <p>Published: <time datetime="{{timestamp}}">{{date}}</time></p>
     <h3><a href="{{url}}">{{title}}</a></h3>

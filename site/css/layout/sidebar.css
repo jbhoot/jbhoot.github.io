@@ -6,6 +6,7 @@
 
     display: flex;
     flex-wrap: wrap;
+    /* Custom property does not work on gap? */
     gap: var(--sidebar-gap);
     /* NOTE: sets the height of each flex item to fit to its content. */
 }
