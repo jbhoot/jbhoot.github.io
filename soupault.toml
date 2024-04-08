@@ -127,17 +127,14 @@ append = " @ Jayesh Bhoot's Website"
 
 # Look at https://soupault.app/blog/toc/ for more options
 [widgets.table-of-contents]
-section = "blog"
-page = ["cv.html"]
-exclude_page = ["blog/index.html"]
 widget = "toc"
-selector = "hgroup"
-action = "insert_after"
+selector = ".toc"
 min_level = 2
 numbered_list = true
 use_heading_slug = true
 toc_list_class = "toc"
 toc_class_levels = true
+ignore_heading_selectors = [".notoc"]
 
 [widgets.delete_footer]
 widget = "delete_element"

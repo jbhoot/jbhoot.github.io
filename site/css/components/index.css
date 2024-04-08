@@ -108,6 +108,12 @@ a.site-title:hover {
     font-size: 0.9em;
 }
 
+.toc-1:has(*)::before {
+    content: 'Table of Contents';
+    font-size: var(--s1);
+    font-weight: bold;
+}
+
 .toc-1:has(*) {
     list-style-position: inside;
     margin-inline-start: 0;
