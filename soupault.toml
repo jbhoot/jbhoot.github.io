@@ -122,7 +122,7 @@ index_item_template = """
 widget = "title"
 default = "Jayesh Bhoot's Website"
 selector = ["p.title", "h1"]
-append = " – Jayesh Bhoot"
+append = " @ Jayesh Bhoot's Website"
 
 # Look at https://soupault.app/blog/toc/ for more options
 [widgets.table-of-contents]
