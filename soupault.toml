@@ -136,6 +136,6 @@ toc_list_class = "toc"
 toc_class_levels = true
 ignore_heading_selectors = [".notoc"]
 
-[widgets.delete_footer]
+[widgets.delete_draft_content]
 widget = "delete_element"
-selector = ".draft-text"
+selector = ".draft"
