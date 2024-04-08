@@ -236,7 +236,7 @@ a {
 }
 
 a:hover {
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: 1px;
     text-decoration-style: wavy;
 }
 
