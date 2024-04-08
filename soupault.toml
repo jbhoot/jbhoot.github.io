@@ -26,8 +26,9 @@ file = "templates/blog-post.html"
 content_selector = "main"
 section = "blog/"
 page = ["cv.html", "cover-letter.htm"]
+exclude_page = ["blog/index.html"]
+#exclude_path_regex = '^(.*)/index\.html$'
 include_subsections = true
-exclude_path_regex = '^(.*)/index\.html$'
 
 # Set the document type to HTML5, unless the page already has
 # a doctype declaration.
