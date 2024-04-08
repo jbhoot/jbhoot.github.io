@@ -57,7 +57,10 @@ OCaml project. This means I also prefer to install dune per-project. So </p>
 
 <p>I started guessing a solution. </p>
 
-<h3>Attempt 1 - execute opam and dune commands from parent directory</h3>
+<hgroup>
+<h3>Attempt 1</h3>
+<p>Execute opam and dune commands from parent directory</p>
+</hgroup>
 
 <p>I planned the following idealised sequence of commands:</p>
 
@@ -92,7 +95,10 @@ eval $(opam env --switch=/Users/jb/projects/my_prj --set-switch)</code></pre>
 
 <p>So may be, first, I should enter the empty project directory to set up the project.</p>
 
-<h3>Attempt 2 - execute opam and dune commands from project directory</h3>
+<hgroup>
+<h3>Attempt 2</h3>
+<p>Execute opam and dune commands from project directory</p>
+</hgroup>
 
 <p>I carried out the following sequence of commands:</p>
 
@@ -106,7 +112,10 @@ eval $(opam env --switch=/Users/jb/projects/my_prj --set-switch)</code></pre>
 
 <p>Now what?</p>
 
-<h3>Solution - exploit opam's auto-activation of local switch</h3>
+<hgroup>
+<h3>Solution</h3>
+<p>exploit opam's auto-activation of local switch</p>
+</hgroup>
 
 <p>Now, consider the following sequence of commands:</p>
 
