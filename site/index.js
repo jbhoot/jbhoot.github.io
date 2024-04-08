@@ -1,26 +1,42 @@
 function styleSiteNavMenuAsStackOrCluster(mediaQuery) {
     const siteNavMenuEle = document.querySelector('.site-nav > ul');
-    if (mediaQuery.matches) {
-        siteNavMenuEle.classList.remove('stack');
-        siteNavMenuEle.classList.add('cluster');
-    } else {
-        siteNavMenuEle.classList.remove('cluster');
-        siteNavMenuEle.classList.add('stack');
+    if (siteNavMenuEle) {
+        if (mediaQuery.matches) {
+            siteNavMenuEle.classList.remove('stack');
+            siteNavMenuEle.classList.add('cluster');
+        } else {
+            siteNavMenuEle.classList.remove('cluster');
+            siteNavMenuEle.classList.add('stack');
+        }
     }
 }
 
 function stretchOrShrinkSidebar(mediaQuery) {
     const mainSidebar = document.querySelector('.with-sidebar');
-    if (mediaQuery.matches) {
-        mainSidebar.style.minBlockSize = 'initial';
-    } else {
-        mainSidebar.style.minBlockSize = '100%';
+    if (mainSidebar) {
+        if (mediaQuery.matches) {
+            mainSidebar.style.minBlockSize = 'initial';
+        } else {
+            mainSidebar.style.minBlockSize = '100%';
+        }
+    }
+}
+
+function addOrRemoteMarginToBlogPostContainer(mediaQuery) {
+    const postContainer = document.querySelector('.post-container');
+    if (postContainer) {
+        if (mediaQuery.matches) {
+            postContainer.style.marginBlockStart = '0';
+        } else {
+            postContainer.style.marginBlockStart = 'var(--s0)';
+        }
     }
 }
 
 function applyMediaQueryChange(mediaQuery) {
     styleSiteNavMenuAsStackOrCluster(mediaQuery);
     stretchOrShrinkSidebar(mediaQuery);
+    addOrRemoteMarginToBlogPostContainer(mediaQuery);
 }
 
 function setupMediaQueryChange() {
