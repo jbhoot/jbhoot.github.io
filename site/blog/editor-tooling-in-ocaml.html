@@ -1,0 +1,195 @@
+<hgroup>
+<h1>An overview of OCaml editing tooling</h1>
+<p>
+<time datetime="2024-04-15">15th Apr 2024</time>
+</p>
+<p class="tags">
+<span>OCaml</span>
+</p>
+</hgroup>
+
+<p>For a small community, OCaml ecosystem is quite rich, maybe too rich, in editor tooling.</p>
+
+<p>I have gone through some options over time. Here is an overview for my future self.</p>
+
+<h2>Relevant background</h2>
+
+<h3>Package and build tooling</h3>
+
+<p>Over time, the OCaml community has converged on:</p>
+
+<ul>
+<li><strong>opam</strong> as a package manager and a project environment handler</li>
+<li><strong>dune</strong> as a build system</li>
+<li><strong>ocamlformat</strong> as a code formatter</li>
+</ul>
+
+<p>Other tools in these spaces exist, but the above two are officially recommended, and relatively more popular.</p>
+
+<h3>Editor service - <strong>Merlin</strong></h3>
+
+<p><strong>Merlin</strong> is a "headless" tool which provides modern IDE features for OCaml/ReasonML code.</p>
+
+<p>Supporting OCaml in an editor/IDE is essentially a matter of talking to Merlin.</p>
+
+<h3>Editor service - LSP</h3>
+
+<p>With the advent of VS Code and Language Server Protocol, <strong>ocaml-lsp</strong> was built as an LSP wrapper on top of Merlin.</p>
+
+<h3>How everything comes together</h3>
+
+<p>A glue package integrates the editor service (merlin or ocaml-lsp) with an editor.</p>
+
+<p>The glue package assumes that the editor service is available in the user environment. The recommended approach is to have opam create a project-specific environment (called a <b>opam local switch</b>), and install merlin or ocaml-lsp in that env.</p>
+
+<h2>Editing setups</h2>
+
+<p>I will list a few editing setups I have seen in use.</p>
+
+<h3>Official, popular setups</h3>
+
+<p>These are official in the sense that setup instructions are <a href="https://ocaml.org/docs/set-up-editor">available on the official website.</a></p>
+
+<ul>
+<li>merlin + emacs</li>
+<li>merlin + vim</li>
+<li>ocaml-lsp + vscode</li>
+</ul>
+
+<h3>Unofficial, popular setups</h3>
+
+<p>Thanks to ocaml-lsp, alternatives have emerged:</p>
+
+<ul>
+<li>ocaml-lsp + neovim</li>
+<li>ocaml-lsp + emacs</li>
+</ul>
+
+<h3>Worthy outliers</h3>
+
+<ul>
+<li>IntelliJ with <a href="https://plugins.jetbrains.com/plugin/9440-reasonml">ReasonML</a> plugin by Herve Giraud. The only one that does not use merlin underneath, rather takes advantage of IntelliJ's IDE infrastructure.</li>
+<li>ocaml-lsp + helix</li>
+<li>Anything else that can work with LSP protocol, like KDE's Kate editor</li>
+<li>Thanks to a strong static typing with a very fast compiler and a built tool with watch mode, some ditch tooling altogether and go with plain vim or emacs or even <a href="https://discuss.ocaml.org/t/which-editor-ide-do-you-use-when-developing-ocaml-projects/362/27">nano</a></li>
+</ul>
+
+<h2>My excursions</h2>
+
+<p>I care a lot about vim-like modal editing.</p>
+
+<p>The other thing I care about: less hassle to set up.</p>
+
+<p>Now, let's see how some of these have fared for me.</p>
+
+<h3>merlin + emacs</h3>
+
+<p>The glue packages in this case are <strong>tuareg</strong> and <strong>user-setup</strong>.</p>
+
+<p>Unfortunately, <a href="https://ocaml.org/docs/set-up-editor#vim-and-emacs">official instructions</a> didn't work for me. Instructions <a href="https://dev.realworldocaml.org/install.html#editor-setup">from Real World OCaml</a> did:</p>
+
+<pre><code>$ opam install user-setup tuareg ocamlformat merlin
+$ opam user-setup install</code></pre>
+
+<p>There is another alternative to tuareg - <strong>caml-mode</strong>, but I haven't tried it.</p>
+
+<p>Tuareg also provides a <i>Send to REPL for evaluation</i> action, which provides a quick way to test and design code on-the-fly.</p>
+
+<p>This setup works (type inference, error detection, etc.), but is very barebones. I realised I had to do a lot more on Emacs side - install and configure packages like flycheck, eldoc, merlin-eldoc, and what not - to modernise the editing experience. I stopped here.</p>
+
+<h3>merlin + vim</h3>
+
+<p>The glue package is <strong>user-setup</strong>.</p>
+
+<p>However, this setup did not work due to the following error:</p>
+
+<pre><code>"src/soup.ml" 1326L, 39757B
+Error detected while processing BufRead Autocommands for "*.ml"..FileType Autocommands for "*"..function &lt;SNR&gt;4_LoadFTPlugin[18]..script /Users/jb/projects/lambdasoup/_opam
+/share/merlin/vim/ftplugin/ocaml.vim[2]../Users/jb/projects/lambdasoup/_opam/share/merlin/vim/autoload/merlin.vim:
+line    9:
+Error: Required vim compiled with +python or +python3
+Error detected while processing BufRead Autocommands for "*.ml"..FileType Autocommands for "*"..function &lt;SNR&gt;4_LoadFTPlugin[18]..script /Users/jb/projects/lambdasoup/_opam
+/share/merlin/vim/ftplugin/ocaml.vim:
+line    2:
+E117: Unknown function: merlin#Register
+Press ENTER or type command to continue</code></pre>
+
+<p>I get the issue of course: my vim is not compiled with python. But it also means that now I have to look for a vim that is compiled with python. And I tried out two vims: macOS's default vim, and the vim in nixpkgs.</p>
+
+<p>So I moved on.</p>
+
+<h3>ocaml-lsp + vscode</h3>
+
+<p>The glue package is <strong>VSCode OCaml Platform</strong>, which, besides integrating ocaml-lsp, also brings together ocamlformat, opam environment sandbox selection tool, etc., under a single VS Code extension.</p>
+
+<p>Despite that fact that there is one more abstraction to deal with - ocaml-lsp built on top of merlin - this setup has been one of the most seamless.</p>
+
+<p>It is also the top official recommendation now, thanks to a lot of effort put in by OCaml tooling developers.</p>
+
+<p>The extension also provides a "Send to REPL for evaluation" action, much popular with the Emacs crowd.</p>
+
+<p>The experience hasn't been 100% flawless though. Once, when I opened VS Code with an OCaml project, the editor didn't show any type hints at all. No errors were thrown either. After a long debugging session, it turned out that the OCaml LSP did throw an error saying that VS Code needs to be updated, but it was buried in Output Pane's OCaml LSP tab. I wish that the Output window had popped up on its own to highlight the error, instead of having to look for the problem myself. I have seen this happen in some other language project.</p>
+
+<p>This is VS Code specific, but I also miss a good modal editing experience. I also keep getting bugged by a weird problem caused due to my MacBook's virtual Fn bar and while executing a specific keychord sequence, in which a slight touch from one of my raised fingers triggers the find window in VS Code. Very annoying!</p>
+
+<h3>ocaml-lsp + neovim</h3>
+
+<p>The glue package is <strong>nvim-lspconfig</strong>.</p>
+
+<p>This setup has often broken down, though the <strong>fault lied with the constant churn in neovim and neovim's LSP ecosystem</strong> more than with OCaml tooling.</p>
+
+<p>There are a lot of other helper neovim packages to reckon with, like, the configurations of which I copy-paste and then pray for them to keep working.</p>
+
+<p>When everything works, this is the most elegant setup for me. However, once in a while, when I load an OCaml project in neovim, some setup-related error would pop up.</p>
+
+<p>Debugging a broken neovim configuration is a nightmare I wouldn't wish upon my enemy.</p>
+
+<h3>ocaml-lsp + helix</h3>
+
+<p><strong>There is no glue package.</strong> This has been <strong>the only zero-config setup</strong> for me.</p>
+
+<p>Only Helix has worked immediately and flawlessly for me.</p>
+
+<h2>merlin v/s ocaml-lsp</h2>
+
+<h3>Feature parity</h3>
+
+<p>In terms of features, both ocaml-lsp and merlin are pretty much on par with each other.</p>
+
+<p>ocaml-lsp lacks one feature though: determining the type of a selected block of code. Its a pretty nifty feature thanks to OCaml's strong typing system and merlin.</p>
+
+<p>Quoting Marek Kubica from OCaml forums: <a href="https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/2">↗</a></p>
+
+<blockquote cite="https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/2">
+The only thing I’ve used with Merlin directly that I don’t have at the moment is determining the type of a selection.
+</blockquote>
+
+<h3>Dependency on dune</h3>
+
+<p>ocaml-lsp depends on dune to generate type information. Merlin does not need it. Legacy projects predating dune have found this to be a hurdle in transitioning to ocaml-lsp.</p>
+
+<h3>Speed</h3>
+
+ocaml-lsp, despite being an abstraction on top of merlin, feel faster than the direct merlin because ocaml-lsp operates asynchronously.
+
+<p>Quoting Rudi Grinberg from OCaml forums: <a href="https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/4">↗</a></p>
+
+<blockquote cite="https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/4">
+In my experience the editor frontends that come with merlin perform poorly compared to their LSP counterparts. In Emacs for example, I recall that switching to eglot to ocamllsp gave me a very noticeable boost in completion performance and error checking performance.
+</blockquote>
+
+<p>In a (significantly) large codebase, the editing experience in vim/emacs+merlin has reported to become less responsive and more laggy.</p>
+
+<h2>Conclusion</h2>
+
+<p>At this point, I would consider the merlin-based setups appropriate only for <strong>veterans and advanced users</strong>. They are worth it only if you care about having every fringe feature available under merlin and don't mind to go through some pain of setting things up.</p>
+
+<p>merlin-based setup might also be the only sane option if a project does not use dune as its build tool. But don't quote me on this.</p>
+
+<p>A <strong>beginner</strong> should absolutely choose VS Code OCaml Platform. When there is a whole new ecosystem to reckon with, you don't want to be scared away by the editing experience.</p>
+
+<p>Only Helix provides a similar seamless experience. So VS Code dodgers can choose helix (at the cost of the baggage of a non-vim modal editing).</p>
+
+<p>To vim lovers, I recommend the ocaml-lsp + neovim route.</p>
+
+<p>To emacs lovers, I recommend the ocaml-lsp + emacs route.</p>

@@ -1,5 +1,17 @@
 [
   {
+    "url": "/blog/editor-tooling-in-ocaml",
+    "page_file": "site/blog/editor-tooling-in-ocaml.html",
+    "nav_path": [
+      "blog"
+    ],
+    "excerpt_2": "I have gone through some options over time. Here is an overview for my future self.",
+    "excerpt": "For a small community, OCaml ecosystem is quite rich, maybe too rich, in editor tooling.",
+    "timestamp": "2024-04-15",
+    "date": "15th Apr 2024",
+    "title": "An overview of OCaml editing tooling"
+  },
+  {
     "url": "/blog/memorising-git-rebase",
     "page_file": "site/blog/memorising-git-rebase.html",
     "nav_path": [
