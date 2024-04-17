@@ -5,11 +5,11 @@
     "nav_path": [
       "blog"
     ],
-    "excerpt_2": "I have gone through some options over time. Here is an overview for my future self.",
-    "excerpt": "For a small community, OCaml ecosystem is quite rich, maybe too rich, in editor tooling.",
+    "excerpt_2": "For a small community, OCaml ecosystem is quite rich, maybe too rich, in editor tooling.",
+    "excerpt": "tl;dr: Jump to <a href=\"#tldr\">conclusion</a> for recommendations",
     "timestamp": "2024-04-15",
     "date": "15th Apr 2024",
-    "title": "An overview of OCaml editing tooling"
+    "title": "An overview of OCaml editor tooling"
   },
   {
     "url": "/blog/memorising-git-rebase",
