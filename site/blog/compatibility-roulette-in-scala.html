@@ -1,0 +1,77 @@
+<hgroup>
+<h1>Compatibility roulette in Scala</h1>
+<p>
+<time datetime="2024-04-19">19 April 2024</time>
+</p>
+<p class="tags">
+<span>Scala</span>
+<span>sbt</span>
+<span>Tooling</span>
+</p>
+</hgroup>
+
+<p>I am going through the course <a href="https://www.coursera.org/learn/effective-scala">Effective Programming in Scala</a> on Coursera, and ran into build import errors in the very first assignment (fireworks).</p>
+
+<h2>Problem</h2>
+
+<p>While importing the fireworks project in VSCode-with-Metals, I encountered an error that started with:</p>
+
+<pre><code>[..]bad constant pool index: [..]</code></pre>
+
+<p>Looks like an error right out of a database connection pool library!</p>
+
+<h2>Attempt 1</h2>
+
+<p>One of the suggested solutions on Discord was to ensure that the versions of java, scala, and sbt exposed in the PATH are compatible with each other.</p>
+
+<p>Check the <a href="https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html">compatibility tables</a>.</p>
+
+<p>But these were already compatible in my case.</p>
+
+<h2>Attempt 2</h2>
+
+<p>I roughly knew that *.sbt files describe the build of a project. Because the name bore relevance to build process, I also counted in a file I noticed in early debugging: <code>build.properties</code>.</p>
+
+<p>So my first small scala project, and I am staring at the following list of *.sbt: </p>
+
+<pre><code>zsh | ~/Downloads
+$ tree -a -P "*.sbt" -P "*.properties" fireworks
+fireworks
+├── assignment.sbt
+├── build.sbt
+├── project
+│   ├── build.properties
+│   ├── buildSettings.sbt
+│   └── plugins.sbt
+└── src</code></pre>
+
+<p>And all of them were staring back at me, daring me to find which one of them is hiding the cause of the error.</p>
+
+<p>Anyway, enough drama.</p>
+
+<p>On a hunch, I decided to match the versions of sbt and scala mentioned in these .sbt files with the ones exposed in the PATH.</p>
+
+<p>The mismatch turned out to be in <code>build.properties</code>.</p>
+
+<pre><code>zsh | ~/projects/effective-scala/week-1/fireworks
+$ sbt -V
+sbt version in this project: 1.9.9
+sbt script version: 1.9.9
+
+$ cat project/build.properties
+sbt.version=1.8.2</code></pre>
+
+<p>I matched the versions to be <code>1.9.9</code>, and re-ran the import. It worked.</p>
+
+<h2>TL;DR</h2>
+
+<ul>
+<li>Ensure that the versions of java, scala, and sbt exposed in the PATH are compatible with each other. Use the official <a href="https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html">compatibility tables</a>.</li>
+<li>Ensure that the versions of sbt and scala exposed in the PATH match with the versions mentioned in the build files (like built.sbt, build.properties). Best make them identical.</li>
+</ul>
+
+<h2>Conclusion</h2>
+
+<p>I hope this was the correct solution.</p>
+
+<p>As people who make tools to make people's lives easier, we sure love to torture ourselves with our own tools.</p>

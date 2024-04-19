@@ -1,5 +1,17 @@
 [
   {
+    "url": "/blog/compatibility-roulette-in-scala",
+    "page_file": "site/blog/compatibility-roulette-in-scala.html",
+    "nav_path": [
+      "blog"
+    ],
+    "excerpt_2": "Check the <a href=\"https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html\">compatibility tables</a>.",
+    "excerpt": "I am going through the course <a href=\"https://www.coursera.org/learn/effective-scala\">Effective Programming in Scala</a> on Coursera, and ran into build import errors in the very first assignment (fireworks).",
+    "timestamp": "2024-04-19",
+    "date": "19 April 2024",
+    "title": "Compatibility roulette in Scala"
+  },
+  {
     "url": "/blog/editor-tooling-in-ocaml",
     "page_file": "site/blog/editor-tooling-in-ocaml.html",
     "nav_path": [
