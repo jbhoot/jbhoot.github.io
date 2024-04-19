@@ -124,6 +124,12 @@ a.site-title:hover {
     margin-block-start: 5px;
 }
 
+.toc-heading-link {
+    font-weight: normal;
+    margin-inline-end: 5px;
+    text-decoration: none;
+}
+
 .tags::before {
     content: "Tags";
 }

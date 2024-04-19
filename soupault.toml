@@ -136,6 +136,9 @@ use_heading_slug = true
 toc_list_class = "toc"
 toc_class_levels = true
 ignore_heading_selectors = [".notoc"]
+heading_links = true
+heading_link_class = "toc-heading-link"
+heading_link_text = "§" # silcrow sign / section sign
 
 [widgets.delete_draft_content]
 widget = "delete_element"
