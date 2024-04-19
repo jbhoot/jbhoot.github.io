@@ -8,8 +8,6 @@
 </p>
 </hgroup>
 
-<p>tl;dr: Jump to <a href="#tldr">conclusion</a> for recommendations</p>
-
 <p>For a small community, OCaml ecosystem is quite rich, maybe too rich, in editor tooling.</p>
 
 <p>I have gone through some options over time. Here is an overview for my future self.</p>
@@ -43,6 +41,37 @@
 <p>A glue package integrates the editor service (merlin or ocaml-lsp) with an editor.</p>
 
 <p>The glue package assumes that the editor service is available in the user environment. The recommended approach is to have opam create a project-specific environment (called a <b>opam local switch</b>), and install merlin or ocaml-lsp in that env.</p>
+
+<h3>merlin v/s ocaml-lsp</h3>
+
+<h4>Feature parity</h4>
+
+<p>In terms of features, both ocaml-lsp and merlin are pretty much on par with each other.</p>
+
+<p>ocaml-lsp lacks one feature though: determining the type of a selected block of code. Its a pretty nifty feature thanks to OCaml's strong typing system and merlin.</p>
+
+<p>Quoting Marek Kubica from OCaml forums: <a href="https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/2">↗</a></p>
+
+<blockquote cite="https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/2">
+The only thing I’ve used with Merlin directly that I don’t have at the moment is determining the type of a selection.
+</blockquote>
+
+<h4>Dependency on dune</h4>
+
+<p>ocaml-lsp depends on dune to generate type information. Merlin does not need it. Legacy projects predating dune have found this to be a hurdle in transitioning to ocaml-lsp.</p>
+
+<h4>Speed</h4>
+
+ocaml-lsp, despite being an abstraction on top of merlin, feel faster than the direct merlin because ocaml-lsp operates asynchronously.
+
+<p>Quoting Rudi Grinberg from OCaml forums: <a href="https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/4">↗</a></p>
+
+<blockquote cite="https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/4">
+In my experience the editor frontends that come with merlin perform poorly compared to their LSP counterparts. In Emacs for example, I recall that switching to eglot to ocamllsp gave me a very noticeable boost in completion performance and error checking performance.
+</blockquote>
+
+<p>In a (significantly) large codebase, the editing experience in vim/emacs+merlin has reported to become less responsive and more laggy.</p>
+
 
 <h2>Editing setups</h2>
 
@@ -152,37 +181,7 @@ Press ENTER or type command to continue</code></pre>
 
 <p>Only Helix has worked immediately and flawlessly for me.</p>
 
-<h2>merlin v/s ocaml-lsp</h2>
-
-<h3>Feature parity</h3>
-
-<p>In terms of features, both ocaml-lsp and merlin are pretty much on par with each other.</p>
-
-<p>ocaml-lsp lacks one feature though: determining the type of a selected block of code. Its a pretty nifty feature thanks to OCaml's strong typing system and merlin.</p>
-
-<p>Quoting Marek Kubica from OCaml forums: <a href="https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/2">↗</a></p>
-
-<blockquote cite="https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/2">
-The only thing I’ve used with Merlin directly that I don’t have at the moment is determining the type of a selection.
-</blockquote>
-
-<h3>Dependency on dune</h3>
-
-<p>ocaml-lsp depends on dune to generate type information. Merlin does not need it. Legacy projects predating dune have found this to be a hurdle in transitioning to ocaml-lsp.</p>
-
-<h3>Speed</h3>
-
-ocaml-lsp, despite being an abstraction on top of merlin, feel faster than the direct merlin because ocaml-lsp operates asynchronously.
-
-<p>Quoting Rudi Grinberg from OCaml forums: <a href="https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/4">↗</a></p>
-
-<blockquote cite="https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/4">
-In my experience the editor frontends that come with merlin perform poorly compared to their LSP counterparts. In Emacs for example, I recall that switching to eglot to ocamllsp gave me a very noticeable boost in completion performance and error checking performance.
-</blockquote>
-
-<p>In a (significantly) large codebase, the editing experience in vim/emacs+merlin has reported to become less responsive and more laggy.</p>
-
-<h2 id="tldr">Conclusion</h2>
+<h2>Conclusion</h2>
 
 <p>At this point, I would consider the merlin-based setups appropriate only for <strong>veterans and advanced users</strong>. They are worth it only if you care about having every fringe feature available under merlin and don't mind going through some pain of setting things up.</p>
 
