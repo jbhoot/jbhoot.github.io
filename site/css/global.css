@@ -42,7 +42,7 @@
 
     --font-sans: "Atkinson Hyperlegible", "Droid Sans", "Noto Sans", "IBM Plex Sans", "PT Sans", sans-serif;
     --font-serif: "Droid Serif", "Noto Serif", serif;
-    --font-monospaced-sans: "Source Code Pro", "Droid Sans Mono SW", "Droid Sans Mono", "DejaVu Sans Mono", Menlo, "Roboto Mono", monospace;
+    --font-monospaced-sans: "DejaVu Sans Mono", Menlo, "Source Code Pro", "Droid Sans Mono", monospace;
     --font-monospaced-serif: "Courier Screenplay", "Final Draft Heavy", "PT Mono", "Latin Modern Mono", "Courier Prime", Courier, monospace;
 
     --color-light-1: #fbf4e9;
