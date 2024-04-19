@@ -130,6 +130,7 @@ append = " @ Jayesh Bhoot's Website"
 widget = "toc"
 selector = ".toc"
 min_level = 2
+max_level = 3
 numbered_list = true
 use_heading_slug = true
 toc_list_class = "toc"
