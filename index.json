@@ -29,7 +29,7 @@
     "nav_path": [
       "blog"
     ],
-    "excerpt_2": "So, read <code>git rebase master</code> as <i>git, rebase on master</i>.",
+    "excerpt_2": "So, read <code>git rebase master</code> as <b><i>rebase on top of master</i></b>.",
     "excerpt": "In a <code>git rebase</code> command, which branch comes first? The branch being rebased, or the branch on which a branch is being rebased?",
     "timestamp": "2024-03-05",
     "date": "5th March 2024",
@@ -178,15 +178,5 @@
     "timestamp": "2020-07-04",
     "date": "4th July 2020",
     "title": "How to write a Firefox add-on in ClojureScript"
-  },
-  {
-    "url": "/cv",
-    "page_file": "site/cv.html",
-    "nav_path": [],
-    "excerpt_2": "My clients have entrusted me with roles ranging from Software Developer, Senior Software Engineer, to Project Manager.",
-    "excerpt": "I am a full-stack software developer with <span class=\"exp-years\">12+</span> years of experience. I have designed and implemented complex web applications, API interfaces, desktop apps, and in-house CLI utilities.",
-    "timestamp": "2019-08",
-    "date": "Aug 2019",
-    "title": "Jayesh Bhoot"
   }
 ]
