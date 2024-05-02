@@ -1,0 +1,56 @@
+<hgroup>
+<h1>Notes on A Common Sense Guide to Data Structures and Algorithms</h1>
+<p>
+<time datetime="2024-04-30">30th Apr 2024</time>
+</p>
+<p class="tags">
+<span>Data structures</span> <span>Algorithms</span>
+</p>
+</hgroup>
+
+<h2>Chapter 1 - Why Data Structures Matter</h2>
+
+<p>A data structure organises data.</p>
+
+<p>There are 5 operations to interact with a data structure - reading, searching, insertion, deletion, sort.</p>
+
+<p>An alogrithm is simply a sequence of steps to complete a specific task.</p>
+
+<p>An operation could be implemented in several ways through different algorithms.</p>
+
+<p>For example, search operation on an OrderedArray could be implemented using a linear search algorithm or a binary search algorithm.</p>
+
+<p>There are several kind of steps - comparison, swapping. </p>
+
+<h2>Chapter 2 - Why Algorithms Matter</h2>
+
+<p>How to calculate the maximum number of steps to find an element using binary search?</p>
+
+<pre><code>log<sub>2</sub>(ArraySize)</code> = steps</pre>
+
+<p>So, for an array of 100,000 elements, the maximum number of steps required to find an element is <code>log<sub>2</sub>(100000) = 16.6 ~ 16</code>.</p>
+
+<p>Logarithmic growth (very slow) is the inverse of exponential growth (very fast).</p>
+
+<p>The number of steps in a binary search grow logarithmically even when the size of the array grows exponentially.</p>
+
+<p>Optimising Big-O of an algorithm often trades off higher memory usage.</p>
+
+<h2>Sorting</h2>
+
+<ul>
+<li>Bubble sort [O(N<sup>2</sup>)]: bubble up the largest unsorted number to their correct position in each pass</li>
+<li>Selection sort [O(N<sup>2</sup>)]: select the smallest unsorted number in each pass and put them in their correct position</li>
+</ul>
+
+<h2>Big-O Notation</h2>
+
+<p>Big-O notation explains how the efficiency/speed of an algorithm changes with change in the data represented by N.</p>
+
+<p>Big-O of an algorithm can be determined by finding out how fast the number of steps increase when the data represented by N increases.</p>
+
+<p>When in doubt while determining the Big-O notation of an algorithm, plot N (x-axis) against number of steps (y-axis)to see if the plot grows in a constant (O(1), logarithmic (O(log2 N)), linear O(N), quadratic O(N2) fashion. Once an O(N2) looked like O(N) to my less educated self because the calculation of steps amounted not to N2, but to N2/2. But plotting the values immediately made it clear that the algorithm was O(N2), not O(N).</p>
+
+<p>The first step to determine the Big-O of an algorithm is to figure out exactly <strong>which data in the algorithm is represented by N.</strong></p>
+
+<p>Big-O categories differ greatly in efficiency. That does not mean that two algorithms within an O-category would perform the same or even similar. An algorithm with efficienty of O(N^2) and an algorithm with efficiency of O(N^2/2) both classify under O(N^2) category, but the latter is clearly more performant.</p>
