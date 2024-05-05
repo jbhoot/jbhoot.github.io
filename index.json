@@ -42,10 +42,10 @@
       "blog"
     ],
     "excerpt_2": "All I want is a shell that is",
-    "excerpt": "Here, I am putting down my reasons to choose <code>fish</code> shell for my future self.",
+    "excerpt": "I have come crawling back to bash. Why?",
     "timestamp": "2024-02-06",
     "date": "6th Feb 2024",
-    "title": "I switched to fish shell"
+    "title": "<del>I switched to fish shell</del> Nope. Back to bash."
   },
   {
     "url": "/blog/opam-local-switch-and-dune-init-project",
