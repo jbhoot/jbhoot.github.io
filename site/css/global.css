@@ -42,8 +42,8 @@
 
     --font-sans: "Atkinson Hyperlegible", "Droid Sans", "Noto Sans", "IBM Plex Sans", "PT Sans", sans-serif;
     --font-serif: "Droid Serif", "Noto Serif", serif;
-    --font-monospaced-sans: "DejaVu Sans Mono", Menlo, "Source Code Pro", "Droid Sans Mono", monospace;
-    --font-monospaced-serif: "Courier Screenplay", "Final Draft Heavy", "PT Mono", "Latin Modern Mono", "Courier Prime", Courier, monospace;
+    --font-monospaced-sans: "Cascadia Code", "DejaVu Sans Mono", Menlo, "Source Code Pro", "Droid Sans Mono", monospace;
+    --font-monospaced-serif: "Cascadia Code", "Courier Screenplay", "Final Draft Heavy", "PT Mono", "Latin Modern Mono", "Courier Prime", Courier, monospace;
 
     --color-light-1: #fbf4e9;
     --color-light-2: #ffeebf;
