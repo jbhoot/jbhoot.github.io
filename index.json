@@ -1,9 +1,48 @@
 [
   {
-    "url": "/blog/compatibility-roulette-in-scala",
-    "page_file": "site/blog/compatibility-roulette-in-scala.html",
+    "url": "/blog/effective-scala-series",
+    "page_file": "site/blog/effective-scala-series.html",
     "nav_path": [
       "blog"
+    ],
+    "excerpt_2": null,
+    "excerpt": "This is a series of blog posts I wrote while going through the Coursera Course <a href=\"https://www.coursera.org/learn/effective-scala\">Effective Programming in Scala</a>.",
+    "timestamp": "2024-05-08",
+    "date": "8 May 2024",
+    "title": "Series - Effective Programming in Scala"
+  },
+  {
+    "url": "/blog/effective-scala-series/elements-of-a-program",
+    "page_file": "site/blog/effective-scala-series/elements-of-a-program.html",
+    "nav_path": [
+      "blog",
+      "effective-scala-series"
+    ],
+    "excerpt_2": "Value is the most abstract definition here, but it is made concrete by subsequent definitions.",
+    "excerpt": "A value is the representation of some entity that can be manipulated by a program.",
+    "timestamp": "2024-05-01",
+    "date": "1 May 2024",
+    "title": "Elements of a Program"
+  },
+  {
+    "url": "/blog/effective-scala-series/domain-modelling",
+    "page_file": "site/blog/effective-scala-series/domain-modelling.html",
+    "nav_path": [
+      "blog",
+      "effective-scala-series"
+    ],
+    "excerpt_2": "For example, in a problem involving doors and windows and facades, if the domain is constrained to only deal with surface area, then modelling the doors and windows and facade in terms of <strong>Rectangle</strong> is the right level of abstraction instead of modelling them as Door, Window, and Facade respectively.",
+    "excerpt": "Finding the <em>right</em> level of abstraction is more important than the best level of abstraction.",
+    "timestamp": "2024-05-01",
+    "date": "1 May 2024",
+    "title": "Domain Modelling"
+  },
+  {
+    "url": "/blog/effective-scala-series/compatibility-roulette-in-scala",
+    "page_file": "site/blog/effective-scala-series/compatibility-roulette-in-scala.html",
+    "nav_path": [
+      "blog",
+      "effective-scala-series"
     ],
     "excerpt_2": "Check the <a href=\"https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html\">compatibility tables</a>.",
     "excerpt": "I am going through the course <a href=\"https://www.coursera.org/learn/effective-scala\">Effective Programming in Scala</a> on Coursera, and ran into build import errors in the very first assignment (fireworks).",
@@ -178,5 +217,79 @@
     "timestamp": "2020-07-04",
     "date": "4th July 2020",
     "title": "How to write a Firefox add-on in ClojureScript"
+  },
+  {
+    "url": "/blog/programming-paradigms-and-oop",
+    "page_file": "site/blog/programming-paradigms-and-oop.md",
+    "nav_path": [
+      "blog"
+    ],
+    "excerpt_2": null,
+    "excerpt": null,
+    "timestamp": null,
+    "date": null,
+    "title": null
+  },
+  {
+    "url": "/blog/effective-scala-series/scala-collections",
+    "page_file": "site/blog/effective-scala-series/scala-collections.html",
+    "nav_path": [
+      "blog",
+      "effective-scala-series"
+    ],
+    "excerpt_2": null,
+    "excerpt": null,
+    "timestamp": null,
+    "date": null,
+    "title": "Collections in Scala"
+  },
+  {
+    "url": "/blog/effective-scala-series/sbt",
+    "page_file": "site/blog/effective-scala-series/sbt.html",
+    "nav_path": [
+      "blog",
+      "effective-scala-series"
+    ],
+    "excerpt_2": null,
+    "excerpt": null,
+    "timestamp": null,
+    "date": null,
+    "title": "Scala Build Tool (SBT)"
+  },
+  {
+    "url": "/blog/effective-scala-series/method-vs-function",
+    "page_file": "site/blog/effective-scala-series/method-vs-function.html",
+    "nav_path": [
+      "blog",
+      "effective-scala-series"
+    ],
+    "excerpt_2": null,
+    "excerpt": null,
+    "timestamp": null,
+    "date": null,
+    "title": "Function v/s method"
+  },
+  {
+    "url": "/blog/effective-scala-series/entry-point",
+    "page_file": "site/blog/effective-scala-series/entry-point.html",
+    "nav_path": [
+      "blog",
+      "effective-scala-series"
+    ],
+    "excerpt_2": null,
+    "excerpt": null,
+    "timestamp": null,
+    "date": null,
+    "title": "Entry point of a project"
+  },
+  {
+    "url": "/2024-05-09-dummy-page",
+    "page_file": "site/2024-05-09-dummy-page.html",
+    "nav_path": [],
+    "excerpt_2": null,
+    "excerpt": null,
+    "timestamp": null,
+    "date": null,
+    "title": "dummy page"
   }
 ]
