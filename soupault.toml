@@ -19,16 +19,7 @@ complete_page_selector = "html"
 
 default_template_file = "templates/default.html"
 # The content will be inserted into element selected by default_content_selector,
-default_content_selector = "body > .with-sidebar > :last-child"
-
-[templates.blog-post]
-file = "templates/blog-post.html"
-content_selector = "main"
-section = "blog/"
-page = ["cv.html", "cover-letter.htm"]
-exclude_page = ["blog/index.html"]
-#exclude_path_regex = '^(.*)/index\.html$'
-include_subsections = true
+default_content_selector = "main"
 
 # Set the document type to HTML5, unless the page already has
 # a doctype declaration.
@@ -40,8 +31,12 @@ clean_urls = true
 plugin_discovery = true
 plugin_dirs = ["plugins"]
 
+[preprocessors]
+md = "cmark --unsafe --smart"
+
 [index]
 index = true
+index_first = true
 # Treat a folder containing an index.html and a .leaf file as a normal page. This allows putting assets (e.g., images) of a page alongside itself)
 # https://soupault.app/reference-manual/#treating-index-pages-as-normal-pages
 leaf_file = ".leaf"
@@ -71,7 +66,7 @@ selector = ["hgroup ~ p"]
 selector = ["hgroup ~ p + p"]
 
 [index.views.all-posts-grid]
-section = "blog/"
+include_subsections = true
 index_selector = ".all-posts.grid"
 index_item_template = """
   <article class="box" style="--box-color-bg: var(--color-light-2); --box-padding: var(--s-3);">
@@ -84,7 +79,7 @@ index_item_template = """
   """
 
 [index.views.all-posts-list]
-section = "blog/"
+include_subsections = true
 index_selector = "ul.all-posts"
 index_item_template = """
   <li>
@@ -94,7 +89,7 @@ index_item_template = """
   """
 
 [index.views.recent-posts-list]
-section = "blog/"
+include_subsections = true
 max_items = 5
 index_selector = "ul.recent-posts"
 index_item_template = """
@@ -105,7 +100,7 @@ index_item_template = """
   """
 
 [index.views.recent-posts-grid]
-section = "blog/"
+include_subsections = true
 max_items = 6
 index_selector = ".recent-posts.grid"
 index_item_template = """
@@ -118,6 +113,27 @@ index_item_template = """
     <!-- <p>{{excerpt_2}} [...]</p> -->
   </article>
   """
+
+#[hooks.pre-process]
+#lua_source = '''
+#  base_path = Sys.dirname(Sys.dirname(target_file))
+#  file_name = Sys.basename(target_file)
+#
+#  target_leaf_dir = Sys.basename(Sys.dirname(target_file))
+#  regex = "^[0-9]{4}-[0-9]{2}-[0-9]{2}-"
+#
+#  print(global_data)
+#
+#  if Regex.match(target_leaf_dir, regex) then
+#    new_target_leaf_dir = Regex.replace(target_leaf_dir, regex, "")
+#    new_target_dir = Sys.join_path(base_path, new_target_leaf_dir)
+#    new_target_file = Sys.join_path(new_target_dir, file_name)
+#    print(target_dir .. "->" .. new_target_dir)
+#    print(target_file .. "->" .. new_target_file)
+#    target_dir = new_target_dir
+#    target_file = new_target_file
+#  end
+#'''
 
 [widgets.page-title]
 widget = "title"

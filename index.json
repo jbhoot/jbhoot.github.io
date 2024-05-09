@@ -1,10 +1,8 @@
 [
   {
-    "url": "/blog/effective-scala-series",
-    "page_file": "site/blog/effective-scala-series.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/effective-scala-series",
+    "page_file": "site/effective-scala-series.html",
+    "nav_path": [],
     "excerpt_2": null,
     "excerpt": "This is a series of blog posts I wrote while going through the Coursera Course <a href=\"https://www.coursera.org/learn/effective-scala\">Effective Programming in Scala</a>.",
     "timestamp": "2024-05-08",
@@ -12,10 +10,9 @@
     "title": "Series - Effective Programming in Scala"
   },
   {
-    "url": "/blog/effective-scala-series/elements-of-a-program",
-    "page_file": "site/blog/effective-scala-series/elements-of-a-program.html",
+    "url": "/effective-scala-series/elements-of-a-program",
+    "page_file": "site/effective-scala-series/elements-of-a-program.html",
     "nav_path": [
-      "blog",
       "effective-scala-series"
     ],
     "excerpt_2": "Value is the most abstract definition here, but it is made concrete by subsequent definitions.",
@@ -25,10 +22,9 @@
     "title": "Elements of a Program"
   },
   {
-    "url": "/blog/effective-scala-series/domain-modelling",
-    "page_file": "site/blog/effective-scala-series/domain-modelling.html",
+    "url": "/effective-scala-series/domain-modelling",
+    "page_file": "site/effective-scala-series/domain-modelling.html",
     "nav_path": [
-      "blog",
       "effective-scala-series"
     ],
     "excerpt_2": "For example, in a problem involving doors and windows and facades, if the domain is constrained to only deal with surface area, then modelling the doors and windows and facade in terms of <strong>Rectangle</strong> is the right level of abstraction instead of modelling them as Door, Window, and Facade respectively.",
@@ -38,10 +34,9 @@
     "title": "Domain Modelling"
   },
   {
-    "url": "/blog/effective-scala-series/compatibility-roulette-in-scala",
-    "page_file": "site/blog/effective-scala-series/compatibility-roulette-in-scala.html",
+    "url": "/effective-scala-series/compatibility-roulette-in-scala",
+    "page_file": "site/effective-scala-series/compatibility-roulette-in-scala.html",
     "nav_path": [
-      "blog",
       "effective-scala-series"
     ],
     "excerpt_2": "Check the <a href=\"https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html\">compatibility tables</a>.",
@@ -51,11 +46,9 @@
     "title": "Compatibility roulette in Scala"
   },
   {
-    "url": "/blog/editor-tooling-in-ocaml",
-    "page_file": "site/blog/editor-tooling-in-ocaml.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/editor-tooling-in-ocaml",
+    "page_file": "site/editor-tooling-in-ocaml.html",
+    "nav_path": [],
     "excerpt_2": "I have gone through some options over time. Here is an overview for my future self.",
     "excerpt": "For a small community, OCaml ecosystem is quite rich, maybe too rich, in editor tooling.",
     "timestamp": "2024-04-15",
@@ -63,11 +56,9 @@
     "title": "An overview of OCaml editor tooling"
   },
   {
-    "url": "/blog/memorising-git-rebase",
-    "page_file": "site/blog/memorising-git-rebase.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/memorising-git-rebase",
+    "page_file": "site/memorising-git-rebase.html",
+    "nav_path": [],
     "excerpt_2": "So, read <code>git rebase master</code> as <b><i>rebase on top of master</i></b>.",
     "excerpt": "In a <code>git rebase</code> command, which branch comes first? The branch being rebased, or the branch on which a branch is being rebased?",
     "timestamp": "2024-03-05",
@@ -75,11 +66,9 @@
     "title": "Memorising branch order in git rebase"
   },
   {
-    "url": "/blog/switching-to-fish-shell",
-    "page_file": "site/blog/switching-to-fish-shell.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/switching-to-fish-shell",
+    "page_file": "site/switching-to-fish-shell.html",
+    "nav_path": [],
     "excerpt_2": "All I want is a shell that is",
     "excerpt": "I have come crawling back to bash. Why?",
     "timestamp": "2024-02-06",
@@ -87,11 +76,9 @@
     "title": "<del>I switched to fish shell</del> Nope. Back to bash."
   },
   {
-    "url": "/blog/opam-local-switch-and-dune-init-project",
-    "page_file": "site/blog/opam-local-switch-and-dune-init-project.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/opam-local-switch-and-dune-init-project",
+    "page_file": "site/opam-local-switch-and-dune-init-project.html",
+    "nav_path": [],
     "excerpt_2": "Both have evolved independently. While they manage to work in tandem, there are a lot of irregularities to trip on\nwhere they meet.",
     "excerpt": "In the OCaml ecosystem, opam is the most popular package management tool, while dune is the foremost build tool.",
     "timestamp": "2023-12-03",
@@ -99,11 +86,9 @@
     "title": "Make an opam local switch and <code>dune init project</code> work together"
   },
   {
-    "url": "/blog/fixing-ocaml-compiler-build-on-apple-silicon",
-    "page_file": "site/blog/fixing-ocaml-compiler-build-on-apple-silicon.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/fixing-ocaml-compiler-build-on-apple-silicon",
+    "page_file": "site/fixing-ocaml-compiler-build-on-apple-silicon.html",
+    "nav_path": [],
     "excerpt_2": "P.S.: Even dune does not work without it!",
     "excerpt": "OCaml compiler failed to build on my M1 Macbook with Apple's Silicon architecture.",
     "timestamp": "2023-12-01",
@@ -111,11 +96,9 @@
     "title": "Spoonfeeding machine architecture to OCaml toolchain on Apple Silicon"
   },
   {
-    "url": "/blog/movie-is-better-than-book",
-    "page_file": "site/blog/movie-is-better-than-book.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/movie-is-better-than-book",
+    "page_file": "site/movie-is-better-than-book.html",
+    "nav_path": [],
     "excerpt_2": null,
     "excerpt": "This list will likely remain short.",
     "timestamp": "2023-10-09",
@@ -123,11 +106,9 @@
     "title": "List of movies better than their book counterparts"
   },
   {
-    "url": "/blog/an-elegant-triplet-of-fonts",
-    "page_file": "site/blog/an-elegant-triplet-of-fonts/index.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/an-elegant-triplet-of-fonts",
+    "page_file": "site/an-elegant-triplet-of-fonts/index.html",
+    "nav_path": [],
     "excerpt_2": "On top of that, Twitter started dishing out blue ticks on subscriptions.",
     "excerpt": "I use the following set of fonts.",
     "timestamp": "2023-06-12",
@@ -135,11 +116,9 @@
     "title": "An elegant triplet of fonts"
   },
   {
-    "url": "/blog/how-to-mark-up-a-code-snippet-in-html",
-    "page_file": "site/blog/how-to-mark-up-a-code-snippet-in-html.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/how-to-mark-up-a-code-snippet-in-html",
+    "page_file": "site/how-to-mark-up-a-code-snippet-in-html.html",
+    "nav_path": [],
     "excerpt_2": "Clearly, <code>pre</code> tag is not enough to represent a code snippet. How do we distinguish a code snippet from\nother\npre-formatted content? By marking up the snippet with <code>code</code>, and then wrapping it in a\n<code>pre</code> tag.",
     "excerpt": "Suppose, we want to mark up the following multi-line snippet of JavaScript code:",
     "timestamp": "2022-10-06",
@@ -147,11 +126,9 @@
     "title": "How to mark up a code snippet in HTML"
   },
   {
-    "url": "/blog/location-of-emacs-config",
-    "page_file": "site/blog/location-of-emacs-config.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/location-of-emacs-config",
+    "page_file": "site/location-of-emacs-config.html",
+    "nav_path": [],
     "excerpt_2": "So I chose <code>~/.emacs.d</code> as emacs's config location.",
     "excerpt": "If <code>~/.emacs.d</code> exists in the system, which always does because emacs auto-creates it, then emacs does not\npick up <code>init.el</code> from <code>~/.config/emacs</code> for some reason...even if <code>~/.emacs.d</code> is\nempty.",
     "timestamp": "2022-09-24",
@@ -159,11 +136,9 @@
     "title": "Location of emacs config"
   },
   {
-    "url": "/blog/dns",
-    "page_file": "site/blog/dns.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/dns",
+    "page_file": "site/dns.html",
+    "nav_path": [],
     "excerpt_2": "In a CNAME mapping, <code>@ CNAME example.com</code>, example.com is the canonical name, while <code>@</code> is the\ndomain being mapped to the canonical name.",
     "excerpt": "Syntax of a DNS record, along with examples:",
     "timestamp": "2022-09-19",
@@ -171,11 +146,9 @@
     "title": "Learnings on DNS"
   },
   {
-    "url": "/blog/box-sizing",
-    "page_file": "site/blog/box-sizing.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/box-sizing",
+    "page_file": "site/box-sizing.html",
+    "nav_path": [],
     "excerpt_2": null,
     "excerpt": "<code>box-sizing</code> specifies the part of an element's CSS box, to which the properties <code>width, min-width,\nmax-width,\nheight, min-height, max-height</code> apply.",
     "timestamp": "2022-09-17",
@@ -183,11 +156,9 @@
     "title": "What <code>box-sizing</code> does"
   },
   {
-    "url": "/blog/fake-sha256-in-a-nix-derivation",
-    "page_file": "site/blog/fake-sha256-in-a-nix-derivation.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/fake-sha256-in-a-nix-derivation",
+    "page_file": "site/fake-sha256-in-a-nix-derivation.html",
+    "nav_path": [],
     "excerpt_2": "One approach is to fake the hash with zeroes.",
     "excerpt": "Discovering the SHA256 hash for a derivation is a chore.",
     "timestamp": "2022-09-09",
@@ -195,11 +166,9 @@
     "title": "Fake SHA256 in a Nix derivation"
   },
   {
-    "url": "/blog/hover-to-click-without-animation-in-gnome",
-    "page_file": "site/blog/hover-to-click-without-animation-in-gnome/index.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/hover-to-click-without-animation-in-gnome",
+    "page_file": "site/hover-to-click-without-animation-in-gnome/index.html",
+    "nav_path": [],
     "excerpt_2": "Not having to press the mouse button makes for a much more pleasurable and efficient experience. Coupled\nwith <i>Sticky Keys</i>, <i>Hover Click</i> has also helped me recover from a hand injury.",
     "excerpt": "Desktop systems usually provide an accessibility feature, with which a user only has to hover the cursor\nover where he wants to click. The click goes off automatically. In GNOME, this feature is called <i>Hover\nClick</i>.",
     "timestamp": "2020-07-05",
@@ -207,11 +176,9 @@
     "title": "How to use <i>Hover Click</i> without animation in GNOME"
   },
   {
-    "url": "/blog/firefox-add-on-with-clojurescript",
-    "page_file": "site/blog/firefox-add-on-with-clojurescript/index.html",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/firefox-add-on-with-clojurescript",
+    "page_file": "site/firefox-add-on-with-clojurescript/index.html",
+    "nav_path": [],
     "excerpt_2": "You can find a sample add-on on my <a href=\"https://github.com/jayesh-bhoot/firefox-add-on-in-cljs\">GitHub</a>.\nI won't go through the code here, but will lay out the quirky development process. I will mostly focus on the\nplumbing - how ClojureScript hands over the compiled JavaScript code to the add-on.",
     "excerpt": "I found writing Firefox add-ons to be a good way to learn the ropes in ClojureScript in a productive manner.",
     "timestamp": "2020-07-04",
@@ -219,11 +186,9 @@
     "title": "How to write a Firefox add-on in ClojureScript"
   },
   {
-    "url": "/blog/programming-paradigms-and-oop",
-    "page_file": "site/blog/programming-paradigms-and-oop.md",
-    "nav_path": [
-      "blog"
-    ],
+    "url": "/writing",
+    "page_file": "site/writing.html",
+    "nav_path": [],
     "excerpt_2": null,
     "excerpt": null,
     "timestamp": null,
@@ -231,10 +196,19 @@
     "title": null
   },
   {
-    "url": "/blog/effective-scala-series/scala-collections",
-    "page_file": "site/blog/effective-scala-series/scala-collections.html",
+    "url": "/programming-paradigms-and-oop",
+    "page_file": "site/programming-paradigms-and-oop.md",
+    "nav_path": [],
+    "excerpt_2": "Source code represents the textual, human comprehensible form of a computer program.",
+    "excerpt": "A computer program is a set of instructions that a computer can execute.",
+    "timestamp": null,
+    "date": null,
+    "title": "Hello"
+  },
+  {
+    "url": "/effective-scala-series/scala-collections",
+    "page_file": "site/effective-scala-series/scala-collections.html",
     "nav_path": [
-      "blog",
       "effective-scala-series"
     ],
     "excerpt_2": null,
@@ -244,10 +218,9 @@
     "title": "Collections in Scala"
   },
   {
-    "url": "/blog/effective-scala-series/sbt",
-    "page_file": "site/blog/effective-scala-series/sbt.html",
+    "url": "/effective-scala-series/sbt",
+    "page_file": "site/effective-scala-series/sbt.html",
     "nav_path": [
-      "blog",
       "effective-scala-series"
     ],
     "excerpt_2": null,
@@ -257,10 +230,9 @@
     "title": "Scala Build Tool (SBT)"
   },
   {
-    "url": "/blog/effective-scala-series/method-vs-function",
-    "page_file": "site/blog/effective-scala-series/method-vs-function.html",
+    "url": "/effective-scala-series/method-vs-function",
+    "page_file": "site/effective-scala-series/method-vs-function.html",
     "nav_path": [
-      "blog",
       "effective-scala-series"
     ],
     "excerpt_2": null,
@@ -270,10 +242,9 @@
     "title": "Function v/s method"
   },
   {
-    "url": "/blog/effective-scala-series/entry-point",
-    "page_file": "site/blog/effective-scala-series/entry-point.html",
+    "url": "/effective-scala-series/entry-point",
+    "page_file": "site/effective-scala-series/entry-point.html",
     "nav_path": [
-      "blog",
       "effective-scala-series"
     ],
     "excerpt_2": null,
@@ -281,15 +252,5 @@
     "timestamp": null,
     "date": null,
     "title": "Entry point of a project"
-  },
-  {
-    "url": "/2024-05-09-dummy-page",
-    "page_file": "site/2024-05-09-dummy-page.html",
-    "nav_path": [],
-    "excerpt_2": null,
-    "excerpt": null,
-    "timestamp": null,
-    "date": null,
-    "title": "dummy page"
   }
 ]
