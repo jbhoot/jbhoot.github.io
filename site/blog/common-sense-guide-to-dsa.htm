@@ -8,7 +8,16 @@
 </p>
 </hgroup>
 
-<h2>Chapter 1 - Why Data Structures Matter</h2>
+<p>Two crucial features of a codebase:</p>
+
+<ul>
+<li>Maintainability - includes readability and refactoring ability</li>
+<li>Efficiency - speed, time complexity</li>
+</ul>
+
+<p>Data structures and algorithms help with not only the latter, but also the former.</p>
+
+<h2>What is a data structure? What is an algorithm?</h2>
 
 <p>A data structure organises data.</p>
 
@@ -20,9 +29,25 @@
 
 <p>For example, search operation on an OrderedArray could be implemented using a linear search algorithm or a binary search algorithm.</p>
 
-<p>There are several kind of steps - comparison, swapping. </p>
+<p>There are several kind of steps - comparison, swapping, assignment, etc. </p>
 
-<h2>Chapter 2 - Why Algorithms Matter</h2>
+<h3>Data structures v/s abstract data types</h3>
+
+<p>Data structures serve as the basis for abstract data types (ADT). The ADT defines the <strong>logical</strong> form of the data type. The data structure implements the <strong>physical</strong> form of the data type.</p>
+
+<p>ADTs do not specify how the data structure must be implemented or laid out in memory, but simply provide a minimal expected interface and set of behaviors.</p>
+
+<p>As such, array and linked list are the most primitive data structures, on top which ADTs can be built. Primitive in the sense that physical data structures have a definition which includes their physical memory layout.</p>
+
+<p>For example, an array is a contiguous section of memory accessible through an index. This contiguous layout is what makes the O(1) append, O(N) insert, O(1) read, O(N) lookup possible.</p>
+
+<p>Similarly, a linked list is a linear collection of data elements whose order is not given by their physical placement in memory. Instead, each element points to the next. This physical layout in memory makes the O(1) insertion and deletion possible.</p>
+
+<p>Examples of ADTs include stacks, queues, sets, hashtable.</p>
+
+<p>Stacks are commonly implemented using arrays or linked lists, but a needlessly complicated implementation using a binary search tree is still a valid implementation. To be clear, it is incorrect to say that stacks are arrays or vice versa. An array can be used as a stack. Likewise, a stack can be implemented using an array.</p>
+
+<h2>Logarithmic growth</h2>
 
 <p>How to calculate the maximum number of steps to find an element using binary search?</p>
 
@@ -54,3 +79,13 @@
 <p>The first step to determine the Big-O of an algorithm is to figure out exactly <strong>which data in the algorithm is represented by N.</strong></p>
 
 <p>Big-O categories differ greatly in efficiency. That does not mean that two algorithms within an O-category would perform the same or even similar. An algorithm with efficienty of O(N^2) and an algorithm with efficiency of O(N^2/2) both classify under O(N^2) category, but the latter is clearly more performant.</p>
+
+<h3>How do O(N<sup>2</sup>) and O(N * M) compare?</h3>
+
+<p>Both usually come up in an algorithm with nested loops.</p>
+
+<p>O(N<sup>2</sup>) is essentially O(N * N), i.e., a subset of O(N * M) where M = N.</p>
+
+<p>O(N<sup>2</sup>) usually represents an algorithm which loop within a loop over the same array.</p>
+
+<p>O(N * M) usually represents an algorithm which loop within a loop over two arrays of same or different sizes, where the outer loop iterates over an array of size N, while the inner loop iterates over an array of size M.</p>

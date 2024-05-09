@@ -1,0 +1,20 @@
+<h1>Entry point of a project</h1>
+
+<p>While a scala worksheet are evaluated from top to bottom, a scala project needs an entry point.</p>
+
+<p>Only two requirements:</p>
+
+<ul>
+<li>It needs to be a top-level <em>method</em> or an object-level method, but not a class-level method</li>
+<li>It needs to be annotated with <code>@main</code></li>
+</ul>
+
+<p>Otherwise</p>
+
+<ul>
+<li>It can be named anything.</li>
+<li>It can be put in an arbitrary source file.</li>
+</ul>
+
+<p>A source file in a project cannot contain top-level statements (e.g., <code>println</code>), only top-level definitions (<code>def</code>, <code>val</code>, <code>var</code>, <code>trait</code>, <code>object</code>, <code>class</code> definitions)
+.</p>

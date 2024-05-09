@@ -1,16 +1,15 @@
 <hgroup>
-<h1>Notes on/from Effective Scala</h1>
+<h1>Elements of a Program</h1>
+<p><time datetime="2024-05-01">1 May 2024</time></p>
 </hgroup>
 
-<h2>Elements of a Program</h2>
-
-<h3>Value (or Data in this context)</h3>
+<h2>Value (or Data in this context)</h2>
 
 <p>A value is the representation of some entity that can be manipulated by a program.</p>
 
 <p>Value is the most abstract definition here, but it is made concrete by subsequent definitions.</p>
 
-<h3>Literal</h3>
+<h2>Literal</h2>
 
 <p>A literal is a text representation of a value in source code.</p>
 
@@ -21,7 +20,7 @@
 <li><code>{id: 1, (x) => x * x}</code> is an <strong>object literal</strong> in JavaScript, etc.</li>
 </ul>
 
-<h3>(Data) Type</h3>
+<h2>(Data) Type</h2>
 
 <p>A data type (or simply type) is a collection of data values.</p>
 
@@ -30,7 +29,7 @@ values.</p>
 
 <p>The members of a type are the values of that type.</p>
 
-<h3>Expression</h3>
+<h2>Expression</h2>
 
 <p>An expression is a syntactic entity that can evaluate to a value.</p>
 
@@ -51,7 +50,7 @@ applied on the expression <code>"Alice" + " Wonderland"</code>. The expression <
 </li>
 </ul>
 
-<h3>Program</h3>
+<h2>Program</h2>
 
 <p>A program expresses a computation. (A computation is any type of arithmetic or non-arithmetic calculation that is
 well-defined).</p>
@@ -62,7 +61,7 @@ well-defined).</p>
 <li><code>1 + 1</code> is an expression, but also a program which expresses the computation of adding 1 to 1.</li>
 </ul>
 
-<h3>Type - another perspective</h3>
+<h2>Another perspective on Type</h2>
 
 <p>Types define the rules for combining expressions. The types define how the expressions can be combined, by applying
 operations to them. For this reason, operations are also called members of types.</p>
@@ -73,57 +72,3 @@ parameter.</p>
 
 <p>If you try to apply an operation to an expression,
 whose type does not provide such an operation, it's an error.</p>
-
-<h2>Domain Modelling</h2>
-
-<p>Finding the <em>right</em> level of abstraction is more important than the best level of abstraction.</p>
-
-<p>For example, in a problem involving doors and windows and facades, if the domain is constrained to only deal with surface area, then modelling the doors and windows and facade in terms of <strong>Rectangle</strong> is the right level of abstraction instead of modelling them as Door, Window, and Facade respectively.</p>
-
-<h2>Functions and methods</h2>
-
-<p>A function is a value in Scala, while a method is not. So the former can be passed as a parameter of a function or a method, and can be returned as a value. Method cannot do any of those.</p>
-
-<p>A function is a value in Scala. All values are objects in Scala. An object can have methods. So a function in Scala can have methods.</p>
-
-<p>Any function in Scala has a default <code>apply</code> method. <code>inc(1)</code> is a shorthand for <code>inc.apply(1)</code></p>
-
-<h2>Collections</h2>
-
-<p>Operations on collections can be classified into:</p>
-
-<ul>
-<li>construct ops (<code>::</code>, <code>+:</code>, <code>:+</code>, <code>+</code>, <code>++</code>;</li>
-<li>query ops (<code>size</code>, <code>empty</code>, <code>head</code>, <code>tail</code>, <code>find</code>, <code>filter</code>); and</li>
-<li>transform ops (<code>map</code>, <code>fold</code>)</li>
-</ul>
-
-<p>A list of immutable construction ops</p>
-<ul>
-<li><code>::</code> to prepend to a <code>List</code>. <code>1 :: List.empty</code></li>
-<li><code>+:</code> to prepend to a <code>Sequence</code> collection, including <code>List</code>. <code>1 +: mutable.ArrayBuffer(2, 3)</code></li>
-<li><code>:+</code> to append to a <code>Sequence</code> collection</li>
-<li><code>+</code> to add a (key, value) tuple to a <code>Map</code></li>
-<li><code>++</code> constructs a new collection out of two collections. <code>Map((1, "1"), (2, "2")) ++ Map((4, "4"))</code></li>
-</ul>
-
-<p>A list of mutable construction ops</p>
-<ul>
-<li><code>+=:</code> to prepend to a <code>Sequence</code> collection</li>
-<li><code>+=</code> to append to a <code>Sequence</code> collection</li>
-<li><code>++=</code>concatenates two collections, mutates the first one.</li>
-</ul>
-
-<h3>List</h3>
-
-<p>A list is constructed from right to left:</p>
-
-<pre><code>1 :: 2 :: 3 :: Nil</code></pre>
-
-<h2>Option</h2>
-
-<p>Option is actually a collection of zero or one element.</p>
-
-<p>This explains why Option type has a <code>map</code> or <code>filter</code> operations even in OCaml.</p>
-
-<p>No indexed access (<code>opt(0)</code>) though, understandably.</p>

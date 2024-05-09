@@ -1,0 +1,29 @@
+<h1>Scala Build Tool (SBT)</h1>
+
+<p><code>src/project</code> dir contains configuration about SBT - <code>build.properties</code> to specify sbt version, <code>plugins.sbt</code> to specify sbt plugins, and so on.</p>
+
+<p><code>src/build.sbt</code> contains the configuration to build the project itself.</p>
+
+<p>̄An sbt build (<code>build.sbt</code>) is composed of - settings and tasks. A setting parametrises the build, and consists of a key value pair. A task may also by parametrised by settings.</p>
+
+<h2>Configurations in <code>build.sbt</code></h2>
+
+<ul>
+<li>Compile (default configuration where sbt looks first)</li>
+<li>Test</li>
+<li>Zero (no specified config, where fallback values live)</li>
+</ul>
+
+<h2>Scoping a Setting</h2>
+
+<p>Different values can be applied to a single setting by scoped its key.</p>
+
+<p>A key can be scoped along any of the 3 axes:</p>
+
+<ul>
+<li>Configuration. e.g., <code>Compile / sourceDirectory</code>, <code>Test / sourceDirectory</code></li>
+<li>Task. e.g., <code>includeFilter</code>, <code>unmanagedSources / includeFilter</code> where the latter <code>includeFilter</code> is scoped by <code>unmanagedSources</code> task.</li>
+<li>Sub-project. e.g., <code>mainProject / scalaVersion</code>, <code>subProject / scalaVersion</code></li>
+</ul>
+
+<p>Axes can be combined too: <code>subProject / Compile / unmanagedSources / includeFilter</code>. I think the order is: <strong>project / configuration / task / key</strong>.</p>
