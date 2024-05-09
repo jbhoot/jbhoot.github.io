@@ -99,6 +99,10 @@ a.site-title:hover {
     margin-inline-start: 10px;
 }
 
+.cv h2 {
+    border-block-end: 2px solid;
+}
+
 /*.cv li h3 + p:has(time),*/
 /*.cv li hgroup p:has(time), */
 .cv hgroup .date-duration {
