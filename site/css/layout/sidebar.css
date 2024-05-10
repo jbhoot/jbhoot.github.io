@@ -1,7 +1,7 @@
 .with-sidebar {
     --sidebar-width: auto;
     /* Must be in percentage. */
-    --sidebar-main-min-width: 60%;
+    --sidebar-main-min-width: 70%;
     --sidebar-gap: var(--s0, 1rem);
 
     display: flex;

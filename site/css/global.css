@@ -12,7 +12,7 @@
     /*to play with other values.*/
     --base-size: 1rem;
     --ratio: 1.125;
-    --measure: 60ch;
+    --measure: 65ch;
     line-height: 1.50;
 
     --s-6: calc(var(--s-5) / var(--ratio));
@@ -49,6 +49,8 @@
     --color-light-2: #ffeebf;
     --color-light-3: #bfd0ff;
     --color-dark: black;
+
+    --size-h1: var(--s5);
 }
 
 html {
@@ -120,7 +122,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: var(--s5);
+    font-size: var(--size-h1);
 }
 
 h2 {
@@ -279,13 +281,13 @@ nav ul {
     list-style: none;
 }
 
-aside {
+aside:not(.no-touch) {
     color: gray;
     border: 1px dashed gray;
     padding: var(--s0);
 }
 
-aside::before {
+aside:not(.no-touch)::before {
     display: block;
     content: "ASIDE";
     margin-bottom: var(--s0);

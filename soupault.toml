@@ -20,6 +20,7 @@ complete_page_selector = "html"
 default_template_file = "templates/default.html"
 # The content will be inserted into element selected by default_content_selector,
 default_content_selector = "main"
+default_content_action = "append_child"
 
 # Set the document type to HTML5, unless the page already has
 # a doctype declaration.
@@ -37,6 +38,7 @@ md = "cmark --unsafe --smart"
 [templates.index-page]
 file = "templates/index-page.html"
 content_selector = "main"
+content_action = "append_child"
 page = ["index.html"]
 
 [index]
