@@ -2,6 +2,14 @@
 clean:
 	rm -rf build/*
 
+.PHONY: build-dev
+build-dev:
+	./soupault
+
+.PHONY: build-prod
+build-prod:
+	./soupault --profile production
+
 .PHONY: dev
 dev:
 	while true ; do \
@@ -25,4 +33,4 @@ deploy:
 	&& rm publish.tar.gz
 
 .PHONY: publish
-publish : clean build deploy
+publish : clean build-prod deploy
