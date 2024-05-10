@@ -186,16 +186,6 @@
     "title": "How to write a Firefox add-on in ClojureScript"
   },
   {
-    "url": "/writing",
-    "page_file": "site/writing.html",
-    "nav_path": [],
-    "excerpt_2": null,
-    "excerpt": null,
-    "timestamp": null,
-    "date": null,
-    "title": null
-  },
-  {
     "url": "/programming-paradigms-and-oop",
     "page_file": "site/programming-paradigms-and-oop.md",
     "nav_path": [],
