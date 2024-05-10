@@ -1,4 +1,6 @@
-# This is a basic workflow to help you get started with Actions
+# Adapted from:
+# Sample hugo workflow: https://github.com/actions/starter-workflows/blob/main/pages/hugo.yml
+# Soupault's sample workflow: https://soupault.app/tips-and-tricks/deployment/#github-actions
 
 name: Deploy to Github Pages
 
