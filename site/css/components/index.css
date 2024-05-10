@@ -130,7 +130,8 @@ a.site-title:hover {
 
 .toc-heading-link {
     font-weight: normal;
-    margin-inline-end: 5px;
+    margin-inline-start: 0.4em;
+    line-height: 1.50;
     text-decoration: none;
 }
 
