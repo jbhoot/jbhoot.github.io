@@ -10,7 +10,7 @@ build_dir = "build"
 # and copied to build/ unchanged
 page_file_extensions = ["html", "md", "rst", "adoc"]
 # Drafts use .htm
-ignore_extensions = ["htm", "htm~", "html~"]
+ignore_extensions = ["htm", "markdown", "htm~", "html~"]
 
 # Treat files as content to insert in the template,
 # unless they have an <html> element in them.
