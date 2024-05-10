@@ -22,17 +22,6 @@ function stretchOrShrinkSidebar(mediaQuery) {
     }
 }
 
-function addOrRemoteMarginToBlogPostContainer(mediaQuery) {
-    const postContainer = document.querySelector('.post-container');
-    if (postContainer) {
-        if (mediaQuery.matches) {
-            postContainer.style.marginBlockStart = '0';
-        } else {
-            postContainer.style.marginBlockStart = 'var(--s0)';
-        }
-    }
-}
-
 function applyMediaQueryChange(mediaQuery) {
     styleSiteNavMenuAsStackOrCluster(mediaQuery);
     stretchOrShrinkSidebar(mediaQuery);

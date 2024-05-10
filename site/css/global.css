@@ -47,6 +47,8 @@
 
     --color-light-1: #fbf4e9;
     --color-light-2: #ffeebf;
+    --color-light-3: #bfd0ff;
+    --color-dark: black;
 }
 
 html {
@@ -74,7 +76,7 @@ body {
      Updating --s0 = 1rem * module scale does not make sense because the default --s0 would become too large for spacing purposes.
      ***/
     font-size: var(--s1);
-    background-color: var(--color-light-1);
+    background-color: var(--color-light-3);
 }
 
 * {
@@ -245,7 +247,7 @@ ul, ol {
      * https://html.spec.whatwg.org/multipage/rendering.html#lists
      * So we stick to padding, only change its value.
      */
-    padding-inline-start: 2em;
+    padding-inline-start: 1em;
 }
 
 ol {

@@ -34,6 +34,11 @@ plugin_dirs = ["plugins"]
 [preprocessors]
 md = "cmark --unsafe --smart"
 
+[templates.index-page]
+file = "templates/index-page.html"
+content_selector = "main"
+page = ["index.html"]
+
 [index]
 index = true
 index_first = true
