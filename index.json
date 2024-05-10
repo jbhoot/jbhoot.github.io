@@ -10,40 +10,74 @@
     "title": "Series - Effective Programming in Scala"
   },
   {
-    "url": "/effective-scala-series/elements-of-a-program",
-    "page_file": "site/effective-scala-series/elements-of-a-program.html",
-    "nav_path": [
-      "effective-scala-series"
-    ],
-    "excerpt_2": "Value is the most abstract definition here, but it is made concrete by subsequent definitions.",
-    "excerpt": "A value is the representation of some entity that can be manipulated by a program.",
-    "timestamp": "2024-05-01",
-    "date": "1 May 2024",
-    "title": "Elements of a Program"
+    "url": "/effective-scala-7-project-entry-point",
+    "page_file": "site/effective-scala-7-project-entry-point.html",
+    "nav_path": [],
+    "excerpt_2": "Only two requirements:",
+    "excerpt": "While a scala worksheet are evaluated from top to bottom, a scala project needs an entry point.",
+    "timestamp": "2024-05-07",
+    "date": "7 May 2024",
+    "title": "Effective Scala, part 7 - entry point of a project"
   },
   {
-    "url": "/effective-scala-series/domain-modelling",
-    "page_file": "site/effective-scala-series/domain-modelling.html",
-    "nav_path": [
-      "effective-scala-series"
-    ],
-    "excerpt_2": "For example, in a problem involving doors and windows and facades, if the domain is constrained to only deal with surface area, then modelling the doors and windows and facade in terms of <strong>Rectangle</strong> is the right level of abstraction instead of modelling them as Door, Window, and Facade respectively.",
-    "excerpt": "Finding the <em>right</em> level of abstraction is more important than the best level of abstraction.",
-    "timestamp": "2024-05-01",
-    "date": "1 May 2024",
-    "title": "Domain Modelling"
+    "url": "/effective-scala-6-sbt",
+    "page_file": "site/effective-scala-6-sbt.html",
+    "nav_path": [],
+    "excerpt_2": "<code>src/build.sbt</code> contains the configuration to build the project itself.",
+    "excerpt": "<code>src/project</code> dir contains configuration about SBT - <code>build.properties</code> to specify sbt version, <code>plugins.sbt</code> to specify sbt plugins, and so on.",
+    "timestamp": "2024-05-06",
+    "date": "6 May 2024",
+    "title": "Effective Scala, part 6 - Scala Build Tool (SBT)"
   },
   {
-    "url": "/effective-scala-series/compatibility-roulette-in-scala",
-    "page_file": "site/effective-scala-series/compatibility-roulette-in-scala.html",
-    "nav_path": [
-      "effective-scala-series"
-    ],
+    "url": "/effective-scala-5-collections",
+    "page_file": "site/effective-scala-5-collections.html",
+    "nav_path": [],
+    "excerpt_2": "This explains why Option type has a <code>map</code> or <code>filter</code> operations even in OCaml.",
+    "excerpt": "Operations on collections can be classified into:",
+    "timestamp": "2024-04-24",
+    "date": "24 April 2024",
+    "title": "Effective Scala, part 5 - collections"
+  },
+  {
+    "url": "/effective-scala-4-method-vs-function",
+    "page_file": "site/effective-scala-4-method-vs-function.html",
+    "nav_path": [],
+    "excerpt_2": "A function is a value in Scala. All values are objects in Scala. An object can have methods. So a function in Scala can have methods.",
+    "excerpt": "A function is a value in Scala, while a method is not. So the former can be passed as a parameter of a function or a method, and can be returned as a value. Method cannot do any of those.",
+    "timestamp": "2024-04-21",
+    "date": "21 April 2024",
+    "title": "Effective Scala, part 4 - function v/s method"
+  },
+  {
+    "url": "/effective-scala-3-compatibility-roulette",
+    "page_file": "site/effective-scala-3-compatibility-roulette.html",
+    "nav_path": [],
     "excerpt_2": "Check the <a href=\"https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html\">compatibility tables</a>.",
     "excerpt": "I am going through the course <a href=\"https://www.coursera.org/learn/effective-scala\">Effective Programming in Scala</a> on Coursera, and ran into build import errors in the very first assignment (fireworks).",
     "timestamp": "2024-04-19",
     "date": "19 April 2024",
-    "title": "Compatibility roulette in Scala"
+    "title": "Effective Scala, part 3 - compatibility roulette"
+  },
+  {
+    "url": "/effective-scala-2-domain-modelling",
+    "page_file": "site/effective-scala-2-domain-modelling.html",
+    "nav_path": [],
+    "excerpt_2": "For example, in a problem involving doors and windows and facades, if the domain is constrained to only deal with surface area, then modelling the doors and windows and facade in terms of <strong>Rectangle</strong> is the right level of abstraction instead of modelling them as Door, Window, and Facade respectively.",
+    "excerpt": "Finding the <em>right</em> level of abstraction is more important than the best level of abstraction.",
+    "timestamp": "2024-04-16",
+    "date": "16 April 2024",
+    "title": "Effective Scala, part 2 - domain modelling"
+  },
+  {
+    "url": "/effective-scala-1-elements-of-a-program",
+    "page_file": "site/effective-scala-1-elements-of-a-program.html",
+    "nav_path": [],
+    "excerpt_2": "Value is the most abstract definition here, but it is made concrete by subsequent definitions.",
+    "excerpt": "A value is the representation of some entity that can be manipulated by a program.",
+    "timestamp": "2024-04-15",
+    "date": "15 April 2024",
+    "title": "Effective Scala, part 1 - elements of a program"
   },
   {
     "url": "/editor-tooling-in-ocaml",
@@ -184,63 +218,5 @@
     "timestamp": "2020-07-04",
     "date": "4th July 2020",
     "title": "How to write a Firefox add-on in ClojureScript"
-  },
-  {
-    "url": "/programming-paradigms-and-oop",
-    "page_file": "site/programming-paradigms-and-oop.md",
-    "nav_path": [],
-    "excerpt_2": "Source code represents the textual, human comprehensible form of a computer program.",
-    "excerpt": "A computer program is a set of instructions that a computer can execute.",
-    "timestamp": null,
-    "date": null,
-    "title": "Hello"
-  },
-  {
-    "url": "/effective-scala-series/scala-collections",
-    "page_file": "site/effective-scala-series/scala-collections.html",
-    "nav_path": [
-      "effective-scala-series"
-    ],
-    "excerpt_2": null,
-    "excerpt": null,
-    "timestamp": null,
-    "date": null,
-    "title": "Collections in Scala"
-  },
-  {
-    "url": "/effective-scala-series/sbt",
-    "page_file": "site/effective-scala-series/sbt.html",
-    "nav_path": [
-      "effective-scala-series"
-    ],
-    "excerpt_2": null,
-    "excerpt": null,
-    "timestamp": null,
-    "date": null,
-    "title": "Scala Build Tool (SBT)"
-  },
-  {
-    "url": "/effective-scala-series/method-vs-function",
-    "page_file": "site/effective-scala-series/method-vs-function.html",
-    "nav_path": [
-      "effective-scala-series"
-    ],
-    "excerpt_2": null,
-    "excerpt": null,
-    "timestamp": null,
-    "date": null,
-    "title": "Function v/s method"
-  },
-  {
-    "url": "/effective-scala-series/entry-point",
-    "page_file": "site/effective-scala-series/entry-point.html",
-    "nav_path": [
-      "effective-scala-series"
-    ],
-    "excerpt_2": null,
-    "excerpt": null,
-    "timestamp": null,
-    "date": null,
-    "title": "Entry point of a project"
   }
 ]
