@@ -12,15 +12,7 @@ build-prod:
 
 .PHONY: dev
 dev:
-	while true ; do \
-		rm -rf build/* ; \
-		./soupault ; \
-		sleep 2 ; \
-	done
-
-.PHONY: build
-build:
-	./soupault
+	ls soupault.toml templates/* site/**/*.* | entr -s 'make clean && make build-dev'
 
 .PHONY: serve
 serve:
