@@ -28,7 +28,7 @@ function applyMediaQueryChange(mediaQuery) {
 }
 
 function setupMediaQueryChange() {
-    const mediaQuery = window.matchMedia('(width <= 90ch)');
+    const mediaQuery = window.matchMedia('(width <= 65ch)');
     applyMediaQueryChange(mediaQuery);
     mediaQuery.addEventListener('change', applyMediaQueryChange);
 }
