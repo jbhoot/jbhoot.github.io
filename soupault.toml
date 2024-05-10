@@ -208,3 +208,11 @@ heading_links_append = true
 [widgets.delete_draft_content]
 widget = "delete_element"
 selector = ".draft"
+
+[widgets.analytics]
+profile = "production"
+widget = "insert_html"
+parse = true
+html = "<script data-goatcounter='https://jysh.goatcounter.com/count' async src='//gc.zgo.at/count.js'></script>"
+selector = "body"
+action = "append_child"
