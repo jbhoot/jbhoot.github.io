@@ -25,7 +25,6 @@ function stretchOrShrinkSidebar(mediaQuery) {
 function applyMediaQueryChange(mediaQuery) {
     styleSiteNavMenuAsStackOrCluster(mediaQuery);
     stretchOrShrinkSidebar(mediaQuery);
-    addOrRemoteMarginToBlogPostContainer(mediaQuery);
 }
 
 function setupMediaQueryChange() {
