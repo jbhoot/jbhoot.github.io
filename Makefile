@@ -6,10 +6,6 @@ clean:
 build-dev:
 	./soupault
 
-.PHONY: build-prod
-build-prod:
-	./soupault --profile production
-
 .PHONY: dev
 dev:
 	ls soupault.toml templates/* site/**/*.* | entr -s 'make clean && make build-dev'
@@ -18,11 +14,6 @@ dev:
 serve:
 	caddy file-server --root build
 
-.PHONY: deploy
-deploy:
-	tar -C build -cvz . > publish.tar.gz \
-	&& hut pages publish -d jysh.net publish.tar.gz \
-	&& rm publish.tar.gz
-
-.PHONY: publish
-publish : clean build-prod deploy
+.PHONY: build-prod
+build-prod:
+	./soupault --profile production
