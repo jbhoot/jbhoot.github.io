@@ -85,7 +85,17 @@ index_item_template = """
   </article>
   """
 
+[index.views.yearly-posts]
+index_selector = "ul.yearly-posts"
+index_item_template = """
+  <li>
+    <a href="{{url}}" class="font-weight:600">{{title}}</a>
+    <p class="margin-block-start:2px font-size:0.9em">Published: <time datetime="{{timestamp}}">{{date}}</time></p>
+  </li>
+  """
+  
 [index.views.all-posts-list]
+section = ["2020","2022","2023","2024",]
 include_subsections = true
 index_selector = "ul.all-posts"
 index_template = """
@@ -104,6 +114,7 @@ index_template = """
 file = "index_processors/all-posts.lua"
 
 [index.views.recent-posts-list]
+section = ["2020","2022","2023","2024",]
 include_subsections = true
 max_items = 5
 index_selector = "ul.recent-posts"

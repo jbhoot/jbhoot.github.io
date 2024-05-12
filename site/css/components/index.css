@@ -1,45 +1,45 @@
 @keyframes animate-site-title {
-    0% {
-        transform-origin: top left;
-        transform: rotate(0deg);
-    }
+  0% {
+    transform-origin: top left;
+    transform: rotate(0deg);
+  }
 
-    100% {
-        transform-origin: top left;
-        transform: rotate(4deg);
-    }
+  100% {
+    transform-origin: top left;
+    transform: rotate(4deg);
+  }
 }
 
 a.site-title {
-    display: block;
-    inline-size: fit-content;
+  display: block;
+  inline-size: fit-content;
 
-    font-size: var(--s2);
-    font-family: var(--font-sans);
-    font-weight: 600;
-    text-decoration: none;
-    outline: 1px solid;
-    outline-offset: 5px;
-    
-    animation-name: animate-site-title;
-    animation-delay: 5s;
-    animation-duration: 200ms;
-    animation-fill-mode: forwards;
+  font-size: var(--s2);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-decoration: none;
+  outline: 1px solid;
+  outline-offset: 5px;
 
-    color: #fee;
-    text-shadow:
-            0 -40px 100px,
-            0 0 2px,
-            0 0 1em #ff4444,
-            0 0 0.5em #ff4444,
-            0 0 0.1em #ff4444,
-            0 10px 3px #000;
+  animation-name: animate-site-title;
+  animation-delay: 5s;
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+
+  color: #fee;
+  text-shadow:
+    0 -40px 100px,
+    0 0 2px,
+    0 0 1em #ff4444,
+    0 0 0.5em #ff4444,
+    0 0 0.1em #ff4444,
+    0 10px 3px #000;
 }
 
 a.site-title:hover {
-    background-color: transparent;
-    text-decoration: underline;
-    outline: none
+  background-color: transparent;
+  text-decoration: underline;
+  outline: none
 }
 
 /* Source: https://codepen.io/nodws/pen/WNjXbr */
@@ -48,29 +48,36 @@ a.site-title:hover {
     color: inherit;
     text-shadow: inherit;
   }
-  79%{
-     color: #333;
+
+  79% {
+    color: #333;
   }
+
   80% {
 
     text-shadow: none;
   }
+
   81% {
     color: inherit;
     text-shadow: inherit;
   }
+
   82% {
     color: #333;
     text-shadow: none;
   }
+
   83% {
     color: inherit;
     text-shadow: inherit;
   }
+
   92% {
     color: #333;
     text-shadow: none;
   }
+
   92.5% {
     color: inherit;
     text-shadow: inherit;
@@ -78,79 +85,78 @@ a.site-title:hover {
 }
 
 .site-title span {
-    animation: blink linear infinite 2s;
+  animation: blink linear infinite 2s;
 }
 
 .site-title span:nth-of-type(2) {
-    animation: blink linear infinite 3s;
+  animation: blink linear infinite 3s;
 }
 
-.site-nav {
-}
+.site-nav {}
 
 .tag {
-    border: 1px solid gray;
-    font-size: 0.8em;
-    border-radius: 2px;
-    padding: 2px;
+  border: 1px solid gray;
+  font-size: 0.8em;
+  border-radius: 2px;
+  padding: 2px;
 }
 
-.tag + .tag {
-    margin-inline-start: 10px;
+.tag+.tag {
+  margin-inline-start: 10px;
 }
 
 .cv h2 {
-    border-block-end: 2px solid;
+  border-block-end: 2px solid;
 }
 
 /*.cv li h3 + p:has(time),*/
 /*.cv li hgroup p:has(time), */
 .cv hgroup .date-duration {
-    color: #5b5a5a;
-    font-size: 0.9em;
+  color: #5b5a5a;
+  font-size: 0.9em;
 }
 
 .toc-1:has(*)::before {
-    content: 'Table of Contents';
-    font-size: var(--s1);
-    font-weight: bold;
+  content: 'On this page';
+  font-size: var(--s1);
+  font-weight: bold;
 }
 
 .toc-1:has(*) {
-    list-style-position: inside;
-    margin-inline-start: 0;
-    border: 2px solid #efde72;
-    padding: 8px;
-    font-size: 0.9em;
+  list-style-position: inside;
+  margin-inline-start: 0;
+  border: 2px solid #efde72;
+  padding: 8px;
+  font-size: 0.9em;
 }
 
-.toc-1 * + * {
-    margin-block-start: 5px;
+.toc-1 *+* {
+  margin-block-start: 5px;
 }
 
 .toc-heading-link {
-    font-weight: normal;
-    margin-inline-start: 0.4em;
-    line-height: 1.50;
-    text-decoration: none;
+  font-weight: normal;
+  margin-inline-start: 0.4em;
+  line-height: 1.50;
+  text-decoration: none;
 }
 
 .tags::before {
-    content: "Tags";
+  content: "Tags";
 }
 
-.tags > * {
-    background-color: #0097db;
-    padding: 2px 4px;
-    color: white;
+.tags>* {
+  background-color: #0097db;
+  padding: 2px 4px;
+  color: white;
 }
 
-.tags > * + * {
-    margin-inline-start: 5px;
+.tags>*+* {
+  margin-inline-start: 5px;
 }
 
 @media print {
-    .cv * {
-        max-inline-size: calc(var(--measure) * 2);
-    }
+  .cv * {
+    max-inline-size: calc(var(--measure) * 2);
+  }
 }

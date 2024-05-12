@@ -1,0 +1,197 @@
+Nice summary: https://news.ycombinator.com/item?id=25925867
+https://news.ycombinator.com/item?id=25895807
+
+A few critical factors:
+
+- large community (must have a forum/mailing list at least, reddit-only does not count): one niche ecosystem in life,
+and its OCaml. I don't want to get stuck with another. This is the most important criteria, and rules out almost every
+lisp, probably except clojure and racket.
+> https://old.reddit.com/r/lisp/comments/r47z2k/chez_scheme_vs_guile_scheme/hmf159t/: In my opinion, it's Racket,
+because, as far as I know, it has the largest collection of libraries and is popular/active enough that you never have
+to wait long for answers if you get stuck on something. For me, those elements are essential for getting "real world"
+work done. It's also pretty decent when it comes to performance.
+
+- Good IDE support, and preferably emacs: That eliminates most schemes, except Racket and Clojure and Common Lisp.
+
+scheme-lsp (still incomplete) only support Gambit, Chicken, Guile.
+
+There is a nice VSCode extension for Chez! https://github.com/Release-Candidate/vscode-scheme-repl. It supports
+repl-deriven dev, autocompletion, and all such goodies.
+
+> https://old.reddit.com/r/scheme/comments/14r72i1/setting_up_a_scheme_coding_environment_in_vs_code/jqr3xk6/
+
+- usecase: my usecase seems to have narrowed down to occasional scripting. I wouldn't build large codebase in a dynamic
+language, not even in lisp, unless someone is paying me for it.
+- large stdlib: rules out most of them, except racket and clojure.
+- cross-platform: eliminates guile
+
+
+### Guile
+
+Contrary to what appears from outside, its not really actively developed.
+
+They are not at all interested in helping out if the outcome is commercial/proprietary.
+
+Not at all cross-platform.
+
+My guix fever has subsided, leaving it with no usecase for me.
+
+### Gerbil
+
+Like guile, it has a very attractive website. But its quite immature at this point
+
+A one or two-man show.
+
+No editor support, no users, no forums.
+
+
+### Chez
+
+only respectable one which has implemented r6rs.
+
+Of gambit, chicken and chez (embeddable, fast, cross-platform, compiled and interpreted), chez seems to be the
+all-rounder one.
+
+Better repl than most schemes
+
+tooling: There is a nice VSCode extension for Chez! https://github.com/Release-Candidate/vscode-scheme-repl. It supports
+repl-deriven dev, autocompletion, and all such goodies.
+
+markdhughes on Why chez is better than chicken:
+https://old.reddit.com/r/scheme/comments/vskb55/which_implementation_of_scheme_do_you_use_and_why/if1ur72/
+
+arguments against: https://news.ycombinator.com/item?id=13657462
+
+NOTE: None of the lisps, except Common Lisp and Clojure, have proper editor tooling. Especially schemes. Tools like
+geiser may break down any time. Unsatisfactory autocomplete, peek-at-documentation, etc. Conjure supports to provide
+support for a lot of them including Guile and Janet, but a closer look at this
+https://github.com/Olical/conjure/wiki/Client-features suggests that not even completion or go-to-df are supported for
+most of them. So all of these are a big no-no right here.
+
+What I want in a lisp for scripting
+JSON parsing
+IO - file, network
+Call shell commands without ceremony
+IDE integration, autocomplete
+Text munging
+Alive - decent-sized community
+True lisps
+- Common Lisp and its derivatives
+No other lisp has an REPL exp / debugging like CL
+Imperative-first though, mutability by default
+No good concurrency story like clojure
+Mutation is deeply entrenched within Common Lisp's way of doing things
+(https://old.reddit.com/r/lisp/comments/c0y950/where_does_common_lisp_has_advantages_in_respect/er95xy7/)
+SLIME for repl,tooling
+Why not Common Lisp: https://news.ycombinator.com/item?id=26072351
+- Scheme
+These are a disaster. None of them fully implements any of the recommendations. If one has stdlib, then it lacks
+community (Chez). If one has community, then it lacks cross-platform support or compilation-to-single-binary support
+(Guile). and what not.
+None of them, may be except Guile, have proper tooling support.
+Choosing the right scheme is a huge time sink and not worth it.
+Functional-first
+Mutation frowned upon
+Geiser seems to be the go-to editing tooling for all schemes (Guile, Chez, Chicken, Gauche, etc.). But things regularly
+break in it. Perhaps runs the best only for Guile.
+All schemes are based on a standard, so API knowledge is transferrable across schemes (to some extent)
+- Guile
+May be used for scripting, like Janet
+Embeddable
+- Chicken
+Unanimous agreement that it has the most welcoming and loving community!
+Its packaging system of eggs is well loved.
+https://news.ycombinator.com/item?id=20554957
+Knodium.com site in Chicken: https://www.youtube.com/watch?v=gOPuWi-dbQg
+https://registers.app/
+- Chez
+- Gambit | Gerbil:
+great performance and was good for system programming
+https://fare.livejournal.com/188429.html
+- Racket
+Functional-first
+Mutation frowned upon
+Based on scheme, but veered off enough
+Pro: Most batteries inclued in terms of standard library and 3rd party libraries of all Lisps (except Clojre)
+Geiser for repl, tooling?
+Racket is a very language-oriented ecosystem. #lang directive needed to start with.
+"My experience with Racket is that, it's good for programming language research, either DSL or GPL, but I won't use it
+to do anything else."
+Con: https://old.reddit.com/r/lisp/comments/igci3l/racket_seems_op/g2ulpab/
+Con: https://old.reddit.com/r/lisp/comments/rmqkvo/scheme_vs_racket/hpokdp3/
+Con: Racket's interactivity &lt; Guile &lt; Common Lisp. Racket is basically lisp syntax but Haskell interactivity.
+Racket's REPL is worse than Clojure. https://old.reddit.com/r/lisp/comments/igci3l/racket_seems_op/g2w1vfh/
+- Clojure
+
+Lispish:
+- Fennel is just Lua with a lispy syntax. Fennel gives you nothing over Lua but parentheses. Its as imperative and
+mutable as Lua. In contrast, ReScript provides a huge value over JavaScript wrt its immutability and ML-like type
+system, even while sacrificing other FP principles.
+- Janet: Better than Fennel wrt lispyness. But doesn't call itself a lisp on its own repo. More a competitor to lua
+itself. Serves same niche as Lua.
+- Urn: Is Dead. Lisp that compiles to Lua. Actual lisp compared to Fennel. If we really want to use Lua, then urn is
+better. Even has bindigns to love2d lib.
+
+Scripting
+- Guile seems to have the most bindings for shell
+e.g., https://www.gnu.org/software/guile/manual/html_node/POSIX.html
+- Scheme shell: https://scsh.net/
+- Racket:
+Setup: https://docs.racket-lang.org/guide/scripts.html
+Zuo, a mini-Racket: Has shell wrappers, and all io utilities, etc.
+
+## RxRS support
+
+R5RS is very inadequate.
+
+R6RS, unnecessarily controversial, is the most featureful. Which scheme implements it is a serious contender.
+
+R7RS is split into R7RS-small and R7RS-large. But R7RS-small is too small to be useful, and R7RS-large is stuck in
+development hell for a decade. So over all, R7RS is not practical.
+
+- R5RS++ aka Chicken is a horrible mess, some R7RS-small support, a lot of idiosyncratic libraries, a slow compiler. It
+works, and that's no small thing, but it's a mountain of hacks. MIT Scheme is even worse, there's useful libraries in
+it, but it's one of the worst impls for doing real work.
+
+Quoting https://old.reddit.com/r/scheme/comments/f6f6sd/the_future_of_r6rs_implementations/fi6g774/:
+
+> The thing is, for practical applications:
+>
+> R5RS++ aka Chicken is a horrible mess, some R7RS-small support, a lot of idiosyncratic libraries, a slow compiler. It
+works, and that's no small thing, but it's a mountain of hacks. MIT Scheme is even worse, there's useful libraries in
+it, but it's one of the worst impls for doing real work.
+> R6RS is useful as given in the spec, and Chez in particular is the fastest and most productive Scheme implementation.
+Do you like a good REPL editor and not just readline? Do you like Unicode working (and not taking exponential time like
+Chicken's utf8)? Do you want hashtables and records that are actually part of the language? Do you like an error system
+that's not just random impl-specific strings? Then you pick Chez.
+> R7RS-small is basically useless, a toy language spec. I'm sure that's fun if you're writing your own impl, but it
+doesn't help you write software in Scheme.
+> R7RS-large is a giant pile of unfinished SRFIs, hope you can find a few useful ones that run on your implementation.
+When it's "done", if that ever comes, it'll be as large and inelegant as Common LISP. Somewhere stuck in between was the
+idea of a useful language… Which would be very close to R6RS.
+> Racket is built on Chez now, and has its own non-standard #lang racket as well as #lang r6rs. So Chez will continue to
+be supported at least as an engine for Racket. I don't like Racket or its performance, but they're at least aiming at
+practical uses.
+> Gerbil is built on Gambit, which is an R7RS-small++. Like Racket, Gerbil's a very opinionated new language; I like
+this better, but it's not my daily driver.
+>
+> So Scheme has already long past split.
+>
+> My current project's in Chicken because I needed its libraries, all my utility code and scripts are in Chez, and I'm
+strongly considering moving my project back to Chez now that I've solved some library problems.
+
+Summary of final choices
+- Racket: all-rounder Scheme-ish lang. Most usable in terms of ecosystem. GUI. Cross-platform (on Windows too). Has
+Typed Racket.
+- Chez: seems to be a distant second after racket. Extremely cross-platform (including ios and other obscure platforms).
+Superset of R6RS (so relatively large stdlib). Commercially used by Cisco. Infrastructurally used by Racket. Small
+community, but not a one-man implementation too (like Gauche and Gerbil). Has both a compiler and an interpreter. Very
+active REPL shell. Fantastic FFI.
+- [cancelled] Guile: non-cross-platform, within GNU/Linux and Guix world only. good stdlib. Good for scripting (but
+Racket should be
+too). Official scripting language for GNU. Probably the most full-features Scheme. Best IDE and REPL tooling among
+schemes.
+- CL: Different from all others. Best REPL and tooling. Probably not as seamless as others for scripting. Does not care
+about being FP-focused, but has ML-like Coalton
+- Clojure
+- None of the other schemes

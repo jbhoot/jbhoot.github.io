@@ -1,5 +1,29 @@
 <h1>What I want in a scripting lang</h1>
 
+<aside>
+
+  Why schemes may not be ideal for scripting: https://news.ycombinator.com/item?id=531079.
+
+  > The problem with Scheme is that the core language isn't terse enough,
+  > Scheme requires much more typing and is harder to remember than Ruby.
+  > the core language of Scheme forces you to type a ton.
+
+  So, without autocompletion, *schemes* (not clojure-based lisps, which are terser) are useless for me.
+
+  Only racket is a contender considering this scenario.
+
+  In general, too, it seems like other languages trump lisps in almost all ways. Some are terser, others have larger
+  library collections, others have better IDE support, best ones have good type systems (haskell, ocaml, scala).
+
+  TXR lisp may be a contender in the verobsity aspect. Its as terse as perl.
+
+  > One goals of TXR Lisp is to remove verbosity from Lisp programming, where doing so does not conflict with the Lisp
+  ideology ("Lispiness").
+
+</aside>
+
+
+
 <h2> Problem with shell and its utilities </h2>
 
 Nothing is going to beat the readiness of the shell. That and the baked-in text processing and regex tooling. But it
@@ -105,8 +129,10 @@ I can't shake off the feeling that DrRacket is geared towards students.
 
 racket-mode seems adequate, however.
 package manager works on https, unliked Common Lisp's quicklisp, which works on http.
-gui library is one of a kind. Remember the tk/python cxfreeze project I did for a client? Racket would have been sooo much better there! A guy name Bogdan Popa has even integrated SwiftUI and Racket for his app Franz Kafka.
-And its not like Racket cannot use REPL at all. Watch this: https://www.youtube.com/watch?app=desktop&v=7uGJJmjcxzY&t=495s. 
+gui library is one of a kind. Remember the tk/python cxfreeze project I did for a client? Racket would have been sooo
+much better there! A guy name Bogdan Popa has even integrated SwiftUI and Racket for his app Franz Kafka.
+And its not like Racket cannot use REPL at all. Watch this:
+https://www.youtube.com/watch?app=desktop&v=7uGJJmjcxzY&t=495s.
 Racket probably beats Common Lisp with these two points.
 
 <h2>F#</h2>
@@ -162,14 +188,17 @@ https://lisp-journey.gitlab.io/blog/why-do-we-have-to-wait-one-month-before-quic
 
 <h3> Dynamism of Common Lisp and Racket </h3>
 
-Both Common Lisp and Racket have one limitation - their default dynamic nature. 
+Both Common Lisp and Racket have one limitation - their default dynamic nature.
 
-It does not take much for a script to grow into a program/project. At that point, I would sorely miss ML-like static typing.
+It does not take much for a script to grow into a program/project. At that point, I would sorely miss ML-like static
+typing.
 
 I could use types from the beginning in Common Lisp and Racket. But that's not very natural or ergonomic.
 
-Their communities also don't care much about versioned dependencies, believing instead in "strong community ethos of backward compatibility" and in "library updates not breaking much". I am a bit skeptical.
+Their communities also don't care much about versioned dependencies, believing instead in "strong community ethos of
+backward compatibility" and in "library updates not breaking much". I am a bit skeptical.
 
 <h3> Fast watch-and-rerun loop v/s REPL-driven development </h3>
 
-What I like is Fast watch-and-rerun loop as the primary mode of feedback, with REPL-driven development as the secondary mode of feedback.
+What I like is Fast watch-and-rerun loop as the primary mode of feedback, with REPL-driven development as the secondary
+mode of feedback.
