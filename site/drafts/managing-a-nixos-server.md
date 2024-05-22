@@ -7,3 +7,9 @@
 # no need to store server's root's ssh public key on github.
 jysh@server $ nixos-rebuild switch --flake "git+ssh://git@github.com/jyssh/env#sourcehub" --use-remote-sudo
 ```
+
+The following command to issue a rebuild right from my local machine does not work because my local machine's architecture (x86_64-linux) differs from the remote server's architecture (aarm64-linux).
+
+```
+nixos-rebuild switch --flake .#some-configuration --target-host root@target.host --build-host localhost
+```
