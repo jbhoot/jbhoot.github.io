@@ -1,3 +1,3 @@
-<h1> Archives - 2024 </h1>
+# Archives - 2024
 
 <ul class="yearly-posts"></ul>

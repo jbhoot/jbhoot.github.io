@@ -1,3 +1,3 @@
-<h1> Archives - 2020 </h1>
+# Archives - 2020
 
 <ul class="yearly-posts"></ul>
