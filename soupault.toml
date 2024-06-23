@@ -87,6 +87,7 @@ index_item_template = """
 
 [index.views.yearly-posts]
 index_selector = "ul.yearly-posts"
+include_subsections = true
 index_item_template = """
   <li>
     <a href="{{url}}" class="font-weight:600">{{title}}</a>

@@ -1,5 +1,29 @@
 [
   {
+    "url": "/2024/mfu-nominee-verification",
+    "page_file": "site/2024/mfu-nominee-verification/index.md",
+    "nav_path": [
+      "2024"
+    ],
+    "excerpt_2": "While transacting for a new folio, if you are stuck at “Nominee Verify” pop-up even after verifying the nominee(s), then check that:",
+    "excerpt": "Tip for Mutual Fund Utilities (MFU) users:",
+    "timestamp": "2024-06-23",
+    "date": "23 June 2024",
+    "title": "How to make nominee verification pop-up go away while creating a new folio in Mutual Fund Utilities (MFU)"
+  },
+  {
+    "url": "/2024/effective-scala-8-oop",
+    "page_file": "site/2024/effective-scala-8-oop.md",
+    "nav_path": [
+      "2024"
+    ],
+    "excerpt_2": "So, not: DatabaseAccess -&gt; (InMemoryDatabase, PhysicalDatabase)",
+    "excerpt": "Flip the perspective on tools like interfaces and traits. Don’t see them as a way for objects to share an interface, but as an abstraction over implementations.",
+    "timestamp": "2024-05-14",
+    "date": "14 May 2024",
+    "title": "Effective Scala, part 8 - OO concepts"
+  },
+  {
     "url": "/2024/effective-scala-series",
     "page_file": "site/2024/effective-scala-series.html",
     "nav_path": [
@@ -262,5 +286,65 @@
     "timestamp": "2020-07-04",
     "date": "4th July 2020",
     "title": "How to write a Firefox add-on in ClojureScript"
+  },
+  {
+    "url": "/drafts/react-rxjs",
+    "page_file": "site/drafts/react-rxjs.md",
+    "nav_path": [
+      "drafts"
+    ],
+    "excerpt_2": null,
+    "excerpt": null,
+    "timestamp": null,
+    "date": null,
+    "title": "How React Rxjs works"
+  },
+  {
+    "url": "/drafts/nix-vs-guix",
+    "page_file": "site/drafts/nix-vs-guix.md",
+    "nav_path": [
+      "drafts"
+    ],
+    "excerpt_2": null,
+    "excerpt": null,
+    "timestamp": null,
+    "date": null,
+    "title": null
+  },
+  {
+    "url": "/drafts/managing-a-nixos-server",
+    "page_file": "site/drafts/managing-a-nixos-server.md",
+    "nav_path": [
+      "drafts"
+    ],
+    "excerpt_2": null,
+    "excerpt": null,
+    "timestamp": null,
+    "date": null,
+    "title": null
+  },
+  {
+    "url": "/drafts/lets-talk-money-and-mutual-funds",
+    "page_file": "site/drafts/lets-talk-money-and-mutual-funds.md",
+    "nav_path": [
+      "drafts"
+    ],
+    "excerpt_2": null,
+    "excerpt": null,
+    "timestamp": null,
+    "date": null,
+    "title": null
+  },
+  {
+    "url": "/drafts/effective-scala-9-type-overview",
+    "page_file": "site/drafts/effective-scala-9-type-overview.md",
+    "nav_path": [
+      "drafts"
+    ],
+    "excerpt_2": null,
+    "excerpt": null,
+    "timestamp": null,
+    "date": null,
+    "title": null
   }
 ]
