@@ -38,3 +38,5 @@ immutability - immutability by default
 In reality, most languages are a mix of paradigms, where a paradigm may be preferred to others. I like to define them a x-first. For example, OCaml is functional-first, but still provides imperative constructs.
 
 Where does OO lie in this heirarchy?
+
+Personally, I think a robust type system and immutability-first or immutability-by-default are the most crucial characteristics in a language, no matter the paradigm.
