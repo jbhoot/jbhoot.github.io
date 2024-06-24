@@ -133,12 +133,12 @@
   },
   {
     "url": "/2024/memorising-git-rebase",
-    "page_file": "site/2024/memorising-git-rebase.html",
+    "page_file": "site/2024/memorising-git-rebase.md",
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": "So, read <code>git rebase master</code> as <b><i>rebase on top of master</i></b>.",
-    "excerpt": "In a <code>git rebase</code> command, which branch comes first? The branch being rebased, or the branch on which a branch is being rebased?",
+    "excerpt_2": "I mentally always read <i>rebase</i> as <i>rebase on</i>.",
+    "excerpt": "In a <code>git rebase x</code> command, is <code>x</code> being rebased on the current branch, or vice versa?",
     "timestamp": "2024-03-05",
     "date": "5th March 2024",
     "title": "Memorising branch order in git rebase"
