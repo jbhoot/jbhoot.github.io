@@ -6,16 +6,16 @@
 <p class="tags"><span>git</span></p>
 </hgroup>
 
-<h2>Problem</h2>
+<p>In a <code>git rebase x</code> command, is <code>x</code> being rebased on the current branch, or vice versa?</p>
 
-<p>In a <code>git rebase</code> command, which branch comes first? The branch being rebased, or the branch on which a branch is being rebased?</p>
+<p>I mentally always read <i>rebase</i> as <strong><i>rebase on</i></strong>.</p>
 
-<h2>Tip</h2>
+<p>So, <code>git rebase master</code> reads as <strong><i>git, rebase on master</i></strong>, i.e., rebase the current branch on master.</p>
 
-<p>Insert the preposition <i>on top of</i> after <code>rebase</code>.</p>
+<p>But what about the alternate version of the command: <code>git rebase master feat/x</code>?</p>
 
-<p>So, read <code>git rebase master</code> as <b><i>rebase on top of master</i></b>.</p>
+<p>Well, git always rebases the <em>current</em> branch.</p>
 
-<p>Read <code>git rebase master feat/x</code> as <b><i>rebase on top of master</i></b>.</p>
+<p>So <code>git rebase master feat/x</code> is actually <code>git checkout feat/x && git rebase master</code>. So the reading <i>git rebase on master</i> still applies.</p>
 
 <p>A bit clunky, but good enough for me.</p>
