@@ -76,7 +76,7 @@ selector = ["hgroup ~ p + p"]
 include_subsections = true
 index_selector = ".all-posts.grid"
 index_item_template = """
-  <article class="box" style="--box-color-bg: var(--color-light-2);">
+  <article class="box" style="--box-color-bg: white;">
     <hgroup>
     <p>Published: <time datetime="{{timestamp}}">{{date}}</time></p>
     <h2><a href="{{url}}">{{title}}</a></h2>
@@ -100,7 +100,7 @@ section = ["2020", "2022", "2023", "2024", ]
 include_subsections = true
 index_selector = "ul.all-posts"
 index_template = """
-  <div class="box" style="--box-color-bg: var(--color-light-2);">
+  <div class="box" style="--box-color-bg: white;">
   <h1> My writings </h1>
   <ul class='all-posts'>
   {% for e in entries %}
@@ -131,7 +131,7 @@ include_subsections = true
 max_items = 6
 index_selector = ".recent-posts.grid"
 index_item_template = """
-  <article class="box" style="--box-color-bg: var(--color-light-2);">
+  <article class="box" style="--box-color-bg: white;">
     <hgroup>
     <p>Published: <time datetime="{{timestamp}}">{{date}}</time></p>
     <h3><a href="{{url}}">{{title}}</a></h3>
