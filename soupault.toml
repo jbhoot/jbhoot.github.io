@@ -37,9 +37,9 @@ md = "cmark --unsafe --smart"
 
 [templates.index-page]
 file = "templates/index-page.html"
+path_regex = '^(.*)/(index|writings)\.html$'
 content_selector = "main"
 content_action = "append_child"
-page = ["index.html"]
 
 [index]
 index = true
@@ -76,7 +76,7 @@ selector = ["hgroup ~ p + p"]
 include_subsections = true
 index_selector = ".all-posts.grid"
 index_item_template = """
-  <article class="box" style="--box-color-bg: var(--color-light-2); --box-padding: var(--s-3);">
+  <article class="box" style="--box-color-bg: var(--color-light-2);">
     <hgroup>
     <p>Published: <time datetime="{{timestamp}}">{{date}}</time></p>
     <h2><a href="{{url}}">{{title}}</a></h2>
@@ -94,14 +94,14 @@ index_item_template = """
     <p class="margin-block-start:2px font-size:0.9em">Published: <time datetime="{{timestamp}}">{{date}}</time></p>
   </li>
   """
-  
+
 [index.views.all-posts-list]
-section = ["2020","2022","2023","2024",]
+section = ["2020", "2022", "2023", "2024", ]
 include_subsections = true
 index_selector = "ul.all-posts"
 index_template = """
+  <div class="box" style="--box-color-bg: var(--color-light-2);">
   <h1> My writings </h1>
-  <div>
   <ul class='all-posts'>
   {% for e in entries %}
   <li>
@@ -115,7 +115,7 @@ index_template = """
 file = "index_processors/all-posts.lua"
 
 [index.views.recent-posts-list]
-section = ["2020","2022","2023","2024",]
+section = ["2020", "2022", "2023", "2024", ]
 include_subsections = true
 max_items = 5
 index_selector = "ul.recent-posts"
@@ -131,7 +131,7 @@ include_subsections = true
 max_items = 6
 index_selector = ".recent-posts.grid"
 index_item_template = """
-  <article class="box" style="--box-color-bg: var(--color-light-2); --box-padding: var(--s-3);">
+  <article class="box" style="--box-color-bg: var(--color-light-2);">
     <hgroup>
     <p>Published: <time datetime="{{timestamp}}">{{date}}</time></p>
     <h3><a href="{{url}}">{{title}}</a></h3>
@@ -162,8 +162,41 @@ index_item_template = """
 #  end
 #'''
 
+[widgets.populate-head]
+widget = "insert_html"
+html = """
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>
+    <!-- Will be inserted by [widgets.page-title] configuration in soupault.toml -->
+  </title>
+  <link rel="icon" href="/static/favicon.png">
+  <link rel="stylesheet" href="/css/font.css">
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/utility.css">
+  <link rel="stylesheet" href="/css/layout/stack.css">
+  <link rel="stylesheet" href="/css/layout/sidebar.css">
+  <link rel="stylesheet" href="/css/layout/box.css">
+  <link rel="stylesheet" href="/css/layout/cluster.css">
+  <link rel="stylesheet" href="/css/layout/flex-grid.css">
+  <link rel="stylesheet" href="/css/layout/grid.css">
+  <link rel="stylesheet" href="/css/layout/center.css">
+  <link rel="stylesheet" href="/css/layout/switcher.css">
+  <link rel="stylesheet" href="/css/components/index.css">
+  <link rel="stylesheet" href="/css/components/apparate.css">
+  <link rel="stylesheet" href="/css/components/cv.css">
+  <link rel="stylesheet" href="/css/components/site-title.css">
+  <link rel="stylesheet" href="/css/components/tag.css">
+  <link rel="stylesheet" href="/css/components/toc.css">
+  <link rel="me" href="https://mastodon.social/@jyssh">
+  <script src="/index.js"></script>
+"""
+selector = "head"
+parse = true
+
 [widgets.page-title]
 widget = "title"
+after = "populate-head"
 default = "Jayesh Bhoot's Website"
 selector = ["p.title", "h1"]
 append = " @ Jayesh Bhoot's Website"
@@ -172,7 +205,7 @@ append = " @ Jayesh Bhoot's Website"
 [widgets.table-of-contents]
 widget = "toc"
 selector = ".toc"
-min_level = 2
+min_level = 1
 max_level = 3
 numbered_list = true
 use_heading_slug = true

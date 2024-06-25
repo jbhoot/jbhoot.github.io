@@ -1,0 +1,62 @@
+.toc-1:has(*)::before {
+    content: 'On this page';
+    font-size: var(--s3);
+    font-weight: bold;
+}
+
+.toc-1:has(*) {
+    padding-inline-start: 0;
+    list-style-position: inside;
+    margin-inline-start: 0;
+    font-size: 0.9em;
+}
+
+.toc-1 * + * {
+    margin-block-start: 5px;
+}
+
+.toc-heading-link {
+    font-weight: normal;
+    margin-inline-start: 0.4em;
+    line-height: 1.50;
+    text-decoration: none;
+}
+
+/*
+What should the min-width be in the following media query?
+
+The aim is to position toc to the left of the main content only when there is enough space on the screen to keep the main content in *center* of the screen, while also fitting the content of sidebar on LHS without overflowing it out of the screen.
+
+For that to happen, the width must at least be `size-of-toc + size-of-main-content + size-of-toc`.
+*/
+@media (min-width: 131ch) {
+    /* How to position an element relative to a parent container while keeping its position fixed across viewport?
+    https://stackoverflow.com/a/11833892
+    */
+    .toc-wrapper {
+        inline-size: calc(var(--measure) * 0.4);
+        position: absolute;
+        top: 0;
+        left: calc(var(--measure) * 0.4 * -1 - var(--s0));
+    }
+
+    .toc {
+        inline-size: calc(var(--measure) * 0.4);
+        position: fixed;
+        top: 0;
+    }
+
+    .toc-1 {
+        padding: 10px 10px 20px 10px;
+        border: 1px solid black;
+        background-color: black;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .toc-1:empty {
+        display: none;
+    }
+}

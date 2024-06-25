@@ -1,0 +1,96 @@
+.site-title {
+    font-size: var(--s3);
+    font-weight: 600;
+}
+
+@keyframes animate-site-title {
+    0% {
+        transform-origin: top left;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform-origin: top left;
+        transform: rotate(4deg);
+    }
+}
+
+/* Source: https://codepen.io/nodws/pen/WNjXbr */
+@keyframes blink {
+    78% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+
+    79% {
+        color: #333;
+    }
+
+    80% {
+
+        text-shadow: none;
+    }
+
+    81% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+
+    82% {
+        color: #333;
+        text-shadow: none;
+    }
+
+    83% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+
+    92% {
+        color: #333;
+        text-shadow: none;
+    }
+
+    92.5% {
+        color: inherit;
+        text-shadow: inherit;
+    }
+}
+
+.site-title-blinker {
+    background-color: black;
+    padding: 0 5px;
+
+    display: block;
+    inline-size: fit-content;
+
+    text-decoration: none;
+    outline: 1px solid;
+    /*outline-offset: 1px;*/
+
+    animation-name: animate-site-title;
+    animation-delay: 5s;
+    animation-duration: 200ms;
+    animation-fill-mode: forwards;
+
+    color: #fee;
+    text-shadow: 0 -40px 100px,
+    0 0 2px,
+    0 0 1em #ff4444,
+    0 0 0.5em #ff4444,
+    0 0 0.1em #ff4444,
+    0 10px 3px #000;
+}
+
+.site-title-blinker:hover {
+    background-color: transparent;
+    outline: none;
+}
+
+.site-title-blinker span {
+    animation: blink linear infinite 2s;
+}
+
+.site-title-blinker span:nth-of-type(2) {
+    animation: blink linear infinite 3s;
+}

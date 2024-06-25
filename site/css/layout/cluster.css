@@ -10,3 +10,7 @@
 .cluster>*+* {
     margin-block-start: 0;
 }
+
+.cluster-split {
+    margin-inline-start: auto;
+}

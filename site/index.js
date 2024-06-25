@@ -1,38 +1,3 @@
-function styleSiteNavMenuAsStackOrCluster(mediaQuery) {
-    const siteNavMenuEle = document.querySelector('.site-nav > ul');
-    if (siteNavMenuEle) {
-        if (mediaQuery.matches) {
-            siteNavMenuEle.classList.remove('stack');
-            siteNavMenuEle.classList.add('cluster');
-        } else {
-            siteNavMenuEle.classList.remove('cluster');
-            siteNavMenuEle.classList.add('stack');
-        }
-    }
-}
-
-function stretchOrShrinkSidebar(mediaQuery) {
-    const mainSidebar = document.querySelector('.with-sidebar');
-    if (mainSidebar) {
-        if (mediaQuery.matches) {
-            mainSidebar.style.minBlockSize = 'initial';
-        } else {
-            mainSidebar.style.minBlockSize = '100%';
-        }
-    }
-}
-
-function applyMediaQueryChange(mediaQuery) {
-    styleSiteNavMenuAsStackOrCluster(mediaQuery);
-    stretchOrShrinkSidebar(mediaQuery);
-}
-
-function setupMediaQueryChange() {
-    const mediaQuery = window.matchMedia('(width <= 65ch)');
-    applyMediaQueryChange(mediaQuery);
-    mediaQuery.addEventListener('change', applyMediaQueryChange);
-}
-
 function addListRoleToTimelines() {
     // To fix Safari's decision to remove list role from
     // those lists which have `list-style-type: none` set in CSS:
@@ -44,6 +9,5 @@ function addListRoleToTimelines() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    setupMediaQueryChange();
     addListRoleToTimelines();
 });

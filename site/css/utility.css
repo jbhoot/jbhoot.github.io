@@ -26,10 +26,30 @@
     background-color: lavenderblush;
 }
 
+.text-transform\:uppercase {
+    text-transform: uppercase;
+}
+
 .list-style-type\:none {
     list-style-type: none;
 }
 
-.text-transform\:uppercase {
-    text-transform: uppercase;
+.list-style-type\:disc {
+    list-style-type: disc;
+}
+
+.max-inline-size\:measure {
+    max-inline-size: var(--measure);
+}
+
+.position\:relative {
+    position: relative;
+}
+
+.align-items\:center {
+    align-items: center;
+}
+
+.text-decoration\:none {
+    text-decoration: none;
 }
