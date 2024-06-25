@@ -249,7 +249,7 @@ ul, ol {
      * https://html.spec.whatwg.org/multipage/rendering.html#lists
      * So we stick to padding, only change its value.
      */
-    padding-inline-start: 1em;
+    padding-inline-start: 1ch;
 }
 
 ol {
