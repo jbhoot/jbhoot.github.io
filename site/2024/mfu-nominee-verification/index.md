@@ -26,4 +26,4 @@ Once a primary holder has verified the nominee details, the interface looks like
 
 ## The solution
 
-In order for any holders to verify nominee details, use this link: https://mfuonline.com/CNOMV
+In order for any holders to verify nominee details, use this link: [https://mfuonline.com/CNOMV](https://mfuonline.com/CNOMV)
