@@ -78,7 +78,7 @@ index_selector = ".all-posts.grid"
 index_item_template = """
   <article class="box" style="--box-color-bg: white;">
     <hgroup>
-    <p>Published: <time datetime="{{timestamp}}">{{date}}</time></p>
+    <p><time datetime="{{timestamp}}">{{date}}</time></p>
     <h2><a href="{{url}}">{{title}}</a></h2>
     </hgroup>
     <p>{{excerpt}} [...]</p>
@@ -90,8 +90,8 @@ index_selector = "ul.yearly-posts"
 include_subsections = true
 index_item_template = """
   <li>
-    <a href="{{url}}" class="font-weight:600">{{title}}</a>
-    <p class="margin-block-start:2px font-size:0.9em">Published: <time datetime="{{timestamp}}">{{date}}</time></p>
+    <p><time datetime="{{timestamp}}">{{date}}</time></p>
+    <a href="{{url}}" class="font-size:s2">{{title}}</a>
   </li>
   """
 
@@ -102,11 +102,11 @@ index_selector = "ul.all-posts"
 index_template = """
   <div class="box" style="--box-color-bg: white;">
   <h1> My writings </h1>
-  <ul class='all-posts'>
+  <ul class='all-posts stack list-style-type:none padding:0' style='--stack-gap: var(--s6)'>
   {% for e in entries %}
   <li>
-    <a href="{{e.url}}" class="font-weight:600">{{e.title}}</a>
-    <p class="margin-block-start:2px font-size:0.9em">Published: <time datetime="{{e.timestamp}}">{{e.date}}</time></p>
+    <p><time datetime="{{e.timestamp}}">{{e.date}}</time></p>
+    <a href="{{e.url}}" class="font-size:s2">{{e.title}}</a>
   </li>
   {% endfor %}
   </ul>
@@ -121,8 +121,8 @@ max_items = 5
 index_selector = "ul.recent-posts"
 index_item_template = """
   <li>
-    <a href="{{url}}" class="font-weight:600">{{title}}</a>
-    <p class="margin-block-start:2px font-size:0.9em">Published: <time datetime="{{timestamp}}">{{date}}</time></p>
+    <p><time datetime="{{timestamp}}">{{date}}</time></p>
+    <a href="{{url}}" class="font-size:s2">{{title}}</a>
   </li>
   """
 
@@ -133,7 +133,7 @@ index_selector = ".recent-posts.grid"
 index_item_template = """
   <article class="box" style="--box-color-bg: white;">
     <hgroup>
-    <p>Published: <time datetime="{{timestamp}}">{{date}}</time></p>
+    <p><time datetime="{{timestamp}}">{{date}}</time></p>
     <h3><a href="{{url}}">{{title}}</a></h3>
     </hgroup>
     <p>{{excerpt}} [...]</p>

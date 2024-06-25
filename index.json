@@ -8,7 +8,7 @@
     "excerpt_2": "While transacting for a new folio, if you are stuck at “Nominee Verify” pop-up even after verifying the nominee(s), then check that:",
     "excerpt": "Tip for Mutual Fund Utilities (MFU) users:",
     "timestamp": "2024-06-23",
-    "date": "23 June 2024",
+    "date": "23 Jun 2024",
     "title": "How to make nominee verification pop-up go away while creating a new folio in Mutual Fund Utilities (MFU)"
   },
   {
@@ -32,7 +32,7 @@
     "excerpt_2": null,
     "excerpt": "This is a series of blog posts I wrote while going through the Coursera Course <a href=\"https://www.coursera.org/learn/effective-scala\">Effective Programming in Scala</a>.",
     "timestamp": "2024-05-08",
-    "date": "8 May 2024",
+    "date": "08 May 2024",
     "title": "Series - Effective Programming in Scala"
   },
   {
@@ -44,7 +44,7 @@
     "excerpt_2": "Only two requirements:",
     "excerpt": "While a scala worksheet are evaluated from top to bottom, a scala project needs an entry point.",
     "timestamp": "2024-05-07",
-    "date": "7 May 2024",
+    "date": "07 May 2024",
     "title": "Effective Scala, part 7 - entry point of a project"
   },
   {
@@ -56,7 +56,7 @@
     "excerpt_2": "<code>src/build.sbt</code> contains the configuration to build the project itself.",
     "excerpt": "<code>src/project</code> dir contains configuration about SBT - <code>build.properties</code> to specify sbt version, <code>plugins.sbt</code> to specify sbt plugins, and so on.",
     "timestamp": "2024-05-06",
-    "date": "6 May 2024",
+    "date": "06 May 2024",
     "title": "Effective Scala, part 6 - Scala Build Tool (SBT)"
   },
   {
@@ -68,7 +68,7 @@
     "excerpt_2": "This explains why Option type has a <code>map</code> or <code>filter</code> operations even in OCaml.",
     "excerpt": "Operations on collections can be classified into:",
     "timestamp": "2024-04-24",
-    "date": "24 April 2024",
+    "date": "24 Apr 2024",
     "title": "Effective Scala, part 5 - collections"
   },
   {
@@ -80,7 +80,7 @@
     "excerpt_2": "A function is a value in Scala. All values are objects in Scala. An object can have methods. So a function in Scala can have methods.",
     "excerpt": "A function is a value in Scala, while a method is not. So the former can be passed as a parameter of a function or a method, and can be returned as a value. Method cannot do any of those.",
     "timestamp": "2024-04-21",
-    "date": "21 April 2024",
+    "date": "21 Apr 2024",
     "title": "Effective Scala, part 4 - function v/s method"
   },
   {
@@ -92,7 +92,7 @@
     "excerpt_2": "Check the <a href=\"https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html\">compatibility tables</a>.",
     "excerpt": "I am going through the course <a href=\"https://www.coursera.org/learn/effective-scala\">Effective Programming in Scala</a> on Coursera, and ran into build import errors in the very first assignment (fireworks).",
     "timestamp": "2024-04-19",
-    "date": "19 April 2024",
+    "date": "19 Apr 2024",
     "title": "Effective Scala, part 3 - compatibility roulette"
   },
   {
@@ -104,7 +104,7 @@
     "excerpt_2": "For example, in a problem involving doors and windows and facades, if the domain is constrained to only deal with surface area, then modelling the doors and windows and facade in terms of <strong>Rectangle</strong> is the right level of abstraction instead of modelling them as Door, Window, and Facade respectively.",
     "excerpt": "Finding the <em>right</em> level of abstraction is more important than the best level of abstraction.",
     "timestamp": "2024-04-16",
-    "date": "16 April 2024",
+    "date": "16 Apr 2024",
     "title": "Effective Scala, part 2 - domain modelling"
   },
   {
@@ -116,7 +116,7 @@
     "excerpt_2": "Value is the most abstract definition here, but it is made concrete by subsequent definitions.",
     "excerpt": "A value is the representation of some entity that can be manipulated by a program.",
     "timestamp": "2024-04-15",
-    "date": "15 April 2024",
+    "date": "15 Apr 2024",
     "title": "Effective Scala, part 1 - elements of a program"
   },
   {
@@ -128,7 +128,7 @@
     "excerpt_2": "I have gone through some options over time. Here is an overview for my future self.",
     "excerpt": "For a small community, OCaml ecosystem is quite rich, maybe too rich, in editor tooling.",
     "timestamp": "2024-04-15",
-    "date": "15th Apr 2024",
+    "date": "15 Apr 2024",
     "title": "An overview of OCaml editor tooling"
   },
   {
@@ -140,7 +140,7 @@
     "excerpt_2": "I mentally always read <i>rebase</i> as <i>rebase on</i>.",
     "excerpt": "In a <code>git rebase x</code> command, is <code>x</code> being rebased on the current branch, or vice versa?",
     "timestamp": "2024-03-05",
-    "date": "5th March 2024",
+    "date": "05 Mar 2024",
     "title": "Memorising branch order in git rebase"
   },
   {
@@ -152,7 +152,7 @@
     "excerpt_2": "All I want is a shell that is",
     "excerpt": "I have come crawling back to bash. Why?",
     "timestamp": "2024-02-06",
-    "date": "6th Feb 2024",
+    "date": "06 Feb 2024",
     "title": "<del>I switched to fish shell</del> Nope. Back to bash."
   },
   {
@@ -164,7 +164,7 @@
     "excerpt_2": "Both have evolved independently. While they manage to work in tandem, there are a lot of irregularities to trip on\nwhere they meet.",
     "excerpt": "In the OCaml ecosystem, opam is the most popular package management tool, while dune is the foremost build tool.",
     "timestamp": "2023-12-03",
-    "date": "3rd December 2023",
+    "date": "03 Dec 2023",
     "title": "Make an opam local switch and <code>dune init project</code> work together"
   },
   {
@@ -176,7 +176,7 @@
     "excerpt_2": "P.S.: Even dune does not work without it!",
     "excerpt": "OCaml compiler failed to build on my M1 Macbook with Apple's Silicon architecture.",
     "timestamp": "2023-12-01",
-    "date": "1st December 2023",
+    "date": "01 Dec 2023",
     "title": "Spoonfeeding machine architecture to OCaml toolchain on Apple Silicon"
   },
   {
@@ -188,7 +188,7 @@
     "excerpt_2": null,
     "excerpt": "This list will likely remain short.",
     "timestamp": "2023-10-09",
-    "date": "9th October 2023",
+    "date": "09 Oct 2023",
     "title": "List of movies better than their book counterparts"
   },
   {
@@ -200,7 +200,7 @@
     "excerpt_2": "On top of that, Twitter started dishing out blue ticks on subscriptions.",
     "excerpt": "I use the following set of fonts.",
     "timestamp": "2023-06-12",
-    "date": "12th June 2023",
+    "date": "12 Jun 2023",
     "title": "An elegant triplet of fonts"
   },
   {
@@ -212,7 +212,7 @@
     "excerpt_2": "Clearly, <code>pre</code> tag is not enough to represent a code snippet. How do we distinguish a code snippet from\nother\npre-formatted content? By marking up the snippet with <code>code</code>, and then wrapping it in a\n<code>pre</code> tag.",
     "excerpt": "Suppose, we want to mark up the following multi-line snippet of JavaScript code:",
     "timestamp": "2022-10-06",
-    "date": "6th October 2022",
+    "date": "06 Oct 2022",
     "title": "How to mark up a code snippet in HTML"
   },
   {
@@ -224,7 +224,7 @@
     "excerpt_2": "So I chose <code>~/.emacs.d</code> as emacs's config location.",
     "excerpt": "If <code>~/.emacs.d</code> exists in the system, which always does because emacs auto-creates it, then emacs does not\npick up <code>init.el</code> from <code>~/.config/emacs</code> for some reason...even if <code>~/.emacs.d</code> is\nempty.",
     "timestamp": "2022-09-24",
-    "date": "24th September 2022",
+    "date": "24 Sep 2022",
     "title": "Location of emacs config"
   },
   {
@@ -236,7 +236,7 @@
     "excerpt_2": "In a CNAME mapping, <code>@ CNAME example.com</code>, example.com is the canonical name, while <code>@</code> is the\ndomain being mapped to the canonical name.",
     "excerpt": "Syntax of a DNS record, along with examples:",
     "timestamp": "2022-09-19",
-    "date": "19th September 2022",
+    "date": "19 Sep 2022",
     "title": "Learnings on DNS"
   },
   {
@@ -248,7 +248,7 @@
     "excerpt_2": null,
     "excerpt": "<code>box-sizing</code> specifies the part of an element's CSS box, to which the properties <code>width, min-width,\nmax-width,\nheight, min-height, max-height</code> apply.",
     "timestamp": "2022-09-17",
-    "date": "17th September 2022",
+    "date": "17 Sep 2022",
     "title": "What <code>box-sizing</code> does"
   },
   {
@@ -260,7 +260,7 @@
     "excerpt_2": "One approach is to fake the hash with zeroes.",
     "excerpt": "Discovering the SHA256 hash for a derivation is a chore.",
     "timestamp": "2022-09-09",
-    "date": "9th September 2022",
+    "date": "09 Sep 2022",
     "title": "Fake SHA256 in a Nix derivation"
   },
   {
@@ -272,7 +272,7 @@
     "excerpt_2": "Not having to press the mouse button makes for a much more pleasurable and efficient experience. Coupled\nwith <i>Sticky Keys</i>, <i>Hover Click</i> has also helped me recover from a hand injury.",
     "excerpt": "Desktop systems usually provide an accessibility feature, with which a user only has to hover the cursor\nover where he wants to click. The click goes off automatically. In GNOME, this feature is called <i>Hover\nClick</i>.",
     "timestamp": "2020-07-05",
-    "date": "5th July 2020",
+    "date": "05 Jul 2020",
     "title": "How to use <i>Hover Click</i> without animation in GNOME"
   },
   {
@@ -284,7 +284,7 @@
     "excerpt_2": "You can find a sample add-on on my <a href=\"https://github.com/jayesh-bhoot/firefox-add-on-in-cljs\">GitHub</a>.\nI won't go through the code here, but will lay out the quirky development process. I will mostly focus on the\nplumbing - how ClojureScript hands over the compiled JavaScript code to the add-on.",
     "excerpt": "I found writing Firefox add-ons to be a good way to learn the ropes in ClojureScript in a productive manner.",
     "timestamp": "2020-07-04",
-    "date": "4th July 2020",
+    "date": "04 Jul 2020",
     "title": "How to write a Firefox add-on in ClojureScript"
   },
   {

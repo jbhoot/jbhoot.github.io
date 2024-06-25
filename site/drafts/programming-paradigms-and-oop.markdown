@@ -2,7 +2,7 @@
 
 # Programming Paradigms and OOP
 
-<time datetime="2024-05-01">1 May 2024</time>
+<time datetime="2024-05-01">01 May 2024</time>
 
 </hgroup>
 

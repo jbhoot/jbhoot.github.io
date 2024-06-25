@@ -2,7 +2,7 @@
 
 # Memorising branch order in git rebase
 
-<p> <time datetime="2024-03-05">5th March 2024</time> </p>
+<p> <time datetime="2024-03-05">05 Mar 2024</time> </p>
 
 <p class="tags"><span>git</span></p>
 

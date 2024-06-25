@@ -38,6 +38,10 @@
     list-style-type: disc;
 }
 
+.padding\:0 {
+    padding: 0;
+}
+
 .max-inline-size\:measure {
     max-inline-size: var(--measure);
 }
