@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Mastodon" role="img" viewBox="0 0 512 512" fill="#fff">
+    <rect width="512" height="512" fill="url(#a)"/>
+    <linearGradient id="a" y2="1">
+        <stop offset="0" stop-color="#6364ff"/>
+        <stop offset="1" stop-color="#563acc"/>
+    </linearGradient>
+    <path d="M 317 381 q -124 28 -123 -39 69 15 149 2 67 -13 72 -80 3 -101 -3 -116 -19 -49 -72 -58 -98 -10 -162 0 -56 10 -75 58 -12 31 -3 147 3 32 9 53 13 46 70 69 83 23 138 -9"/>
+    <path d="M 360 293 h -36 v -93 q -1 -26 -29 -23 -20 3 -20 34 v47 h -36v -47 q 0 -31 -20 -34 -30 -3 -30 28 v 88 h -36 v -91 q 1 -51 44 -60 33 -5 51 21 l 9 15 9 -15 q 16 -26 51 -21 43 9 43 60"
+          fill="url(#a)"/>
+</svg>
