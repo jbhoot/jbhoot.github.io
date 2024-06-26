@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-label="Twitter" role="img" viewBox="0 0 512 512" fill="#fff">
+    <rect width="512" height="512" fill="url(#a)"/>
+    <linearGradient id="a" y2="1">
+        <stop offset="0" stop-color="#000000"/>
+        <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <path d="M 384 128 l -236 256 h -20 l 236 -256 h 20 Z" stroke="white" fill="white" stroke-width="1"/>
+    <path d ="M 148 138 l 156 236 h 60 l -156 -236 h -60 Z" stroke="white" fill="black" stroke-width="20"/>
+</svg>
