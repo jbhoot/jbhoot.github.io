@@ -1,8 +1,7 @@
 /* box deals with following properties:
  * padding (all or none),
  * border/outline (all or none),
- * background-color,
- * color
+  * background-color + color
  */
 
 .box {
