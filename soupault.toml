@@ -17,11 +17,6 @@ ignore_extensions = ["htm", "markdown", "htm~", "html~"]
 generator_mode = true
 complete_page_selector = "html"
 
-default_template_file = "templates/default.html"
-# The content will be inserted into element selected by default_content_selector,
-default_content_selector = "main"
-default_content_action = "append_child"
-
 # Set the document type to HTML5, unless the page already has
 # a doctype declaration.
 doctype = "<!DOCTYPE html>"
@@ -32,14 +27,25 @@ clean_urls = true
 plugin_discovery = true
 plugin_dirs = ["plugins"]
 
-[preprocessors]
-md = "cmark --unsafe --smart"
+default_template_file = "templates/post.html"
+# The content will be inserted into element selected by default_content_selector,
+default_content_selector = "main"
+default_content_action = "append_child"
 
-[templates.index-page]
-file = "templates/index-page.html"
-path_regex = '^(.*)/(index|writings)\.html$'
+[templates.post-index]
+file = "templates/post-index.html"
+path_regex = '(\/all.html|\/[0-9]{4}\/index.md)$'
 content_selector = "main"
 content_action = "append_child"
+
+[templates.home-page]
+file = "templates/home-page.html"
+page = "index.html"
+content_selector = "main"
+content_action = "append_child"
+
+[preprocessors]
+md = "cmark --unsafe --smart"
 
 [index]
 index = true
@@ -76,7 +82,7 @@ selector = ["hgroup ~ p + p"]
 include_subsections = true
 index_selector = ".all-posts.grid"
 index_item_template = """
-  <article class="box" style="--box-color-bg: white;">
+  <article class="box borderless" style="--box-color-bg: white;">
     <hgroup>
     <p><time datetime="{{timestamp}}">{{date}}</time></p>
     <h2><a href="{{url}}">{{title}}</a></h2>
@@ -100,9 +106,8 @@ section = ["2020", "2022", "2023", "2024", ]
 include_subsections = true
 index_selector = "ul.all-posts"
 index_template = """
-  <div class="box" style="--box-color-bg: white;">
-  <h1> My writings </h1>
-  <ul class='all-posts stack list-style-type:none padding:0' style='--stack-gap: var(--s6)'>
+  <h1> All posts </h1>
+  <ul class='all-posts'>
   {% for e in entries %}
   <li>
     <p><time datetime="{{e.timestamp}}">{{e.date}}</time></p>
@@ -110,7 +115,6 @@ index_template = """
   </li>
   {% endfor %}
   </ul>
-  </div>
   """
 file = "index_processors/all-posts.lua"
 
@@ -131,7 +135,7 @@ include_subsections = true
 max_items = 6
 index_selector = ".recent-posts.grid"
 index_item_template = """
-  <article class="box" style="--box-color-bg: white;">
+  <article class="box borderless" style="--box-color-bg: white;">
     <hgroup>
     <p><time datetime="{{timestamp}}">{{date}}</time></p>
     <h3><a href="{{url}}">{{title}}</a></h3>
@@ -188,6 +192,7 @@ html = """
   <link rel="stylesheet" href="/css/components/site-title.css">
   <link rel="stylesheet" href="/css/components/tag.css">
   <link rel="stylesheet" href="/css/components/toc.css">
+  <link rel="stylesheet" href="/css/components/post-index.css">
   <link rel="me" href="https://mastodon.social/@jyssh">
   <script src="/index.js"></script>
 """

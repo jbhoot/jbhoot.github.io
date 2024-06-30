@@ -42,7 +42,7 @@
     <nav>
       <ul class="cluster">
         <li><a href="/">Home</a></li>
-        <li><a href="/writings">Writings</a></li>
+        <li><a href="/all">All posts</a></li>
         <li>Projects</li>
         <li>CV</li>
       </ul>
@@ -53,8 +53,14 @@
     </div>
   </div>
 
-  <main></main>
+  <main class="box borderless" style="--box-color-bg: white;">
+  </main>
+
+  <div class="box borderless" style="--stack-gap: var(--s0); --box-padding: var(--s-6); --box-color-bg: white;">
+    <div class="commentbox"></div>
+    <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+    <script>commentBox('5752015045001216-proj')</script>
+  </div>
 </div>
 </body>
-
 </html>

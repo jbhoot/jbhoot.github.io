@@ -1,0 +1,10 @@
+.all-posts, .yearly-posts, .recent-posts {
+    list-style-type: none;
+    padding: 0;
+}
+
+.all-posts > * + *,
+.yearly-posts > * + *,
+.recent-posts > * + * {
+    margin-block-start: var(--s6);
+}

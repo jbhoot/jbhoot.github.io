@@ -4,8 +4,8 @@
 
 -- 1. delete the placeholder node from `site/index.html`, thus tidying up the main index page.
 -- 2. generate the HTML for the list of all posts
--- 3. generate an index page `site/writings.html` and put the above HTML in it
--- 4. store the generated `site/writings.html` in `pages` env, from where soupault will pick the page and add it to the output.
+-- 3. generate an index page `site/all.html` and put the above HTML in it
+-- 4. store the generated `site/all.html` in `pages` env, from where soupault will pick the page and add it to the output.
 
 -- From the manual:
 -- As you can see, generated pages are stored in the pages environment. When an index processor finishes, soupault extracts that variable from its environment and adds generated pages to the page processing queue.
@@ -22,7 +22,7 @@ env["entries"] = site_index
 rendered_entries = HTML.parse(String.render_template(config["index_template"], env))
 
 -- step 3
-all_posts_index_file = Sys.join_path(Sys.dirname(page_file), "writings.html")
+all_posts_index_file = Sys.join_path(Sys.dirname(page_file), "all.html")
 all_posts_index_content = HTML.pretty_print(rendered_entries)
 
 -- step 4
