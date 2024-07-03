@@ -8,3 +8,17 @@
 .recent-posts > * + * {
     margin-block-start: var(--s6);
 }
+
+.post-listing {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: var(--s0);
+}
+
+.post-listing > :first-child {
+    font-family: var(--font-monospaced-sans);
+}
+
+.post-listing > * + * {
+    margin-block-start: 0;
+}

@@ -109,9 +109,9 @@ index_template = """
   <h1> All posts </h1>
   <ul class='all-posts'>
   {% for e in entries %}
-  <li>
+  <li class="post-listing">
     <p><time datetime="{{e.timestamp}}">{{e.date}}</time></p>
-    <a href="{{e.url}}" class="font-size:s2">{{e.title}}</a>
+    <a href="{{e.url}}" class="font-size:s2 font-weight:600">{{e.title}}</a>
   </li>
   {% endfor %}
   </ul>
@@ -124,9 +124,9 @@ include_subsections = true
 max_items = 5
 index_selector = "ul.recent-posts"
 index_item_template = """
-  <li>
+  <li class="post-listing">
     <p><time datetime="{{timestamp}}">{{date}}</time></p>
-    <a href="{{url}}" class="font-size:s2">{{title}}</a>
+    <a href="{{url}}" class="font-size:s2 font-weight:600">{{title}}</a>
   </li>
   """
 
