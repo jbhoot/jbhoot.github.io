@@ -30,7 +30,7 @@ plugin_dirs = ["plugins"]
 default_template_file = "templates/post.html"
 # The content will be inserted into element selected by default_content_selector,
 default_content_selector = "main"
-default_content_action = "append_child"
+default_content_action = "prepend_child"
 
 [templates.post-index]
 file = "templates/post-index.html"
@@ -40,7 +40,7 @@ content_action = "append_child"
 
 [templates.home-page]
 file = "templates/home-page.html"
-page = "index.html"
+page = ["index.html", "about.md"]
 content_selector = "main"
 content_action = "append_child"
 
