@@ -31,6 +31,10 @@
     text-decoration-style: dotted;
 }
 
+.toc-1 a:hover {
+    text-decoration-style: solid;
+}
+
 .toc-2 {
     list-style-type: decimal;
 }
