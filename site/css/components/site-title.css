@@ -1,3 +1,12 @@
+.site-title-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.site-title-container > * + * {
+    margin-block-start: 0;
+}
+
 .site-title {
     font-size: var(--s3);
     font-weight: 600;
@@ -11,7 +20,7 @@
 
     100% {
         transform-origin: top left;
-        transform: rotate(4deg);
+        transform: rotate(2deg);
     }
 }
 
@@ -93,4 +102,11 @@
 
 .site-title-blinker span:nth-of-type(2) {
     animation: blink linear infinite 3s;
+}
+
+.profile-pic-closeup {
+    width: 60px;
+    height: auto;
+    border: none;
+    outline: none;
 }

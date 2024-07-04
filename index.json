@@ -355,6 +355,6 @@
     "excerpt": null,
     "timestamp": null,
     "date": null,
-    "title": "<a class=\"cluster site-title text-decoration:none\" href=\"/\" style=\"--cluster-gap: var(--s-4);\">\n          <span>Jayesh Bhoot's</span>\n          <span class=\"site-title-blinker\" title=\"because my last name means 'Ghost' in some Indian languages\">Gh<span>o</span>st\n          T<span>o</span>wn</span>\n        </a>"
+    "title": "<a class=\"cluster site-title text-decoration:none\" href=\"/\" style=\"--cluster-gap: var(--s-4);\">\n            <span>Jayesh Bhoot's</span>\n            <span class=\"site-title-blinker\" title=\"because my last name means 'Ghost' in some Indian languages\">Gh<span>o</span>st\n          T<span>o</span>wn</span>\n          </a>"
   }
 ]

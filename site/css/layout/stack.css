@@ -5,10 +5,14 @@
     justify-content: flex-start;
 }
 
-.stack>* {
+.stack > * {
     margin-block: 0;
 }
 
-.stack>*+* {
+.stack > * + * {
     margin-block-start: var(--stack-gap);
+}
+
+.stack-split {
+    margin-block-start: auto;
 }
