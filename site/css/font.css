@@ -37,3 +37,19 @@ src: https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight  */
   font-weight: 700;
   src: url('/static/fonts/atkinson-hyperlegible/Atkinson-Hyperlegible-BoldItalic.woff2') format('woff2');
 }
+
+@font-face {
+  font-display: swap;
+  font-family: 'Cascadia Code';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/static/fonts/CascadiaCode-2404.23/CascadiaCode.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Cascadia Code';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/static/fonts/CascadiaCode-2404.23/CascadiaCodeItalic.woff2') format('woff2');
+}
