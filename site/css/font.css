@@ -11,7 +11,7 @@ src: https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight  */
   font-family: 'Atkinson Hyperlegible';
   font-style: normal;
   font-weight: 400;
-  src: url('/static/fonts/atkinson-hyperlegible/Atkinson-Hyperlegible-Regular.woff2') format('woff2');
+  src: url('/static/fonts/Atkinson-Hyperlegible-2020-0514/Atkinson-Hyperlegible-Regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -19,7 +19,7 @@ src: https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight  */
   font-family: 'Atkinson Hyperlegible';
   font-style: italic;
   font-weight: 400;
-  src: url('/static/fonts/atkinson-hyperlegible/Atkinson-Hyperlegible-Italic.woff2') format('woff2');
+  src: url('/static/fonts/Atkinson-Hyperlegible-2020-0514/Atkinson-Hyperlegible-Italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -27,7 +27,7 @@ src: https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight  */
   font-family: 'Atkinson Hyperlegible';
   font-style: normal;
   font-weight: 700;
-  src: url('/static/fonts/atkinson-hyperlegible/Atkinson-Hyperlegible-Bold.woff2') format('woff2');
+  src: url('/static/fonts/Atkinson-Hyperlegible-2020-0514/Atkinson-Hyperlegible-Bold.woff2') format('woff2');
 }
 
 @font-face {
@@ -35,7 +35,7 @@ src: https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight  */
   font-family: 'Atkinson Hyperlegible';
   font-style: italic;
   font-weight: 700;
-  src: url('/static/fonts/atkinson-hyperlegible/Atkinson-Hyperlegible-BoldItalic.woff2') format('woff2');
+  src: url('/static/fonts/Atkinson-Hyperlegible-2020-0514/Atkinson-Hyperlegible-BoldItalic.woff2') format('woff2');
 }
 
 @font-face {
