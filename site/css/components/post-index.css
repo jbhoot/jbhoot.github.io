@@ -22,7 +22,7 @@
 
 .post-timestamp {
     display: grid;
-    grid-template-columns: 8ch;
+    grid-template-columns: 7ch;
     grid-gap: 0;
     outline: 1px solid;
     border-radius: 5px;
