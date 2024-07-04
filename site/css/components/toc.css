@@ -22,6 +22,24 @@
     text-decoration: none;
 }
 
+.toc-1 {
+    list-style-type: none;
+}
+
+.toc-1 a {
+    text-decoration-thickness: 1px;
+    text-decoration-style: dotted;
+}
+
+.toc-2 {
+    list-style-type: decimal;
+}
+
+.toc-3 {
+    list-style-type: none;
+    padding-left: 2ch;
+}
+
 /*
 What should the min-width be in the following media query?
 
