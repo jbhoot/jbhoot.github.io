@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: var(--s0);
-    align-items: flex-start;
+    align-items: baseline;
 }
 
 .post-listing > * + * {
