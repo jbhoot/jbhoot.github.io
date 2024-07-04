@@ -13,12 +13,29 @@
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: var(--s0);
-}
-
-.post-listing > :first-child {
-    font-family: var(--font-monospaced-sans);
+    align-items: flex-start;
 }
 
 .post-listing > * + * {
+    margin-block-start: 0;
+}
+
+.post-timestamp {
+    display: grid;
+    grid-template-columns: 8ch;
+    grid-gap: 0;
+    outline: 1px solid;
+    border-radius: 5px;
+    text-align: center;
+    font-family: var(--font-monospaced-sans);
+    font-size: 0.9em;
+}
+
+.post-timestamp > :first-child {
+    background-color: #f72f22;
+    color: white;
+}
+
+.post-timestamp > * + * {
     margin-block-start: 0;
 }

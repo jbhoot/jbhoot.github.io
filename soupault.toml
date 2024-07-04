@@ -93,11 +93,16 @@ index_item_template = """
 
 [index.views.yearly-posts]
 index_selector = "ul.yearly-posts"
-include_subsections = true
+# Turning include_subsections on also lists root index.html as one of the posts, for some reason.
+# Diagnose this when need arises for subsections under year folders.
+#include_subsections = true
 index_item_template = """
-  <li>
-    <p><time datetime="{{timestamp}}">{{date}}</time></p>
-    <a href="{{url}}" class="font-size:s2">{{title}}</a>
+  <li class="post-listing">
+    <time class="post-timestamp" datetime="{{timestamp}}">
+      <span>{{split(" ", date)[1]}}</span>
+      <span>{{split(" ", date)[0]}}</span>
+    </time>
+    <p><a href="{{url}}" class="font-size:s2">{{title}}</a></p>
   </li>
   """
 
@@ -110,8 +115,12 @@ index_template = """
   <ul class='all-posts'>
   {% for e in entries %}
   <li class="post-listing">
-    <p><time datetime="{{e.timestamp}}">{{e.date}}</time></p>
-    <a href="{{e.url}}" class="font-size:s2 font-weight:600">{{e.title}}</a>
+    <time class="post-timestamp" datetime="{{e.timestamp}}">
+      <span>{{split("-", e.timestamp)[0]}}</span>
+      <span>{{split(" ", e.date)[1]}}</span>
+      <span>{{split(" ", e.date)[0]}}</span>
+    </time>
+    <p><a href="{{e.url}}" class="font-size:s2 font-weight:600">{{e.title}}</a></p>
   </li>
   {% endfor %}
   </ul>
@@ -125,8 +134,12 @@ max_items = 5
 index_selector = "ul.recent-posts"
 index_item_template = """
   <li class="post-listing">
-    <p><time datetime="{{timestamp}}">{{date}}</time></p>
-    <a href="{{url}}" class="font-size:s2 font-weight:600">{{title}}</a>
+    <time class="post-timestamp" datetime="{{timestamp}}">
+      <span>{{split("-", timestamp)[0]}}</span>
+      <span>{{split(" ", date)[1]}}</span>
+      <span>{{split(" ", date)[0]}}</span>
+    </time>
+    <p><a href="{{url}}" class="font-size:s2 font-weight:600">{{title}}</a></p>
   </li>
   """
 
