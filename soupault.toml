@@ -34,7 +34,7 @@ default_content_action = "prepend_child"
 
 [templates.post-index]
 file = "templates/post-index.html"
-path_regex = '(\/all.html|\/[0-9]{4}\/index.md)$'
+path_regex = '(\/articles.html|\/journal.html|\/[0-9]{4}\/index.md)$'
 content_selector = "main"
 content_action = "append_child"
 
@@ -78,41 +78,13 @@ selector = ["hgroup ~ p"]
 [index.fields.excerpt_2]
 selector = ["hgroup ~ p + p"]
 
-[index.views.all-posts-grid]
-include_subsections = true
-index_selector = ".all-posts.grid"
-index_item_template = """
-  <article class="box borderless" style="--box-color-bg: white;">
-    <hgroup>
-    <p><time datetime="{{timestamp}}">{{date}}</time></p>
-    <h2><a href="{{url}}">{{title}}</a></h2>
-    </hgroup>
-    <p>{{excerpt}} [...]</p>
-  </article>
-  """
-
-[index.views.yearly-posts]
-index_selector = "ul.yearly-posts"
-# Turning include_subsections on also lists root index.html as one of the posts, for some reason.
-# Diagnose this when need arises for subsections under year folders.
-#include_subsections = true
-index_item_template = """
-  <li class="post-listing">
-    <time class="post-timestamp" datetime="{{timestamp}}">
-      <span>{{split(" ", date)[1]}}</span>
-      <span>{{split(" ", date)[0]}}</span>
-    </time>
-    <p><a href="{{url}}" class="font-size:s2">{{title}}</a></p>
-  </li>
-  """
-
-[index.views.all-posts-list]
-section = ["2020", "2022", "2023", "2024", ]
-include_subsections = true
-index_selector = "ul.all-posts"
+[index.views.all-articles-list]
+path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
+exclude_path_regex = '^(.*)/[0-9]{2}-[0-9]{2}\.(md|html)$'
+index_selector = "ul.all-articles"
 index_template = """
-  <h1> All posts </h1>
-  <ul class='all-posts'>
+  <h1> All articles </h1>
+  <ul class='all-articles'>
   {% for e in entries %}
   <li class="post-listing">
     <time class="post-timestamp" datetime="{{e.timestamp}}">
@@ -125,13 +97,13 @@ index_template = """
   {% endfor %}
   </ul>
   """
-file = "index_processors/all-posts.lua"
+file = "index_processors/all-articles.lua"
 
-[index.views.recent-posts-list]
-section = ["2020", "2022", "2023", "2024", ]
-include_subsections = true
+[index.views.recent-articles-list]
+path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
+exclude_path_regex = '^(.*)/[0-9]{2}-[0-9]{2}.md$'
 max_items = 5
-index_selector = "ul.recent-posts"
+index_selector = "ul.recent-articles"
 index_item_template = """
   <li class="post-listing">
     <time class="post-timestamp" datetime="{{timestamp}}">
@@ -143,41 +115,37 @@ index_item_template = """
   </li>
   """
 
-[index.views.recent-posts-grid]
-include_subsections = true
-max_items = 6
-index_selector = ".recent-posts.grid"
+[index.views.yearly-posts]
+index_selector = "ul.yearly-posts"
 index_item_template = """
-  <article class="box borderless" style="--box-color-bg: white;">
-    <hgroup>
-    <p><time datetime="{{timestamp}}">{{date}}</time></p>
-    <h3><a href="{{url}}">{{title}}</a></h3>
-    </hgroup>
-    <p>{{excerpt}} [...]</p>
-    <!-- <p>{{excerpt_2}} [...]</p> -->
-  </article>
+  <li class="post-listing">
+    <time class="post-timestamp" datetime="{{timestamp}}">
+      <span>{{split(" ", date)[1]}}</span>
+      <span>{{split(" ", date)[0]}}</span>
+    </time>
+    <p><a href="{{url}}" class="font-size:s2  font-weight:600">{{title}}</a></p>
+  </li>
   """
 
-#[hooks.pre-process]
-#lua_source = '''
-#  base_path = Sys.dirname(Sys.dirname(target_file))
-#  file_name = Sys.basename(target_file)
-#
-#  target_leaf_dir = Sys.basename(Sys.dirname(target_file))
-#  regex = "^[0-9]{4}-[0-9]{2}-[0-9]{2}-"
-#
-#  print(global_data)
-#
-#  if Regex.match(target_leaf_dir, regex) then
-#    new_target_leaf_dir = Regex.replace(target_leaf_dir, regex, "")
-#    new_target_dir = Sys.join_path(base_path, new_target_leaf_dir)
-#    new_target_file = Sys.join_path(new_target_dir, file_name)
-#    print(target_dir .. "->" .. new_target_dir)
-#    print(target_file .. "->" .. new_target_file)
-#    target_dir = new_target_dir
-#    target_file = new_target_file
-#  end
-#'''
+[index.views.all-journal-entries]
+path_regex = '^(.*)/[0-9]{4}/[0-9]{2}-[0-9]{2}\.(html|md)$'
+index_selector = "ul.all-journal-entries"
+index_template = """
+  <h1> Journal </h1>
+  <ul class='all-journal-entries'>
+  {% for e in entries %}
+  <li class="post-listing">
+    <time class="post-timestamp" datetime="{{e.timestamp}}">
+      <span>{{split("-", e.timestamp)[0]}}</span>
+      <span>{{split(" ", e.date)[1]}}</span>
+      <span>{{split(" ", e.date)[0]}}</span>
+    </time>
+    <p><a href="{{e.url}}" class="font-size:s2 font-weight:600">{{e.title}}</a></p>
+  </li>
+  {% endfor %}
+  </ul>
+  """
+file = "index_processors/all-journal-entries.lua"
 
 [widgets.populate-head]
 widget = "insert_html"

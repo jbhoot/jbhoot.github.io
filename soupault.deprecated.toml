@@ -1,0 +1,48 @@
+[index.views.recent-articles-grid]
+include_subsections = true
+max_items = 6
+index_selector = ".recent-articles.grid"
+index_item_template = """
+  <article class="box borderless" style="--box-color-bg: white;">
+    <hgroup>
+    <p><time datetime="{{timestamp}}">{{date}}</time></p>
+    <h3><a href="{{url}}">{{title}}</a></h3>
+    </hgroup>
+    <p>{{excerpt}} [...]</p>
+    <!-- <p>{{excerpt_2}} [...]</p> -->
+  </article>
+  """
+
+[index.views.all-articles-grid]
+include_subsections = true
+index_selector = ".all-articles.grid"
+index_item_template = """
+  <article class="box borderless" style="--box-color-bg: white;">
+    <hgroup>
+    <p><time datetime="{{timestamp}}">{{date}}</time></p>
+    <h2><a href="{{url}}">{{title}}</a></h2>
+    </hgroup>
+    <p>{{excerpt}} [...]</p>
+  </article>
+  """
+
+#[hooks.pre-process]
+#lua_source = '''
+#  base_path = Sys.dirname(Sys.dirname(target_file))
+#  file_name = Sys.basename(target_file)
+#
+#  target_leaf_dir = Sys.basename(Sys.dirname(target_file))
+#  regex = "^[0-9]{4}-[0-9]{2}-[0-9]{2}-"
+#
+#  print(global_data)
+#
+#  if Regex.match(target_leaf_dir, regex) then
+#    new_target_leaf_dir = Regex.replace(target_leaf_dir, regex, "")
+#    new_target_dir = Sys.join_path(base_path, new_target_leaf_dir)
+#    new_target_file = Sys.join_path(new_target_dir, file_name)
+#    print(target_dir .. "->" .. new_target_dir)
+#    print(target_file .. "->" .. new_target_file)
+#    target_dir = new_target_dir
+#    target_file = new_target_file
+#  end
+#'''
