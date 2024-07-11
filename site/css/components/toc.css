@@ -18,8 +18,9 @@
 .toc-heading-link {
     font-weight: normal;
     margin-inline-start: 0.4em;
-    line-height: 1.50;
     text-decoration: none;
+    font-size: 0.7em;
+    font-family: var(--font-monospaced-sans);
 }
 
 .toc-1 {
