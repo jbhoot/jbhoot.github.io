@@ -22,13 +22,17 @@
 
 .post-timestamp {
     display: grid;
-    grid-template-columns: 7ch;
+    grid-template-columns: 6ch;
     grid-gap: 0;
     border: 1px solid;
     border-radius: 8px;
     text-align: center;
     font-family: var(--font-monospaced-sans);
     font-size: 0.9em;
+}
+
+.post-timestamp > * {
+    padding: 2px;
 }
 
 .post-timestamp > :first-child {
