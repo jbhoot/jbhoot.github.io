@@ -185,7 +185,7 @@ widget = "title"
 after = "populate-head"
 default = "Jayesh Bhoot's Website"
 selector = ["p.title", "h1"]
-append = " @ Jayesh Bhoot's Website"
+append = " | Jayesh Bhoot"
 
 # Look at https://soupault.app/blog/toc/ for more options
 [widgets.table-of-contents]
