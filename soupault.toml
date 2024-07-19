@@ -272,6 +272,6 @@ selector = ".draft"
 profile = "production"
 widget = "insert_html"
 parse = true
-html = "<script data-goatcounter='https://jysh.goatcounter.com/count' async src='//gc.zgo.at/count.js'></script>"
+html = "<script data-goatcounter='https://bhoot.goatcounter.com/count' async src='//gc.zgo.at/count.js'></script>"
 selector = "body"
 action = "append_child"
