@@ -146,6 +146,8 @@ file = "index_processors/all-journal-entries.lua"
 
 [widgets.populate-head]
 widget = "insert_html"
+selector = "head"
+parse = true
 html = """
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -174,8 +176,70 @@ html = """
   <link rel="me" href="https://mastodon.social/@jyssh">
   <script src="/index.js"></script>
 """
-selector = "head"
+
+[widgets.populate-site-title]
+widget = "insert_html"
+selector = ".site-title-wrapper"
 parse = true
+html = """
+        <a class="cluster site-title text-decoration:none" href="/"
+           style="--cluster-gap: var(--s-4);">
+          <span>Jayesh Bhoot&apos;s</span>
+          <span class="site-title-blinker"
+                title="because my last name means 'Ghost' in some Indian languages">Gh<span>o</span>st
+          T<span>o</span>wn</span>
+        </a>
+"""
+
+[widgets.populate-social-links]
+widget = "insert_html"
+selector = ".social-links"
+parse = true
+html = """
+          <a href="mailto:jysh@jysh.net">
+            <img
+            src="/static/images/email.svg"
+            alt="Email." width="30"></a>
+          <a href="https://github.com/jyssh">
+            <img
+            src="/static/images/github.svg"
+            alt="GitHub." width="30"></a>
+          <a href="https://linkedin.com/in/jyssh">
+            <img
+            src="/static/images/linkedin.svg"
+            alt="LinkedIn." width="30"></a>
+          <a href="https://x.com/jyssh_">
+            <img src="/static/images/twitter.svg"
+                 alt="Link to my twitter account @jyssh_"
+                 width="30"></a>
+"""
+
+[widgets.populate-main-nav]
+widget = "insert_html"
+selector = ".main-nav"
+parse = true
+html = """
+      <ul class="cluster">
+        <li><a href="/">Home</a></li>
+        <li><a href="/articles">Articles</a></li>
+        <!-- <li><a href="/journal">Journal</a></li>-->
+        <li>Projects</li>
+        <li>CV</li>
+        <li><a href="/about">About</a></li>
+      </ul>
+"""
+
+[widgets.populate-profile-pic]
+widget = "insert_html"
+selector = ".profile-pic-container"
+parse = true
+html = """
+        <a href="/about">
+          <img src="/profile-pic-closeup-round.png"
+               alt="Profile pic closeup"
+               class="profile-pic-closeup">
+        </a>
+"""
 
 [widgets.page-title]
 widget = "title"
