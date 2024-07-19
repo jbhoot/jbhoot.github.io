@@ -200,17 +200,17 @@ html = """
             <img
             src="/static/images/email.svg"
             alt="Email." width="30"></a>
-          <a href="https://github.com/jyssh">
+          <a href="https://github.com/justbhoot">
             <img
             src="/static/images/github.svg"
             alt="GitHub." width="30"></a>
-          <a href="https://linkedin.com/in/jyssh">
+          <a href="https://linkedin.com/in/justbhoot">
             <img
             src="/static/images/linkedin.svg"
             alt="LinkedIn." width="30"></a>
-          <a href="https://x.com/jyssh_">
+          <a href="https://x.com/justbhoot">
             <img src="/static/images/twitter.svg"
-                 alt="Link to my twitter account @jyssh_"
+                 alt="Link to my twitter account @justbhoot"
                  width="30"></a>
 """
 
@@ -222,7 +222,6 @@ html = """
       <ul class="cluster">
         <li><a href="/">Home</a></li>
         <li><a href="/articles">Articles</a></li>
-        <!-- <li><a href="/journal">Journal</a></li>-->
         <li>Projects</li>
         <li>CV</li>
         <li><a href="/about">About</a></li>
