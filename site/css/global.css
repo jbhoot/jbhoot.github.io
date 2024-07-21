@@ -78,7 +78,6 @@ body {
      Updating --s0 = 1rem * module scale does not make sense because the default --s0 would become too large for spacing purposes.
      ***/
     font-size: var(--s1);
-    background-color: var(--color-light-3);
 }
 
 * {
