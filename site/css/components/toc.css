@@ -71,10 +71,9 @@ For that to happen, the width must at least be `size-of-toc + size-of-main-conte
 
     .toc-1 {
         padding: 10px 10px 20px 10px;
-        border: 1px solid black;
-        background-color: black;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
+        border: 2px solid black;
+        background-color: white;
+        color: black !important;
         max-height: 90vh;
         overflow-y: auto;
     }
