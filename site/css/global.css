@@ -198,10 +198,14 @@ pre {
     color: #4AF626;
     overflow: auto;
     padding: 10px;
+    font-family: var(--font-monospaced-sans);
+    font-weight: normal;
+    font-size: 0.9em;
 }
 
 pre > code {
     color: #4AF626;
+    font-size: inherit;
 }
 
 img {
