@@ -79,6 +79,7 @@ body {
      ***/
     font-size: var(--s1);
     background-color: #dae5e6;
+    container-type: inline-size;
 }
 
 * {
