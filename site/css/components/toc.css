@@ -1,27 +1,17 @@
+.toc-1 {
+    list-style-type: none;
+    padding-inline-start: 0;
+    font-size: 0.9em;
+}
+
 .toc-1:has(*)::before {
     content: 'On this page';
     font-size: var(--s3);
     font-weight: bold;
 }
 
-.toc-1:has(*) {
-    font-size: 0.9em;
-}
-
 .toc-1 * + * {
     margin-block-start: 5px;
-}
-
-.toc-heading-link {
-    font-weight: normal;
-    margin-inline-start: 0.4em;
-    text-decoration: none;
-    font-size: 0.7em;
-    font-family: var(--font-monospaced-sans);
-}
-
-.toc-1 {
-    list-style-type: none;
 }
 
 .toc-1 a {
@@ -41,6 +31,14 @@
 .toc-3 {
     padding-inline-start: 2ch;
     list-style-type: disc;
+}
+
+.toc-heading-link {
+    font-weight: normal;
+    margin-inline-start: 0.4em;
+    text-decoration: none;
+    font-size: 0.7em;
+    font-family: var(--font-monospaced-sans);
 }
 
 /*
