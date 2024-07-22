@@ -52,7 +52,7 @@ The aim is to position toc to the left of the main content only when there is en
 
 For that to happen, the width must at least be `size-of-toc + size-of-main-content + size-of-toc`.
 */
-@media (min-width: 131ch) {
+@media (min-width: 138ch) {
     /* How to position an element relative to a parent container while keeping its position fixed across viewport?
     https://stackoverflow.com/a/11833892
     */
