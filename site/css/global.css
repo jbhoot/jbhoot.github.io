@@ -251,11 +251,21 @@ a:hover {
 }
 
 ul, ol {
-    /* W3C standard specifies a default padding-inline-start (not margin-inline-start) of 40px for ul and ol.
-     * https://html.spec.whatwg.org/multipage/rendering.html#lists
-     * So we stick to padding, only change its value.
-     */
-    padding-inline-start: 1ch;
+    /*
+    For ul and ol, W3C standard specifies a default for padding-inline-start (of 40px), but not for margin-inline-start.
+    So we only adjust padding value here, not margin.
+    https://html.spec.whatwg.org/multipage/rendering.html#lists
+    */
+    padding-inline-start: 3ch;
+
+    /*
+    With `list-style-position: inside`, the bullet stays inside of a multi-line list item. So:
+    - This is a multi-line list item, whose list parent is
+    set to `list-style-position: inside`. Notice that the
+    bullet is aligned with the item's text, instead of
+    marking itself out of the text flow.
+    */
+    /*list-style-position: inside;*/
 }
 
 ol {

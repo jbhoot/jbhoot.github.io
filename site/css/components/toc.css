@@ -5,9 +5,6 @@
 }
 
 .toc-1:has(*) {
-    padding-inline-start: 0;
-    list-style-position: inside;
-    margin-inline-start: 0;
     font-size: 0.9em;
 }
 
@@ -37,12 +34,13 @@
 }
 
 .toc-2 {
+    padding-inline-start: 2ch;
     list-style-type: decimal;
 }
 
 .toc-3 {
-    list-style-type: none;
-    padding-left: 2ch;
+    padding-inline-start: 2ch;
+    list-style-type: disc;
 }
 
 /*
