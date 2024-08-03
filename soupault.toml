@@ -196,10 +196,6 @@ widget = "insert_html"
 selector = ".social-links"
 parse = true
 html = """
-          <a href="mailto:jysh@jysh.net">
-            <img
-            src="/static/images/email.svg"
-            alt="Email." width="30"></a>
           <a href="https://github.com/justbhoot" rel="me">
             <img
             src="/static/images/github.svg"
