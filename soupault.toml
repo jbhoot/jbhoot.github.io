@@ -200,19 +200,19 @@ html = """
             <img
             src="/static/images/email.svg"
             alt="Email." width="30"></a>
-          <a href="https://github.com/justbhoot">
+          <a href="https://github.com/justbhoot" rel="me">
             <img
             src="/static/images/github.svg"
             alt="GitHub." width="30"></a>
-          <a href="https://linkedin.com/in/justbhoot">
+          <a href="https://linkedin.com/in/justbhoot" rel="me">
             <img
             src="/static/images/linkedin.svg"
             alt="LinkedIn." width="30"></a>
-          <a href="https://x.com/justbhoot">
+          <a href="https://x.com/justbhoot" rel="me">
             <img src="/static/images/twitter.svg"
                  alt="Link to my twitter account @justbhoot"
                  width="30"></a>
-          <a href="https://functional.cafe/@bhoot">
+          <a href="https://functional.cafe/@bhoot" rel="me">
             <img
             src="/static/images/mastodon.svg"
             alt="Mastodon." width="30"></a>
