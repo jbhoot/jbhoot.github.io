@@ -8,7 +8,7 @@ build-dev:
 
 .PHONY: dev
 dev:
-	ls soupault.toml templates/* site/**/*.* | entr -s 'make clean && make build-dev'
+	ls soupault.toml templates/* site/* site/**/*.* site/css/**/*.* | entr -s 'make clean && make build-dev'
 
 .PHONY: serve
 serve:
