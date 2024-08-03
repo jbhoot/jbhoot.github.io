@@ -156,18 +156,6 @@
     "title": "Memorising branch order in git rebase"
   },
   {
-    "url": "/drafts/mysql-5-vs-8-when-the-lat-long-shifts-from-under-you",
-    "page_file": "site/drafts/mysql-5-vs-8-when-the-lat-long-shifts-from-under-you.md",
-    "nav_path": [
-      "drafts"
-    ],
-    "excerpt_2": "The production server at work uses MySQL 5.7. My work machine runs macOS. But Oracle no longer provides an installer for MySQL 5.7 for macOS.",
-    "excerpt": "I recently experienced the digital version of ground shifting beneath my feet.",
-    "timestamp": "2024-02-17",
-    "date": "17 February 2024",
-    "title": "When the lat-long shifts beneath your feet"
-  },
-  {
     "url": "/2024/switching-to-fish-shell",
     "page_file": "site/2024/switching-to-fish-shell.html",
     "nav_path": [
@@ -372,9 +360,11 @@
     "title": null
   },
   {
-    "url": "/cv",
-    "page_file": "site/cv.html",
-    "nav_path": [],
+    "url": "/drafts/cv",
+    "page_file": "site/drafts/cv.html",
+    "nav_path": [
+      "drafts"
+    ],
     "excerpt_2": "OCaml Swift ABI PoC",
     "excerpt": "Worked on a product that helped hotels manage their pricing across various booking platforms. I implemented parts of\nthe backend which fetched and updated prices of a hotel on such booking platforms.",
     "timestamp": "2019",
