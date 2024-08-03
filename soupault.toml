@@ -29,7 +29,7 @@ plugin_dirs = ["plugins"]
 
 default_template_file = "templates/post.html"
 # The content will be inserted into element selected by default_content_selector,
-default_content_selector = "main"
+default_content_selector = "main > article"
 default_content_action = "prepend_child"
 
 [templates.post-index]
