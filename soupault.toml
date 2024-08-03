@@ -182,9 +182,9 @@ widget = "insert_html"
 selector = ".site-title-wrapper"
 parse = true
 html = """
-        <a class="cluster site-title text-decoration:none" href="/"
+        <a class="u-url cluster site-title text-decoration:none" href="https://bhoot.dev"
            style="--cluster-gap: var(--s-4);">
-          <span>Jayesh Bhoot&apos;s</span>
+          <span><span class="p-name">Jayesh <span class="p-nickname p-family-name">Bhoot</span></span><span>&apos;s</span></span>
           <span class="site-title-blinker"
                 title="because my last name means 'Ghost' in some Indian languages">Gh<span>o</span>st
           T<span>o</span>wn</span>
@@ -236,7 +236,7 @@ html = """
         <a href="/about">
           <img src="/profile-pic-closeup-round.png"
                alt="Profile pic closeup"
-               class="profile-pic-closeup">
+               class="u-photo profile-pic-closeup">
         </a>
 """
 
