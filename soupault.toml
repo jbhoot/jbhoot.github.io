@@ -91,7 +91,7 @@ index_template = """
       <span>{{split("-", e.timestamp)[0]}}</span>
       <span>{{split(" ", e.date)[1]}}</span>
     </time>
-    <p><a href="{{e.url}}" class="font-size:s2 font-weight:600">{{e.title}}</a></p>
+    <p><a href="{{e.url}}" class="font-size:s2">{{e.title}}</a></p>
   </li>
   {% endfor %}
   </ul>
@@ -109,7 +109,7 @@ index_item_template = """
       <span>{{split("-", timestamp)[0]}}</span>
       <span>{{split(" ", date)[1]}}</span>
     </time>
-    <p><a href="{{url}}" class="font-size:s2 font-weight:600">{{title}}</a></p>
+    <p><a href="{{url}}" class="font-size:s2">{{title}}</a></p>
   </li>
   """
 
@@ -121,7 +121,7 @@ index_item_template = """
       <span>{{split(" ", date)[1]}}</span>
       <span>{{split(" ", date)[0]}}</span>
     </time>
-    <p><a href="{{url}}" class="font-size:s2  font-weight:600">{{title}}</a></p>
+    <p><a href="{{url}}" class="font-size:s2">{{title}}</a></p>
   </li>
   """
 
@@ -137,7 +137,7 @@ index_template = """
       <span>{{split("-", e.timestamp)[0]}}</span>
       <span>{{split(" ", e.date)[1]}}</span>
     </time>
-    <p><a href="{{e.url}}" class="font-size:s2 font-weight:600">{{e.title}}</a></p>
+    <p><a href="{{e.url}}" class="font-size:s2">{{e.title}}</a></p>
   </li>
   {% endfor %}
   </ul>
