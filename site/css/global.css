@@ -28,6 +28,7 @@
     --s4: calc(var(--s3) * var(--ratio));
     --s5: calc(var(--s4) * var(--ratio));
     --s6: calc(var(--s5) * var(--ratio));
+    --s7: calc(var(--s6) * var(--ratio));
 
     --padding-large: calc(var(--s0) + 2vw);
     --padding: calc(var(--s0) + 0.25vw);
@@ -50,7 +51,7 @@
     --color-light-3: #bfd0ff;
     --color-dark: black;
 
-    --size-h1: var(--s6);
+    --size-h1: var(--s7);
 }
 
 html {
@@ -78,7 +79,7 @@ body {
      Updating --s0 = 1rem * module scale does not make sense because the default --s0 would become too large for spacing purposes.
      ***/
     font-size: var(--s1);
-    background-color: #dae5e6;
+    /*background-color: #dae5e6;*/
     container-type: inline-size;
 }
 
@@ -119,8 +120,8 @@ hgroup p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    /*font-family: var(--font-serif);*/
-    color: darkred;
+    font-family: var(--font-serif);
+    /*color: darkred;*/
     /* line-height: 1.25; */
 }
 
@@ -129,23 +130,23 @@ h1 {
 }
 
 h2 {
-    font-size: var(--s5);
+    font-size: var(--s6);
 }
 
 h3 {
-    font-size: var(--s4);
+    font-size: var(--s5);
 }
 
 h4 {
-    font-size: var(--s3);
+    font-size: var(--s4);
 }
 
 h5 {
-    font-size: var(--s2);
+    font-size: var(--s3);
 }
 
 h6 {
-    font-size: var(--s1);
+    font-size: var(--s2);
 }
 
 caption,

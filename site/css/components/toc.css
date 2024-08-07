@@ -63,11 +63,12 @@ For that to happen, the width must at least be `size-of-toc + size-of-main-conte
         inline-size: calc(var(--measure) * 0.4);
         position: fixed;
         top: 0;
+        border: 1px solid lightgrey;
+        color: black !important;
     }
 
     .toc-1 {
         padding: 10px 10px 20px 10px;
-        background-color: black;
         max-height: 90vh;
         overflow-y: auto;
     }
