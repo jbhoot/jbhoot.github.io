@@ -1,27 +1,6 @@
-.site-title-container {
-    display: grid;
-    grid-template-columns: 1fr auto;
-}
-
-.site-title-container > * + * {
-    margin-block-start: 0;
-}
-
 .site-title {
-    font-size: var(--s3);
-    font-weight: 600;
-}
-
-@keyframes animate-site-title {
-    0% {
-        transform-origin: top left;
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform-origin: top left;
-        transform: rotate(2deg);
-    }
+    font-size: var(--s2);
+    font-weight: normal;
 }
 
 /* Source: https://codepen.io/nodws/pen/WNjXbr */
@@ -68,21 +47,11 @@
 
 .site-title-blinker {
     background-color: black;
-    padding: 0 5px;
-
-    display: block;
-    inline-size: fit-content;
+    padding: 0 2px;
+    border: 1px solid;
 
     text-decoration: none;
-    outline: 1px solid;
-    /*outline-offset: 1px;*/
 
-    animation-name: animate-site-title;
-    animation-delay: 5s;
-    animation-duration: 200ms;
-    animation-fill-mode: forwards;
-
-    color: #fee;
     text-shadow: 0 -40px 100px,
     0 0 2px,
     0 0 1em #ff4444,
@@ -107,6 +76,5 @@
 .profile-pic-closeup {
     width: 80px;
     height: auto;
-    border: none;
     outline: none;
 }
