@@ -4,7 +4,7 @@ clean:
 
 .PHONY: build-dev
 build-dev:
-	./soupault
+	soupault
 
 .PHONY: dev
 dev:
@@ -16,4 +16,4 @@ serve:
 
 .PHONY: build-prod
 build-prod:
-	./soupault --profile production
+	soupault --profile production
