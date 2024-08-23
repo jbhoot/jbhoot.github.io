@@ -20,11 +20,7 @@ then
   exit 1
 fi
 
-echo "<article
-  itemscope
-  itemtype='https://schema.org/Article'
-  itemid='urn:uuid:$(uuidgen | tr '[:upper:]' '[:lower:]')'
-  class='h-entry'>
+echo "<article itemscope itemtype='https://schema.org/Article' itemid='urn:uuid:$(uuidgen | tr '[:upper:]' '[:lower:]')' class='h-entry'>
 <hgroup>
 <h1 class='p-name'></h1>
 
