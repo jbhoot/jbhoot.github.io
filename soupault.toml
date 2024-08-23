@@ -29,7 +29,7 @@ plugin_dirs = ["plugins"]
 
 default_template_file = "templates/post.html"
 # The content will be inserted into element selected by default_content_selector,
-default_content_selector = "main > article"
+default_content_selector = "main"
 default_content_action = "prepend_child"
 
 [templates.post-index]
@@ -63,6 +63,11 @@ dump_json = "index.json"
 
 [index.fields.title]
 selector = ["h1"]
+
+[index.fields.id]
+selector = ["article[itemid]"]
+extract_attribute = "itemid"
+fallback_to_content = false
 
 [index.fields.date]
 selector = ["hgroup time"]
