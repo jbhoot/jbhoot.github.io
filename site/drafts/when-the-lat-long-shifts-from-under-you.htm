@@ -9,6 +9,13 @@
 </p>
 </hgroup>
 
+P1: Theory, SRID, etc.
+P2: MySQL 5 vs 8 on how much they obey the theory
+P3: How MySQL 5 and MySQL 8 reads and stores geometric value
+P4: Problem 1 - How migration process from MySQL 5 to MySQL 8 muck up data with SRID 4326 w.r.t. its storage format
+P5: Problem 2 - How does node-mysql2 read muck up reading of a geometric value
+P6: Solution - st_swapxy() and reading from node-mysql2 differently
+
 <p>I recently experienced the digital version of ground shifting beneath my feet.</p>
 
 <p>The production server at work uses MySQL 5.7. My work machine runs macOS. But Oracle no longer provides an installer
