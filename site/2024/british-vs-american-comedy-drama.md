@@ -1,3 +1,5 @@
+<article itemscope itemtype="https://schema.org/Article" itemid="urn:uuid:4a3058d8-0c53-4aaa-ad99-daf4254eac48" class="h-entry">
+
 <hgroup>
 
 # British v/s American comedy dramas
@@ -13,3 +15,5 @@ Then it hit me today, while I was watching a British series called [Trying](http
 In American shows, the script feels quite...scripted. Every other dialogue in a conversation is written to be a punchline or a one-liner.
 
 British dramas feel more organic – a conversation goes on with (wry, dry) humour sprinkled here and there.
+
+</article>

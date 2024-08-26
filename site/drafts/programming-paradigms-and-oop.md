@@ -1,3 +1,5 @@
+<article itemscope itemtype="https://schema.org/Article" itemid="urn:uuid:393a5861-93a4-432b-a2a7-23b6fa3d9479" class="h-entry">
+
 <hgroup>
 
 # Programming Paradigms and OOP
@@ -40,3 +42,5 @@ In reality, most languages are a mix of paradigms, where a paradigm may be prefe
 Where does OO lie in this heirarchy?
 
 Personally, I think a robust type system and immutability-first or immutability-by-default are the most crucial characteristics in a language, no matter the paradigm.
+
+</article>

@@ -1,3 +1,5 @@
+<article itemscope itemtype="https://schema.org/Article" itemid="urn:uuid:aa8b98ca-36f9-4a95-9b18-2b8a75335e17" class="h-entry">
+
 <hgroup>
 
 # Memorising branch order in git rebase
@@ -21,3 +23,5 @@ Well, git always rebases the *current* branch.
 So `git rebase master feat/x` is actually `git checkout feat/x && git rebase master`. So the reading <i>git rebase on top of master</i> still applies.
 
 A bit clunky, but good enough for me.
+
+</article>

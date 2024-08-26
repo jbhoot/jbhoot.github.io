@@ -1,3 +1,5 @@
+<article itemscope itemtype="https://schema.org/Article" itemid="urn:uuid:b58d49ce-27ed-4b90-954c-ce0833c3d657" class="h-entry">
+
 # How React Rxjs works
 
 1. An observable must have an active subscription before its hook can be executed. (TODO: What happens when this is not the case?)
@@ -15,3 +17,5 @@ An alternative to the 1st point is to provide a default values to `bind()`. Howe
 ## Accessing an observable value in a React component`bind` and `Subscribe`
 
 To access an observable in a React component, `bind` gives you a hook
+
+</article>

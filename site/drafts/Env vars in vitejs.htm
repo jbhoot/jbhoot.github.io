@@ -1,3 +1,5 @@
+<article itemscope itemtype="https://schema.org/Article" itemid="urn:uuid:7970c00f-a3f7-4e11-9f58-e9240928c53f" class="h-entry">
+
 Two categories of env vars:
 - used in configuration. Usually supplied in form of
   - shell env vars, which are mapped to process.env.VAR, accessible in defineConfig()
@@ -55,3 +57,5 @@ In general, leave it alone.
 vite uses NODE_ENV internally to decide what optimizations to perform while building (dev build: HMR, ES modules serving, etc., prod build: bundling, high optimizations, etc.).
 If NODE_ENV is set to other than these two, then most likely, vite makes a dev build.
 In general, leave NODE_ENV alone, except when we want `vite build` to make a dev build for a custom mode. But this comes under the quirky combinations. Even a vite build --mode dev:mockNetwork would need a prod build.
+
+</article>

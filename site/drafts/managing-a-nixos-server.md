@@ -1,3 +1,5 @@
+<article itemscope itemtype="https://schema.org/Article" itemid="urn:uuid:eb4df946-3894-4d3d-b1e8-aa4a89cd2e30" class="h-entry">
+
 
 
 ```
@@ -19,3 +21,5 @@ nixos-rebuild switch \
   --target-host root@target.host \
   --build-host localhost
 ```
+
+</article>

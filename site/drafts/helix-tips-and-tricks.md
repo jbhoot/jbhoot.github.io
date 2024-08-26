@@ -1,3 +1,5 @@
+<article itemscope itemtype="https://schema.org/Article" itemid="urn:uuid:f528a128-7513-4539-8791-4dfa7fbcb8c5" class="h-entry">
+
 <hgroup>
 
 # Helix tips and tricks
@@ -21,3 +23,5 @@ vim's `a` (append) -> `wi` (go to next word, then insert before it)
 `$a` -> A (exists in vim too, but I didn't use it very much)
 
 
+
+</article>

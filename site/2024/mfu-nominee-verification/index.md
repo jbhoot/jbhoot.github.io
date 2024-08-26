@@ -1,3 +1,5 @@
+<article itemscope itemtype="https://schema.org/Article" itemid="urn:uuid:9905f662-e652-4747-949b-37c1112e1bad" class="h-entry">
+
 <hgroup>
 
 # How to make nominee verification pop-up go away while creating a new folio in Mutual Fund Utilities (MFU) 
@@ -27,3 +29,5 @@ Once a primary holder has verified the nominee details, the interface looks like
 ## The solution
 
 In order for any holders to verify nominee details, use this link: [https://mfuonline.com/CNOMV](https://mfuonline.com/CNOMV)
+
+</article>

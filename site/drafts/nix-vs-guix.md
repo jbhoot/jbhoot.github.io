@@ -1,3 +1,5 @@
+<article itemscope itemtype="https://schema.org/Article" itemid="urn:uuid:145070ee-1327-4159-a9aa-51c2e06aa2d5" class="h-entry">
+
 ## Why I have chosen the Nix ecosystem for now
 
 - Guix is *very* slow at operations
@@ -41,3 +43,5 @@
 ## Conclusion
 
 At this point, my career priorities trump my desire to manage my whole system declaratively, with a single language, no less a Lisp.
+
+</article>

@@ -1,3 +1,5 @@
+<article itemscope itemtype="https://schema.org/Article" itemid="urn:uuid:866e2423-89cf-4cc8-ba8e-e587d5c9e42d" class="h-entry">
+
     /* Two problems:
      * 1. --s0 = 1rem is a ridiculously small size default. May be start the modular scale with --s0 = 1rem * modular scale? Or set the base font-size to s1? One problem with former is that s0 might become too large a value for spacing defaults.
      * 2. vh or vw? 0.25vw is so miniscule on a mobile device that it essentially defaults to the tiny --s0 = 1 rem value. 1vw resolves that problem on mobile device. But then 1vw is too large a value on desktop screens so that text balloons up. vh might solve that problem. 0.25vh is neither too small on mobile device, nor too large on a desktop screen. Not sure of any side-effects though. But nobody is going to mess much with the height of a screen. In any case, font-size won't dip below the browser's 1rem.
@@ -16,3 +18,5 @@ But 1vw is so large on a desktop screen that text becomes huge.
 But all this mental gymnastics led me to wonder what the hell do I care about scaling the fonts in accordance with the viewport size, as long as the base font size is large enough on all screens? So for now I have resorted to --s1 as the base font-size.
 
 Updating --s0 = 1rem * module scale does not make sense because the default --s0 would become too large for spacing purposes.
+
+</article>

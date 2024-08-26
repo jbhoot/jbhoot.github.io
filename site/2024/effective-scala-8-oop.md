@@ -1,3 +1,5 @@
+<article itemscope itemtype="https://schema.org/Article" itemid="urn:uuid:b1319873-65a5-49e3-82aa-334e3fb7e353" class="h-entry">
+
 <hgroup>
 
 # Effective Scala, part 8 - OO concepts
@@ -21,3 +23,5 @@ than as:
 - DatabaseAccess allows various databases to share the interface.
 
 The former encourages the view/use of interface as an abstraction over implementation.
+
+</article>

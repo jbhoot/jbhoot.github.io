@@ -1,3 +1,5 @@
+<article itemscope itemtype="https://schema.org/Article" itemid="urn:uuid:e488eebb-97a3-4f30-a344-a95aadffd3bf" class="h-entry">
+
 <hgroup>
 <h1>Make an opam local switch and <code>dune init project</code> work together</h1>
 <p>
@@ -26,3 +28,5 @@ msg_struct.length = UInt32(binaryDataAsBytes.count)
 let msg_struct_ptr = UnsafeMutablePointer&lt;Message&gt;.allocate(capacity: 1)
 msg_struct_ptr.update(from: &msg_struct, count: 1)
 print(String.init(cString: ModKit.message2(msg_struct_ptr)))</code></pre>
+
+</article>

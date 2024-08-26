@@ -1,3 +1,5 @@
+<article itemscope itemtype="https://schema.org/Article" itemid="urn:uuid:1960a042-4070-4469-bfb9-07d2cfcd6252" class="h-entry">
+
 ## Comparison table
 
 | Holding period                                                                   | Let's talk money                                | Let's talk mutual funds             | Potential alternatives                                            |
@@ -118,3 +120,5 @@ Make decisions in the following only after reading *Let's Talk Mutual Funds* in 
 - Should I invest in multi-cap when I already have flexi-cap?
 - Should I invest in multi-asset when I already have flexi-cap?
 - How do I account for gold and REIT investments? Do multi-asset include them? Check out Quantum's multi-asset fund.
+
+</article>
