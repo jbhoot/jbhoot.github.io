@@ -239,9 +239,7 @@ selector = ".author-photo-placeholder"
 action = "replace_element"
 parse = true
 html = """
-        <a href="/about"><img src="/profile-pic-closeup-round.png"
-               alt="Post author's photo"
-               class="u-photo post-author-photo"></a>
+<a href="/about"><img alt="Post author's photo" class="u-photo" src="/profile-pic-closeup-round.png"></a>
 """
 
 [widgets.populate-article-link]
