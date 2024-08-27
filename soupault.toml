@@ -188,7 +188,7 @@ selector = ".site-title-wrapper"
 parse = true
 html = """
         <a class="u-url cluster site-title text-decoration:none" href="https://bhoot.dev"
-           style="--cluster-gap: var(--s-4);">
+           style="--cluster-gap: var(--s-4); align-items: center;">
           <span><span class="p-name">Jayesh <span class="p-nickname p-family-name">Bhoot</span></span><span>&apos;s</span></span>
           <span class="site-title-blinker"
                 title="because my last name means 'Ghost' in some Indian languages">Gh<span>o</span>st
