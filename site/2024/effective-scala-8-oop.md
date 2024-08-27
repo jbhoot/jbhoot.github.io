@@ -7,7 +7,7 @@
 <p>Published by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a> on <time class="dt-published" datetime="2024-05-14">14 May 2024</time></p>
 
 <p class="tags">
-<span>series-effective-scala</span>
+<a class="p-category" href="" rel="tag">series-effective-scala</a>
 <span>OOP</span>
 </p>
 
