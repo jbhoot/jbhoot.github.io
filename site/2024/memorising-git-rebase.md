@@ -4,7 +4,7 @@
 
 <h1 class="p-name">Memorising branch order in git rebase</h1>
 
-<p> Published by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a> on <time class="dt-published" datetime="2024-03-05">05 Mar 2024</time> </p>
+<p> Written by <span class="author-photo-placeholder"></span> <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a> • Published on <time class="dt-published" datetime="2024-03-05">05 Mar 2024</time> </p>
 
 <p class="tags"><a class="p-category" href="" rel="tag">git</a></p>
 

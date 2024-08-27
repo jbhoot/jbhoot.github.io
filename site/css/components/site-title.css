@@ -73,8 +73,8 @@
     animation: blink linear infinite 3s;
 }
 
-.profile-pic-closeup {
-    display: block;
+.post-author-photo {
+    vertical-align: middle;
     width: 40px;
     height: auto;
     outline: none;
