@@ -256,7 +256,8 @@ append = " | Jayesh Bhoot"
 # Look at https://soupault.app/blog/toc/ for more options
 [widgets.table-of-contents]
 widget = "toc"
-selector = ".toc"
+selector = "hgroup:has(h1)"
+action = "insert_after"
 min_level = 1
 max_level = 3
 numbered_list = true
