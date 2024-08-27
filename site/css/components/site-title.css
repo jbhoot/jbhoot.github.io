@@ -3,6 +3,18 @@
     font-weight: normal;
 }
 
+@keyframes animate-site-title {
+    0% {
+        transform-origin: top left;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform-origin: top left;
+        transform: rotate(3deg);
+    }
+}
+
 /* Source: https://codepen.io/nodws/pen/WNjXbr */
 @keyframes blink {
     78% {
@@ -47,10 +59,17 @@
 
 .site-title-blinker {
     background-color: black;
-    padding: 0 2px;
+    padding: 2px 4px;
     border: 1px solid;
+    /*outline: 1px solid;*/
+    /*outline-offset: 1px;*/
 
     text-decoration: none;
+
+    animation-name: animate-site-title;
+    animation-delay: 2s;
+    animation-duration: 200ms;
+    animation-fill-mode: forwards;
 
     text-shadow: 0 -40px 100px,
     0 0 2px,
