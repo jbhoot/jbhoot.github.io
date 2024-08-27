@@ -14,32 +14,32 @@ fi
 
 draft=$1
 
-if [ -e $draft ]
+if [ -e "$draft" ]
 then
   echo "Error: $draft already exists. Please use another name."
   exit 1
 fi
 
-echo "<article itemscope itemtype='https://schema.org/Article' itemid='urn:uuid:$(uuidgen | tr '[:upper:]' '[:lower:]')' class='h-entry'>
+echo "<article class='h-entry' itemscope itemtype='https://schema.org/Article' itemid='urn:uuid:$(uuidgen | tr '[:upper:]' '[:lower:]')'>
 <hgroup>
 <h1 class='p-name'></h1>
 
-<p>Published by <a class='p-author h-card' href='https://bhoot.dev/about'>Jayesh Bhoot</a> on <time datetime='' class='dt-published'></time></p>
+<p>Published by <a class='p-author h-card' href='https://bhoot.dev/about'>Jayesh Bhoot</a> on <time class='dt-published' datetime=''></time></p>
 
 <p class='tags'>
-<a href='' rel='tag' class='p-category'></a>
+<a class='p-category' href='' rel='tag'></a>
 </p>
 </hgroup>
 
-<p class='p-summary'></p>
+<p class='e-summary'></p>
 
 <div class='e-content'>
 
 </div>
-</article>" > $draft
+</article>" > "$draft"
 
 # replace single quotes with the conventional double quotes used in HTML in the draft.
-sed -i -E "s/'/\"/g" $draft
+sed -i -E "s/'/\"/g" "$draft"
 
 echo "Draft $draft created. Happy writing!"
 
