@@ -4,7 +4,7 @@
 
 # Helix tips and tricks
 
-<time datetime="2024-05-11">11 May 2024</time>
+Published by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a> on <time class="dt-published" datetime="2024-05-11">11 May 2024</time>
 
 </hgroup>
 
