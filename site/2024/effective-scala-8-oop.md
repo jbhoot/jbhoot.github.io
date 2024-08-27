@@ -13,6 +13,9 @@
 
 </hgroup>
 
+<div class="e-content">
+
+
 Flip the perspective on tools like interfaces and traits. Don't see them as a way for objects to share an interface, but as an abstraction over implementations.
 
 So, not: DatabaseAccess -> (InMemoryDatabase, PhysicalDatabase)
@@ -29,4 +32,5 @@ than as:
 
 The former encourages the view/use of interface as an abstraction over implementation.
 
+</div>
 </article>

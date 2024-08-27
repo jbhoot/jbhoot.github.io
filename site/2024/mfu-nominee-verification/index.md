@@ -8,6 +8,9 @@
 
 </hgroup>
 
+<div class="e-content">
+
+
 Tip for Mutual Fund Utilities (MFU) users:
 
 While transacting for a new folio, if you are stuck at "Nominee Verify" pop-up even after verifying the nominee(s), then check that:
@@ -30,4 +33,5 @@ Once a primary holder has verified the nominee details, the interface looks like
 
 In order for any holders to verify nominee details, use this link: [https://mfuonline.com/CNOMV](https://mfuonline.com/CNOMV)
 
+</div>
 </article>

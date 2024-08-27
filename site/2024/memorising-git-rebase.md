@@ -10,6 +10,9 @@
 
 </hgroup>
 
+<div class="e-content">
+
+
 In a `git rebase x` command, is `x` being rebased on the current branch, or vice versa?
 
 I mentally always read <i>rebase</i> as <i>rebase on top of</i>.
@@ -24,4 +27,5 @@ So `git rebase master feat/x` is actually `git checkout feat/x && git rebase mas
 
 A bit clunky, but good enough for me.
 
+</div>
 </article>
