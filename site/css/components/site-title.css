@@ -1,6 +1,6 @@
 .site-title {
-    font-size: var(--s2);
-    font-weight: normal;
+    font-size: var(--s4);
+    /*font-weight: normal;*/
 }
 
 @keyframes animate-site-title {
