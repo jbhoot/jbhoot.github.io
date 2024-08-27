@@ -5,8 +5,8 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": "Then it hit me today, while I was watching a British series called <a href=\"https://tv.apple.com/in/episode/nikki-and-jason/umc.cmc.2dzdkdvedw0n9h25d49y9lh99?action=playSmartEpisode\">Trying</a>.",
-    "excerpt": "They always felt different from each other, but I could never quite put a finger on the difference.",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2024-07-07",
     "date": "07 Jul 2024",
     "id": "urn:uuid:4a3058d8-0c53-4aaa-ad99-daf4254eac48",
@@ -18,8 +18,8 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": "While transacting for a new folio, if you are stuck at “Nominee Verify” pop-up even after verifying the nominee(s), then check that:",
-    "excerpt": "Tip for Mutual Fund Utilities (MFU) users:",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2024-06-23",
     "date": "23 Jun 2024",
     "id": "urn:uuid:9905f662-e652-4747-949b-37c1112e1bad",
@@ -31,8 +31,8 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": "So, not: DatabaseAccess -&gt; (InMemoryDatabase, PhysicalDatabase)",
-    "excerpt": "Flip the perspective on tools like interfaces and traits. Don’t see them as a way for objects to share an interface, but as an abstraction over implementations.",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2024-05-14",
     "date": "14 May 2024",
     "id": "urn:uuid:b1319873-65a5-49e3-82aa-334e3fb7e353",
@@ -58,7 +58,7 @@
       "2024"
     ],
     "excerpt_2": null,
-    "excerpt": "This is a series of blog posts I wrote while going through the Coursera Course <a href=\"https://www.coursera.org/learn/effective-scala\">Effective Programming in Scala</a>.",
+    "excerpt": null,
     "timestamp": "2024-05-08",
     "date": "08 May 2024",
     "id": "urn:uuid:5a99b823-fa04-4e97-b94f-a0e57f0f879a",
@@ -70,8 +70,8 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": "Only two requirements:",
-    "excerpt": "While a scala worksheet are evaluated from top to bottom, a scala project needs an entry point.",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2024-05-07",
     "date": "07 May 2024",
     "id": "urn:uuid:3194d9ee-2397-4b1a-ba7a-125dbe10fb30",
@@ -83,8 +83,8 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": "<code>src/build.sbt</code> contains the configuration to build the project itself.",
-    "excerpt": "<code>src/project</code> dir contains configuration about SBT - <code>build.properties</code> to specify sbt version, <code>plugins.sbt</code> to specify sbt plugins, and so on.",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2024-05-06",
     "date": "06 May 2024",
     "id": "urn:uuid:b84ce392-affe-484b-a5eb-fde46cdd0ad8",
@@ -109,8 +109,8 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": "This explains why Option type has a <code>map</code> or <code>filter</code> operations even in OCaml.",
-    "excerpt": "Operations on collections can be classified into:",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2024-04-24",
     "date": "24 Apr 2024",
     "id": "urn:uuid:b62ea789-d0e9-4e7f-9b0e-40d17322bef7",
@@ -122,8 +122,8 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": "A function is a value in Scala. All values are objects in Scala. An object can have methods. So a function in Scala can have methods.",
-    "excerpt": "A function is a value in Scala, while a method is not. So the former can be passed as a parameter of a function or a method, and can be returned as a value. Method cannot do any of those.",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2024-04-21",
     "date": "21 Apr 2024",
     "id": "urn:uuid:af3fbc76-728b-45ac-9c02-886b7aa2db68",
@@ -135,8 +135,8 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": "Check the <a href=\"https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html\">compatibility tables</a>.",
-    "excerpt": "I am going through the course <a href=\"https://www.coursera.org/learn/effective-scala\">Effective Programming in Scala</a> on Coursera, and ran into build import errors in the very first assignment (fireworks).",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2024-04-19",
     "date": "19 Apr 2024",
     "id": "urn:uuid:63a0e01e-eacb-486e-9f72-959cc2ccb742",
@@ -148,8 +148,8 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": "For example, in a problem involving doors and windows and facades, if the domain is constrained to only deal with surface area, then modelling the doors and windows and facade in terms of <strong>Rectangle</strong> is the right level of abstraction instead of modelling them as Door, Window, and Facade respectively.",
-    "excerpt": "Finding the <em>right</em> level of abstraction is more important than the best level of abstraction.",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2024-04-16",
     "date": "16 Apr 2024",
     "id": "urn:uuid:321f0aca-5212-4b8b-8994-946cac15316f",
@@ -161,8 +161,8 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": "Value is the most abstract definition here, but it is made concrete by subsequent definitions.",
-    "excerpt": "A value is the representation of some entity that can be manipulated by a program.",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2024-04-15",
     "date": "15 Apr 2024",
     "id": "urn:uuid:7baad03d-26bd-44b2-a645-36b00f7707a1",
@@ -174,8 +174,8 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": "I have gone through some options over time. Here is an overview for my future self.",
-    "excerpt": "For a small community, OCaml ecosystem is quite rich, maybe too rich, in editor tooling.",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2024-04-15",
     "date": "15 Apr 2024",
     "id": "urn:uuid:6ac9fa5c-7838-41ef-ad83-d460315fa18c",
@@ -187,8 +187,8 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": "I mentally always read <i>rebase</i> as <i>rebase on top of</i>.",
-    "excerpt": "In a <code>git rebase x</code> command, is <code>x</code> being rebased on the current branch, or vice versa?",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2024-03-05",
     "date": "05 Mar 2024",
     "id": "urn:uuid:aa8b98ca-36f9-4a95-9b18-2b8a75335e17",
@@ -200,8 +200,8 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": "All I want is a shell that is",
-    "excerpt": "I have come crawling back to bash. Why?",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2024-02-06",
     "date": "06 Feb 2024",
     "id": "urn:uuid:972047d6-1709-42ab-b18e-fa68f6a760b5",
@@ -213,8 +213,8 @@
     "nav_path": [
       "2023"
     ],
-    "excerpt_2": "Both have evolved independently. While they manage to work in tandem, there are a lot of irregularities to trip on\nwhere they meet.",
-    "excerpt": "In the OCaml ecosystem, opam is the most popular package management tool, while dune is the foremost build tool.",
+    "excerpt_2": "So may be, first, I should enter the empty project directory to set up the project.",
+    "excerpt": "I planned the following idealised sequence of commands:",
     "timestamp": "2023-12-03",
     "date": "03 Dec 2023",
     "id": "urn:uuid:e5759f6b-3be5-4219-aad2-35e9d8c1ebe2",
@@ -226,8 +226,8 @@
     "nav_path": [
       "2023"
     ],
-    "excerpt_2": "P.S.: Even dune does not work without it!",
-    "excerpt": "OCaml compiler failed to build on my M1 Macbook with Apple's Silicon architecture.",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2023-12-01",
     "date": "01 Dec 2023",
     "id": "urn:uuid:6e7ebece-1f47-4461-b284-a0094aacf55e",
@@ -240,7 +240,7 @@
       "2023"
     ],
     "excerpt_2": null,
-    "excerpt": "This list will likely remain short.",
+    "excerpt": null,
     "timestamp": "2023-10-09",
     "date": "09 Oct 2023",
     "id": "urn:uuid:bea230bc-0afb-47ac-b73e-631dc8691602",
@@ -252,8 +252,8 @@
     "nav_path": [
       "2023"
     ],
-    "excerpt_2": "On top of that, Twitter started dishing out blue ticks on subscriptions.",
-    "excerpt": "I use the following set of fonts.",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2023-06-12",
     "date": "12 Jun 2023",
     "id": "urn:uuid:de454181-6576-46c5-9017-afffb721ff58",
@@ -265,8 +265,8 @@
     "nav_path": [
       "2022"
     ],
-    "excerpt_2": "Clearly, <code>pre</code> tag is not enough to represent a code snippet. How do we distinguish a code snippet from\nother\npre-formatted content? By marking up the snippet with <code>code</code>, and then wrapping it in a\n<code>pre</code> tag.",
-    "excerpt": "Suppose, we want to mark up the following multi-line snippet of JavaScript code:",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2022-10-06",
     "date": "06 Oct 2022",
     "id": "urn:uuid:83afeb98-3ab6-4a2c-a1ea-4601afc53dfb",
@@ -278,8 +278,8 @@
     "nav_path": [
       "2022"
     ],
-    "excerpt_2": "So I chose <code>~/.emacs.d</code> as emacs's config location.",
-    "excerpt": "If <code>~/.emacs.d</code> exists in the system, which always does because emacs auto-creates it, then emacs does not\npick up <code>init.el</code> from <code>~/.config/emacs</code> for some reason...even if <code>~/.emacs.d</code> is\nempty.",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2022-09-24",
     "date": "24 Sep 2022",
     "id": "urn:uuid:8a234ceb-901a-4448-8826-a5e49716c251",
@@ -291,8 +291,8 @@
     "nav_path": [
       "2022"
     ],
-    "excerpt_2": "In a CNAME mapping, <code>@ CNAME example.com</code>, example.com is the canonical name, while <code>@</code> is the\ndomain being mapped to the canonical name.",
-    "excerpt": "Syntax of a DNS record, along with examples:",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2022-09-19",
     "date": "19 Sep 2022",
     "id": "urn:uuid:6994c8c5-8f5e-4efa-819f-99310767bea1",
@@ -305,7 +305,7 @@
       "2022"
     ],
     "excerpt_2": null,
-    "excerpt": "<code>box-sizing</code> specifies the part of an element's CSS box, to which the properties <code>width, min-width,\nmax-width,\nheight, min-height, max-height</code> apply.",
+    "excerpt": null,
     "timestamp": "2022-09-17",
     "date": "17 Sep 2022",
     "id": "urn:uuid:49f2ccac-8123-4080-af1c-cd47e7201a75",
@@ -317,8 +317,8 @@
     "nav_path": [
       "2022"
     ],
-    "excerpt_2": "One approach is to fake the hash with zeroes.",
-    "excerpt": "Discovering the SHA256 hash for a derivation is a chore.",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2022-09-09",
     "date": "09 Sep 2022",
     "id": "urn:uuid:913be558-883b-446e-ae0d-6b3cf5d18275",
@@ -330,8 +330,8 @@
     "nav_path": [
       "2020"
     ],
-    "excerpt_2": "Not having to press the mouse button makes for a much more pleasurable and efficient experience. Coupled\nwith <i>Sticky Keys</i>, <i>Hover Click</i> has also helped me recover from a hand injury.",
-    "excerpt": "Desktop systems usually provide an accessibility feature, with which a user only has to hover the cursor\nover where he wants to click. The click goes off automatically. In GNOME, this feature is called <i>Hover\nClick</i>.",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2020-07-05",
     "date": "05 Jul 2020",
     "id": "urn:uuid:5e88869a-3274-4b58-9065-8ffcf0dabab7",
@@ -343,8 +343,8 @@
     "nav_path": [
       "2020"
     ],
-    "excerpt_2": "You can find a sample add-on on my <a href=\"https://github.com/jayesh-bhoot/firefox-add-on-in-cljs\">GitHub</a>.\nI won't go through the code here, but will lay out the quirky development process. I will mostly focus on the\nplumbing - how ClojureScript hands over the compiled JavaScript code to the add-on.",
-    "excerpt": "I found writing Firefox add-ons to be a good way to learn the ropes in ClojureScript in a productive manner.",
+    "excerpt_2": null,
+    "excerpt": null,
     "timestamp": "2020-07-04",
     "date": "04 Jul 2020",
     "id": "urn:uuid:5f447c9e-6f5d-4cfd-98e8-e917b0429afd",
@@ -436,7 +436,7 @@
     "excerpt": null,
     "timestamp": null,
     "date": null,
-    "id": "urn:uuid:2ed3d553-3547-4010-86d6-e220ac6c29d6",
+    "id": null,
     "title": null
   }
 ]

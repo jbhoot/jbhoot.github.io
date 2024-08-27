@@ -78,10 +78,10 @@ extract_attribute = "datetime"
 fallback_to_content = false
 
 [index.fields.excerpt]
-selector = ["hgroup ~ p"]
+selector = ["e-summary", "e-content > p", "hgroup ~ p"]
 
 [index.fields.excerpt_2]
-selector = ["hgroup ~ p + p"]
+selector = ["e-content > p + p", "hgroup ~ p + p"]
 
 [index.views.all-articles-list]
 path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
