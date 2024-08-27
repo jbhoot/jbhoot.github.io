@@ -201,17 +201,17 @@ widget = "insert_html"
 selector = ".social-links"
 parse = true
 html = """
-          <a href="https://github.com/justbhoot" rel="me">
+          <a href="https://github.com/jbhoot" rel="me">
             <img
             src="/static/images/github.svg"
             alt="GitHub." width="30"></a>
-          <a href="https://linkedin.com/in/justbhoot" rel="me">
+          <a href="https://linkedin.com/in/jbhoot" rel="me">
             <img
             src="/static/images/linkedin.svg"
             alt="LinkedIn." width="30"></a>
           <a href="https://x.com/justbhoot" rel="me">
             <img src="/static/images/twitter.svg"
-                 alt="Link to my twitter account @justbhoot"
+                 alt="Link to my twitter account @jbhoot_"
                  width="30"></a>
           <a href="https://functional.cafe/@bhoot" rel="me">
             <img
