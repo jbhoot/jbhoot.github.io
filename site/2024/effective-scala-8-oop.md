@@ -6,6 +6,11 @@
 
 <p>Published by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a> on <time class="dt-published" datetime="2024-05-14">14 May 2024</time></p>
 
+<p class="tags">
+<span>series-effective-scala</span>
+<span>OOP</span>
+</p>
+
 </hgroup>
 
 Flip the perspective on tools like interfaces and traits. Don't see them as a way for objects to share an interface, but as an abstraction over implementations.
