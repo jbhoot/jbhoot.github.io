@@ -8,7 +8,7 @@
 
 <p class="tags">
 <a class="p-category" href="" rel="tag">series-effective-scala</a>
-<span>OOP</span>
+<a class="p-category" href="" rel="tag">OOP</a>
 </p>
 
 </hgroup>
