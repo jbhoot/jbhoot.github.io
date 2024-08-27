@@ -4,7 +4,7 @@
 
 # Effective Scala, part 8 - OO concepts
 
-<p><time datetime="2024-05-14">14 May 2024</time></p>
+<p>Published by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a> on <time class="dt-published" datetime="2024-05-14">14 May 2024</time></p>
 
 </hgroup>
 

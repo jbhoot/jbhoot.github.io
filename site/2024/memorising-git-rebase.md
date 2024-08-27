@@ -4,7 +4,7 @@
 
 # Memorising branch order in git rebase
 
-<p> <time datetime="2024-03-05">05 Mar 2024</time> </p>
+<p> Published by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a> on <time class="dt-published" datetime="2024-03-05">05 Mar 2024</time> </p>
 
 <p class="tags"><span>git</span></p>
 

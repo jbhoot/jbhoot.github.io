@@ -4,7 +4,7 @@
 
 # How to make nominee verification pop-up go away while creating a new folio in Mutual Fund Utilities (MFU) 
 
-<p><time datetime="2024-06-23">23 Jun 2024</time></p>
+<p>Published by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a> on <time class="dt-published" datetime="2024-06-23">23 Jun 2024</time></p>
 
 </hgroup>
 
