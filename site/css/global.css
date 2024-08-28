@@ -120,7 +120,7 @@ hgroup p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
+    /*font-family: var(--font-sans);*/
     /*color: darkred;*/
     /* line-height: 1.25; */
 }
