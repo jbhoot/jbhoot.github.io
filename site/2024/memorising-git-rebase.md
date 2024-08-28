@@ -4,7 +4,7 @@
 
 <h1 class="p-name">Memorising branch order in git rebase</h1>
 
-<p> Written by <span class="author-photo-placeholder"></span> <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a> • Published on <a class="u-url" href=""><time class="dt-published" datetime="2024-03-05">05 Mar 2024</time></a> </p>
+<p class="cluster"><span class="author-photo-placeholder"></span> <span class="stack" style="--stack-gap:var(--s-5);"><span>Written by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a></span> <span>Published on <a class="u-url" href=""><time class="dt-published" datetime="2024-03-05">05 Mar 2024</time></a></span></span></p>
 
 <p class="tags"><a class="p-category" href="" rel="tag">git</a></p>
 
