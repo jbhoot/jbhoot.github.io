@@ -79,7 +79,6 @@ body {
      Updating --s0 = 1rem * module scale does not make sense because the default --s0 would become too large for spacing purposes.
      ***/
     font-size: var(--s1);
-    /*background-color: #dae5e6;*/
     container-type: inline-size;
 }
 
@@ -106,7 +105,6 @@ div {
 }
 
 body * + * {
-    /*margin-block-start: var(--s0);*/
     margin-block-start: 1em;
 }
 
@@ -116,7 +114,6 @@ hgroup > * + * {
 
 hgroup p {
     color: #5b5a5a;
-    /* font-size: 0.9em; */
 }
 
 h1, h2, h3, h4, h5, h6 {
