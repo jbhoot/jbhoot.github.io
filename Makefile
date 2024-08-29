@@ -12,7 +12,7 @@ dev:
 
 .PHONY: serve
 serve:
-	caddy file-server --root build
+	devd -ol build
 
 .PHONY: build-prod
 build-prod:
