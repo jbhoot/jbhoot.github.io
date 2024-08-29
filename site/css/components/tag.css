@@ -1,24 +1,11 @@
-.tag {
-    border: 1px solid gray;
-    font-size: 0.8em;
-    border-radius: 2px;
-    padding: 2px;
-}
-
-.tag + .tag {
-    margin-inline-start: 10px;
-}
-
-.tags::before {
-    content: "Tags";
-}
-
-.tags > * {
+.p-category {
+    outline: 1px solid;
+    text-decoration: none;
     background-color: #0097db;
-    padding: 2px 4px;
     color: white;
+    padding: 4px;
 }
 
-.tags > * + * {
-    margin-inline-start: 5px;
+.p-category + .p-category {
+    margin-inline-start: 10px;
 }
