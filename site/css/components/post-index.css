@@ -9,37 +9,8 @@
     margin-block-start: var(--s6);
 }
 
-.post-listing {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-gap: var(--s0);
-    align-items: baseline;
-}
-
-.post-listing > * + * {
-    margin-block-start: 0;
-}
-
 .post-timestamp {
-    display: grid;
-    grid-template-columns: auto;
-    grid-gap: 0;
-    border: 1px solid;
-    border-radius: 2px;
-    text-align: right;
     font-family: var(--font-monospaced-sans);
     font-size: 0.9em;
-}
-
-.post-timestamp > * {
-    padding: 2px 5px;
-}
-
-.post-timestamp > :first-child {
-    background-color: #f72f22;
-    color: white;
-}
-
-.post-timestamp > * + * {
-    margin-block-start: 0;
+    color: #555454;
 }

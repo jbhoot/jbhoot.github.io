@@ -90,12 +90,9 @@ index_template = """
   <h1> All articles </h1>
   <ul class='all-articles'>
   {% for e in entries %}
-  <li class="post-listing">
-    <time class="post-timestamp" datetime="{{e.timestamp}}">
-      <span>{{split("-", e.timestamp)[0]}}</span>
-      <span>{{split(" ", e.date)[1]}}</span>
-    </time>
-    <p><a href="{{e.url}}" class="font-size:s2">{{e.title}}</a></p>
+  <li>
+    <p><a class="font-size:s3" href="{{e.url}}">{{e.title}}</a></p>
+    <time class="post-timestamp" datetime="{{e.timestamp}}">{{e.date}}</time>
   </li>
   {% endfor %}
   </ul>
@@ -107,24 +104,18 @@ path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
 max_items = 5
 index_selector = "ul.recent-articles"
 index_item_template = """
-  <li class="post-listing">
-    <time class="post-timestamp" datetime="{{timestamp}}">
-      <span>{{split("-", timestamp)[0]}}</span>
-      <span>{{split(" ", date)[1]}}</span>
-    </time>
-    <p><a href="{{url}}" class="font-size:s2">{{title}}</a></p>
+  <li>
+    <p><a class="font-size:s3" href="{{url}}">{{title}}</a></p>
+    <time class="post-timestamp" datetime="{{timestamp}}">{{date}}</time>
   </li>
   """
 
 [index.views.yearly-posts]
 index_selector = "ul.yearly-posts"
 index_item_template = """
-  <li class="post-listing">
-    <time class="post-timestamp" datetime="{{timestamp}}">
-      <span>{{split(" ", date)[1]}}</span>
-      <span>{{split(" ", date)[0]}}</span>
-    </time>
-    <p><a href="{{url}}" class="font-size:s2">{{title}}</a></p>
+  <li>
+    <p><a class="font-size:s3" href="{{url}}">{{title}}</a></p>
+    <time class="post-timestamp" datetime="{{timestamp}}">{{date}}</time>
   </li>
   """
 
