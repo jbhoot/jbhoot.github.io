@@ -85,7 +85,6 @@ selector = ["e-content > p + p", "hgroup ~ p + p"]
 
 [index.views.all-articles-list]
 path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
-exclude_path_regex = '^(.*)/[0-9]{2}-[0-9]{2}\.(md|html)$'
 index_selector = "ul.all-articles"
 index_template = """
   <h1> All articles </h1>
@@ -105,7 +104,6 @@ file = "index_processors/all-articles.lua"
 
 [index.views.recent-articles-list]
 path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
-exclude_path_regex = '^(.*)/[0-9]{2}-[0-9]{2}.md$'
 max_items = 5
 index_selector = "ul.recent-articles"
 index_item_template = """
@@ -129,25 +127,6 @@ index_item_template = """
     <p><a href="{{url}}" class="font-size:s2">{{title}}</a></p>
   </li>
   """
-
-[index.views.all-journal-entries]
-path_regex = '^(.*)/[0-9]{4}/[0-9]{2}-[0-9]{2}\.(html|md)$'
-index_selector = "ul.all-journal-entries"
-index_template = """
-  <h1> Journal </h1>
-  <ul class='all-journal-entries'>
-  {% for e in entries %}
-  <li class="post-listing">
-    <time class="post-timestamp" datetime="{{e.timestamp}}">
-      <span>{{split("-", e.timestamp)[0]}}</span>
-      <span>{{split(" ", e.date)[1]}}</span>
-    </time>
-    <p><a href="{{e.url}}" class="font-size:s2">{{e.title}}</a></p>
-  </li>
-  {% endfor %}
-  </ul>
-  """
-file = "index_processors/all-journal-entries.lua"
 
 [widgets.populate-head]
 widget = "insert_html"
