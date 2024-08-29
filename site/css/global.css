@@ -108,10 +108,6 @@ body * + * {
     margin-block-start: 1em;
 }
 
-hgroup > * + * {
-    margin-block-start: var(--s-5);
-}
-
 hgroup p {
     color: #5b5a5a;
 }

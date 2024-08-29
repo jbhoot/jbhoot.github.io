@@ -2,7 +2,7 @@
     outline: 2px solid gray;
     padding: var(--s0);
     list-style-type: none;
-    font-size: 0.9em;
+    margin: 1.5em 0;
 }
 
 .toc-1:has(*)::before {
@@ -69,7 +69,6 @@ For that to happen, the width must at least be `size-of-toc + size-of-main-conte
     }
 
     .toc-1 {
-        padding: 10px 10px 20px 10px;
         max-height: 90vh;
         overflow-y: auto;
     }
