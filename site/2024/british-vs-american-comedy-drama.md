@@ -4,7 +4,7 @@
 
 <h1 class="p-name">British v/s American comedy dramas</h1>
 
-<p class="cluster"><span class="author-photo-placeholder"></span> <span class="stack" style="--stack-gap:var(--s-5);"><span>Written by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a></span> <span>Published on <a class="u-url" href=""><time class="dt-published" datetime="2024-07-07">07 Jul 2024</time></a></span></span></p>
+<p class="cluster"><span class="author-photo-placeholder"></span> <span class="stack" style="--stack-gap:0;"><span>Written by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a></span> <span>Published on <a class="u-url" href=""><time class="dt-published" datetime="2024-07-07">07 Jul 2024</time></a></span></span></p>
 
 </hgroup>
 
