@@ -209,7 +209,7 @@ html = """
             <img
             src="/static/images/linkedin.svg"
             alt="LinkedIn." width="30"></a>
-          <a href="https://x.com/justbhoot" rel="me">
+          <a href="https://x.com/jbhoot_" rel="me">
             <img src="/static/images/twitter.svg"
                  alt="Link to my twitter account @jbhoot_"
                  width="30"></a>
