@@ -13,7 +13,7 @@
     --base-size: 1rem;
     --ratio: 1.125;
     --measure: 65ch; /* if this value is changed, also adjust @media query value in toc.css */
-    line-height: 1.50;
+    line-height: 1.75;
 
     --s-6: calc(var(--s-5) / var(--ratio));
     --s-5: calc(var(--s-4) / var(--ratio));
@@ -120,9 +120,7 @@ hgroup p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    /*font-family: var(--font-sans);*/
-    /*color: darkred;*/
-    /* line-height: 1.25; */
+     line-height: 1.5;
 }
 
 h1 {
@@ -320,6 +318,10 @@ blockquote {
     border-inline-start: 2px solid #0097db;
     padding-inline-start: var(--s0);
     font-style: italic;
+}
+
+p:has(.p-author) + p:has(.dt-published) {
+    margin-block-start: 0;
 }
 
 .no-show {
