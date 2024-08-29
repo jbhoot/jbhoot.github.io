@@ -6,7 +6,7 @@
 }
 
 .toc-1:has(*)::before {
-    content: 'On this page';
+    content: 'Table of contents';
     font-size: var(--s3);
     font-weight: bold;
 }
