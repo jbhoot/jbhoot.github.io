@@ -1,6 +1,6 @@
 # About Jayesh Bhoot
 
-![Profile picture](/profile-pic.jpeg)
+![Profile picture](/profile-pic.jpg)
 
 <p>Hi, I am Jayesh, but my friends often call me by my last name <i>Bhoot</i>, because <i>Bhoot</i> means <i>Ghost</i> in several Indian languages.</p>
 
