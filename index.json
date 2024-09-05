@@ -9,6 +9,7 @@
     "excerpt": null,
     "timestamp": "2024-07-07",
     "date": "07 Jul 2024",
+    "tags": [],
     "id": "urn:uuid:4a3058d8-0c53-4aaa-ad99-daf4254eac48",
     "title": "British v/s American comedy dramas"
   },
@@ -22,6 +23,7 @@
     "excerpt": null,
     "timestamp": "2024-06-23",
     "date": "23 Jun 2024",
+    "tags": [],
     "id": "urn:uuid:9905f662-e652-4747-949b-37c1112e1bad",
     "title": "Stubborn pop-up in <i>New Folio</i> workflow on <i>Mutual Fund Utilities (MFU)</i> website"
   },
@@ -35,6 +37,10 @@
     "excerpt": null,
     "timestamp": "2024-05-14",
     "date": "14 May 2024",
+    "tags": [
+      "series-effective-scala",
+      "oop"
+    ],
     "id": "urn:uuid:b1319873-65a5-49e3-82aa-334e3fb7e353",
     "title": "Effective Scala, part 8 - OO concepts"
   },
@@ -48,6 +54,7 @@
     "excerpt": "Vim’s <code>a</code> means that you just intend to “append” some text after the cursor position.",
     "timestamp": "2024-05-11",
     "date": "11 May 2024",
+    "tags": [],
     "id": "urn:uuid:f528a128-7513-4539-8791-4dfa7fbcb8c5",
     "title": "Helix tips and tricks"
   },
@@ -61,6 +68,10 @@
     "excerpt": null,
     "timestamp": "2024-05-08",
     "date": "08 May 2024",
+    "tags": [
+      "scala",
+      "series-effective-scala"
+    ],
     "id": "urn:uuid:5a99b823-fa04-4e97-b94f-a0e57f0f879a",
     "title": "Series - Effective Programming in Scala"
   },
@@ -74,6 +85,9 @@
     "excerpt": null,
     "timestamp": "2024-05-07",
     "date": "07 May 2024",
+    "tags": [
+      "series-effective-scala"
+    ],
     "id": "urn:uuid:3194d9ee-2397-4b1a-ba7a-125dbe10fb30",
     "title": "Effective Scala, part 7 - entry point of a project"
   },
@@ -87,6 +101,10 @@
     "excerpt": null,
     "timestamp": "2024-05-06",
     "date": "06 May 2024",
+    "tags": [
+      "series-effective-scala",
+      "sbt"
+    ],
     "id": "urn:uuid:b84ce392-affe-484b-a5eb-fde46cdd0ad8",
     "title": "Effective Scala, part 6 - Scala Build Tool (SBT)"
   },
@@ -100,6 +118,7 @@
     "excerpt": "A computer program is a set of instructions that a computer can execute.",
     "timestamp": "2024-05-01",
     "date": "01 May 2024",
+    "tags": [],
     "id": "urn:uuid:393a5861-93a4-432b-a2a7-23b6fa3d9479",
     "title": "Programming Paradigms and OOP"
   },
@@ -113,6 +132,9 @@
     "excerpt": null,
     "timestamp": "2024-04-24",
     "date": "24 Apr 2024",
+    "tags": [
+      "series-effective-scala"
+    ],
     "id": "urn:uuid:b62ea789-d0e9-4e7f-9b0e-40d17322bef7",
     "title": "Effective Scala, part 5 - collections"
   },
@@ -126,6 +148,10 @@
     "excerpt": null,
     "timestamp": "2024-04-21",
     "date": "21 Apr 2024",
+    "tags": [
+      "series-effective-scala",
+      "scala"
+    ],
     "id": "urn:uuid:af3fbc76-728b-45ac-9c02-886b7aa2db68",
     "title": "Effective Scala, part 4 - function v/s method"
   },
@@ -139,6 +165,10 @@
     "excerpt": null,
     "timestamp": "2024-04-19",
     "date": "19 Apr 2024",
+    "tags": [
+      "series-effective-scala",
+      "scala"
+    ],
     "id": "urn:uuid:63a0e01e-eacb-486e-9f72-959cc2ccb742",
     "title": "Effective Scala, part 3 - compatibility roulette"
   },
@@ -152,6 +182,9 @@
     "excerpt": null,
     "timestamp": "2024-04-16",
     "date": "16 Apr 2024",
+    "tags": [
+      "series-effective-scala"
+    ],
     "id": "urn:uuid:321f0aca-5212-4b8b-8994-946cac15316f",
     "title": "Effective Scala, part 2 - domain modelling"
   },
@@ -165,6 +198,9 @@
     "excerpt": null,
     "timestamp": "2024-04-15",
     "date": "15 Apr 2024",
+    "tags": [
+      "series-effective-scala"
+    ],
     "id": "urn:uuid:7baad03d-26bd-44b2-a645-36b00f7707a1",
     "title": "Effective Scala, part 1 - elements of a program"
   },
@@ -178,6 +214,9 @@
     "excerpt": null,
     "timestamp": "2024-04-15",
     "date": "15 Apr 2024",
+    "tags": [
+      "ocaml"
+    ],
     "id": "urn:uuid:6ac9fa5c-7838-41ef-ad83-d460315fa18c",
     "title": "An overview of OCaml editor tooling"
   },
@@ -191,6 +230,9 @@
     "excerpt": null,
     "timestamp": "2024-03-05",
     "date": "05 Mar 2024",
+    "tags": [
+      "git"
+    ],
     "id": "urn:uuid:aa8b98ca-36f9-4a95-9b18-2b8a75335e17",
     "title": "Memorising branch order in git rebase"
   },
@@ -204,6 +246,9 @@
     "excerpt": null,
     "timestamp": "2024-02-06",
     "date": "06 Feb 2024",
+    "tags": [
+      "shell"
+    ],
     "id": "urn:uuid:972047d6-1709-42ab-b18e-fa68f6a760b5",
     "title": "<del>I switched to fish shell</del> Nope. Back to bash."
   },
@@ -217,6 +262,9 @@
     "excerpt": "I planned the following idealised sequence of commands:",
     "timestamp": "2023-12-03",
     "date": "03 Dec 2023",
+    "tags": [
+      "ocaml"
+    ],
     "id": "urn:uuid:e5759f6b-3be5-4219-aad2-35e9d8c1ebe2",
     "title": "Make an opam local switch and <code>dune init project</code> work together"
   },
@@ -230,6 +278,9 @@
     "excerpt": null,
     "timestamp": "2023-12-01",
     "date": "01 Dec 2023",
+    "tags": [
+      "ocaml"
+    ],
     "id": "urn:uuid:6e7ebece-1f47-4461-b284-a0094aacf55e",
     "title": "Spoonfeeding machine architecture to OCaml toolchain on Apple Silicon"
   },
@@ -243,6 +294,9 @@
     "excerpt": null,
     "timestamp": "2023-10-09",
     "date": "09 Oct 2023",
+    "tags": [
+      "books"
+    ],
     "id": "urn:uuid:bea230bc-0afb-47ac-b73e-631dc8691602",
     "title": "List of movies better than their book counterparts"
   },
@@ -256,6 +310,9 @@
     "excerpt": null,
     "timestamp": "2023-06-12",
     "date": "12 Jun 2023",
+    "tags": [
+      "fonts"
+    ],
     "id": "urn:uuid:de454181-6576-46c5-9017-afffb721ff58",
     "title": "An elegant triplet of fonts"
   },
@@ -269,6 +326,10 @@
     "excerpt": null,
     "timestamp": "2022-10-06",
     "date": "06 Oct 2022",
+    "tags": [
+      "html",
+      "accessibility"
+    ],
     "id": "urn:uuid:83afeb98-3ab6-4a2c-a1ea-4601afc53dfb",
     "title": "How to mark up a code snippet in HTML"
   },
@@ -282,6 +343,9 @@
     "excerpt": null,
     "timestamp": "2022-09-24",
     "date": "24 Sep 2022",
+    "tags": [
+      "emacs"
+    ],
     "id": "urn:uuid:8a234ceb-901a-4448-8826-a5e49716c251",
     "title": "Location of emacs config"
   },
@@ -295,6 +359,9 @@
     "excerpt": null,
     "timestamp": "2022-09-19",
     "date": "19 Sep 2022",
+    "tags": [
+      "dns"
+    ],
     "id": "urn:uuid:6994c8c5-8f5e-4efa-819f-99310767bea1",
     "title": "Learnings on DNS"
   },
@@ -308,6 +375,9 @@
     "excerpt": null,
     "timestamp": "2022-09-17",
     "date": "17 Sep 2022",
+    "tags": [
+      "css"
+    ],
     "id": "urn:uuid:49f2ccac-8123-4080-af1c-cd47e7201a75",
     "title": "What <code>box-sizing</code> does"
   },
@@ -321,6 +391,9 @@
     "excerpt": null,
     "timestamp": "2022-09-09",
     "date": "09 Sep 2022",
+    "tags": [
+      "nix"
+    ],
     "id": "urn:uuid:913be558-883b-446e-ae0d-6b3cf5d18275",
     "title": "Fake SHA256 in a Nix derivation"
   },
@@ -334,6 +407,10 @@
     "excerpt": null,
     "timestamp": "2020-07-05",
     "date": "05 Jul 2020",
+    "tags": [
+      "gnome",
+      "accessibility"
+    ],
     "id": "urn:uuid:5e88869a-3274-4b58-9065-8ffcf0dabab7",
     "title": "How to use <i>Hover Click</i> without animation in GNOME"
   },
@@ -347,6 +424,10 @@
     "excerpt": null,
     "timestamp": "2020-07-04",
     "date": "04 Jul 2020",
+    "tags": [
+      "firefox-add-on",
+      "clojurescript"
+    ],
     "id": "urn:uuid:5f447c9e-6f5d-4cfd-98e8-e917b0429afd",
     "title": "How to write a Firefox add-on in ClojureScript"
   },
@@ -360,6 +441,7 @@
     "excerpt": null,
     "timestamp": null,
     "date": null,
+    "tags": [],
     "id": "urn:uuid:b58d49ce-27ed-4b90-954c-ce0833c3d657",
     "title": "How React Rxjs works"
   },
@@ -373,6 +455,7 @@
     "excerpt": null,
     "timestamp": null,
     "date": null,
+    "tags": [],
     "id": "urn:uuid:145070ee-1327-4159-a9aa-51c2e06aa2d5",
     "title": null
   },
@@ -386,6 +469,7 @@
     "excerpt": null,
     "timestamp": null,
     "date": null,
+    "tags": [],
     "id": "urn:uuid:eb4df946-3894-4d3d-b1e8-aa4a89cd2e30",
     "title": null
   },
@@ -399,6 +483,7 @@
     "excerpt": null,
     "timestamp": null,
     "date": null,
+    "tags": [],
     "id": "urn:uuid:1960a042-4070-4469-bfb9-07d2cfcd6252",
     "title": null
   },
@@ -412,6 +497,7 @@
     "excerpt": null,
     "timestamp": null,
     "date": null,
+    "tags": [],
     "id": "urn:uuid:fbf3848d-f3f5-4291-8db0-ad515820500d",
     "title": null
   },
@@ -425,6 +511,7 @@
     "excerpt": "Worked on a product that helped hotels manage their pricing across various booking platforms. I implemented parts\n    of\n    the backend which fetched and updated prices of a hotel on such booking platforms.",
     "timestamp": "2019",
     "date": "2019",
+    "tags": [],
     "id": "urn:uuid:884dcded-4e32-45fe-a6ea-eb51580a4652",
     "title": "My professional achievements"
   },
@@ -436,6 +523,7 @@
     "excerpt": null,
     "timestamp": null,
     "date": null,
+    "tags": [],
     "id": null,
     "title": null
   }
