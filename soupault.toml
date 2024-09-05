@@ -34,7 +34,7 @@ default_content_action = "prepend_child"
 
 [templates.post-index]
 file = "templates/post-index.html"
-path_regex = '(\/articles.html|\/journal.html|\/[0-9]{4}\/index.md)$'
+path_regex = '(\/articles.html|\/tags\/[a-z]*.html|\/[0-9]{4}\/index.md)$'
 content_selector = "main"
 content_action = "append_child"
 
@@ -68,6 +68,10 @@ selector = ["h1"]
 selector = ["article[itemid]"]
 extract_attribute = "itemid"
 fallback_to_content = false
+
+[index.fields.tags]
+selector = [".p-category"]
+select_all = true
 
 [index.fields.date]
 selector = ["hgroup time"]
@@ -118,6 +122,22 @@ index_item_template = """
     <time class="post-timestamp" datetime="{{timestamp}}">{{date}}</time>
   </li>
   """
+
+[index.views.tags]
+index_selector = "ul.tags"
+path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
+tag_path = "tags"
+index_template = """
+  <ul class='all-articles'>
+  {% for e in entries %}
+  <li>
+    <p><a class="font-size:s3" href="{{e.url}}">{{e.title}}</a></p>
+    <time class="post-timestamp" datetime="{{e.timestamp}}">{{e.date}}</time>
+  </li>
+  {% endfor %}
+  </ul>
+  """
+file = "index_processors/tag-index.lua"
 
 [widgets.populate-head]
 widget = "insert_html"
@@ -194,6 +214,7 @@ html = """
       <ul class="cluster">
         <li><a href="/">Home</a></li>
         <li><a href="/articles">Articles</a></li>
+        <li><a href="/tags">Tags</a></li>
         <li>Projects</li>
         <li>CV</li>
         <li><a href="/about">About</a></li>
@@ -212,6 +233,10 @@ html = """
 [widgets.populate-article-link]
 widget = "article-link"
 selector = ".u-url"
+
+[widgets.populate-tag-link]
+widget = "tag-link"
+selector = ".p-category"
 
 [widgets.page-title]
 widget = "title"
