@@ -200,9 +200,9 @@ html = """
   <a href="https://functional.cafe/@bhoot" rel="me">
     <img alt="Mastodon." src="/static/images/mastodon.svg" width="30">
   </a>
-  <a href="https://x.com/jbhoot_" rel="me">
-    <img alt="Link to my twitter account @jbhoot_"
-         src="/static/images/twitter.svg" width="30">
+  <a href="https://lobste.rs/~bhoot" rel="me">
+    <img alt="Link to my lobsters account bhoot"
+         src="/static/images/lobsters.svg" width="30">
   </a>
 """
 
