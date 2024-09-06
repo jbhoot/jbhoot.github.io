@@ -95,7 +95,7 @@ index_template = """
   <ul class='all-articles'>
   {% for e in entries %}
   <li>
-    <p><a class="font-size:s3" href="{{e.url}}">{{e.title}}</a></p>
+    <p><a class="font-size:s3 font-weight:600" href="{{e.url}}">{{e.title}}</a></p>
     <time class="post-timestamp" datetime="{{e.timestamp}}">{{e.date}}</time>
   </li>
   {% endfor %}
@@ -109,7 +109,7 @@ max_items = 5
 index_selector = "ul.recent-articles"
 index_item_template = """
   <li>
-    <p><a class="font-size:s3" href="{{url}}">{{title}}</a></p>
+    <p><a class="font-size:s3 font-weight:600" href="{{url}}">{{title}}</a></p>
     <time class="post-timestamp" datetime="{{timestamp}}">{{date}}</time>
   </li>
   """
@@ -118,7 +118,7 @@ index_item_template = """
 index_selector = "ul.yearly-posts"
 index_item_template = """
   <li>
-    <p><a class="font-size:s3" href="{{url}}">{{title}}</a></p>
+    <p><a class="font-size:s3 font-weight:600" href="{{url}}">{{title}}</a></p>
     <time class="post-timestamp" datetime="{{timestamp}}">{{date}}</time>
   </li>
   """
@@ -131,7 +131,7 @@ index_template = """
   <ul class='all-articles'>
   {% for e in entries %}
   <li>
-    <p><a class="font-size:s3" href="{{e.url}}">{{e.title}}</a></p>
+    <p><a class="font-size:s3 font-weight:600" href="{{e.url}}">{{e.title}}</a></p>
     <time class="post-timestamp" datetime="{{e.timestamp}}">{{e.date}}</time>
   </li>
   {% endfor %}
