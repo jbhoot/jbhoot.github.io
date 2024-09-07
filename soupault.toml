@@ -34,7 +34,7 @@ default_content_action = "prepend_child"
 
 [templates.post-index]
 file = "templates/post-index.html"
-path_regex = '(\/articles.html|\/tags\/[a-z]*.html|\/[0-9]{4}\/index.md)$'
+path_regex = '(\/articles.html|\/collections\/.*|\/[0-9]{4}\/index.md)$'
 content_selector = "main"
 content_action = "append_child"
 
@@ -70,7 +70,7 @@ selector = ["article[itemid]"]
 extract_attribute = "itemid"
 fallback_to_content = false
 
-[index.fields.tags]
+[index.fields.collections]
 selector = [".p-category"]
 select_all = true
 
@@ -127,10 +127,10 @@ index_item_template = """
   </li>
   """
 
-[index.views.tags]
-index_selector = "ul.tags"
+[index.views.collections]
+index_selector = "ul.collections"
 path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
-tag_path = "tags"
+url_path = "collections"
 index_template = """
   <ul class='all-articles'>
   {% for e in entries %}
@@ -141,7 +141,7 @@ index_template = """
   {% endfor %}
   </ul>
   """
-file = "index_processors/tag-index.lua"
+file = "index_processors/collection-index.lua"
 
 [widgets.populate-head]
 widget = "insert_html"
@@ -218,7 +218,7 @@ html = """
       <ul class="cluster">
         <li><a href="/">Home</a></li>
         <li><a href="/articles">Articles</a></li>
-        <li><a href="/tags">Tags</a></li>
+        <li><a href="/collections">Collections</a></li>
         <li>Projects</li>
         <li>CV</li>
         <li><a href="/about">About</a></li>
@@ -243,8 +243,8 @@ html = """
 widget = "article-link"
 selector = ".u-url"
 
-[widgets.populate-tag-link]
-widget = "tag-link"
+[widgets.populate-collection-link]
+widget = "collection-link"
 selector = ".p-category"
 
 [widgets.page-title]
