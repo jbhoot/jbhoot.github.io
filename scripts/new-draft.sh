@@ -24,7 +24,7 @@ echo "<article class='h-entry' itemscope itemtype='https://schema.org/Article' i
 <hgroup>
 <h1 class='p-name'></h1>
 
-<p>Written by <span class='author-photo-placeholder'></span> <a class='p-author h-card' href='https://bhoot.dev/about'>Jayesh Bhoot</a> • Published on <a class='u-url' href=''><time class='dt-published' datetime=''></time></a></p>
+<p class='cluster'><span class='author-photo-placeholder'></span> <span class='stack' style='--stack-gap:0;'><span>Written by <a class='p-author h-card' href='https://bhoot.dev/about'>Jayesh Bhoot</a></span> <span>Published on <a class='u-url' href=''><time class='dt-published' datetime=''></time></a></span></span></p>
 
 <p>
 <a class='p-category' href='' rel='tag'></a>
