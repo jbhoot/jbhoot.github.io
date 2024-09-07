@@ -30,7 +30,8 @@
     "date": "07 Sep 2024",
     "collections": [
       "Linux",
-      "macOS"
+      "macOS",
+      "note"
     ],
     "id": "urn:uuid:214c8527-7318-4c6c-ae37-05765bdc353d",
     "title": "Cool ways to generate a UUID"

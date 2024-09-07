@@ -218,6 +218,7 @@ html = """
       <ul class="cluster">
         <li><a href="/">Home</a></li>
         <li><a href="/articles">Articles</a></li>
+        <li><a href="/collections/note">Notes</a></li>
         <li><a href="/collections">Collections</a></li>
         <li>Projects</li>
         <li>CV</li>
