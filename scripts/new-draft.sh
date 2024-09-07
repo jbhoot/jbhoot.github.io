@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Cool ways to generate uuid:
-# 1. Linux: cat /proc/sys/kernel/random/uuid
-# 2. Linux and macOS: uuidgen
-
 if [ -z "$1" ]
 then
   echo "Usage: $0 /path/to/draft.[md|html]"
@@ -22,13 +18,17 @@ fi
 
 echo "<article class='h-entry' itemscope itemtype='https://schema.org/Article' itemid='urn:uuid:$(uuidgen | tr '[:upper:]' '[:lower:]')'>
 <hgroup>
-<h1 class='p-name'></h1>
-
-<p class='cluster'><span class='author-photo-placeholder'></span> <span class='stack' style='--stack-gap:0;'><span>Written by <a class='p-author h-card' href='https://bhoot.dev/about'>Jayesh Bhoot</a></span> <span>Published on <a class='u-url' href=''><time class='dt-published' datetime=''></time></a></span></span></p>
-
-<p>
-<a class='p-category' href='' rel='tag'></a>
-</p>
+  <h1 class='p-name'></h1>
+  <p class='cluster'>
+    <span class='author-photo-placeholder'></span>
+    <span class='stack' style='--stack-gap:0;'>
+      <span>Written by <a class='p-author h-card' href='https://bhoot.dev/about'>Jayesh Bhoot</a></span>
+      <span>Published on <a class='u-url' href=''><time class='dt-published' datetime=''></time></a></span>
+    </span>
+  </p>
+  <p>
+    <a class='p-category' href='' rel='tag'></a>
+  </p>
 </hgroup>
 
 <p class='e-summary'></p>
@@ -39,7 +39,8 @@ echo "<article class='h-entry' itemscope itemtype='https://schema.org/Article' i
 </article>" > "$draft"
 
 # replace single quotes with the conventional double quotes used in HTML in the draft.
-sed -i -E "s/'/\"/g" "$draft"
+sed -i.bkp -E "s/'/\"/g" "$draft"
+rm "$draft".bkp
 
 echo "Draft $draft created. Happy writing!"
 
