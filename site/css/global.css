@@ -321,6 +321,10 @@ p:has(.p-author) + p:has(.dt-published) {
     display: none;
 }
 
+.e-summary {
+    font-size: 1.2em;
+}
+
 @media print {
     main {
         padding: 0 !important;

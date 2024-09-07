@@ -1,12 +1,31 @@
 [
   {
+    "url": "/2024/curiosity-over-judgement",
+    "page_file": "site/2024/curiosity-over-judgement.html",
+    "nav_path": [
+      "2024"
+    ],
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "Just being non-judgmental hasn't really worked for me in the past. I needed to replace it with something. Curiosity is a good replacement.",
+    "excerpt": "I don't know about the cat, but curiosity certainly killed the judgmental!",
+    "timestamp": "2024-09-07",
+    "date": "07 Sep 2024",
+    "tags": [
+      "philosophy-of-life",
+      "ted-lasso"
+    ],
+    "id": "urn:uuid:06da33f8-2f18-431a-99f2-d2085e8a8702",
+    "title": "Choosing curious over judgmental"
+  },
+  {
     "url": "/2024/british-vs-american-comedy-drama",
     "page_file": "site/2024/british-vs-american-comedy-drama.md",
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "Then it hit me today, while I was watching a British series called <a href=\"https://tv.apple.com/in/episode/nikki-and-jason/umc.cmc.2dzdkdvedw0n9h25d49y9lh99?action=playSmartEpisode\">Trying</a>.",
+    "excerpt": "They always felt different from each other, but I could never quite put a finger on the difference.",
     "timestamp": "2024-07-07",
     "date": "07 Jul 2024",
     "tags": [],
@@ -19,8 +38,9 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "While transacting for a new folio, if you are stuck at “Nominee Verify” pop-up even after verifying the nominee(s), then check that:",
+    "excerpt": "Tip for Mutual Fund Utilities (MFU) users:",
     "timestamp": "2024-06-23",
     "date": "23 Jun 2024",
     "tags": [],
@@ -33,8 +53,9 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "So, not: DatabaseAccess -&gt; (InMemoryDatabase, PhysicalDatabase)",
+    "excerpt": "Flip the perspective on tools like interfaces and traits. Don’t see them as a way for objects to share an interface, but as an abstraction over implementations.",
     "timestamp": "2024-05-14",
     "date": "14 May 2024",
     "tags": [
@@ -45,27 +66,14 @@
     "title": "Effective Scala, part 8 - OO concepts"
   },
   {
-    "url": "/drafts/helix-tips-and-tricks",
-    "page_file": "site/drafts/helix-tips-and-tricks.md",
-    "nav_path": [
-      "drafts"
-    ],
-    "excerpt_2": "Helix’s <code>a</code> means <em>append to current selection</em>. The execution looks jarring to a vim user because the current selection keeps dragging along with your typed in characters.",
-    "excerpt": "Vim’s <code>a</code> means that you just intend to “append” some text after the cursor position.",
-    "timestamp": "2024-05-11",
-    "date": "11 May 2024",
-    "tags": [],
-    "id": "urn:uuid:f528a128-7513-4539-8791-4dfa7fbcb8c5",
-    "title": "Helix tips and tricks"
-  },
-  {
     "url": "/2024/effective-scala-series",
     "page_file": "site/2024/effective-scala-series.html",
     "nav_path": [
       "2024"
     ],
+    "author_name": "Jayesh Bhoot",
     "excerpt_2": null,
-    "excerpt": null,
+    "excerpt": "This is a series of blog posts I wrote while going through the Coursera Course <a href=\"https://www.coursera.org/learn/effective-scala\">Effective Programming in Scala</a>.",
     "timestamp": "2024-05-08",
     "date": "08 May 2024",
     "tags": [
@@ -81,8 +89,9 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "Only two requirements:",
+    "excerpt": "While a scala worksheet are evaluated from top to bottom, a scala project needs an entry point.",
     "timestamp": "2024-05-07",
     "date": "07 May 2024",
     "tags": [
@@ -97,8 +106,9 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "<code>src/build.sbt</code> contains the configuration to build the project itself.",
+    "excerpt": "<code>src/project</code> dir contains configuration about SBT - <code>build.properties</code> to specify sbt version, <code>plugins.sbt</code> to specify sbt plugins, and so on.",
     "timestamp": "2024-05-06",
     "date": "06 May 2024",
     "tags": [
@@ -109,27 +119,14 @@
     "title": "Effective Scala, part 6 - Scala Build Tool (SBT)"
   },
   {
-    "url": "/drafts/programming-paradigms-and-oop",
-    "page_file": "site/drafts/programming-paradigms-and-oop.md",
-    "nav_path": [
-      "drafts"
-    ],
-    "excerpt_2": "Source code represents the textual, human comprehensible form of a computer program.",
-    "excerpt": "A computer program is a set of instructions that a computer can execute.",
-    "timestamp": "2024-05-01",
-    "date": "01 May 2024",
-    "tags": [],
-    "id": "urn:uuid:393a5861-93a4-432b-a2a7-23b6fa3d9479",
-    "title": "Programming Paradigms and OOP"
-  },
-  {
     "url": "/2024/effective-scala-5-collections",
     "page_file": "site/2024/effective-scala-5-collections.html",
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "This explains why Option type has a <code>map</code> or <code>filter</code> operations even in OCaml.",
+    "excerpt": "Operations on collections can be classified into:",
     "timestamp": "2024-04-24",
     "date": "24 Apr 2024",
     "tags": [
@@ -144,8 +141,9 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "A function is a value in Scala. All values are objects in Scala. An object can have methods. So a function in Scala can have methods.",
+    "excerpt": "A function is a value in Scala, while a method is not. So the former can be passed as a parameter of a function or a method, and can be returned as a value. Method cannot do any of those.",
     "timestamp": "2024-04-21",
     "date": "21 Apr 2024",
     "tags": [
@@ -161,8 +159,9 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "Check the <a href=\"https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html\">compatibility tables</a>.",
+    "excerpt": "I am going through the course <a href=\"https://www.coursera.org/learn/effective-scala\">Effective Programming in Scala</a> on Coursera, and ran into build import errors in the very first assignment (fireworks).",
     "timestamp": "2024-04-19",
     "date": "19 Apr 2024",
     "tags": [
@@ -178,8 +177,9 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "For example, in a problem involving doors and windows and facades, if the domain is constrained to only deal with surface area, then modelling the doors and windows and facade in terms of <strong>Rectangle</strong> is the right level of abstraction instead of modelling them as Door, Window, and Facade respectively.",
+    "excerpt": "Finding the <em>right</em> level of abstraction is more important than the best level of abstraction.",
     "timestamp": "2024-04-16",
     "date": "16 Apr 2024",
     "tags": [
@@ -194,8 +194,9 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "Value is the most abstract definition here, but it is made concrete by subsequent definitions.",
+    "excerpt": "A value is the representation of some entity that can be manipulated by a program.",
     "timestamp": "2024-04-15",
     "date": "15 Apr 2024",
     "tags": [
@@ -210,8 +211,9 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "I have gone through some options over time. Here is an overview for my future self.",
+    "excerpt": "For a small community, OCaml ecosystem is quite rich, maybe too rich, in editor tooling.",
     "timestamp": "2024-04-15",
     "date": "15 Apr 2024",
     "tags": [
@@ -226,8 +228,9 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "I mentally always read <i>rebase</i> as <i>rebase on top of</i>.",
+    "excerpt": "In a <code>git rebase x</code> command, is <code>x</code> being rebased on the current branch, or vice versa?",
     "timestamp": "2024-03-05",
     "date": "05 Mar 2024",
     "tags": [
@@ -242,8 +245,9 @@
     "nav_path": [
       "2024"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "All I want is a shell that is",
+    "excerpt": "I have come crawling back to bash. Why?",
     "timestamp": "2024-02-06",
     "date": "06 Feb 2024",
     "tags": [
@@ -258,8 +262,9 @@
     "nav_path": [
       "2023"
     ],
-    "excerpt_2": "So may be, first, I should enter the empty project directory to set up the project.",
-    "excerpt": "I planned the following idealised sequence of commands:",
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "Both have evolved independently. While they manage to work in tandem, there are a lot of irregularities to trip on\nwhere they meet.",
+    "excerpt": "In the OCaml ecosystem, opam is the most popular package management tool, while dune is the foremost build tool.",
     "timestamp": "2023-12-03",
     "date": "03 Dec 2023",
     "tags": [
@@ -274,8 +279,9 @@
     "nav_path": [
       "2023"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "P.S.: Even dune does not work without it!",
+    "excerpt": "OCaml compiler failed to build on my M1 Macbook with Apple's Silicon architecture.",
     "timestamp": "2023-12-01",
     "date": "01 Dec 2023",
     "tags": [
@@ -290,8 +296,9 @@
     "nav_path": [
       "2023"
     ],
+    "author_name": "Jayesh Bhoot",
     "excerpt_2": null,
-    "excerpt": null,
+    "excerpt": "This list will likely remain short.",
     "timestamp": "2023-10-09",
     "date": "09 Oct 2023",
     "tags": [
@@ -306,8 +313,9 @@
     "nav_path": [
       "2023"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "On top of that, Twitter started dishing out blue ticks on subscriptions.",
+    "excerpt": "I use the following set of fonts.",
     "timestamp": "2023-06-12",
     "date": "12 Jun 2023",
     "tags": [
@@ -322,8 +330,9 @@
     "nav_path": [
       "2022"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "Clearly, <code>pre</code> tag is not enough to represent a code snippet. How do we distinguish a code snippet from\nother\npre-formatted content? By marking up the snippet with <code>code</code>, and then wrapping it in a\n<code>pre</code> tag.",
+    "excerpt": "Suppose, we want to mark up the following multi-line snippet of JavaScript code:",
     "timestamp": "2022-10-06",
     "date": "06 Oct 2022",
     "tags": [
@@ -339,8 +348,9 @@
     "nav_path": [
       "2022"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "So I chose <code>~/.emacs.d</code> as emacs's config location.",
+    "excerpt": "If <code>~/.emacs.d</code> exists in the system, which always does because emacs auto-creates it, then emacs does not\npick up <code>init.el</code> from <code>~/.config/emacs</code> for some reason...even if <code>~/.emacs.d</code> is\nempty.",
     "timestamp": "2022-09-24",
     "date": "24 Sep 2022",
     "tags": [
@@ -355,8 +365,9 @@
     "nav_path": [
       "2022"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "In a CNAME mapping, <code>@ CNAME example.com</code>, example.com is the canonical name, while <code>@</code> is the\ndomain being mapped to the canonical name.",
+    "excerpt": "Syntax of a DNS record, along with examples:",
     "timestamp": "2022-09-19",
     "date": "19 Sep 2022",
     "tags": [
@@ -371,8 +382,9 @@
     "nav_path": [
       "2022"
     ],
+    "author_name": "Jayesh Bhoot",
     "excerpt_2": null,
-    "excerpt": null,
+    "excerpt": "<code>box-sizing</code> specifies the part of an element's CSS box, to which the properties <code>width, min-width,\nmax-width,\nheight, min-height, max-height</code> apply.",
     "timestamp": "2022-09-17",
     "date": "17 Sep 2022",
     "tags": [
@@ -387,8 +399,9 @@
     "nav_path": [
       "2022"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "One approach is to fake the hash with zeroes.",
+    "excerpt": "Discovering the SHA256 hash for a derivation is a chore.",
     "timestamp": "2022-09-09",
     "date": "09 Sep 2022",
     "tags": [
@@ -403,8 +416,9 @@
     "nav_path": [
       "2020"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "Not having to press the mouse button makes for a much more pleasurable and efficient experience. Coupled\nwith <i>Sticky Keys</i>, <i>Hover Click</i> has also helped me recover from a hand injury.",
+    "excerpt": "Desktop systems usually provide an accessibility feature, with which a user only has to hover the cursor\nover where he wants to click. The click goes off automatically. In GNOME, this feature is called <i>Hover\nClick</i>.",
     "timestamp": "2020-07-05",
     "date": "05 Jul 2020",
     "tags": [
@@ -420,8 +434,9 @@
     "nav_path": [
       "2020"
     ],
-    "excerpt_2": null,
-    "excerpt": null,
+    "author_name": "Jayesh Bhoot",
+    "excerpt_2": "You can find a sample add-on on my <a href=\"https://github.com/jayesh-bhoot/firefox-add-on-in-cljs\">GitHub</a>.\nI won't go through the code here, but will lay out the quirky development process. I will mostly focus on the\nplumbing - how ClojureScript hands over the compiled JavaScript code to the add-on.",
+    "excerpt": "I found writing Firefox add-ons to be a good way to learn the ropes in ClojureScript in a productive manner.",
     "timestamp": "2020-07-04",
     "date": "04 Jul 2020",
     "tags": [
@@ -432,93 +447,10 @@
     "title": "How to write a Firefox add-on in ClojureScript"
   },
   {
-    "url": "/drafts/react-rxjs",
-    "page_file": "site/drafts/react-rxjs.md",
-    "nav_path": [
-      "drafts"
-    ],
-    "excerpt_2": null,
-    "excerpt": null,
-    "timestamp": null,
-    "date": null,
-    "tags": [],
-    "id": "urn:uuid:b58d49ce-27ed-4b90-954c-ce0833c3d657",
-    "title": "How React Rxjs works"
-  },
-  {
-    "url": "/drafts/nix-vs-guix",
-    "page_file": "site/drafts/nix-vs-guix.md",
-    "nav_path": [
-      "drafts"
-    ],
-    "excerpt_2": null,
-    "excerpt": null,
-    "timestamp": null,
-    "date": null,
-    "tags": [],
-    "id": "urn:uuid:145070ee-1327-4159-a9aa-51c2e06aa2d5",
-    "title": null
-  },
-  {
-    "url": "/drafts/managing-a-nixos-server",
-    "page_file": "site/drafts/managing-a-nixos-server.md",
-    "nav_path": [
-      "drafts"
-    ],
-    "excerpt_2": null,
-    "excerpt": null,
-    "timestamp": null,
-    "date": null,
-    "tags": [],
-    "id": "urn:uuid:eb4df946-3894-4d3d-b1e8-aa4a89cd2e30",
-    "title": null
-  },
-  {
-    "url": "/drafts/lets-talk-money-and-mutual-funds",
-    "page_file": "site/drafts/lets-talk-money-and-mutual-funds.md",
-    "nav_path": [
-      "drafts"
-    ],
-    "excerpt_2": null,
-    "excerpt": null,
-    "timestamp": null,
-    "date": null,
-    "tags": [],
-    "id": "urn:uuid:1960a042-4070-4469-bfb9-07d2cfcd6252",
-    "title": null
-  },
-  {
-    "url": "/drafts/effective-scala-9-type-overview",
-    "page_file": "site/drafts/effective-scala-9-type-overview.md",
-    "nav_path": [
-      "drafts"
-    ],
-    "excerpt_2": null,
-    "excerpt": null,
-    "timestamp": null,
-    "date": null,
-    "tags": [],
-    "id": "urn:uuid:fbf3848d-f3f5-4291-8db0-ad515820500d",
-    "title": null
-  },
-  {
-    "url": "/drafts/cv",
-    "page_file": "site/drafts/cv.html",
-    "nav_path": [
-      "drafts"
-    ],
-    "excerpt_2": "OCaml Swift ABI PoC",
-    "excerpt": "Worked on a product that helped hotels manage their pricing across various booking platforms. I implemented parts\n    of\n    the backend which fetched and updated prices of a hotel on such booking platforms.",
-    "timestamp": "2019",
-    "date": "2019",
-    "tags": [],
-    "id": "urn:uuid:884dcded-4e32-45fe-a6ea-eb51580a4652",
-    "title": "My professional achievements"
-  },
-  {
     "url": "/about",
     "page_file": "site/about.md",
     "nav_path": [],
+    "author_name": null,
     "excerpt_2": null,
     "excerpt": null,
     "timestamp": null,
