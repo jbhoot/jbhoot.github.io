@@ -1,11 +1,9 @@
 .p-category {
-    outline: 1px solid;
-    text-decoration: none;
-    background-color: #0097db;
-    color: white;
-    padding: 4px;
+    background-color: lavender;
+    padding: 2px;
+    text-decoration-thickness: 2px;
 }
 
 .p-category + .p-category {
-    margin-inline-start: 10px;
+    margin-inline-start: 4px;
 }

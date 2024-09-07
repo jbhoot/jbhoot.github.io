@@ -4,9 +4,7 @@
 
 <h1 class="p-name">Effective Scala, part 8 - OO concepts</h1>
 
-<p class="cluster"><span class="author-photo-placeholder"></span> <span class="stack" style="--stack-gap:0;"><span>Written by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a></span> <span>Published on <a class="u-url" href=""><time class="dt-published" datetime="2024-05-14">14 May 2024</time></a></span></span></p>
-
-<p>
+<p>Posted on <a class="u-url" href=""><time class="dt-published" datetime="2024-05-14">14 May 2024</time></a> in 
 <a class="p-category" href="" rel="tag">series-effective-scala</a>
 <a class="p-category" href="" rel="tag">oop</a>
 </p>

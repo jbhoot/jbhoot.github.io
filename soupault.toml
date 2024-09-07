@@ -58,6 +58,7 @@ sort_type = "calendar"
 sort_descending = true
 # Formats: https://man7.org/linux/man-pages/man1/date.1.html
 date_formats = ["%F"]
+extract_after_widgets = ["populate-author-info"] # so that author_name can be extracted as an index field
 
 dump_json = "index.json"
 
@@ -224,13 +225,18 @@ html = """
       </ul>
 """
 
-[widgets.populate-author-photo]
+[widgets.populate-author-info]
 widget = "insert_html"
-selector = ".author-photo-placeholder"
-action = "replace_element"
+selector = ".h-entry"
+action = "append_child"
 parse = true
 html = """
-<a href="/about"><img alt="Post author's photo" class="u-photo" src="/profile-pic-closeup-round.png"></a>
+<p class="cluster visually-hidden">
+  <img alt="Post author's photo" class="u-photo" src="/profile-pic-closeup-round.png">
+  <span class="stack" style="--stack-gap:0;">
+    <span>Written by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a></span>
+  </span>
+</p>
 """
 
 [widgets.populate-article-link]
@@ -252,7 +258,7 @@ append = " | Jayesh Bhoot"
 [widgets.table-of-contents]
 widget = "toc"
 #selector = "hgroup:has(h1)"
-selector = ".e-content"
+selector = ".toc"
 action = "insert_before"
 min_level = 1
 max_level = 3
