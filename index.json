@@ -11,8 +11,7 @@
     "timestamp": "2024-09-07",
     "date": "07 Sep 2024",
     "collections": [
-      "philosophy-of-life",
-      "ted-lasso"
+      "philosophy-of-life"
     ],
     "id": "urn:uuid:06da33f8-2f18-431a-99f2-d2085e8a8702",
     "title": "Choosing curious over judgmental"
@@ -96,7 +95,7 @@
     "timestamp": "2024-05-08",
     "date": "08 May 2024",
     "collections": [
-      "scala",
+      "Scala",
       "series-effective-scala"
     ],
     "id": "urn:uuid:5a99b823-fa04-4e97-b94f-a0e57f0f879a",
@@ -131,8 +130,7 @@
     "timestamp": "2024-05-06",
     "date": "06 May 2024",
     "collections": [
-      "series-effective-scala",
-      "sbt"
+      "series-effective-scala"
     ],
     "id": "urn:uuid:b84ce392-affe-484b-a5eb-fde46cdd0ad8",
     "title": "Effective Scala, part 6 - Scala Build Tool (SBT)"
@@ -166,8 +164,7 @@
     "timestamp": "2024-04-21",
     "date": "21 Apr 2024",
     "collections": [
-      "series-effective-scala",
-      "scala"
+      "series-effective-scala"
     ],
     "id": "urn:uuid:af3fbc76-728b-45ac-9c02-886b7aa2db68",
     "title": "Effective Scala, part 4 - function v/s method"
@@ -184,8 +181,7 @@
     "timestamp": "2024-04-19",
     "date": "19 Apr 2024",
     "collections": [
-      "series-effective-scala",
-      "scala"
+      "series-effective-scala"
     ],
     "id": "urn:uuid:63a0e01e-eacb-486e-9f72-959cc2ccb742",
     "title": "Effective Scala, part 3 - compatibility roulette"
@@ -390,7 +386,7 @@
     "timestamp": "2022-09-19",
     "date": "19 Sep 2022",
     "collections": [
-      "dns"
+      "Networking"
     ],
     "id": "urn:uuid:6994c8c5-8f5e-4efa-819f-99310767bea1",
     "title": "Learnings on DNS"
@@ -459,8 +455,7 @@
     "timestamp": "2020-07-04",
     "date": "04 Jul 2020",
     "collections": [
-      "firefox-add-on",
-      "clojurescript"
+      "firefox-add-on"
     ],
     "id": "urn:uuid:5f447c9e-6f5d-4cfd-98e8-e917b0429afd",
     "title": "How to write a Firefox add-on in ClojureScript"
