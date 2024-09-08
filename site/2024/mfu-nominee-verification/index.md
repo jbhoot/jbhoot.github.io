@@ -2,7 +2,7 @@
 
 <hgroup>
 
-<h1>Stubborn pop-up in <i>New Folio</i> workflow on <i>Mutual Fund Utilities (MFU)</i> website</h1> 
+<h1>Stubborn pop-up on <i>Mutual Fund Utilities (MFU)</i> website</h1> 
 
 <p>Posted on <a class="u-url" href=""><time class="dt-published" datetime="2024-06-23">23 Jun 2024</time></a></p>
 
