@@ -95,11 +95,11 @@ selector = [".p-author"]
 path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
 index_selector = "ul.all-articles"
 index_template = """
-  <h1> All articles </h1>
+  <h1> All posts </h1>
   <ul class='all-articles'>
   {% for e in entries %}
   <li>
-    <p><a class="font-size:s3 font-weight:600" href="{{e.url}}">{{e.title}}</a></p>
+    <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a></p>
     <time class="post-timestamp" datetime="{{e.timestamp}}">{{e.date}}</time>
   </li>
   {% endfor %}
@@ -113,7 +113,7 @@ max_items = 5
 index_selector = "ul.recent-articles"
 index_item_template = """
   <li>
-    <p><a class="font-size:s3 font-weight:600" href="{{url}}">{{title}}</a></p>
+    <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a></p>
     <time class="post-timestamp" datetime="{{timestamp}}">{{date}}</time>
   </li>
   """
@@ -122,7 +122,7 @@ index_item_template = """
 index_selector = "ul.yearly-posts"
 index_item_template = """
   <li>
-    <p><a class="font-size:s3 font-weight:600" href="{{url}}">{{title}}</a></p>
+    <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a></p>
     <time class="post-timestamp" datetime="{{timestamp}}">{{date}}</time>
   </li>
   """
@@ -135,7 +135,7 @@ index_template = """
   <ul class='all-articles'>
   {% for e in entries %}
   <li>
-    <p><a class="font-size:s3 font-weight:600" href="{{e.url}}">{{e.title}}</a></p>
+    <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a></p>
     <time class="post-timestamp" datetime="{{e.timestamp}}">{{e.date}}</time>
   </li>
   {% endfor %}
@@ -220,8 +220,8 @@ parse = true
 html = """
       <ul class="cluster">
         <li><a href="/">Home</a></li>
-        <li><a href="/articles">Articles</a></li>
-        <li><a href="/collections/note">Notes</a></li>
+        <li><a href="/articles">Posts</a></li>
+        <!-- <li><a href="/collections/note">Notes</a></li> -->
         <li><a href="/collections">Collections</a></li>
         <li>Projects</li>
         <li>CV</li>
