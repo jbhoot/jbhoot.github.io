@@ -252,8 +252,6 @@ parse = true
 html = """
 <div class="box coloured invert">
   <footer style="align-items: center; max-inline-size: var(--measure); margin: auto;">
-    <p>This website is written with <a href="https://soupault.app/">soupault</a> and HTML</p>
-    <p>It is a part of <a href="https://ring.muhokama.fun/">Mohukama webring</a>. Check out the <a href="https://ring.muhokama.fun/u/bhoot/pred">previous</a> and the <a href="https://ring.muhokama.fun/u/bhoot/succ">next</a> websites on the ring.</p>
     <aside class="cluster no-touch">
       Find me on:
       <a href="https://github.com/jbhoot" rel="me">
@@ -270,6 +268,7 @@ html = """
              src="/static/images/lobsters.svg" width="30">
       </a>
     </aside>
+    <p>This website is built with <a href="https://soupault.app/">soupault</a>. It is a part of <a href="https://ring.muhokama.fun/">Mohukama webring</a>. Check out the <a href="https://ring.muhokama.fun/u/bhoot/pred">previous</a> and <a href="https://ring.muhokama.fun/u/bhoot/succ">next</a> websites on the ring.</p>
   </div
 </footer>
 """
