@@ -6,7 +6,7 @@
 .all-articles > * + *,
 .yearly-posts > * + *,
 .recent-articles > * + * {
-    margin-block-start: var(--s6);
+    /*margin-block-start: var(--s6);*/
 }
 
 .post-timestamp {
