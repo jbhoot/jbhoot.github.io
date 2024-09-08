@@ -176,43 +176,46 @@ html = """
   <script src="/index.js"></script>
 """
 
-[widgets.populate-site-title]
+[widgets.add-homepage-header]
 widget = "insert_html"
-selector = ".site-title-wrapper"
+selector = ".placeholder-homepage-header"
+action = "replace_element"
 parse = true
 html = """
-        <a class="u-url cluster site-title text-decoration:none" href="/"
-           style="--cluster-gap: var(--s-4); align-items: center;">
-          <span><span class="p-name">Jayesh <span class="p-nickname p-family-name">Bhoot</span></span><span>&apos;s</span></span>
-          <span class="site-title-blinker"
-                title="because my last name means 'Ghost' in some Indian languages">Gh<span>o</span>st
-          T<span>o</span>wn</span>
-        </a>
+<div class="box coloured invert">
+  <div class="h-card" style="align-items: center; max-inline-size: var(--measure); margin: auto;">
+    <h1 class="site-title-wrapper font-family:sans-serif">
+      <!-- Content inserted by soupault widget -->
+    </h1>
+    <nav class="main-nav">
+      <!-- Content inserted by soupault widget -->
+    </nav>
+  </div>
+</div>
 """
 
-[widgets.populate-social-links]
+[widgets.add-otherpage-header]
 widget = "insert_html"
-selector = ".social-links"
+selector = ".placeholder-header"
+action = "replace_element"
 parse = true
 html = """
-  <a href="https://github.com/jbhoot" rel="me">
-    <img alt="GitHub." src="/static/images/github.svg" width="30">
-  </a>
-  <a href="https://linkedin.com/in/jbhoot" rel="me">
-    <img alt="LinkedIn." src="/static/images/linkedin.svg" width="30">
-  </a>
-  <a href="https://functional.cafe/@bhoot" rel="me">
-    <img alt="Mastodon." src="/static/images/mastodon.svg" width="30">
-  </a>
-  <a href="https://lobste.rs/~bhoot" rel="me">
-    <img alt="Link to my lobsters account bhoot"
-         src="/static/images/lobsters.svg" width="30">
-  </a>
+<div class="box coloured invert">
+  <div class="h-card" style="align-items: center; max-inline-size: var(--measure); margin: auto;">
+    <p class="site-title-wrapper font-family:sans-serif">
+      <!-- Content inserted by soupault widget -->
+    </p>
+    <nav class="main-nav">
+      <!-- Content inserted by soupault widget -->
+    </nav>
+  </div>
+</div>
 """
 
 [widgets.populate-main-nav]
 widget = "insert_html"
 selector = ".main-nav"
+after = ["add-homepage-header", "add-otherpage-header"]
 parse = true
 html = """
       <ul class="cluster">
@@ -224,6 +227,51 @@ html = """
         <li>CV</li>
         <li><a href="/about">About</a></li>
       </ul>
+"""
+
+[widgets.populate-site-title]
+widget = "insert_html"
+selector = ".site-title-wrapper"
+after = ["add-homepage-header", "add-otherpage-header"]
+parse = true
+html = """
+<a class="u-url cluster site-title text-decoration:none" href="/"
+   style="--cluster-gap: var(--s-4); align-items: center;">
+  <span><span class="p-name">Jayesh <span class="p-nickname p-family-name">Bhoot</span></span><span>&apos;s</span></span>
+  <span class="site-title-blinker"
+        title="because my last name means 'Ghost' in some Indian languages">Gh<span>o</span>st
+  T<span>o</span>wn</span>
+</a>
+"""
+
+[widgets.add-footer]
+widget = "insert_html"
+selector = "body"
+action = "append_child"
+parse = true
+html = """
+<div class="box coloured invert">
+  <footer style="align-items: center; max-inline-size: var(--measure); margin: auto;">
+    <p>This website is written with <a href="https://soupault.app/">soupault</a> and HTML</p>
+    <p>It is a part of <a href="https://ring.muhokama.fun/">Mohukama webring</a>. Check out the <a href="https://ring.muhokama.fun/u/bhoot/pred">previous</a> and the <a href="https://ring.muhokama.fun/u/bhoot/succ">next</a> websites on the ring.</p>
+    <aside class="cluster no-touch">
+      Find me on:
+      <a href="https://github.com/jbhoot" rel="me">
+        <img alt="GitHub." src="/static/images/github.svg" width="30">
+      </a>
+      <a href="https://linkedin.com/in/jbhoot" rel="me">
+        <img alt="LinkedIn." src="/static/images/linkedin.svg" width="30">
+      </a>
+      <a href="https://functional.cafe/@bhoot" rel="me">
+        <img alt="Mastodon." src="/static/images/mastodon.svg" width="30">
+      </a>
+      <a href="https://lobste.rs/~bhoot" rel="me">
+        <img alt="Link to my lobsters account bhoot"
+             src="/static/images/lobsters.svg" width="30">
+      </a>
+    </aside>
+  </div
+</footer>
 """
 
 [widgets.populate-author-info]
