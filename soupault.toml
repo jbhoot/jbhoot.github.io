@@ -105,8 +105,7 @@ index_template = """
   <ul class='all-articles'>
   {% for e in entries %}
   <li>
-    <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a></p>
-    <time class="post-timestamp" datetime="{{e.timestamp}}">{{e.date}}</time>
+    <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.timestamp}}"> {{e.date}}</time></p>
   </li>
   {% endfor %}
   </ul>
@@ -119,8 +118,7 @@ max_items = 5
 index_selector = "ul.recent-articles"
 index_item_template = """
   <li>
-    <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a></p>
-    <time class="post-timestamp" datetime="{{timestamp}}">{{date}}</time>
+    <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{timestamp}}"> {{date}}</time></p>
   </li>
   """
 
@@ -128,8 +126,7 @@ index_item_template = """
 index_selector = "ul.yearly-posts"
 index_item_template = """
   <li>
-    <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a></p>
-    <time class="post-timestamp" datetime="{{timestamp}}">{{date}}</time>
+    <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{timestamp}}"> {{date}}</time></p>
   </li>
   """
 
@@ -141,8 +138,7 @@ index_template = """
   <ul class='all-articles'>
   {% for e in entries %}
   <li>
-    <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a></p>
-    <time class="post-timestamp" datetime="{{e.timestamp}}">{{e.date}}</time>
+    <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.timestamp}}"> {{e.date}}</time></p>
   </li>
   {% endfor %}
   </ul>
@@ -274,7 +270,7 @@ html = """
       </a>
       • <a href="/about" rel="me"> More about me </a>
     </aside>
-    <p>Website built with <a href="https://soupault.app/">soupault</a> • Part of <a href="https://ring.muhokama.fun/">Mohukama</a> webring (<a href="https://ring.muhokama.fun/u/bhoot/pred">Previous</a> - <a href="https://ring.muhokama.fun/u/bhoot/succ">Next</a>) • <a href="/about">More about website</a></p>
+    <p>Website built with <a href="https://soupault.app/">soupault</a> • Part of <a href="https://ring.muhokama.fun/">Muhokama</a> webring (<a href="https://ring.muhokama.fun/u/bhoot/pred">Previous</a> - <a href="https://ring.muhokama.fun/u/bhoot/succ">Next</a>) • <a href="/about">More about website</a></p>
   </div
 </footer>
 """
