@@ -268,9 +268,8 @@ html = """
       <a href="https://linkedin.com/in/jbhoot" rel="me">
         <img alt="LinkedIn." src="/static/images/linkedin.svg" width="30">
       </a>
-      • <a href="/about" rel="me"> More about me </a>
     </aside>
-    <p>Website built with <a href="https://soupault.app/">soupault</a> • Part of <a href="https://ring.muhokama.fun/">Muhokama</a> webring (<a href="https://ring.muhokama.fun/u/bhoot/pred">Previous</a> - <a href="https://ring.muhokama.fun/u/bhoot/succ">Next</a>) • <a href="/about">More about website</a></p>
+    <p>Built with <a href="https://soupault.app/">soupault</a> • Part of <a href="https://ring.muhokama.fun/">Muhokama</a> webring (<a href="https://ring.muhokama.fun/u/bhoot/pred">Previous</a> - <a href="https://ring.muhokama.fun/u/bhoot/succ">Next</a>)</p>
   </div
 </footer>
 """
