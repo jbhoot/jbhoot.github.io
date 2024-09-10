@@ -1,5 +1,5 @@
 .all-posts, .yearly-posts, .recent-posts {
-    list-style-type: none;
+    /*list-style-type: none;*/
     padding: 0;
 }
 

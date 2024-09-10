@@ -1,3 +1,3 @@
 # Archives - 2020
 
-<ul class="yearly-posts"></ul>
+<ol class="yearly-posts" reversed="reversed"></ol>

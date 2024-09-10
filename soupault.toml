@@ -102,28 +102,28 @@ path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
 index_selector = ".all-posts"
 index_template = """
   <h1> All posts </h1>
-  <ul class='all-posts'>
+  <ol class='all-posts' reversed='reversed'>
   {% for e in entries %}
   <li>
     <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.timestamp}}"> {{e.date}}</time></p>
   </li>
   {% endfor %}
-  </ul>
+  </ol>
   """
 file = "index_processors/all-posts.lua"
 
-[index.views.recent-posts]
-path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
-max_items = 5
-index_selector = ".recent-posts"
+[index.views.yearly-posts]
+index_selector = ".yearly-posts"
 index_item_template = """
   <li>
     <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{timestamp}}"> {{date}}</time></p>
   </li>
   """
 
-[index.views.yearly-posts]
-index_selector = ".yearly-posts"
+[index.views.recent-posts]
+path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
+max_items = 5
+index_selector = ".recent-posts"
 index_item_template = """
   <li>
     <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{timestamp}}"> {{date}}</time></p>
