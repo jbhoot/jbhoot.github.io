@@ -135,13 +135,13 @@ index_selector = ".collections"
 path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
 url_path = "collections"
 index_template = """
-  <ul class='all-posts'>
+  <ol class="collection" reversed="reversed">
   {% for e in entries %}
   <li>
     <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.timestamp}}"> {{e.date}}</time></p>
   </li>
   {% endfor %}
-  </ul>
+  </ol>
   """
 file = "index_processors/collection-index.lua"
 
