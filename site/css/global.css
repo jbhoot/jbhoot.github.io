@@ -257,7 +257,7 @@ ul, ol {
     So we only adjust padding value here, not margin.
     https://html.spec.whatwg.org/multipage/rendering.html#lists
     */
-    padding-inline-start: 3ch;
+    /*padding-inline-start: 3ch;*/
 
     /*
     With `list-style-position: inside`, the bullet stays inside of a multi-line list item. So:
