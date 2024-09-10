@@ -251,26 +251,24 @@ a:hover {
     text-decoration-style: solid;
 }
 
-ul, ol {
-    /*
-    For ul and ol, W3C standard specifies a default for padding-inline-start (of 40px), but not for margin-inline-start.
-    So we only adjust padding value here, not margin.
-    https://html.spec.whatwg.org/multipage/rendering.html#lists
-    */
-    /*padding-inline-start: 3ch;*/
+ol {
+/*
+For ul and ol, W3C standard specifies a default for padding-inline-start (of 40px), but not for margin-inline-start.
+So we only adjust padding value here, not margin.
+https://html.spec.whatwg.org/multipage/rendering.html#lists
+*/
 
-    /*
-    With `list-style-position: inside`, the bullet stays inside of a multi-line list item. So:
-    - This is a multi-line list item, whose list parent is
-    set to `list-style-position: inside`. Notice that the
-    bullet is aligned with the item's text, instead of
-    marking itself out of the text flow.
-    */
-    /*list-style-position: inside;*/
+    /* After a lot of experimentation, this calculated padding brings
+       an <ol>, which is numbered up to 99,
+       in alignment with its surrounding content
+       across all browsers.
+       Safari still is a pain in the ass, because it puts more space between the list item bullet number and the list item text than Firefox and Chrome do, which mucks up even em-based padding. So alignment looks a bit off in Safari. But it is what it is. */
+    padding-inline-start: calc(2em + 7px);
+    list-style-type: decimal;
 }
 
-ol {
-    list-style-type: decimal;
+ol > li::marker {
+    font-family: var(--font-monospaced-sans);
 }
 
 ol ol {
@@ -282,7 +280,10 @@ ol ol ol {
 }
 
 ul {
-    list-style-type: disc;
+    /* After a lot of experimentation, a padding of 1em brings
+       a <ul> in alignment with its surrounding content
+       across all browsers. */
+    padding-inline-start: 1em;
 }
 
 ul ul {
