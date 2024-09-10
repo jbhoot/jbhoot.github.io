@@ -1,12 +1,9 @@
-.all-posts, .yearly-posts, .recent-posts {
-    /*list-style-type: none;*/
-    padding: 0;
-}
-
-.all-posts > * + *,
-.yearly-posts > * + *,
-.recent-posts > * + * {
-    /*margin-block-start: var(--s6);*/
+.all-posts li a,
+.yearly-posts li a,
+.recent-posts li a,
+.collections li a {
+    text-decoration-thickness: 1px;
+    text-decoration-style: dotted;
 }
 
 .post-timestamp {
