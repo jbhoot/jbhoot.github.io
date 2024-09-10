@@ -263,15 +263,14 @@ html = """
       <a href="https://github.com/jbhoot" rel="me">
         <img alt="GitHub." src="/static/images/github.svg" width="30">
       </a>
-      <a href="https://linkedin.com/in/jbhoot" rel="me">
-        <img alt="LinkedIn." src="/static/images/linkedin.svg" width="30">
-      </a>
       <a href="https://functional.cafe/@bhoot" rel="me">
         <img alt="Mastodon." src="/static/images/mastodon.svg" width="30">
       </a>
       <a href="https://lobste.rs/~bhoot" rel="me">
-        <img alt="Link to my lobsters account bhoot"
-             src="/static/images/lobsters.svg" width="30">
+        <img alt="Link to my lobsters account bhoot" src="/static/images/lobsters.svg" width="30">
+      </a>
+      <a href="https://linkedin.com/in/jbhoot" rel="me">
+        <img alt="LinkedIn." src="/static/images/linkedin.svg" width="30">
       </a>
       • <a href="/about" rel="me"> More about me </a>
     </aside>
