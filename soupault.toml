@@ -99,7 +99,7 @@ selector = [".p-author"]
 
 [index.views.all-posts]
 path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
-index_selector = "ul.all-posts"
+index_selector = ".all-posts"
 index_template = """
   <h1> All posts </h1>
   <ul class='all-posts'>
@@ -115,7 +115,7 @@ file = "index_processors/all-posts.lua"
 [index.views.recent-posts]
 path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
 max_items = 5
-index_selector = "ul.recent-posts"
+index_selector = ".recent-posts"
 index_item_template = """
   <li>
     <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{timestamp}}"> {{date}}</time></p>
@@ -123,7 +123,7 @@ index_item_template = """
   """
 
 [index.views.yearly-posts]
-index_selector = "ul.yearly-posts"
+index_selector = ".yearly-posts"
 index_item_template = """
   <li>
     <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{timestamp}}"> {{date}}</time></p>
@@ -131,7 +131,7 @@ index_item_template = """
   """
 
 [index.views.collections]
-index_selector = "ul.collections"
+index_selector = ".collections"
 path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
 url_path = "collections"
 index_template = """
