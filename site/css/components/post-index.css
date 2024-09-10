@@ -1,11 +1,11 @@
-.all-articles, .yearly-posts, .recent-articles {
+.all-posts, .yearly-posts, .recent-posts {
     list-style-type: none;
     padding: 0;
 }
 
-.all-articles > * + *,
+.all-posts > * + *,
 .yearly-posts > * + *,
-.recent-articles > * + * {
+.recent-posts > * + * {
     /*margin-block-start: var(--s6);*/
 }
 
