@@ -1,9 +1,11 @@
-.all-posts li a,
-.yearly-posts li a,
-.recent-posts li a,
-.collections li a {
+:is(.all-posts, .yearly-posts, .recent-posts, .collections, .collection) li a {
     text-decoration-thickness: 1px;
     text-decoration-style: dotted;
+}
+
+:is(.all-posts, .yearly-posts, .recent-posts, .collections, .collection) li a:hover {
+    text-decoration-thickness: 3px;
+    text-decoration-style: solid;
 }
 
 .post-timestamp {

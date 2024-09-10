@@ -240,7 +240,7 @@ tr:hover {
 }
 
 a {
-    text-decoration-style: solid;
+    text-decoration-style: dotted;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.25em;
     text-decoration-skip-ink: none;
@@ -248,7 +248,7 @@ a {
 
 a:hover {
     text-decoration-thickness: 3px;
-    text-decoration-style: dotted;
+    text-decoration-style: solid;
 }
 
 ul, ol {
