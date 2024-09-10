@@ -10,11 +10,32 @@
 </hgroup>
 
 <div class="e-content">
-  <p>OK, cool enough for me. There are two ways:</p>
-  <ul>
-    <li>On Linux: <code>cat /proc/sys/kernel/random/uuid</code></li>
-    <li>On Linux and macOS: <code>uuidgen</code></li>
-  </ul>
+  <p>OK, may be not cool enough for Linux veterans, but cool enough for me!</p>
+
+  <p>There are two ways, in the order of coolness:</p>
+
+  <ol>
+    <li>
+      <p>On Linux only: <code>cat /proc/sys/kernel/random/uuid</code></p>
+
+<pre><code>$ cat /proc/sys/kernel/random/uuid
+fa199476-f6f3-4a32-ab89-91d81d9cc319</code></pre>
+    </li>
+    <li>
+      <p>On Linux and macOS: <code>uuidgen</code></p>
+      <pre><code>$ uuidgen
+6180fa98-ddd7-4777-a40d-b548db1f3444</code></pre>
+
+      <p>On macOS, <code>uuidgen</code> gives a UUID in uppercase. You can pipe it to <code>tr</code> command to translate it to lowercase.</p>
+
+<pre><code># On macOS
+$ uuidgen
+58D8D68C-B64D-4E1E-AC0F-B00AFAC1E895
+
+$ uuidgen | tr "[:upper:]" "[:lower:]"
+919ae848-df9c-41fa-b59f-de4b933c927c</code></pre>
+    </li>
+  </ol>
 </div>
 
 </article>
