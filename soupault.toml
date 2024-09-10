@@ -40,7 +40,13 @@ content_action = "append_child"
 
 [templates.home-page]
 file = "templates/home-page.html"
-page = ["index.html", "about.md"]
+page = ["index.html", "about.html"]
+content_selector = "main"
+content_action = "append_child"
+
+[templates.info-page]
+file = "templates/info-page.html"
+page = ["about.html", "cv.html"]
 content_selector = "main"
 content_action = "append_child"
 
@@ -251,7 +257,7 @@ action = "append_child"
 parse = true
 html = """
 <div class="box coloured invert">
-  <footer style="align-items: center; max-inline-size: var(--measure); margin: auto;">
+  <footer class="stack" style="--stack-gap: var(--s-6); margin: auto;">
     <aside class="cluster no-touch">
       Find me on:
       <a href="https://github.com/jbhoot" rel="me">
@@ -267,8 +273,9 @@ html = """
         <img alt="Link to my lobsters account bhoot"
              src="/static/images/lobsters.svg" width="30">
       </a>
+      • <a href="/about" rel="me"> More about me </a>
     </aside>
-    <p>This website is built with <a href="https://soupault.app/">soupault</a>. It is a part of <a href="https://ring.muhokama.fun/">Mohukama webring</a>. Check out the <a href="https://ring.muhokama.fun/u/bhoot/pred">previous</a> and <a href="https://ring.muhokama.fun/u/bhoot/succ">next</a> websites on the ring.</p>
+    <p>Website built with <a href="https://soupault.app/">soupault</a> • Part of <a href="https://ring.muhokama.fun/">Mohukama</a> webring (<a href="https://ring.muhokama.fun/u/bhoot/pred">Previous</a> - <a href="https://ring.muhokama.fun/u/bhoot/succ">Next</a>) • <a href="/about">More about website</a></p>
   </div
 </footer>
 """

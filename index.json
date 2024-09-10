@@ -462,7 +462,7 @@
   },
   {
     "url": "/about",
-    "page_file": "site/about.md",
+    "page_file": "site/about.html",
     "nav_path": [],
     "author_name": null,
     "excerpt_2": null,
@@ -471,6 +471,6 @@
     "date": null,
     "collections": [],
     "id": null,
-    "title": null
+    "title": "About me"
   }
 ]
