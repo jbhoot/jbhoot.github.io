@@ -1,8 +1,10 @@
-.toc-1 {
+.toc {
     outline: 2px solid gray;
-    padding: var(--s0);
-    list-style-type: none;
-    margin: 1.5em 0;
+    padding: 1em;
+}
+
+.toc-1 {
+    /*list-style-type: none;*/
 }
 
 .toc-1:has(*)::before {
@@ -12,26 +14,17 @@
 }
 
 .toc-1 * + * {
-    margin-block-start: 5px;
-}
-
-.toc-1 a {
-    text-decoration-thickness: 1px;
-    text-decoration-style: dotted;
-}
-
-.toc-1 a:hover {
-    text-decoration-style: solid;
+    margin-block-start: 0.25em;
 }
 
 .toc-2 {
-    padding-inline-start: 2ch;
-    list-style-type: decimal;
+    /*padding-inline-start: 2ch;*/
+    /*list-style-type: decimal;*/
 }
 
 .toc-3 {
-    padding-inline-start: 2ch;
-    list-style-type: disc;
+    /*padding-inline-start: 2ch;*/
+    /*list-style-type: disc;*/
 }
 
 .toc-heading-link {
@@ -50,30 +43,4 @@ The aim is to position toc to the left of the main content only when there is en
 For that to happen, the width must at least be `size-of-toc + size-of-main-content + size-of-toc`.
 */
 @container (min-width: 130ch) {
-    /* How to position an element relative to a parent container while keeping its position fixed across viewport?
-    https://stackoverflow.com/a/11833892
-    */
-    .toc-wrapper {
-        inline-size: calc(var(--measure) * 0.4);
-        position: absolute;
-        top: 0;
-        left: calc(var(--measure) * 0.4 * -1 - var(--s0));
-    }
-
-    .toc {
-        inline-size: calc(var(--measure) * 0.4);
-        position: fixed;
-        top: 0;
-        border: 1px solid lightgrey;
-        color: black !important;
-    }
-
-    .toc-1 {
-        max-height: 90vh;
-        overflow-y: auto;
-    }
-
-    .toc-1:empty {
-        display: none;
-    }
 }

@@ -241,7 +241,7 @@ tr:hover {
 
 a {
     text-decoration-style: dotted;
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: 1px;
     text-underline-offset: 0.25em;
     text-decoration-skip-ink: none;
 }
