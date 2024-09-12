@@ -69,10 +69,10 @@ extract_after_widgets = ["populate-author-info"] # so that author_name can be ex
 dump_json = "index.json"
 
 [index.fields.title]
-selector = ["h1"]
+selector = [".p-name", ".e-summary", ".e-content > p"] # .e-summary and .e-content so that notes indexed in a collection are not left title-less and useless
 
 [index.fields.id]
-selector = ["article[itemid]"]
+selector = [".h-entry[itemid]"]
 extract_attribute = "itemid"
 fallback_to_content = false
 
@@ -81,12 +81,15 @@ selector = [".p-category"]
 select_all = true
 
 [index.fields.date]
-selector = ["hgroup time"]
+selector = [".dt-published"]
 
 [index.fields.timestamp]
-selector = ["hgroup time"]
+selector = [".dt-published"]
 extract_attribute = "datetime"
 fallback_to_content = false
+
+[index.fields.author_name]
+selector = [".p-author"]
 
 [index.fields.excerpt]
 selector = [".e-summary", ".e-content > p", "hgroup ~ p"]
@@ -94,8 +97,8 @@ selector = [".e-summary", ".e-content > p", "hgroup ~ p"]
 [index.fields.excerpt_2]
 selector = [".e-content > p + p", "hgroup ~ p + p"]
 
-[index.fields.author_name]
-selector = [".p-author"]
+[index.fields.content]
+selector = [".e-content"]
 
 [index.views.all-posts]
 path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
