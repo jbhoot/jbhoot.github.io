@@ -9,26 +9,46 @@
 <div class="placeholder-header"></div>
 
 <main class="center" style="padding: 0 var(--s0);">
-  <h2>Comments</h2>
-  <script
-    src="https://giscus.app/client.js"
-    data-repo="jbhoot/jbhoot.github.io"
-    data-repo-id="R_kgDOLEw7Mg"
-    data-category="Announcements"
-    data-category-id="DIC_kwDOLEw7Ms4CghhO"
-    data-mapping="pathname"
-    data-strict="1"
-    data-reactions-enabled="0"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang="en"
-    data-loading="lazy"
-    crossorigin="anonymous"
-    async>
-  </script>
+  <h2><button type="button" class="commentLoader">Load comments</button></h2>
 </main>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.querySelector('.commentLoader');
+        if (btn) {
+            console.log('adding event');
+            btn.addEventListener('click', () => {
+                const commentSection = document.getElementById('commentSection');
+                if (!commentSection) {
+                    const sec = document.createElement('div');
+                    sec.id = 'commentSection';
 
+                    const commentWidget = document.createElement('script');
+                    commentWidget.src = 'https://giscus.app/client.js';
+
+                    commentWidget.dataset.repo = 'jbhoot/jbhoot.github.io';
+                    commentWidget.dataset.repoId = 'R_kgDOLEw7Mg';
+                    commentWidget.dataset.category = 'Announcements';
+                    commentWidget.dataset.categoryId = 'DIC_kwDOLEw7Ms4CghhO';
+                    commentWidget.dataset.mapping = 'pathname';
+                    commentWidget.dataset.strict = '1';
+                    commentWidget.dataset.reactionsEnabled = '0';
+                    commentWidget.dataset.emitMetadata = '0';
+                    commentWidget.dataset.inputPosition = 'bottom';
+                    commentWidget.dataset.theme = 'preferred_color_scheme';
+                    commentWidget.dataset.lang = 'en';
+                    commentWidget.dataset.loading = 'lazy';
+                    commentWidget.crossOrigin = 'anonymous';
+                    commentWidget.async = true;
+
+                    sec.appendChild(commentWidget);
+                    const main = document.querySelector('main');
+                    main.appendChild(sec);
+                    btn.innerText = 'Comments';
+                }
+            });
+        }
+    });
+</script>
 </body>
 
 </html>
