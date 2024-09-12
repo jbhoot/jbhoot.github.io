@@ -80,16 +80,33 @@ function build_collection_page(entries, collection)
   return posts
 end
 
+function make_collection_path(collection_text)
+  -- collection_path = gsub(strlower(collection_text), " ", "-")
+  local char_idx = 1
+  local collection_path = ""
+  while char_idx <= strlen(collection_text) do
+    local currchar = strlower(strsub(collection_text, char_idx, char_idx))
+    if currchar == " " then
+      collection_path = collection_path .. "-"
+    else
+      collection_path = collection_path .. currchar
+    end
+    char_idx = char_idx + 1
+  end
+  return collection_path
+end
+
 pages = {}
 
 local i = 1
 local collection_count = size(all_collections)
 while (i <= collection_count) do
-  collection = all_collections[i]
-  Log.info(format("Generating a page for collection \"%s\"", collection))
+  local collection = all_collections[i]
+  local collection_path = make_collection_path(collection)
+  Log.info(format("Generating a page for collection \"%s\" as \"%s\"", collection, collection_path))
 
   collection_page = {}
-  collection_page["page_file"] = Sys.join_path(url_path, format("%s.html", collection))
+  collection_page["page_file"] = Sys.join_path(url_path, format("%s.html", collection_path))
   collection_page["page_content"] = build_collection_page(site_index, collection)
 
   pages[i] = collection_page
@@ -103,8 +120,10 @@ local i = 1
 local collection_count = size(all_collections)
 while (i <= collection_count) do
   local collection = all_collections[i]
+  local collection_path = make_collection_path(collection)
+
   local collection_link = {}
-  collection_link["url"] = collection
+  collection_link["url"] = collection_path
   collection_link["title"] = collection
   collection_links[i] = collection_link
 
