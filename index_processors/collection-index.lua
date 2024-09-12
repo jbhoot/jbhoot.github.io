@@ -132,11 +132,11 @@ end
 
 local template = [[
 <h1>Collections</h1>
-<ul class="collections">
+<ol class="collections">
 {% for t in collection_links %}
   <li> <a href="{{t.url}}">{{t.title}}</a> </li>
 {% endfor %}
-</ul>
+</ol>
 ]]
 
 local env = {}
