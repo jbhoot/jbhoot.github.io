@@ -16,9 +16,33 @@
 placeholder_container_on_main_index = HTML.select_one(page, config["index_selector"])
 HTML.delete(placeholder_container_on_main_index)
 
+-- retain only non-note posts
+local articles = {}
+local i, entry = next(site_index, nil)
+while i do
+    local collections = entry["collections"]
+    if collections then
+        local has_note_category = nil
+        local j, coll = next(collections, nil)
+        while j do
+            if coll and strlower(coll) == "note" then
+                has_note_category = 1
+            end
+            j, coll = next(collections, j)
+        end
+        if not has_note_category then
+            articles[i] = entry
+        end
+    else
+        articles[i] = entry
+    end
+    i, entry = next(site_index, i)
+end
+
+
 -- step 2
 env = {}
-env["entries"] = site_index
+env["entries"] = articles
 rendered_entries = HTML.parse(String.render_template(config["index_template"], env))
 
 -- step 3

@@ -44,6 +44,12 @@ page = ["index.html", "about.html"]
 content_selector = "main"
 content_action = "append_child"
 
+[templates.notes-page]
+file = "templates/notes-page.html"
+page = ["notes.html"]
+content_selector = "main"
+content_action = "append_child"
+
 [templates.info-page]
 file = "templates/info-page.html"
 page = ["about.html", "cv.html"]
@@ -115,6 +121,20 @@ index_template = """
   """
 file = "index_processors/all-posts.lua"
 
+[index.views.all-notes]
+path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
+index_selector = ".all-notes"
+index_template = """
+  <h1> All notes </h1>
+  {% for e in entries %}
+    <article>
+      <p>Posted on {{e.date}} in {% for c in e.collections %} <a class="p-category" href="/collections/{{c}}">{{c}}</a> {%endfor%} • <a href="{{e.url}}">Permalink</a></p>
+      {{e.content}}
+    </article>
+  {% endfor %}
+  """
+file = "index_processors/all-notes.lua"
+
 [index.views.yearly-posts]
 index_selector = ".yearly-posts"
 index_item_template = """
@@ -151,6 +171,7 @@ file = "index_processors/collection-index.lua"
 [widgets.populate-head]
 widget = "insert_html"
 selector = "head"
+action = "prepend_child" # so that anything may be overridden by specifying in the template page.
 parse = true
 html = """
   <meta charset='utf-8'>
@@ -226,7 +247,7 @@ html = """
       <ul class="cluster">
         <li><a href="/">Home</a></li>
         <li><a href="/posts">Posts</a></li>
-        <!-- <li><a href="/collections/note">Notes</a></li> -->
+        <li><a href="/notes">Notes</a></li>
         <li><a href="/collections">Collections</a></li>
         <li>Projects</li>
         <li>CV</li>
