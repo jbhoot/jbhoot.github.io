@@ -14,7 +14,7 @@ published_stamp=$(date '+%Y-%m-%d')
 published_displayed=$(date '+%d %b %Y')
 published_ele=$(htmlq -f "$target_file" ".dt-published")
 
-sed -i.bkp -E "s|$published_ele|<time class=\"dt-published \" datetime=\"$published_stamp\">$published_displayed</time>|" "$target_file"
+sed -i.bkp -E "s|$published_ele|<time class=\"dt-published\" datetime=\"$published_stamp\">$published_displayed</time>|" "$target_file"
 rm "$target_file".bkp
 
 year_dir=$site_dir/$published_year
