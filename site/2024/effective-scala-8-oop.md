@@ -5,7 +5,7 @@
 <h1 class="p-name">Effective Scala, part 8 - OO concepts</h1>
 
 <p>Posted on <a class="u-url" href=""><time class="dt-published" datetime="2024-05-14">14 May 2024</time></a> in 
-<a class="p-category" href="" rel="tag">series-effective-scala</a>
+<a class="p-category" href="" rel="tag">Effective Scala series</a>
 <a class="p-category" href="" rel="tag">OOP</a>
 </p>
 
