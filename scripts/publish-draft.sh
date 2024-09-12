@@ -12,7 +12,7 @@ site_dir=$2
 published_year=$(date +%Y)
 published_stamp=$(date '+%Y-%m-%d')
 published_displayed=$(date '+%d %b %Y')
-published_ele=$(htmlq -f drafts/cool-ways-to-get-uuid.html ".dt-published")
+published_ele=$(htmlq -f "$target_file" ".dt-published")
 
 sed -i.bkp -E "s|$published_ele|<time class=\"dt-published \" datetime=\"$published_stamp\">$published_displayed</time>|" "$target_file"
 rm "$target_file".bkp
