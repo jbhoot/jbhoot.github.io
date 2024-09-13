@@ -65,7 +65,7 @@ index_first = true
 # Treat a folder containing an index.html and a .leaf file as a normal page. This allows putting assets (e.g., images) of a page alongside itself)
 # https://soupault.app/reference-manual/#treating-index-pages-as-normal-pages
 leaf_file = ".leaf"
-sort_by = "timestamp"
+sort_by = "published_timestamp"
 sort_type = "calendar"
 sort_descending = true
 # Formats: https://man7.org/linux/man-pages/man1/date.1.html
@@ -86,11 +86,19 @@ fallback_to_content = false
 selector = [".p-category"]
 select_all = true
 
-[index.fields.date]
+[index.fields.published_date]
 selector = [".dt-published"]
 
-[index.fields.timestamp]
+[index.fields.published_timestamp]
 selector = [".dt-published"]
+extract_attribute = "datetime"
+fallback_to_content = false
+
+[index.fields.updated_date]
+selector = [".dt-updated"]
+
+[index.fields.updated_timestamp]
+selector = [".dt-updated"]
 extract_attribute = "datetime"
 fallback_to_content = false
 
