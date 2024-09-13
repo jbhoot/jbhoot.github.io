@@ -65,7 +65,7 @@ index_first = true
 # Treat a folder containing an index.html and a .leaf file as a normal page. This allows putting assets (e.g., images) of a page alongside itself)
 # https://soupault.app/reference-manual/#treating-index-pages-as-normal-pages
 leaf_file = ".leaf"
-sort_by = "published_timestamp"
+sort_by = "published"
 sort_type = "calendar"
 sort_descending = true
 # Formats: https://man7.org/linux/man-pages/man1/date.1.html
@@ -86,21 +86,21 @@ fallback_to_content = false
 selector = [".p-category"]
 select_all = true
 
-[index.fields.published_date]
-selector = [".dt-published"]
-
-[index.fields.published_timestamp]
+[index.fields.published]
 selector = [".dt-published"]
 extract_attribute = "datetime"
 fallback_to_content = false
 
-[index.fields.updated_date]
-selector = [".dt-updated"]
+[index.fields.published_text]
+selector = [".dt-published"]
 
-[index.fields.updated_timestamp]
+[index.fields.updated]
 selector = [".dt-updated"]
 extract_attribute = "datetime"
 fallback_to_content = false
+
+[index.fields.updated_text]
+selector = [".dt-updated"]
 
 [index.fields.author_name]
 selector = [".p-author"]
@@ -122,7 +122,7 @@ index_template = """
   <ol class='all-posts' reversed='reversed'>
   {% for e in entries %}
   <li>
-    <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.timestamp}}"> {{e.date}}</time></p>
+    <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.published}}"> {{e.published_text}}</time></p>
   </li>
   {% endfor %}
   </ol>
@@ -136,7 +136,7 @@ index_template = """
   <h1> All notes </h1>
   {% for e in entries %}
     <article>
-      <p>Posted on {{e.date}} in {% for c in e.collections %} <a class="p-category" href="/collections/{{c}}">{{c}}</a> {%endfor%} • <a href="{{e.url}}">Permalink</a></p>
+      <p>Posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a> in {% for c in e.collections %} <a class="p-category" href="/collections/{{c}}">{{c}}</a> {%endfor%}
       {{e.content}}
     </article>
   {% endfor %}
@@ -147,7 +147,7 @@ file = "index_processors/all-notes.lua"
 index_selector = ".yearly-posts"
 index_item_template = """
   <li>
-    <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{timestamp}}"> {{date}}</time></p>
+    <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{published}}"> {{published_text}}</time></p>
   </li>
   """
 
@@ -157,7 +157,7 @@ max_items = 5
 index_selector = ".recent-posts"
 index_item_template = """
   <li>
-    <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{timestamp}}"> {{date}}</time></p>
+    <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{published}}"> {{published_text}}</time></p>
   </li>
   """
 
