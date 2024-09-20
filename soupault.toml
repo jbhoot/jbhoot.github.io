@@ -34,7 +34,7 @@ default_content_action = "prepend_child"
 
 [templates.post-index]
 file = "templates/post-index.html"
-path_regex = '(\/posts.html|\/collections\/.*|\/[0-9]{4}\/index.md)$'
+path_regex = '(\/posts.html|\/articles.html|\/collections\/.*|\/[0-9]{4}\/index.md)$'
 content_selector = "main"
 content_action = "append_child"
 
@@ -114,12 +114,12 @@ selector = [".e-content > p + p", "hgroup ~ p + p"]
 [index.fields.content]
 selector = [".e-content"]
 
-[index.views.all-posts]
+[index.views.all-articles]
 path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
-index_selector = ".all-posts"
+index_selector = ".all-articles"
 index_template = """
-  <h1> All posts </h1>
-  <ol class='all-posts' reversed='reversed'>
+  <h1> All articles </h1>
+  <ol class='all-articles' reversed='reversed'>
   {% for e in entries %}
   <li>
     <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.published}}"> {{e.published_text}}</time></p>
@@ -127,7 +127,7 @@ index_template = """
   {% endfor %}
   </ol>
   """
-file = "index_processors/all-posts.lua"
+file = "index_processors/all-articles.lua"
 
 [index.views.all-notes]
 path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
@@ -268,7 +268,7 @@ parse = true
 html = """
       <ul class="cluster">
         <li><a href="/">Home</a></li>
-        <li><a href="/posts">Posts</a></li>
+        <li><a href="/articles">Articles</a></li>
         <li><a href="/notes">Notes</a></li>
         <li><a href="/collections">Collections</a></li>
         <li>Projects</li>

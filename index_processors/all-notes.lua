@@ -25,11 +25,11 @@ env["entries"] = notes
 rendered_entries = HTML.parse(String.render_template(config["index_template"], env))
 
 -- step 3
-all_posts_index_file = Sys.join_path(Sys.dirname(page_file), "notes.html")
-all_posts_index_content = HTML.pretty_print(rendered_entries)
+all_notes_index_file = Sys.join_path(Sys.dirname(page_file), "notes.html")
+all_notes_index_content = HTML.pretty_print(rendered_entries)
 
 -- step 4
 pages = {}
 pages[1] = {}
-pages[1]["page_file"] = all_posts_index_file
-pages[1]["page_content"] = all_posts_index_content
+pages[1]["page_file"] = all_notes_index_file
+pages[1]["page_content"] = all_notes_index_content

@@ -1,4 +1,4 @@
-:is(.all-posts, .yearly-posts, .recent-posts, .collections, .collection) li {
+:is(.all-posts, .all-articles, .all-notes, .yearly-posts, .recent-posts, .collections, .collection) li {
 }
 
 .post-timestamp {

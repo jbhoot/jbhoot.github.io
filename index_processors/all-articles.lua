@@ -1,11 +1,11 @@
--- *Pre-requisite*: `site/index.html` should contain a placeholder element `.all-posts` element even if we don't wish to put the list of all posts in our main index. Failing this, soupault will not pick up the above `[index.views.all-posts]` definition for processing at all.
+-- *Pre-requisite*: `site/index.html` should contain a placeholder element `.all-articles` element even if we don't wish to put the list of all articles in our main index. Failing this, soupault will not pick up the above `[index.views.all-articles]` definition for processing at all.
 
--- Now, soupault sees the placeholder `.all-posts` element in `site/index.html` and processes `[index.views.all-posts]`, which asks soupault to
+-- Now, soupault sees the placeholder `.all-articles` element in `site/index.html` and processes `[index.views.all-articles]`, which asks soupault to
 
 -- 1. delete the placeholder node from `site/index.html`, thus tidying up the main index page.
--- 2. generate the HTML for the list of all posts
--- 3. generate an index page `site/posts.html` and put the above HTML in it
--- 4. store the generated `site/posts.html` in `pages` env, from where soupault will pick the page and add it to the output.
+-- 2. generate the HTML for the list of all articles
+-- 3. generate an index page `site/articles.html` and put the above HTML in it
+-- 4. store the generated `site/articles.html` in `pages` env, from where soupault will pick the page and add it to the output.
 
 -- From the manual:
 -- As you can see, generated pages are stored in the pages environment. When an index processor finishes, soupault extracts that variable from its environment and adds generated pages to the page processing queue.
@@ -16,7 +16,7 @@
 placeholder_container_on_main_index = HTML.select_one(page, config["index_selector"])
 HTML.delete(placeholder_container_on_main_index)
 
--- retain only non-note posts
+-- retain only articles, i.e., posts which are not marked as a `note`
 local articles = {}
 local i, entry = next(site_index, nil)
 while i do
@@ -46,11 +46,11 @@ env["entries"] = articles
 rendered_entries = HTML.parse(String.render_template(config["index_template"], env))
 
 -- step 3
-all_posts_index_file = Sys.join_path(Sys.dirname(page_file), "posts.html")
-all_posts_index_content = HTML.pretty_print(rendered_entries)
+all_articles_index_file = Sys.join_path(Sys.dirname(page_file), "articles.html")
+all_articles_index_content = HTML.pretty_print(rendered_entries)
 
 -- step 4
 pages = {}
 pages[1] = {}
-pages[1]["page_file"] = all_posts_index_file
-pages[1]["page_content"] = all_posts_index_content
+pages[1]["page_file"] = all_articles_index_file
+pages[1]["page_content"] = all_articles_index_content
