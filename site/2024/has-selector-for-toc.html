@@ -1,0 +1,27 @@
+<article
+  class="h-entry"
+  itemid="urn:uuid:472b7fe6-d06b-428d-91c0-e931e953b421"
+  itemscope
+  itemtype="https://schema.org/Article">
+
+<p>Posted on <a class="u-url" href=""><time class="dt-published" datetime="2024-09-20">20th September 2024</time></a> in <a class="p-category" href="" rel="tag">Note</a><a class="p-category" href="" rel="tag">CSS</a></p>
+
+<div class="e-content">
+
+<p>Part of <a href="https://lobste.rs/s/gery1i/undeniable_utility_css_has#c_unpyso">this conversation on lobste.rs</a>.</p>
+
+<p>My most recent favourite use of <code>:has</code> was to target insertion of a table of contents (TOC) on pages of my website.</p>
+
+<p>Assuming the following configuration for the static site generator I use (<a href="https://soupault.app">soupault</a>):</p>
+
+<pre><code>[widgets.table-of-contents]
+selector = "hgroup:has(h1)"
+action = "insert_after"</code></pre>
+
+<p>the <code>:has</code> selector instructs soupault to only insert TOC in those pages which have an <code>h1</code> heading, and to insert it right after the first <code>hgroup</code> of the page, so that the TOC is located right after the heading + subtitle + timestamp + tags combo.</p>
+
+<p><code>:has</code> is a selector best used judiciously though due to performance concerns. Firefox (and presumably other browsers) help by displaying a tortoise symbol to flag an unconstrained <code>:has</code> selector.</p>
+
+</div>
+
+</article>

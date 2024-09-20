@@ -1,0 +1,67 @@
+<article
+class="h-entry"
+itemid="urn:uuid:05744722-6bac-4385-b50b-1aa0a802eb53"
+itemscope
+itemtype="https://schema.org/Article">
+
+  <hgroup>
+    <h1 class="p-name">Ki modal editor - first impressions</h1>
+    <p>Posted on <a class="u-url" href=""><time class="dt-published" datetime="2024-09-20">20th September 2024</time></a> in <a class="p-category" href="" rel="tag">Modal editing</a></p>
+  </hgroup>
+
+  <p class="e-summary">Where I try out Ki and compare it with Vim and Helix.</p>
+
+  <div class="e-content">
+
+    <p>Part of <a href="https://lobste.rs/s/20t1jj/wonderful_vi#c_k7tr1m">this conversation on lobste.rs</a></p>
+
+    <p>I will put another one in the ring: <a href="https://ki-editor.github.io/ki-editor/">Ki</a></p>
+
+    <p>Ki is similar to vim in that it uses modal editing.</p>
+
+    <p>Its similar to helix in that:</p>
+
+    <ol>
+      <li>It selects first, then acts on the selection.</li>
+      <li>It has first-class multi-cursor support</li>
+      <li>It aims to be low-config</li>
+      <li>It has built-in LSP support. Adding a new language is a matter of declaring it. (I added 2 on my own yesterday,
+        within 2 hours of using Ki. I could never have dared do this with vim/neovim).
+      </li>
+    </ol>
+
+    <p>Its different from both vim and Helix in that it splits the mental model into:</p>
+
+    <ol>
+      <li>selection mode;</li>
+      <li>movement;</li>
+      <li>action</li>
+    </ol>
+
+    <p>such that:</p>
+
+    <ol>
+      <li>A selection mode sets the current <em>unit</em> - <i>column/character, word, line, syntax node</i>, the latter two of which are semantic units derived from tree-sitter grammar.
+      </li>
+      <li>Because selection unit is already configured, movements are reduced to <code>hjkl</code>.</li>
+      <li>Actions, like helix, then act on the current selection.</li>
+    </ol>
+
+    <p>I think I made the explanation more complicated than the actual execution.</p>
+
+    <p>I’ve only been exploring it for a day. Navigation through syntax nodes is impressive, but also heavily reliant on
+      the language’s tree-sitter grammar being decent. Also, I’m not sure how much of a leg up it is against helix’s LSP
+      jump to symbol. But helix’s operations on syntax nodes surely feels like a second thought, when compared to
+      Ki’s.</p>
+
+    <p>There are other goodies:</p>
+
+    <ul>
+      <li>Everything is a buffer. So, same key-bindings are used everywhere.</li>
+      <li>It has a built-in file-tree explorer (using yaml!), which can be fuzzy-searched too.</li>
+      <li>Thought-out keybindings. For example, choosing between editor and system clipboard is a matter of <kbd>\</kbd> key. <kbd>y</kbd> or <kbd>p</kbd> copies or pastes to editor clipboard, while <kbd>\y</kbd> or <kbd>\p</kbd> copies or pastes to the system clipboard.
+      </li>
+    </ul>
+  </div>
+
+</article>
