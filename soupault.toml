@@ -136,8 +136,8 @@ index_template = """
   <h1> All notes </h1>
   {% for e in entries %}
     <article>
-      <p>Posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a> in {% for c in e.collections %} <a class="p-category" href="/collections/{{c}}">{{c}}</a> {%endfor%}
-      {{e.content}}
+      <p>Posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a> in {% for c in e.collections %} <a class="p-category" href="/collections/{{c}}">{{c}}</a> {%endfor%}</p>
+      <div>{{e.content}}</div>
     </article>
   {% endfor %}
   """
