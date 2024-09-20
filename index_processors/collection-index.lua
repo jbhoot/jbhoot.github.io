@@ -72,7 +72,7 @@ end
 
 function build_collection_page(entries, collection)
   local matching_entries = find_entries_with_collection(entries, collection)
-  local template = "<h1>Collection – {{collection}}</h1>" .. config["index_template"]
+  local template = "<h1>{{collection}} collection</h1>" .. config["index_template"]
   local env = {}
   env["collection"] = collection
   env["entries"] = matching_entries

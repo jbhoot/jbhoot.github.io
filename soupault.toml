@@ -157,7 +157,14 @@ max_items = 5
 index_selector = ".recent-posts"
 index_item_template = """
   <li>
+  {% if "Note" in collections %}
+    <div class="box">
+      <p>A note posted on <a href="{{url}}"><time datetime="{{published}}">{{published_text}}</time></a>
+      {{content}}
+    </div>
+  {% else %}
     <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{published}}"> {{published_text}}</time></p>
+  {% endif %}
   </li>
   """
 
@@ -169,7 +176,14 @@ index_template = """
   <ol class="collection" reversed="reversed">
   {% for e in entries %}
   <li>
+  {% if "Note" in e.collections %}
+    <div class="box">
+      <p>A note posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a>
+      {{e.content}}
+    </div>
+  {% else %}
     <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.timestamp}}"> {{e.date}}</time></p>
+  {% endif %}
   </li>
   {% endfor %}
   </ol>
