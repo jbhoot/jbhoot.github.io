@@ -114,6 +114,11 @@ hgroup p {
 
 hgroup > * + * {
     margin-block-start: 5px;
+} 
+
+hgroup:has(h1) {
+	background-color: #fbcc6b;
+	padding: 1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -328,10 +333,6 @@ p:has(.p-author) + p:has(.dt-published) {
 
 .e-summary {
     font-size: 1.2em;
-}
-
-.e-content {
-    margin-block-start: 2em;
 }
 
 .visually-hidden {
