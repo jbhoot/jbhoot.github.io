@@ -313,7 +313,7 @@ action = "append_child"
 parse = true
 html = """
 <p class="cluster visually-hidden">
-  <img alt="Post author's photo" class="u-photo" src="/profile-pic-closeup-round.png">
+  <img alt="Post author's photo" class="u-photo" src="/static/images/profile-pic-closeup-round.png">
   <span class="stack" style="--stack-gap:0;">
     <span>Written by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a></span>
   </span>
