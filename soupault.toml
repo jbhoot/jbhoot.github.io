@@ -274,7 +274,6 @@ after = ["add-homepage-header", "add-otherpage-header"]
 parse = true
 html = """
       <ul class="cluster">
-        <li><a href="/">Home</a></li>
         <li><a href="/articles">Articles</a></li>
         <li><a href="/notes">Notes</a></li>
         <li><a href="/collections">Collections</a></li>
@@ -290,13 +289,14 @@ selector = ".site-title-wrapper"
 after = ["add-homepage-header", "add-otherpage-header"]
 parse = true
 html = """
-<a class="u-url cluster site-title text-decoration:none" href="/"
+<span class="site-title cluster">
+<a class="u-url" href="/"
    style="--cluster-gap: var(--s-4); align-items: center;">
-  <span><span class="p-name">Jayesh <span class="p-nickname p-family-name">Bhoot</span></span><span>&apos;s</span></span>
+  <span><span class="p-name">Jayesh <span class="p-nickname p-family-name">Bhoot</span></span><span>&apos;s</span></span></a>
   <span class="site-title-blinker"
         title="because my last name means 'Ghost' in some Indian languages">Gh<span>o</span>st
   T<span>o</span>wn</span>
-</a>
+</span>
 """
 
 [widgets.add-footer]
