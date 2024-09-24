@@ -10,7 +10,8 @@ target_file=$1
 site_dir=$2
 
 published_year=$(date +%Y)
-published_stamp=$(date '+%Y-%m-%d')
+# timestamp in RFC-3339, UTC format
+published_stamp=$(date --utc +'%Y-%m-%dT%H:%M:%SZ')
 published_displayed=$(date '+%dXX %B %Y' | sed -e 's/11XX/11th/' -e 's/12XX/12th/' -e 's/13XX/13th/' -e 's/1XX/1st/' -e 's/2XX/2nd/' -e 's/3XX/3rd/' -e 's/XX/th/')
 published_ele=$(htmlq -f "$target_file" ".dt-published")
 
