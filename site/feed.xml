@@ -1,1328 +1,2137 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><id>https://bhoot.dev/</id><title>Jayesh Bhoot's Ghost Town – All Posts</title><updated>2024-09-20T12:31:21Z</updated><author><name>Jayesh Bhoot</name></author><link href="https://bhoot.dev/feed.xml" rel="self" /><entry><id>urn:uuid:05744722-6bac-4385-b50b-1aa0a802eb53</id><title type="html">Ki modal editor - first impressions</title><updated>2024-09-20T12:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;Copy-pasting my comment in a converstion on lobste.rs titled &lt;a href=&quot;https://lobste.rs/s/20t1jj/wonderful_vi#c_k7tr1m&quot;&gt;Wonderful vi&lt;/a&gt;:&lt;/p&gt;
-    
-    &lt;p&gt;I will put another one in the ring: &lt;a href=&quot;https://ki-editor.github.io/ki-editor/&quot;&gt;Ki&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://bhoot.dev/</id>
+  <title>Jayesh Bhoot's Ghost Town – All Posts</title>
+  <updated>2024-09-20T12:31:21Z</updated>
+  <author>
+    <name>Jayesh Bhoot</name>
+  </author>
+  <link href="https://bhoot.dev/feed.xml" rel="self" />
+  <entry>
+    <id>urn:uuid:05744722-6bac-4385-b50b-1aa0a802eb53</id>
+    <title type="html">Ki modal editor - first impressions</title>
+    <updated>2024-09-20T12:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;Copy-pasting my comment in a converstion on lobste.rs titled &lt;a
+      href=&quot;https://lobste.rs/s/20t1jj/wonderful_vi#c_k7tr1m&quot;&gt;Wonderful
+      vi&lt;/a&gt;:&lt;/p&gt;
 
-    &lt;p&gt;Ki is similar to vim in that it uses modal editing.&lt;/p&gt;
+      &lt;p&gt;I will put another one in the ring: &lt;a
+      href=&quot;https://ki-editor.github.io/ki-editor/&quot;&gt;Ki&lt;/a&gt;&lt;/p&gt;
 
-    &lt;p&gt;Its similar to helix in that:&lt;/p&gt;
+      &lt;p&gt;Ki is similar to vim in that it uses modal editing.&lt;/p&gt;
 
-    &lt;ol&gt;
+      &lt;p&gt;Its similar to helix in that:&lt;/p&gt;
+
+      &lt;ol&gt;
       &lt;li&gt;It selects first, then acts on the selection.&lt;/li&gt;
       &lt;li&gt;It has first-class multi-cursor support&lt;/li&gt;
       &lt;li&gt;It aims to be low-config&lt;/li&gt;
-      &lt;li&gt;It has built-in LSP support. Adding a new language is a matter of declaring it. (I added 2 on my own yesterday,
-        within 2 hours of using Ki. I could never have dared do this with vim/neovim).
+      &lt;li&gt;It has built-in LSP support. Adding a new language is a matter of declaring it. (I
+      added 2 on my own yesterday,
+      within 2 hours of using Ki. I could never have dared do this with vim/neovim).
       &lt;/li&gt;
-    &lt;/ol&gt;
+      &lt;/ol&gt;
 
-    &lt;p&gt;Its different from both vim and Helix in that it splits the mental model into:&lt;/p&gt;
+      &lt;p&gt;Its different from both vim and Helix in that it splits the mental model
+      into:&lt;/p&gt;
 
-    &lt;ol&gt;
+      &lt;ol&gt;
       &lt;li&gt;selection mode;&lt;/li&gt;
       &lt;li&gt;movement;&lt;/li&gt;
       &lt;li&gt;action&lt;/li&gt;
-    &lt;/ol&gt;
+      &lt;/ol&gt;
 
-    &lt;p&gt;such that:&lt;/p&gt;
+      &lt;p&gt;such that:&lt;/p&gt;
 
-    &lt;ol&gt;
-      &lt;li&gt;A selection mode sets the current &lt;em&gt;unit&lt;/em&gt; - &lt;i&gt;column/character, word, line, syntax node&lt;/i&gt;, the latter two of which are semantic units derived from tree-sitter grammar.
+      &lt;ol&gt;
+      &lt;li&gt;A selection mode sets the current &lt;em&gt;unit&lt;/em&gt; -
+      &lt;i&gt;column/character, word, line, syntax node&lt;/i&gt;, the latter two of which are
+      semantic units derived from tree-sitter grammar.
       &lt;/li&gt;
-      &lt;li&gt;Because selection unit is already configured, movements are reduced to &lt;code&gt;hjkl&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Because selection unit is already configured, movements are reduced to
+      &lt;code&gt;hjkl&lt;/code&gt;.&lt;/li&gt;
       &lt;li&gt;Actions, like helix, then act on the current selection.&lt;/li&gt;
-    &lt;/ol&gt;
+      &lt;/ol&gt;
 
-    &lt;p&gt;I think I made the explanation more complicated than the actual execution.&lt;/p&gt;
-
-    &lt;p&gt;I’ve only been exploring it for a day. Navigation through syntax nodes is impressive, but also heavily reliant on
-      the language’s tree-sitter grammar being decent. Also, I’m not sure how much of a leg up it is against helix’s LSP
-      jump to symbol. But helix’s operations on syntax nodes surely feels like a second thought, when compared to
+      &lt;p&gt;I think I made the explanation more complicated than the actual execution.&lt;/p&gt;
+      &lt;p&gt;I’ve only been exploring it for a day. Navigation through syntax nodes is impressive,
+      but also heavily reliant on
+      the language’s tree-sitter grammar being decent. Also, I’m not sure how much of a leg up it is
+      against helix’s LSP
+      jump to symbol. But helix’s operations on syntax nodes surely feels like a second thought,
+      when compared to
       Ki’s.&lt;/p&gt;
 
-    &lt;p&gt;There are other goodies:&lt;/p&gt;
+      &lt;p&gt;There are other goodies:&lt;/p&gt;
 
-    &lt;ul&gt;
+      &lt;ul&gt;
       &lt;li&gt;Everything is a buffer. So, same key-bindings are used everywhere.&lt;/li&gt;
-      &lt;li&gt;It has a built-in file-tree explorer (using yaml!), which can be fuzzy-searched too.&lt;/li&gt;
-      &lt;li&gt;Thought-out keybindings. For example, choosing between editor and system clipboard is a matter of &lt;kbd&gt;\&lt;/kbd&gt; key. &lt;kbd&gt;y&lt;/kbd&gt; or &lt;kbd&gt;p&lt;/kbd&gt; copies or pastes to editor clipboard, while &lt;kbd&gt;\y&lt;/kbd&gt; or &lt;kbd&gt;\p&lt;/kbd&gt; copies or pastes to the system clipboard.
+      &lt;li&gt;It has a built-in file-tree explorer (using yaml!), which can be fuzzy-searched
+      too.&lt;/li&gt;
+      &lt;li&gt;Thought-out keybindings. For example, choosing between editor and system clipboard
+      is a matter of &lt;kbd&gt;\&lt;/kbd&gt; key. &lt;kbd&gt;y&lt;/kbd&gt; or
+      &lt;kbd&gt;p&lt;/kbd&gt; copies or pastes to editor clipboard, while &lt;kbd&gt;\y&lt;/kbd&gt;
+      or &lt;kbd&gt;\p&lt;/kbd&gt; copies or pastes to the system clipboard.
       &lt;/li&gt;
-    &lt;/ul&gt;</content><link href="https://bhoot.dev/2024/ki-first-impressions" /><summary type="html">I tried out a new modal editor called &lt;i&gt;Ki&lt;/i&gt;, and inevitably measured my first impressions with Vim and Helix.</summary><category term="Modal editing" label="Modal editing"></category><published>2024-09-20T12:31:21Z</published></entry><entry><id>urn:uuid:472b7fe6-d06b-428d-91c0-e931e953b421</id><title type="html">Copy-pasting my comment in a converstion on lobste.rs titled &lt;a href=&quot;https://lobste.rs/s/gery1i/undeniable_utility_css_has#c_unpyso&quot;&gt;The Undeniable Utility Of CSS :has&lt;/a&gt;:</title><updated>2024-09-20T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;Copy-pasting my comment in a converstion on lobste.rs titled &lt;a href=&quot;https://lobste.rs/s/gery1i/undeniable_utility_css_has#c_unpyso&quot;&gt;The Undeniable Utility Of CSS :has&lt;/a&gt;:&lt;/p&gt;
+      &lt;/ul&gt;</content>
+    <link href="https://bhoot.dev/2024/ki-first-impressions" />
+    <summary type="html">I tried out a new modal editor called &lt;i&gt;Ki&lt;/i&gt;, and inevitably
+      measured my first impressions with Vim and Helix.</summary>
+    <category term="Modal editing" label="Modal editing"></category>
+    <published>2024-09-20T12:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:472b7fe6-d06b-428d-91c0-e931e953b421</id>
+    <title type="html">Copy-pasting my comment in a converstion on lobste.rs titled &lt;a
+      href=&quot;https://lobste.rs/s/gery1i/undeniable_utility_css_has#c_unpyso&quot;&gt;The
+      Undeniable Utility Of CSS :has&lt;/a&gt;:</title>
+    <updated>2024-09-20T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;Copy-pasting my comment in a converstion on lobste.rs titled &lt;a
+      href=&quot;https://lobste.rs/s/gery1i/undeniable_utility_css_has#c_unpyso&quot;&gt;The
+      Undeniable Utility Of CSS :has&lt;/a&gt;:&lt;/p&gt;
 
-&lt;p&gt;My most recent favourite use of &lt;code&gt;:has&lt;/code&gt; was to target insertion of a table of contents (TOC) on pages of my website.&lt;/p&gt;
+      &lt;p&gt;My most recent favourite use of &lt;code&gt;:has&lt;/code&gt; was to target insertion
+      of a table of contents (TOC) on pages of my website.&lt;/p&gt;
 
-&lt;p&gt;Assuming the following configuration for the static site generator I use (&lt;a href=&quot;https://soupault.app&quot;&gt;soupault&lt;/a&gt;):&lt;/p&gt;
+      &lt;p&gt;Assuming the following configuration for the static site generator I use (&lt;a
+      href=&quot;https://soupault.app&quot;&gt;soupault&lt;/a&gt;):&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;[widgets.table-of-contents]
+      selector = &quot;hgroup:has(h1)&quot;
+      action = &quot;insert_after&quot;&lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;[widgets.table-of-contents]
-selector = &quot;hgroup:has(h1)&quot;
-action = &quot;insert_after&quot;&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;the &lt;code&gt;:has&lt;/code&gt; selector instructs soupault to only insert TOC in those pages which have an &lt;code&gt;h1&lt;/code&gt; heading, and to insert it right after the first &lt;code&gt;hgroup&lt;/code&gt; of the page, so that the TOC is located right after the heading + subtitle + timestamp + tags combo.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;:has&lt;/code&gt; is a selector best used judiciously though due to performance concerns. Firefox (and presumably other browsers) help by displaying a tortoise symbol to flag an unconstrained &lt;code&gt;:has&lt;/code&gt; selector.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/has-selector-for-toc" /><summary type="html">Copy-pasting my comment in a converstion on lobste.rs titled &lt;a href=&quot;https://lobste.rs/s/gery1i/undeniable_utility_css_has#c_unpyso&quot;&gt;The Undeniable Utility Of CSS :has&lt;/a&gt;:</summary><category term="Note" label="Note"></category><category term="CSS" label="CSS"></category><published>2024-09-20T11:31:21Z</published></entry><entry><id>urn:uuid:9feafff8-9e1f-4306-a081-2b762cd6244f</id><title type="html">I had ordered 4 journal diaries. Even though they came in a lot, this is how each of them were packaged as:</title><updated>2024-09-19T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;I had ordered 4 journal diaries. Even though they came in a lot, this is how each of them were packaged as: &lt;/p&gt;
-  &lt;figure&gt;
-    &lt;img src=&quot;/static/images/forest-in-plastic.jpg&quot; alt=&quot;An eco-friendly looking book with a forest printed on its cover is packaged in a transparent plastic bag&quot;&gt;
-    &lt;figcaption&gt;Conserving forest through plastic&lt;/figcaption&gt;
-  &lt;/figure&gt;</content><link href="https://bhoot.dev/2024/forest-in-plastic" /><summary type="html">I had ordered 4 journal diaries. Even though they came in a lot, this is how each of them were packaged as:</summary><category term="Note" label="Note"></category><published>2024-09-19T11:31:21Z</published></entry><entry><id>urn:uuid:de433593-ba30-4de1-8f3b-588a8eb8c460</id><title type="html">Moved my years old OCaml projects to the new workflow with the
-      &lt;a href=&quot;https://dune.ci.dev&quot;&gt;nightly dune dev edition&lt;/a&gt;). I had to fill
+      &lt;p&gt;the &lt;code&gt;:has&lt;/code&gt; selector instructs soupault to only insert TOC in
+      those pages which have an &lt;code&gt;h1&lt;/code&gt; heading, and to insert it right after
+      the first &lt;code&gt;hgroup&lt;/code&gt; of the page, so that the TOC is located right after
+      the heading + subtitle + timestamp + tags combo.&lt;/p&gt;
+      &lt;p&gt;&lt;code&gt;:has&lt;/code&gt; is a selector best used judiciously though due to
+      performance concerns. Firefox (and presumably other browsers) help by displaying a tortoise
+      symbol to flag an unconstrained &lt;code&gt;:has&lt;/code&gt; selector.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/has-selector-for-toc" />
+    <summary type="html">Copy-pasting my comment in a converstion on lobste.rs titled &lt;a
+      href=&quot;https://lobste.rs/s/gery1i/undeniable_utility_css_has#c_unpyso&quot;&gt;The
+      Undeniable Utility Of CSS :has&lt;/a&gt;:</summary>
+    <category term="Note" label="Note"></category>
+    <category term="CSS" label="CSS"></category>
+    <published>2024-09-20T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:9feafff8-9e1f-4306-a081-2b762cd6244f</id>
+    <title type="html">I had ordered 4 journal diaries. Even though they came in a lot, this is how
+      each of them were packaged as:</title>
+    <updated>2024-09-19T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;I had ordered 4 journal diaries. Even though they came in a lot,
+      this is how each of them were packaged as: &lt;/p&gt;
+      &lt;figure&gt;
+      &lt;img src=&quot;/static/images/forest-in-plastic.jpg&quot; alt=&quot;An eco-friendly looking
+      book with a forest printed on its cover is packaged in a transparent plastic bag&quot;&gt;
+      &lt;figcaption&gt;Conserving forest through plastic&lt;/figcaption&gt;
+      &lt;/figure&gt;</content>
+    <link href="https://bhoot.dev/2024/forest-in-plastic" />
+    <summary type="html">I had ordered 4 journal diaries. Even though they came in a lot, this is
+      how each of them were packaged as:</summary>
+    <category term="Note" label="Note"></category>
+    <published>2024-09-19T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:de433593-ba30-4de1-8f3b-588a8eb8c460</id>
+    <title type="html">Moved my years old OCaml projects to the new workflow with the
+      &lt;a href=&quot;https://dune.ci.dev&quot;&gt;nightly dune dev edition&lt;/a&gt;). I had to
+      fill
       up the barebones &lt;code&gt;dune-project&lt;/code&gt; file with dependencies in one
-      of the projects. Otherwise, everything worked without a hitch!</title><updated>2024-09-19T10:00:00Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;
+      of the projects. Otherwise, everything worked without a hitch!</title>
+    <updated>2024-09-19T10:00:00Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;
       Moved my years old OCaml projects to the new workflow with the
-      &lt;a href=&quot;https://dune.ci.dev&quot;&gt;nightly dune dev edition&lt;/a&gt;). I had to fill
+      &lt;a href=&quot;https://dune.ci.dev&quot;&gt;nightly dune dev edition&lt;/a&gt;). I had to
+      fill
       up the barebones &lt;code&gt;dune-project&lt;/code&gt; file with dependencies in one
       of the projects. Otherwise, everything worked without a hitch!
-    &lt;/p&gt;
+      &lt;/p&gt;
 
-    &lt;p&gt;
+      &lt;p&gt;
       Still lots to improve, but from the looks of it, we may not have to deal
       with the dune and opam duo anymore.
-    &lt;/p&gt;</content><link href="https://bhoot.dev/2024/old-camls-to-new-dune" /><summary type="html">Moved my years old OCaml projects to the new workflow with the
-      &lt;a href=&quot;https://dune.ci.dev&quot;&gt;nightly dune dev edition&lt;/a&gt;). I had to fill
+      &lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/old-camls-to-new-dune" />
+    <summary type="html">Moved my years old OCaml projects to the new workflow with the
+      &lt;a href=&quot;https://dune.ci.dev&quot;&gt;nightly dune dev edition&lt;/a&gt;). I had to
+      fill
       up the barebones &lt;code&gt;dune-project&lt;/code&gt; file with dependencies in one
-      of the projects. Otherwise, everything worked without a hitch!</summary><category term="Note" label="Note"></category><category term="OCaml" label="OCaml"></category><published>2024-09-19T10:00:00Z</published></entry><entry><id>urn:uuid:b2e08fa4-8283-4044-a5ed-84a1531faf94</id><title type="html">Forgotten lesson remembered after staring 5 minutes at the screen: &lt;code&gt;innerHTML&lt;/code&gt; cannot contain a &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tag.</title><updated>2024-09-12T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;Forgotten lesson remembered after staring 5 minutes at the screen: &lt;code&gt;innerHTML&lt;/code&gt; cannot contain a &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tag.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/no-script-in-innerhtml" /><summary type="html">Forgotten lesson remembered after staring 5 minutes at the screen: &lt;code&gt;innerHTML&lt;/code&gt; cannot contain a &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tag.</summary><category term="Note" label="Note"></category><category term="JavaScript" label="JavaScript"></category><published>2024-09-12T11:31:21Z</published></entry><entry><id>urn:uuid:214c8527-7318-4c6c-ae37-05765bdc353d</id><title type="html">Cool ways to generate a UUID</title><updated>2024-09-07T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;OK, may be not cool enough for Linux veterans, but cool enough for me!&lt;/p&gt;
+      of the projects. Otherwise, everything worked without a hitch!</summary>
+    <category term="Note" label="Note"></category>
+    <category term="OCaml" label="OCaml"></category>
+    <published>2024-09-19T10:00:00Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:b2e08fa4-8283-4044-a5ed-84a1531faf94</id>
+    <title type="html">Forgotten lesson remembered after staring 5 minutes at the screen:
+      &lt;code&gt;innerHTML&lt;/code&gt; cannot contain a
+      &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tag.</title>
+    <updated>2024-09-12T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;Forgotten lesson remembered after staring 5 minutes at the screen:
+      &lt;code&gt;innerHTML&lt;/code&gt; cannot contain a
+      &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tag.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/no-script-in-innerhtml" />
+    <summary type="html">Forgotten lesson remembered after staring 5 minutes at the screen:
+      &lt;code&gt;innerHTML&lt;/code&gt; cannot contain a
+      &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tag.</summary>
+    <category term="Note" label="Note"></category>
+    <category term="JavaScript" label="JavaScript"></category>
+    <published>2024-09-12T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:214c8527-7318-4c6c-ae37-05765bdc353d</id>
+    <title type="html">Cool ways to generate a UUID</title>
+    <updated>2024-09-07T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;OK, may be not cool enough for Linux veterans, but cool enough for
+      me!&lt;/p&gt;
 
-  &lt;p&gt;There are two ways, in the order of coolness:&lt;/p&gt;
+      &lt;p&gt;There are two ways, in the order of coolness:&lt;/p&gt;
 
-  &lt;ol&gt;
-    &lt;li&gt;
+      &lt;ol&gt;
+      &lt;li&gt;
       &lt;p&gt;On Linux only: &lt;code&gt;cat /proc/sys/kernel/random/uuid&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ cat /proc/sys/kernel/random/uuid
-fa199476-f6f3-4a32-ab89-91d81d9cc319&lt;/code&gt;&lt;/pre&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
+      &lt;pre&gt;&lt;code&gt;$ cat /proc/sys/kernel/random/uuid
+      fa199476-f6f3-4a32-ab89-91d81d9cc319&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
       &lt;p&gt;On Linux and macOS: &lt;code&gt;uuidgen&lt;/code&gt;&lt;/p&gt;
       &lt;pre&gt;&lt;code&gt;$ uuidgen
-6180fa98-ddd7-4777-a40d-b548db1f3444&lt;/code&gt;&lt;/pre&gt;
+      6180fa98-ddd7-4777-a40d-b548db1f3444&lt;/code&gt;&lt;/pre&gt;
 
-      &lt;p&gt;On macOS, &lt;code&gt;uuidgen&lt;/code&gt; gives a UUID in uppercase. You can pipe it to &lt;code&gt;tr&lt;/code&gt; command to translate it to lowercase.&lt;/p&gt;
+      &lt;p&gt;On macOS, &lt;code&gt;uuidgen&lt;/code&gt; gives a UUID in uppercase. You can pipe it
+      to &lt;code&gt;tr&lt;/code&gt; command to translate it to lowercase.&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;# On macOS
+      $ uuidgen
+      58D8D68C-B64D-4E1E-AC0F-B00AFAC1E895
 
-&lt;pre&gt;&lt;code&gt;# On macOS
-$ uuidgen
-58D8D68C-B64D-4E1E-AC0F-B00AFAC1E895
+      $ uuidgen | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot;
+      919ae848-df9c-41fa-b59f-de4b933c927c&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+      &lt;/ol&gt;</content>
+    <link href="https://bhoot.dev/2024/cool-ways-to-get-uuid" />
+    <summary type="html">OK, may be not cool enough for Linux veterans, but cool enough for me!</summary>
+    <category term="Linux" label="Linux"></category>
+    <category term="MacOS" label="MacOS"></category>
+    <published>2024-09-07T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:06da33f8-2f18-431a-99f2-d2085e8a8702</id>
+    <title type="html">Choosing curious over judgmental</title>
+    <updated>2024-09-07T10:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;i&gt;Be curious, not judgmental.&lt;/i&gt; I don't know who
+      said it, but I heard it in the TV Show &lt;i&gt;Ted Lasso&lt;/i&gt;. And boy, is it cathartic
+      in its own way!&lt;/p&gt;
 
-$ uuidgen | tr &quot;[:upper:]&quot; &quot;[:lower:]&quot;
-919ae848-df9c-41fa-b59f-de4b933c927c&lt;/code&gt;&lt;/pre&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;</content><link href="https://bhoot.dev/2024/cool-ways-to-get-uuid" /><summary type="html">OK, may be not cool enough for Linux veterans, but cool enough for me!</summary><category term="Linux" label="Linux"></category><category term="MacOS" label="MacOS"></category><published>2024-09-07T11:31:21Z</published></entry><entry><id>urn:uuid:06da33f8-2f18-431a-99f2-d2085e8a8702</id><title type="html">Choosing curious over judgmental</title><updated>2024-09-07T10:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;&lt;i&gt;Be curious, not judgmental.&lt;/i&gt; I don't know who said it, but I heard it in the TV Show &lt;i&gt;Ted Lasso&lt;/i&gt;. And boy, is it cathartic in its own way!&lt;/p&gt;
+      &lt;p&gt;Just being non-judgmental hasn't really worked for me in the past. I needed to
+      replace it with something. Curiosity is a good replacement.&lt;/p&gt;
 
-  &lt;p&gt;Just being non-judgmental hasn't really worked for me in the past. I needed to replace it with something. Curiosity is a good replacement.&lt;/p&gt;
+      &lt;p&gt;As a pleasant side effect, this approach freed me from the pressure of being right or
+      the fear of being wrong. If you are judging something or someone, you better be right about
+      it. No such stress anymore!&lt;/p&gt;
 
-  &lt;p&gt;As a pleasant side effect, this approach freed me from the pressure of being right or the fear of being wrong. If you are judging something or someone, you better be right about it. No such stress anymore!&lt;/p&gt;
+      &lt;aside&gt;Somewhat amusingly, this also got me to configure my &lt;a
+      href=&quot;https://addons.mozilla.org/en-US/firefox/addon/enforce-browser-fonts/&quot;&gt;Firefox
+      add-on&lt;/a&gt; to allow website-defined fonts by default. Earlier, I had it configured to
+      force specific fonts.&lt;/aside&gt;</content>
+    <link href="https://bhoot.dev/2024/curiosity-over-judgement" />
+    <summary type="html">I don't know about the cat, but curiosity certainly killed the judgmental!</summary>
+    <category term="Philosophy of life" label="Philosophy of life"></category>
+    <published>2024-09-07T10:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:c10c93ba-45e0-4f6f-b556-b0988ef852a3</id>
+    <title type="html">Scala 3.5's CLI now makes scripting with scala seamless! Just a single-file
+      script setup!</title>
+    <updated>2024-08-24T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;Scala 3.5's CLI now makes scripting with scala seamless! Just a
+      single-file script setup!&lt;/p&gt;
 
-  &lt;aside&gt;Somewhat amusingly, this also got me to configure my &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/enforce-browser-fonts/&quot;&gt;Firefox add-on&lt;/a&gt; to allow website-defined fonts by default. Earlier, I had it configured to force specific fonts.&lt;/aside&gt;</content><link href="https://bhoot.dev/2024/curiosity-over-judgement" /><summary type="html">I don't know about the cat, but curiosity certainly killed the judgmental!</summary><category term="Philosophy of life" label="Philosophy of life"></category><published>2024-09-07T10:31:21Z</published></entry><entry><id>urn:uuid:c10c93ba-45e0-4f6f-b556-b0988ef852a3</id><title type="html">Scala 3.5's CLI now makes scripting with scala seamless! Just a single-file script setup!</title><updated>2024-08-24T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;Scala 3.5's CLI now makes scripting with scala seamless! Just a single-file script setup!&lt;/p&gt;
+      &lt;p&gt;For example, due to the single-file scripting nature imparted by &lt;i&gt;Scala 3.5
+      CLI&lt;/i&gt;, I was able to embed a Scala script in a &lt;i&gt;node.js&lt;/i&gt; project to
+      analyse parsing of a geometric Point stored in &lt;i&gt;MySQL 8&lt;/i&gt;. The script is &lt;a
+      href=&quot;https://github.com/jbhoot/poc-buggy-geographic-point-parsing-by-node-mysql2/blob/main/jdbc-analysis/main.scala&quot;&gt;hosted
+      on GitHub&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;For example, due to the single-file scripting nature imparted by &lt;i&gt;Scala 3.5 CLI&lt;/i&gt;, I was able to embed a Scala script in a &lt;i&gt;node.js&lt;/i&gt; project to analyse parsing of a geometric Point stored in &lt;i&gt;MySQL 8&lt;/i&gt;. The script is &lt;a href=&quot;https://github.com/jbhoot/poc-buggy-geographic-point-parsing-by-node-mysql2/blob/main/jdbc-analysis/main.scala&quot;&gt;hosted on GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;With Scala 3.5, plus a built-in watcher, and a large scala/jvm ecosystem, Scala has become a good alternative for scripting.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/scala-3_5-scripting" /><summary type="html">Scala 3.5's CLI now makes scripting with scala seamless! Just a single-file script setup!</summary><category term="Note" label="Note"></category><category term="Scala" label="Scala"></category><published>2024-08-24T11:31:21Z</published></entry><entry><id>urn:uuid:cb0478f2-de68-414b-b6c3-023ef44c13dc</id><title type="html">Task failed successfully - Linux edition</title><updated>2024-08-20T11:00:00Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;figure&gt;
+      &lt;p&gt;With Scala 3.5, plus a built-in watcher, and a large scala/jvm ecosystem, Scala has
+      become a good alternative for scripting.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/scala-3_5-scripting" />
+    <summary type="html">Scala 3.5's CLI now makes scripting with scala seamless! Just a single-file
+      script setup!</summary>
+    <category term="Note" label="Note"></category>
+    <category term="Scala" label="Scala"></category>
+    <published>2024-08-24T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:cb0478f2-de68-414b-b6c3-023ef44c13dc</id>
+    <title type="html">Task failed successfully - Linux edition</title>
+    <updated>2024-08-20T11:00:00Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;figure&gt;
       &lt;figcaption&gt;Task failed successfully – Linux edition&lt;/figcaption&gt;
-      &lt;img src=&quot;/static/images/task-failed-successfully-linux-edition.jpeg&quot; alt=&quot;Screenshot of a message printed by pinfo command on terminal on Linux that says 'crash with: Success'&quot;&gt;
-    &lt;/figure&gt;</content><link href="https://bhoot.dev/2024/task-failed-successfully-linux-edition" /><summary type="html">&lt;img alt=&quot;Post author's photo&quot; class=&quot;u-photo&quot; src=&quot;/static/images/profile-pic-closeup-round.png&quot;&gt;
-  &lt;span class=&quot;stack&quot; style=&quot;--stack-gap:0;&quot;&gt;
-    &lt;span&gt;Written by &lt;a class=&quot;p-author h-card&quot; href=&quot;https://bhoot.dev/about&quot;&gt;Jayesh Bhoot&lt;/a&gt;&lt;/span&gt;
-  &lt;/span&gt;</summary><category term="Note" label="Note"></category><published>2024-08-20T11:00:00Z</published></entry><entry><id>urn:uuid:4a3058d8-0c53-4aaa-ad99-daf4254eac48</id><title type="html">British v/s American comedy dramas</title><updated>2024-07-07T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;They always felt different from each other, but I could never quite put a finger on the difference.&lt;/p&gt;
-
-&lt;p&gt;Then it hit me today, while I was watching a British series called &lt;a href=&quot;https://tv.apple.com/in/episode/nikki-and-jason/umc.cmc.2dzdkdvedw0n9h25d49y9lh99?action=playSmartEpisode&quot;&gt;Trying&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;In American shows, the script feels quite...scripted. Every other dialogue in a conversation is written to be a punchline or a one-liner.&lt;/p&gt;
-
-&lt;p&gt;British dramas feel more organic – a conversation goes on with (wry, dry) humour sprinkled here and there.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/british-vs-american-comedy-drama" /><summary type="html">They always felt different from each other, but I could never quite put a finger on the difference.</summary><published>2024-07-07T11:31:21Z</published></entry><entry><id>urn:uuid:9905f662-e652-4747-949b-37c1112e1bad</id><title type="html">Stubborn pop-up on &lt;i&gt;Mutual Fund Utilities (MFU)&lt;/i&gt; website</title><updated>2024-06-23T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;Tip for Mutual Fund Utilities (MFU) users:&lt;/p&gt;
-
-&lt;p&gt;While transacting for a new folio, if you are stuck at &quot;Nominee Verify&quot; pop-up even after verifying the nominee(s), then check that:
-&lt;/p&gt;
-
-  &lt;ol&gt;
-    &lt;li&gt;Whether there are multiple holders of that CAN&lt;/li&gt;
-    &lt;li&gt;Whether *all* of the holders have verified the nominee(s)&lt;/li&gt;
-  &lt;/ol&gt;
-
-  &lt;img src=&quot;/static/images/mfu-nominee-verification-bug-fix.png&quot; alt=&quot;Screenshot of Nominee Details section in Account Profile, showing whether some or all of the holders of a selected CAN account have verified the nominee details. All holders must have verified the nominee details in order to be able to transact for a new folio.&quot;&gt;
-
-&lt;h2&gt;The problem&lt;/h2&gt;
-
-&lt;p&gt;I forgot to take screenshots, but here is a close enough description.&lt;/p&gt;
-
-&lt;p&gt;If none of the holders have verified the nominee details, then MFU's interface in this section provides a &quot;Verify nominee&quot; button *only* for the primary holder.&lt;/p&gt;
-
-&lt;p&gt;Once a primary holder has verified the nominee details, the interface looks like the verification is already complete. But New Folio transaction will still ask you to Verify Nominee. Very frustrating.&lt;/p&gt;
-
-&lt;h2&gt;The solution&lt;/h2&gt;
-
-&lt;p&gt;In order for any holders to verify nominee details, use this link: &lt;a href=&quot;https://mfuonline.com/CNOMV&quot;&gt;https://mfuonline.com/CNOMV&lt;/a&gt;&lt;/p&gt;</content><link href="https://bhoot.dev/2024/mfu-nominee-verification" /><summary type="html">Tip for Mutual Fund Utilities (MFU) users:</summary><published>2024-06-23T11:31:21Z</published></entry><entry><id>urn:uuid:b1319873-65a5-49e3-82aa-334e3fb7e353</id><title type="html">Effective Scala, part 8 - OO concepts</title><updated>2024-05-14T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;Flip the perspective on tools like interfaces and traits. Don't see them as a way for objects to share an interface, but as an abstraction over implementations.&lt;/p&gt;
-
-&lt;p&gt;So, not: DatabaseAccess -&amp;gt; (InMemoryDatabase, PhysicalDatabase)&lt;/p&gt;
-
-&lt;p&gt;but:     DatabaseAccess &amp;lt;- (InMemoryDatabase, PhysicalDatabase)&lt;/p&gt;
-
-&lt;p&gt;An interface is more usefully seen as:&lt;/p&gt;
-
-&lt;p&gt;- DatabaseAccess creates an abstraction barrier so we can ignore which database is used underneath&lt;/p&gt;
-
-&lt;p&gt;than as:&lt;/p&gt;
-
-&lt;p&gt;- DatabaseAccess allows various databases to share the interface.&lt;/p&gt;
-
-&lt;p&gt;The former encourages the view/use of interface as an abstraction over implementation.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/effective-scala-8-oop" /><summary type="html">Flip the perspective on tools like interfaces and traits. Don't see them as a way for objects to share an interface, but as an abstraction over implementations.</summary><category term="Effective Scala series" label="Effective Scala series"></category><category term="OOP" label="OOP"></category><published>2024-05-14T11:31:21Z</published></entry><entry><id>urn:uuid:5a99b823-fa04-4e97-b94f-a0e57f0f879a</id><title type="html">Series - Effective Programming in Scala</title><updated>2024-05-08T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;This is a series of articles I wrote while going through the Coursera Course &lt;a href=&quot;https://www.coursera.org/learn/effective-scala&quot;&gt;Effective Programming in Scala&lt;/a&gt;.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;/2024/effective-scala-1-elements-of-a-program&quot;&gt;Elements of a program&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/2024/effective-scala-2-domain-modelling&quot;&gt;Domain Modelling&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/2024/effective-scala-3-compatibility-roulette&quot;&gt;Compatibility roulette in Scala&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/2024/effective-scala-4-method-vs-function&quot;&gt;Function v/s method&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/2024/effective-scala-5-collections&quot;&gt;Collections in Scala&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/2024/effective-scala-6-sbt&quot;&gt;Scala Build Tool (SBT)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/2024/effective-scala-7-project-entry-point&quot;&gt;Entry point of a Scala project&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><link href="https://bhoot.dev/2024/effective-scala-series" /><summary type="html">This is a series of articles I wrote while going through the Coursera Course &lt;a href=&quot;https://www.coursera.org/learn/effective-scala&quot;&gt;Effective Programming in Scala&lt;/a&gt;.</summary><category term="Scala" label="Scala"></category><category term="Effective Scala series" label="Effective Scala series"></category><published>2024-05-08T11:31:21Z</published></entry><entry><id>urn:uuid:3194d9ee-2397-4b1a-ba7a-125dbe10fb30</id><title type="html">Effective Scala, part 7 - entry point of a project</title><updated>2024-05-07T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;While a scala worksheet are evaluated from top to bottom, a scala project needs an entry point.&lt;/p&gt;
-
-&lt;p&gt;Only two requirements:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;It needs to be a top-level &lt;em&gt;method&lt;/em&gt; or an object-level method, but not a class-level method&lt;/li&gt;
-&lt;li&gt;It needs to be annotated with &lt;code&gt;@main&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Otherwise&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;It can be named anything.&lt;/li&gt;
-&lt;li&gt;It can be put in an arbitrary source file.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;A source file in a project cannot contain top-level statements (e.g., &lt;code&gt;println&lt;/code&gt;), only top-level definitions (&lt;code&gt;def&lt;/code&gt;, &lt;code&gt;val&lt;/code&gt;, &lt;code&gt;var&lt;/code&gt;, &lt;code&gt;trait&lt;/code&gt;, &lt;code&gt;object&lt;/code&gt;, &lt;code&gt;class&lt;/code&gt; definitions)
-.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/effective-scala-7-project-entry-point" /><summary type="html">While a scala worksheet are evaluated from top to bottom, a scala project needs an entry point.</summary><category term="Effective Scala series" label="Effective Scala series"></category><published>2024-05-07T11:31:21Z</published></entry><entry><id>urn:uuid:b84ce392-affe-484b-a5eb-fde46cdd0ad8</id><title type="html">Effective Scala, part 6 - Scala Build Tool (SBT)</title><updated>2024-05-06T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code&gt;src/project&lt;/code&gt; dir contains configuration about SBT - &lt;code&gt;build.properties&lt;/code&gt; to specify sbt version, &lt;code&gt;plugins.sbt&lt;/code&gt; to specify sbt plugins, and so on.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;src/build.sbt&lt;/code&gt; contains the configuration to build the project itself.&lt;/p&gt;
-
-&lt;p&gt;̄An sbt build (&lt;code&gt;build.sbt&lt;/code&gt;) is composed of - settings and tasks. A setting parametrises the build, and consists of a key value pair. A task may also by parametrised by settings.&lt;/p&gt;
-
-&lt;h2&gt;Configurations in &lt;code&gt;build.sbt&lt;/code&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Compile (default configuration where sbt looks first)&lt;/li&gt;
-&lt;li&gt;Test&lt;/li&gt;
-&lt;li&gt;Zero (no specified config, where fallback values live)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Scoping a Setting&lt;/h2&gt;
-
-&lt;p&gt;Different values can be applied to a single setting by scoped its key.&lt;/p&gt;
-
-&lt;p&gt;A key can be scoped along any of the 3 axes:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Configuration. e.g., &lt;code&gt;Compile / sourceDirectory&lt;/code&gt;, &lt;code&gt;Test / sourceDirectory&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Task. e.g., &lt;code&gt;includeFilter&lt;/code&gt;, &lt;code&gt;unmanagedSources / includeFilter&lt;/code&gt; where the latter &lt;code&gt;includeFilter&lt;/code&gt; is scoped by &lt;code&gt;unmanagedSources&lt;/code&gt; task.&lt;/li&gt;
-&lt;li&gt;Sub-project. e.g., &lt;code&gt;mainProject / scalaVersion&lt;/code&gt;, &lt;code&gt;subProject / scalaVersion&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Axes can be combined too: &lt;code&gt;subProject / Compile / unmanagedSources / includeFilter&lt;/code&gt;. I think the order is: &lt;strong&gt;project / configuration / task / key&lt;/strong&gt;.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/effective-scala-6-sbt" /><summary type="html">&lt;code&gt;src/project&lt;/code&gt; dir contains configuration about SBT - &lt;code&gt;build.properties&lt;/code&gt; to specify sbt version, &lt;code&gt;plugins.sbt&lt;/code&gt; to specify sbt plugins, and so on.</summary><category term="Effective Scala series" label="Effective Scala series"></category><published>2024-05-06T11:31:21Z</published></entry><entry><id>urn:uuid:b62ea789-d0e9-4e7f-9b0e-40d17322bef7</id><title type="html">Effective Scala, part 5 - collections</title><updated>2024-04-24T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;Operations on collections can be classified into:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;construct&lt;/strong&gt; ops (&lt;code&gt;::&lt;/code&gt;, &lt;code&gt;+:&lt;/code&gt;, &lt;code&gt;:+&lt;/code&gt;, &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;++&lt;/code&gt;);&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;query&lt;/strong&gt; ops (&lt;code&gt;size&lt;/code&gt;, &lt;code&gt;empty&lt;/code&gt;, &lt;code&gt;head&lt;/code&gt;, &lt;code&gt;tail&lt;/code&gt;, &lt;code&gt;find&lt;/code&gt;, &lt;code&gt;filter&lt;/code&gt;); and&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;transform&lt;/strong&gt; ops (&lt;code&gt;map&lt;/code&gt;, &lt;code&gt;fold&lt;/code&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Infix construct operators&lt;/h2&gt;
-
-&lt;p&gt;There are a shitload of them, most of them with low recall value to a beginner.&lt;/p&gt;
-
-&lt;h3&gt;Immutable operators&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;::&lt;/code&gt; to prepend to a &lt;em&gt;List&lt;/em&gt;. &lt;code&gt;1 :: List.empty&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;+:&lt;/code&gt; to prepend to a &lt;code&gt;Sequence&lt;/code&gt; collection, including &lt;code&gt;List&lt;/code&gt;. &lt;code&gt;1 +: mutable.ArrayBuffer(2, 3)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;:+&lt;/code&gt; to append to a &lt;code&gt;Sequence&lt;/code&gt; collection&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;+&lt;/code&gt; to add a (key, value) tuple to a &lt;em&gt;Map&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;++&lt;/code&gt; constructs a new collection out of two collections. &lt;code&gt;Map((1, &quot;1&quot;), (2, &quot;2&quot;)) ++ Map((4, &quot;4&quot;))&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;Mutable operators&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;+=:&lt;/code&gt; to prepend to a &lt;code&gt;Sequence&lt;/code&gt; collection&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;+=&lt;/code&gt; to append to a &lt;code&gt;Sequence&lt;/code&gt; collection&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;++=&lt;/code&gt; concatenates two collections, mutates the first one.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;List&lt;/h2&gt;
-
-&lt;p&gt;A list is constructed from right to left:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;1 :: 2 :: 3 :: Nil&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;Option&lt;/h2&gt;
-
-&lt;p&gt;Option is actually a collection of zero or one element.&lt;/p&gt;
-
-&lt;p&gt;This explains why Option type has a &lt;code&gt;map&lt;/code&gt; or &lt;code&gt;filter&lt;/code&gt; operations even in OCaml.&lt;/p&gt;
-
-&lt;p&gt;No indexed access (&lt;code&gt;opt(0)&lt;/code&gt;) though, understandably.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/effective-scala-5-collections" /><summary type="html">Operations on collections can be classified into:</summary><category term="Effective Scala series" label="Effective Scala series"></category><published>2024-04-24T11:31:21Z</published></entry><entry><id>urn:uuid:af3fbc76-728b-45ac-9c02-886b7aa2db68</id><title type="html">Effective Scala, part 4 - function v/s method</title><updated>2024-04-21T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;A function is a value in Scala, while a method is not. So the former can be passed as a parameter of a function or a method, and can be returned as a value. Method cannot do any of those.&lt;/p&gt;
-
-&lt;p&gt;A function is a value in Scala. All values are objects in Scala. An object can have methods. So a function in Scala can have methods.&lt;/p&gt;
-
-&lt;p&gt;Any function in Scala has a default &lt;code&gt;apply&lt;/code&gt; method. &lt;code&gt;inc(1)&lt;/code&gt; is a shorthand for &lt;code&gt;inc.apply(1)&lt;/code&gt;.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/effective-scala-4-method-vs-function" /><summary type="html">A function is a value in Scala, while a method is not. So the former can be passed as a parameter of a function or a method, and can be returned as a value. Method cannot do any of those.</summary><category term="Effective Scala series" label="Effective Scala series"></category><published>2024-04-21T11:31:21Z</published></entry><entry><id>urn:uuid:63a0e01e-eacb-486e-9f72-959cc2ccb742</id><title type="html">Effective Scala, part 3 - compatibility roulette</title><updated>2024-04-19T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;I am going through the course &lt;a href=&quot;https://www.coursera.org/learn/effective-scala&quot;&gt;Effective Programming in Scala&lt;/a&gt; on Coursera, and ran into build import errors in the very first assignment (fireworks).&lt;/p&gt;
-
-&lt;h2&gt;Problem&lt;/h2&gt;
-
-&lt;p&gt;While importing the fireworks project in VSCode-with-Metals, I encountered an error that started with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[..]bad constant pool index: [..]&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Looks like an error right out of a database connection pool library!&lt;/p&gt;
-
-&lt;h2&gt;Attempt 1&lt;/h2&gt;
-
-&lt;p&gt;One of the suggested solutions on Discord was to ensure that the versions of java, scala, and sbt exposed in the PATH are compatible with each other.&lt;/p&gt;
-
-&lt;p&gt;Check the &lt;a href=&quot;https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html&quot;&gt;compatibility tables&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;But these were already compatible in my case.&lt;/p&gt;
-
-&lt;h2&gt;Attempt 2&lt;/h2&gt;
-
-&lt;p&gt;I roughly knew that *.sbt files describe the build of a project. Because the name bore relevance to build process, I also counted in a file I noticed in early debugging: &lt;code&gt;build.properties&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;So my first small scala project, and I am staring at the following list of *.sbt: &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;zsh | ~/Downloads
-$ tree -a -P &quot;*.sbt&quot; -P &quot;*.properties&quot; fireworks
-fireworks
-├── assignment.sbt
-├── build.sbt
-├── project
-│   ├── build.properties
-│   ├── buildSettings.sbt
-│   └── plugins.sbt
-└── src&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And all of them were staring back at me, daring me to find which one of them is hiding the cause of the error.&lt;/p&gt;
-
-&lt;p&gt;Anyway, enough drama.&lt;/p&gt;
-
-&lt;p&gt;On a hunch, I decided to match the versions of sbt and scala mentioned in these .sbt files with the ones exposed in the PATH.&lt;/p&gt;
-
-&lt;p&gt;The mismatch turned out to be in &lt;code&gt;build.properties&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;zsh | ~/projects/effective-scala/week-1/fireworks
-$ sbt -V
-sbt version in this project: 1.9.9
-sbt script version: 1.9.9
-
-$ cat project/build.properties
-sbt.version=1.8.2&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I matched the versions to be &lt;code&gt;1.9.9&lt;/code&gt;, and re-ran the import. It worked.&lt;/p&gt;
-
-&lt;h2&gt;TL;DR&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ensure that the versions of java, scala, and sbt exposed in the PATH are compatible with each other. Use the official &lt;a href=&quot;https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html&quot;&gt;compatibility tables&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Ensure that the versions of sbt and scala exposed in the PATH match with the versions mentioned in the build files (like built.sbt, build.properties). Best make them identical.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;I hope this was the correct solution.&lt;/p&gt;
-
-&lt;p&gt;As people who make tools to make people's lives easier, we sure love to torture ourselves with our own tools.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/effective-scala-3-compatibility-roulette" /><summary type="html">I am going through the course &lt;a href=&quot;https://www.coursera.org/learn/effective-scala&quot;&gt;Effective Programming in Scala&lt;/a&gt; on Coursera, and ran into build import errors in the very first assignment (fireworks).</summary><category term="Effective Scala series" label="Effective Scala series"></category><published>2024-04-19T11:31:21Z</published></entry><entry><id>urn:uuid:321f0aca-5212-4b8b-8994-946cac15316f</id><title type="html">Effective Scala, part 2 - domain modelling</title><updated>2024-04-16T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;Finding the &lt;em&gt;right&lt;/em&gt; level of abstraction is more important than the best level of abstraction.&lt;/p&gt;
-
-&lt;p&gt;For example, in a problem involving doors and windows and facades, if the domain is constrained to only deal with surface area, then modelling the doors and windows and facade in terms of &lt;strong&gt;Rectangle&lt;/strong&gt; is the right level of abstraction instead of modelling them as Door, Window, and Facade respectively.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/effective-scala-2-domain-modelling" /><summary type="html">Finding the &lt;em&gt;right&lt;/em&gt; level of abstraction is more important than the best level of abstraction.</summary><category term="Effective Scala series" label="Effective Scala series"></category><published>2024-04-16T11:31:21Z</published></entry><entry><id>urn:uuid:7baad03d-26bd-44b2-a645-36b00f7707a1</id><title type="html">Effective Scala, part 1 - elements of a program</title><updated>2024-04-15T16:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
-
-&lt;h2&gt;Value (or Data in this context)&lt;/h2&gt;
-
-&lt;p&gt;A value is the representation of some entity that can be manipulated by a program.&lt;/p&gt;
-
-&lt;p&gt;Value is the most abstract definition here, but it is made concrete by subsequent definitions.&lt;/p&gt;
-
-&lt;h2&gt;Literal&lt;/h2&gt;
-
-&lt;p&gt;A literal is a text representation of a value in source code.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;1&lt;/code&gt; is an integer literal&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&quot;1&quot;&lt;/code&gt; is a string literal&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;(x) =&amp;gt; x * x&lt;/code&gt; is a &lt;strong&gt;function literal&lt;/strong&gt; aka anonymous function in JavaScript&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;{id: 1, (x) =&amp;gt; x * x}&lt;/code&gt; is an &lt;strong&gt;object literal&lt;/strong&gt; in JavaScript, etc.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;(Data) Type&lt;/h2&gt;
-
-&lt;p&gt;A data type (or simply type) is a collection of data values.&lt;/p&gt;
-
-&lt;p&gt;A type is usually specified by a set of possible values, and a set of allowed &lt;strong&gt;operations&lt;/strong&gt; on these
-values.&lt;/p&gt;
-
-&lt;p&gt;The members of a type are the values of that type.&lt;/p&gt;
-
-&lt;h2&gt;Expression&lt;/h2&gt;
-
-&lt;p&gt;An expression is a syntactic entity that can evaluate to a value.&lt;/p&gt;
-
-&lt;p&gt;An expression combines literals, constants,
-variables, and expressions, &lt;strong&gt;by applying operations&lt;/strong&gt; (functions, operators, methods) on them.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;1&lt;/code&gt; is an integer literal that is also a simple expression that evaluates to value &lt;code&gt;1&lt;/code&gt;. Value
-&lt;code&gt;1&lt;/code&gt; belongs to type &lt;code&gt;Integer&lt;/code&gt;.
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&quot;Alice&quot; + &quot; Wonderland&quot;&lt;/code&gt; is an expression that combines two string literals by applying the operation
-&lt;code&gt;+&lt;/code&gt; on
-them. Literal &lt;code&gt;&quot;Alice&quot;&lt;/code&gt; represents the value &lt;code&gt;Alice&lt;/code&gt;. The value &lt;code&gt;Alice&lt;/code&gt; belongs to type
-&lt;code&gt;String&lt;/code&gt;. The operation &lt;code&gt;+&lt;/code&gt; is an operator/method defined on type &lt;code&gt;String&lt;/code&gt; and can be applied on literals, constants, variables that represent a value of type &lt;code&gt;String&lt;/code&gt;.
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;(&quot;Alice&quot; + &quot; Wonderland&quot;).toUpperCase&lt;/code&gt; is an expression in which operation &lt;code&gt;toUpperCase&lt;/code&gt; is
-applied on the expression &lt;code&gt;&quot;Alice&quot; + &quot; Wonderland&quot;&lt;/code&gt;. The expression &lt;code&gt;&quot;Alice&quot; + &quot; Wonderland&quot;&lt;/code&gt; evaluates to a value &lt;code&gt;Alice Wonderland&lt;/code&gt; of type &lt;code&gt;String&lt;/code&gt;. The operation &lt;code&gt;toUpperCase&lt;/code&gt; is a method defined on type &lt;code&gt;String&lt;/code&gt; and can be applied on literals, constants, variables that represent a value of type &lt;code&gt;String&lt;/code&gt;.
-&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Program&lt;/h2&gt;
-
-&lt;p&gt;A program expresses a computation. (A computation is any type of arithmetic or non-arithmetic calculation that is
-well-defined).&lt;/p&gt;
-
-&lt;p&gt;A program is a sequence of expressions (and/or statements too, but let's keep it simple here).&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;1 + 1&lt;/code&gt; is an expression, but also a program which expresses the computation of adding 1 to 1.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Another perspective on Type&lt;/h2&gt;
-
-&lt;p&gt;Types define the rules for combining expressions. The types define how the expressions can be combined, by applying
-operations to them. For this reason, operations are also called members of types.&lt;/p&gt;
-
-&lt;p&gt;For instance, the &amp;amp;&amp;amp; operation (and) is available on the type Boolean, and it expects another Boolean value on its
-right-hand side. We say that the type Boolean has a member named &amp;amp;&amp;amp; (and), which takes another Boolean value as a
-parameter.&lt;/p&gt;
-
-&lt;p&gt;If you try to apply an operation to an expression,
-whose type does not provide such an operation, it's an error.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/effective-scala-1-elements-of-a-program" /><summary type="html">A value is the representation of some entity that can be manipulated by a program.</summary><category term="Effective Scala series" label="Effective Scala series"></category><published>2024-04-15T16:31:21Z</published></entry><entry><id>urn:uuid:6ac9fa5c-7838-41ef-ad83-d460315fa18c</id><title type="html">An overview of OCaml editor tooling</title><updated>2024-04-15T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;I have gone through some options over time. Here is an overview for my future self.&lt;/p&gt;
-
-&lt;h2&gt;Relevant background&lt;/h2&gt;
-
-&lt;h3&gt;Package and build tooling&lt;/h3&gt;
-
-&lt;p&gt;Over time, the OCaml community has converged on:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;opam&lt;/strong&gt; as a package manager and a project environment handler&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;dune&lt;/strong&gt; as a build system&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ocamlformat&lt;/strong&gt; as a code formatter&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Other tools in these spaces exist, but the above two are officially recommended, and relatively more popular.&lt;/p&gt;
-
-&lt;h3&gt;Editor service - &lt;strong&gt;Merlin&lt;/strong&gt;&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Merlin&lt;/strong&gt; is a &quot;headless&quot; tool which provides modern IDE features for OCaml/ReasonML code.&lt;/p&gt;
-
-&lt;p&gt;Supporting OCaml in an editor/IDE is essentially a matter of talking to Merlin.&lt;/p&gt;
-
-&lt;h3&gt;Editor service - LSP&lt;/h3&gt;
-
-&lt;p&gt;With the advent of VS Code and Language Server Protocol, &lt;strong&gt;ocaml-lsp&lt;/strong&gt; was built as an LSP wrapper on top of Merlin.&lt;/p&gt;
-
-&lt;h3&gt;How everything comes together&lt;/h3&gt;
-
-&lt;p&gt;A glue package integrates the editor service (merlin or ocaml-lsp) with an editor.&lt;/p&gt;
-
-&lt;p&gt;The glue package assumes that the editor service is available in the user environment. The recommended approach is to have opam create a project-specific environment (called a &lt;b&gt;opam local switch&lt;/b&gt;), and install merlin or ocaml-lsp in that env.&lt;/p&gt;
-
-&lt;h3&gt;merlin v/s ocaml-lsp&lt;/h3&gt;
-
-&lt;h4&gt;Feature parity&lt;/h4&gt;
-
-&lt;p&gt;In terms of features, both ocaml-lsp and merlin are pretty much on par with each other.&lt;/p&gt;
-
-&lt;p&gt;ocaml-lsp lacks one feature though: determining the type of a selected block of code. Its a pretty nifty feature thanks to OCaml's strong typing system and merlin.&lt;/p&gt;
-
-&lt;p&gt;Quoting Marek Kubica from OCaml forums: &lt;a href=&quot;https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/2&quot;&gt;↗&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote cite=&quot;https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/2&quot;&gt;
-The only thing I’ve used with Merlin directly that I don’t have at the moment is determining the type of a selection.
-&lt;/blockquote&gt;
-
-&lt;h4&gt;Dependency on dune&lt;/h4&gt;
-
-&lt;p&gt;ocaml-lsp depends on dune to generate type information. Merlin does not need it. Legacy projects predating dune have found this to be a hurdle in transitioning to ocaml-lsp.&lt;/p&gt;
-
-&lt;h4&gt;Speed&lt;/h4&gt;
-
-ocaml-lsp, despite being an abstraction on top of merlin, feel faster than the direct merlin because ocaml-lsp operates asynchronously.
-
-&lt;p&gt;Quoting Rudi Grinberg from OCaml forums: &lt;a href=&quot;https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/4&quot;&gt;↗&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote cite=&quot;https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/4&quot;&gt;
-In my experience the editor frontends that come with merlin perform poorly compared to their LSP counterparts. In Emacs for example, I recall that switching to eglot to ocamllsp gave me a very noticeable boost in completion performance and error checking performance.
-&lt;/blockquote&gt;
-
-&lt;p&gt;In a (significantly) large codebase, the editing experience in vim/emacs+merlin has reported to become less responsive and more laggy.&lt;/p&gt;
-
-
-&lt;h2&gt;Editing setups&lt;/h2&gt;
-
-&lt;p&gt;I will list a few editing setups I have seen in use.&lt;/p&gt;
-
-&lt;h3&gt;Official, popular setups&lt;/h3&gt;
-
-&lt;p&gt;These are official in the sense that setup instructions are &lt;a href=&quot;https://ocaml.org/docs/set-up-editor&quot;&gt;available on the official website.&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;merlin + emacs&lt;/li&gt;
-&lt;li&gt;merlin + vim&lt;/li&gt;
-&lt;li&gt;ocaml-lsp + vscode&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;Unofficial, popular setups&lt;/h3&gt;
-
-&lt;p&gt;Thanks to ocaml-lsp, alternatives have emerged:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;ocaml-lsp + neovim&lt;/li&gt;
-&lt;li&gt;ocaml-lsp + emacs&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;Worthy outliers&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;IntelliJ with &lt;a href=&quot;https://plugins.jetbrains.com/plugin/9440-reasonml&quot;&gt;ReasonML&lt;/a&gt; plugin by Herve Giraud. The only one that does not use merlin underneath, rather takes advantage of IntelliJ's IDE infrastructure.&lt;/li&gt;
-&lt;li&gt;ocaml-lsp + helix&lt;/li&gt;
-&lt;li&gt;Anything else that can work with LSP protocol, like KDE's Kate editor&lt;/li&gt;
-&lt;li&gt;Thanks to a strong static typing with a very fast compiler and a built tool with watch mode, some ditch tooling altogether and go with plain vim or emacs or even &lt;a href=&quot;https://discuss.ocaml.org/t/which-editor-ide-do-you-use-when-developing-ocaml-projects/362/27&quot;&gt;nano&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;My excursions&lt;/h2&gt;
-
-&lt;p&gt;I care a lot about vim-like modal editing.&lt;/p&gt;
-
-&lt;p&gt;The other thing I care about: less hassle to set up.&lt;/p&gt;
-
-&lt;p&gt;Now, let's see how some of these have fared for me.&lt;/p&gt;
-
-&lt;h3&gt;merlin + emacs&lt;/h3&gt;
-
-&lt;p&gt;The glue packages in this case are &lt;strong&gt;tuareg&lt;/strong&gt; and &lt;strong&gt;user-setup&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Unfortunately, &lt;a href=&quot;https://ocaml.org/docs/set-up-editor#vim-and-emacs&quot;&gt;official instructions&lt;/a&gt; didn't work for me. Instructions &lt;a href=&quot;https://dev.realworldocaml.org/install.html#editor-setup&quot;&gt;from Real World OCaml&lt;/a&gt; did:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ opam install user-setup tuareg ocamlformat merlin
-$ opam user-setup install&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;There is another alternative to tuareg - &lt;strong&gt;caml-mode&lt;/strong&gt;, but I haven't tried it.&lt;/p&gt;
-
-&lt;p&gt;Tuareg also provides a &lt;i&gt;Send to REPL for evaluation&lt;/i&gt; action, which provides a quick way to test and design code on-the-fly.&lt;/p&gt;
-
-&lt;p&gt;This setup works (type inference, error detection, etc.), but is very barebones. I realised I had to do a lot more on Emacs side - install and configure packages like flycheck, eldoc, merlin-eldoc, and what not - to modernise the editing experience. I stopped here.&lt;/p&gt;
-
-&lt;h3&gt;merlin + vim&lt;/h3&gt;
-
-&lt;p&gt;The glue package is &lt;strong&gt;user-setup&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;However, this setup did not work due to the following error:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&quot;src/soup.ml&quot; 1326L, 39757B
-Error detected while processing BufRead Autocommands for &quot;*.ml&quot;..FileType Autocommands for &quot;*&quot;..function &amp;lt;SNR&amp;gt;4_LoadFTPlugin[18]..script /Users/jb/projects/lambdasoup/_opam
-/share/merlin/vim/ftplugin/ocaml.vim[2]../Users/jb/projects/lambdasoup/_opam/share/merlin/vim/autoload/merlin.vim:
-line    9:
-Error: Required vim compiled with +python or +python3
-Error detected while processing BufRead Autocommands for &quot;*.ml&quot;..FileType Autocommands for &quot;*&quot;..function &amp;lt;SNR&amp;gt;4_LoadFTPlugin[18]..script /Users/jb/projects/lambdasoup/_opam
-/share/merlin/vim/ftplugin/ocaml.vim:
-line    2:
-E117: Unknown function: merlin#Register
-Press ENTER or type command to continue&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I get the issue of course: my vim is not compiled with python. But it also means that now I have to look for a vim that is compiled with python. And I tried out two vims: macOS's default vim, and the vim in nixpkgs.&lt;/p&gt;
-
-&lt;p&gt;So I moved on.&lt;/p&gt;
-
-&lt;h3&gt;ocaml-lsp + vscode&lt;/h3&gt;
-
-&lt;p&gt;The glue package is &lt;strong&gt;VSCode OCaml Platform&lt;/strong&gt;, which, besides integrating ocaml-lsp, also brings together ocamlformat, opam environment sandbox selection tool, etc., under a single VS Code extension.&lt;/p&gt;
-
-&lt;p&gt;Despite that fact that there is one more abstraction to deal with - ocaml-lsp built on top of merlin - this setup has been one of the most seamless.&lt;/p&gt;
-
-&lt;p&gt;It is also the top official recommendation now, thanks to a lot of effort put in by OCaml tooling developers.&lt;/p&gt;
-
-&lt;p&gt;The extension also provides a &quot;Send to REPL for evaluation&quot; action, much popular with the Emacs crowd.&lt;/p&gt;
-
-&lt;p&gt;The experience hasn't been 100% flawless though. Once, when I opened VS Code with an OCaml project, the editor didn't show any type hints at all. No errors were thrown either. After a long debugging session, it turned out that the OCaml LSP did throw an error saying that VS Code needs to be updated, but it was buried in Output Pane's OCaml LSP tab. I wish that the Output window had popped up on its own to highlight the error, instead of having to look for the problem myself. I have seen this happen in some other language project.&lt;/p&gt;
-
-&lt;p&gt;This is VS Code specific, but I also miss a good modal editing experience. I also keep getting bugged by a weird problem caused due to my MacBook's virtual Fn bar and while executing a specific keychord sequence, in which a slight touch from one of my raised fingers triggers the find window in VS Code. Very annoying!&lt;/p&gt;
-
-&lt;h3&gt;ocaml-lsp + neovim&lt;/h3&gt;
-
-&lt;p&gt;The glue package is &lt;strong&gt;nvim-lspconfig&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;This setup has often broken down, though the &lt;strong&gt;fault lied with the constant churn in neovim and neovim's LSP ecosystem&lt;/strong&gt; more than with OCaml tooling.&lt;/p&gt;
-
-&lt;p&gt;There are a lot of other helper neovim packages to reckon with, like, the configurations of which I copy-paste and then pray for them to keep working.&lt;/p&gt;
-
-&lt;p&gt;When everything works, this is the most elegant setup for me. However, once in a while, when I load an OCaml project in neovim, some setup-related error would pop up.&lt;/p&gt;
-
-&lt;p&gt;Debugging a broken neovim configuration is a nightmare I wouldn't wish upon my enemy.&lt;/p&gt;
-
-&lt;h3&gt;ocaml-lsp + helix&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;There is no glue package.&lt;/strong&gt; This has been &lt;strong&gt;the only zero-config setup&lt;/strong&gt; for me.&lt;/p&gt;
-
-&lt;p&gt;Only Helix has worked immediately and flawlessly for me.&lt;/p&gt;
-
-&lt;h2&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;At this point, I would consider the merlin-based setups appropriate only for &lt;strong&gt;veterans and advanced users&lt;/strong&gt;. They are worth it only if you care about having every fringe feature available under merlin and don't mind going through some pain of setting things up.&lt;/p&gt;
-
-&lt;p&gt;merlin-based setup might also be the only sane option if a project does not use dune as its build tool. But don't quote me on this.&lt;/p&gt;
-
-&lt;p&gt;A &lt;strong&gt;beginner&lt;/strong&gt; should absolutely choose VS Code OCaml Platform. When there is a whole new ecosystem to reckon with, you don't want to be scared away by the editing experience.&lt;/p&gt;
-
-&lt;p&gt;Only Helix provides a similar seamless experience. So VS Code dodgers can choose helix (at the cost of the baggage of a non-vim modal editing).&lt;/p&gt;
-
-&lt;p&gt;To vim lovers, I recommend the ocaml-lsp + neovim route.&lt;/p&gt;
-
-&lt;p&gt;To emacs lovers, I recommend the ocaml-lsp + emacs route.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/editor-tooling-in-ocaml" /><summary type="html">For a small community, OCaml ecosystem is quite rich, maybe too rich, in editor tooling.</summary><category term="OCaml" label="OCaml"></category><published>2024-04-15T11:31:21Z</published></entry><entry><id>urn:uuid:aa8b98ca-36f9-4a95-9b18-2b8a75335e17</id><title type="html">Memorising branch order in git rebase</title><updated>2024-03-05T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;In a &lt;code&gt;git rebase x&lt;/code&gt; command, is &lt;code&gt;x&lt;/code&gt; being rebased on the current branch, or vice versa?&lt;/p&gt;
-
-&lt;p&gt;I mentally always read &lt;i&gt;rebase&lt;/i&gt; as &lt;i&gt;rebase on top of&lt;/i&gt;.&lt;/p&gt;
-
-&lt;p&gt;So, &lt;code&gt;git rebase master&lt;/code&gt; reads as &lt;strong&gt;&lt;i&gt;git, rebase on top of master&lt;/i&gt;&lt;/strong&gt;, i.e., rebase the current branch on top of master.&lt;/p&gt;
-
-&lt;p&gt;But what about the alternate version of the command: &lt;code&gt;git rebase master feat/x&lt;/code&gt; ?&lt;/p&gt;
-
-&lt;p&gt;Well, git always rebases the &lt;strong&gt;current&lt;/strong&gt; branch.&lt;/p&gt;
-
-&lt;p&gt;So &lt;code&gt;git rebase master feat/x&lt;/code&gt; is actually &lt;code&gt;git checkout feat/x &amp;amp;&amp;amp; git rebase master&lt;/code&gt; . So the reading &lt;i&gt;git rebase on top of master&lt;/i&gt; still applies.&lt;/p&gt;
-
-&lt;p&gt;A bit clunky, but good enough for me.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/memorising-git-rebase" /><summary type="html">In a &lt;code&gt;git rebase x&lt;/code&gt; command, is &lt;code&gt;x&lt;/code&gt; being rebased on the current branch, or vice versa?</summary><category term="Git" label="Git"></category><published>2024-03-05T11:31:21Z</published></entry><entry><id>urn:uuid:972047d6-1709-42ab-b18e-fa68f6a760b5</id><title type="html">&lt;del&gt;I switched to fish shell&lt;/del&gt; Nope. Back to bash.</title><updated>2024-02-06T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
-
-&lt;h2&gt;Update: 5 May 2024&lt;/h2&gt;
-
-&lt;p&gt;I have come crawling back to bash. Why?&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;My interest in system, infrastructure, and developer tooling is growing. I don't see much place for a non-bash shell in that space. &lt;/li&gt;
-&lt;li&gt;I have time for only one niche ecosystem in my life. I have already chosen OCaml as it.&lt;/li&gt;
-&lt;li&gt;fish is too syntax-incompatible with bash, right down to inline declaration of env vars before executing a command. If I have to recall the fish syntax for every little thing, then it's just not worth it.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Original article&lt;/h2&gt;
-
-&lt;p&gt;Here, I am putting down my reasons to choose &lt;code&gt;fish&lt;/code&gt; shell for my future self.&lt;/p&gt;
-
-&lt;p&gt;All I want is a shell that is&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;a first-class citizen on macOS and Linux&lt;/li&gt;
-&lt;li&gt;low maintenance, which means&lt;/li&gt;
-&lt;li&gt;out-of-the-box or low-configuration autocompletion and fuzzy history search&lt;/li&gt;
-&lt;li&gt;adequately supported by third-party tools&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I don't use shell much beyond that.&lt;/p&gt;
-
-&lt;p&gt;I also don't care much about scripting compabilities as I have never had to share scripts with others. Also, I prefer to write my scripts in typed, FP languages like Scala.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;fish&lt;/code&gt; checks all those boxes.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;bash&lt;/code&gt; is anything but first-class on macOS now.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;zsh&lt;/code&gt; is powerful, and comes with a lot of bells and whistles, most of them do not come out-of-the-box. I need to lug around a few packages (like &lt;code&gt;zsh-completions&lt;/code&gt;) and a lot of configuration. I also need to maintain configuration for &lt;code&gt;fzf&lt;/code&gt; for fuzzy search.&lt;/p&gt;
-
-&lt;p&gt;At the very least, I will stop worrying and wasting time in maintaining parity between bash and zsh configs.&lt;/p&gt;</content><link href="https://bhoot.dev/2024/switching-to-fish-shell" /><summary type="html">I have come crawling back to bash. Why?</summary><category term="Shell" label="Shell"></category><published>2024-02-06T11:31:21Z</published></entry><entry><id>urn:uuid:e5759f6b-3be5-4219-aad2-35e9d8c1ebe2</id><title type="html">Make an opam local switch and &lt;code&gt;dune init project&lt;/code&gt; work together</title><updated>2023-12-03T11:31:22Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;In the OCaml ecosystem, opam is the most popular package management tool, while dune is the foremost build tool.&lt;/p&gt;
-
-&lt;p&gt;Both have evolved independently. While they manage to work in tandem, there are a lot of irregularities to trip on
-where they meet.&lt;/p&gt;
-
-&lt;h2&gt;Local switch in opam&lt;/h2&gt;
-
-&lt;p&gt;opam's local switch feature can set up and isolate development environment and dependencies per project.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;opam switch create&lt;/code&gt; creates a local switch if it is given the path to a directory. If the specified
-directory does not exist, then its is created.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;opam switch create ./path/to/existing/dir&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The above command creates an &lt;i&gt;_opam&lt;/i&gt; directory inside the given path, inside which all of the opam-related
-artifacts for this project are stored.&lt;/p&gt;
-
-&lt;p&gt;A cool side-effect is that when a directory containing a local opam switch is visited, that switch is activated
-automatically. No need to &lt;code&gt;opam switch set&lt;/code&gt; the switch explicitly.&lt;/p&gt;
-
-&lt;h2&gt;dune init project&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;dune init project&lt;/code&gt; is the recommended way to bootstrap an OCaml project.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;dune init project prj_name&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt; The above command creates a directory named &lt;i&gt;prj_name&lt;/i&gt; in the current directory, and populates it with project
-artifacts.&lt;/p&gt;
-
-&lt;p&gt;I found that dune cannot bootstrap a project in the current directory itself. So &lt;code&gt;dune init project .&lt;/code&gt;
-fails to work.&lt;/p&gt;
-
-&lt;h2&gt;The problem&lt;/h2&gt;
-
-&lt;p&gt; I prefer to use opam's local switch feature to ensure the isolatation of all dependencies and tools related to an
-OCaml project. This means I also prefer to install dune per-project. So &lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;I want to use dune to bootstrap a project&lt;/li&gt;
-&lt;li&gt;dune is installed through opam&lt;/li&gt;
-&lt;li&gt;opam needs a local switch for per-project installation&lt;/li&gt;
-&lt;li&gt;A local switch needs an existing empty project directory&lt;/li&gt;
-&lt;li&gt;dune cannot bootstrap a project in a current directory&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The chicken and egg problem looks easy now, huh?&lt;/p&gt;
-
-&lt;p&gt;I started guessing a solution. &lt;/p&gt;
-
-&lt;hgroup&gt;
-&lt;h3&gt;Attempt 1&lt;/h3&gt;
-&lt;p&gt;Execute opam and dune commands from parent directory&lt;/p&gt;
-&lt;/hgroup&gt;
-
-&lt;p&gt;I planned the following idealised sequence of commands:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# create an empty project dir
-~/projects $ mkdir my_prj
-
-# create a local switch
-~/projects $ opam switch create ./my_prj
-
-# install dune in our local switch
-~/projects $ opam install dune
-
-# bootstrap project
-~/projects $ dune init project my_prj&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I didn't make it past the 3rd command of installing dune because of the following (reasonable) error:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ opam install dune
-[ERROR] No switch is currently set. Please use 'opam switch'
-to set or install a switch.&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ok, then. I tried to set the switch after creating it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;~/projects $ mkdir my_prj
-~/projects $ opam switch create ./my_prj
-~/projects $ opam switch set ./my_prj
-[ERROR] Can not set external switch '/Users/jb/projects/my_prj' globally. To set
-it in the current shell use:
-eval $(opam env --switch=/Users/jb/projects/my_prj --set-switch)&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The advice felt like a long-winded solution to me. I wanted a simpler solution.&lt;/p&gt;
-
-&lt;p&gt;So may be, first, I should enter the empty project directory to set up the project.&lt;/p&gt;
-
-&lt;hgroup&gt;
-&lt;h3&gt;Attempt 2&lt;/h3&gt;
-&lt;p&gt;Execute opam and dune commands from project directory&lt;/p&gt;
-&lt;/hgroup&gt;
-
-&lt;p&gt;I carried out the following sequence of commands:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;~/projects $ mkdir my_prj
-~/projects $ cd my_prj 
-~/projects/my_prj $ opam switch create . 
-~/projects/my_prj $ opam install dune
-~/projects/my_prj $ dune init project my_prj&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The above sequence creates a &lt;code&gt;my_prj/my_prj/&lt;/code&gt; directory tree. That's not what I wanted.&lt;/p&gt;
-
-&lt;p&gt;Now what?&lt;/p&gt;
-
-&lt;hgroup&gt;
-&lt;h3&gt;Solution&lt;/h3&gt;
-&lt;p&gt;exploit opam's auto-activation of local switch&lt;/p&gt;
-&lt;/hgroup&gt;
-
-&lt;p&gt;Now, consider the following sequence of commands:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# create an empty project dir
-~/projects $ mkdir my_prj
-
-~/projects $ cd my_prj 
-
-# create a local switch, which is auto-activated after a successful creation
-# because the switch is created in the current directory itself.
-~/projects/my_prj $ opam switch create . 
-
-~/projects/my_prj $ opam install dune
-
-# go back to parent, with opam still pointing to the local switch env
-# until the current session ends or until another switch is activated
-~/projects $ cd .. 
-
-# bootstrap our project
-~/projects/my_prj $ dune init project my_prj&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note the 3rd command &lt;code&gt;opam switch create .&lt;/code&gt;. After the command finishes execution, the switch is
-auto-activated because the local switch lives in the current directory &lt;code&gt;.&lt;/code&gt; itself.&lt;/p&gt;
-
-&lt;p&gt;opam also sets an env var &lt;code&gt;OPAM_SWITCH_PREFIX&lt;/code&gt; to the path of this activated switch.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ echo $OPAM_SWITCH_PREFIX 
-/Users/jb/projects/my_prj/_opam&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This env var probably lives on until the current shell session ends even if the directory changes, or until another
-switch is activated.&lt;/p&gt;
-
-&lt;aside&gt;
-&lt;p&gt;If the directory is changed at this point, then &lt;code&gt;opam switch list&lt;/code&gt; no longer shows an active switch.
-However, &lt;code&gt;OPAM_SWITCH_PREFIX&lt;/code&gt; still points to our my_prj local switch until a directory with another local
-switch is visited.&lt;/p&gt;
-
-&lt;p&gt;Also, my machine's opam setup does not a global switch at all. I am not sure how opam would behave amidst all of this
-in presence of a global switch. A case for another time, may be.&lt;/p&gt;
-&lt;/aside&gt;
-
-&lt;p&gt;That means that when the above command sequence goes one directory up to execute &lt;code&gt;dune init project&lt;/code&gt;, opam
-is still pointing to the right local switch env.&lt;/p&gt;
-
-&lt;p&gt;Also dune does not mind if the directory &lt;i&gt;my_prj&lt;/i&gt; already exists.&lt;/p&gt;
-
-&lt;p&gt;Case solved!&lt;/p&gt;
-
-&lt;p&gt;I can imagine a variation of the above sequence:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# create an empty project dir
-~/projects $ mkdir my_prj
-
-# create our local switch
-~/projects $ opam switch create ./my_prj 
-
-# activate our local switch
-~/projects $ cd my_prj 
-
-# go back to parent, with opam still pointing to the local switch env
-# until the current session ends or until another switch is activated
-~/projects/my_prj $ cd .. 
-
-# install dune in our local switch
-~/projects $ opam install dune
-
-# bootstrap our project
-~/projects $ dune init project my_prj&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;What next?&lt;/h2&gt;
-
-&lt;p&gt;There is &lt;a href=&quot;https://discuss.ocaml.org/t/extending-dune-with-package-management/5649&quot;&gt;work under progress&lt;/a&gt; to
-wrap dune around opam, thus making dune as the unifying package management and build solution.&lt;/p&gt;</content><link href="https://bhoot.dev/2023/opam-local-switch-and-dune-init-project" /><summary type="html">In the OCaml ecosystem, opam is the most popular package management tool, while dune is the foremost build tool.</summary><category term="OCaml" label="OCaml"></category><published>2023-12-03T11:31:22Z</published></entry><entry><id>urn:uuid:6e7ebece-1f47-4461-b284-a0094aacf55e</id><title type="html">Spoonfeeding machine architecture to OCaml toolchain on Apple Silicon</title><updated>2023-12-01T11:31:22Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
-
-&lt;h2&gt;Problem&lt;/h2&gt;
-
-&lt;p&gt;OCaml compiler failed to build on my M1 Macbook with Apple's Silicon architecture.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ opam switch create . 4.14.1 -y --deps-only
-
-&amp;lt;&amp;gt;&amp;lt;&amp;gt; Installing new switch packages &amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;  🐫 
-Switch invariant: [&quot;ocaml-base-compiler&quot; {= &quot;4.14.1&quot;} | &quot;ocaml-system&quot; {= &quot;4.14.1&quot;}]
-[NOTE] External dependency handling not supported for OS family 'macos'.
-        You can disable this check using 'opam option --global depext=false'
-
-&amp;lt;&amp;gt;&amp;lt;&amp;gt; Processing actions &amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;  🐫 
-∗ installed base-bigarray.base
-∗ installed base-threads.base
-∗ installed base-unix.base
-∗ installed ocaml-options-vanilla.1
-⬇ retrieved ocaml-base-compiler.4.14.1  (cached)
-[ERROR] The compilation of ocaml-base-compiler.4.14.1 failed at
-        &quot;make -j7&quot;.
-
-#=== ERROR while compiling ocaml-base-compiler.4.14.1 ===========#
-# context     2.1.5 | macos/arm64 |  | https://opam.ocaml.org#bc52affc
-# path        ~/projects/aoc-2023/ocaml/_opam/.opam-switch/build/ocaml-base-compiler.4.14.1
-# command     ~/.opam/opam-init/hooks/sandbox.sh build make -j7
-# exit-code   2
-# env-file    ~/.opam/log/ocaml-base-compiler-11985-7b627b.env
-# output-file ~/.opam/log/ocaml-base-compiler-11985-7b627b.out
-### output ###
-# [...]
-# signals_nat.c:221:5: error: no member named '__pc' in 'struct __darwin_x86_thread_state64'
-#     CONTEXT_PC = (context_reg) &amp;amp;caml_stack_overflow;
-#     ^~~~~~~~~~
-# ./signals_osdep.h:182:37: note: expanded from macro 'CONTEXT_PC'
-#   #define CONTEXT_PC (CONTEXT_STATE.__pc)
-#                       ~~~~~~~~~~~~~ ^
-# 4 errors generated.
-# make[3]: *** [signals_nat.n.o] Error 1
-# make[3]: *** Waiting for unfinished jobs....
-# make[2]: *** [makeruntimeopt] Error 2
-# make[1]: *** [opt.opt] Error 2
-# make: *** [world.opt] Error 2
-
-
-
-&amp;lt;&amp;gt;&amp;lt;&amp;gt; Error report &amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;  🐫 
-┌─ The following actions failed
-│ λ build ocaml-base-compiler 4.14.1
-└─ 
-┌─ The following changes have been performed (the rest was aborted)
-│ ∗ install base-bigarray         base
-│ ∗ install base-threads          base
-│ ∗ install base-unix             base
-│ ∗ install ocaml-options-vanilla 1
-└─ 
-
-&amp;lt;&amp;gt;&amp;lt;&amp;gt; ocaml-base-compiler.4.14.1 troubleshooting &amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;  🐫 
-=&amp;gt; A failure in the middle of the build may be caused by build
-    parallelism
-        (enabled by default).
-        Please file a bug report at
-    https://github.com/ocaml/opam-repository/issues
-=&amp;gt; You can try installing again including --jobs=1
-        to force a sequential build instead.
-Switch initialisation failed: clean up? ('n' will leave the
-switch partially installed) [Y/n] y&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;Hacky solution&lt;/h2&gt;
-
-&lt;p&gt;If you have the same issue, then try specifying the architecture explicitly. &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ arch -arm64 opam switch create . 4.14.1 -y --deps-only&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Apply the same approach to install packages too.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ arch -arm64 opam install dune&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;There has to be a better way though.&lt;/p&gt;
-
-&lt;p&gt;P.S.: Even dune does not work without it!&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ arch -arm64 dune exec bin/main.exe&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;Update (&lt;time datetime=&quot;2024-02-23&quot;&gt;23 Feb 2024&lt;/time&gt;) : Better solution&lt;/h2&gt;
-
-&lt;p&gt;JM from OCaml discord helped me to discover the underlying issue - my Terminal.app was running in Rosetta mode. I had
-configured it to run on Rosetta during the initial Silicon-Rosetta churn, but forgotten all about it.&lt;/p&gt;
-
-&lt;p&gt;So, opam, which uses &lt;a href=&quot;https://github.com/ocaml/opam/issues/5853&quot;&gt;&lt;code&gt;uname -a&lt;/code&gt;&lt;/a&gt; to find the
-underlying architecture, always got &lt;code&gt;x86_64&lt;/code&gt;. &lt;/p&gt;
-
-&lt;p&gt;Once I unchecked the &lt;i&gt;Open using Rosetta&lt;/i&gt; option, &lt;code&gt;arch -arm64&lt;/code&gt; was no longer needed.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://apple.stackexchange.com/a/453954&quot;&gt;From what I understand&lt;/a&gt;, if &lt;i&gt;any&lt;/i&gt; tool or binary across a
-toolchain is configured to run through Rosetta - be it the Terminal.app, or the shell, or a helper binary like &lt;code&gt;uname&lt;/code&gt;
-- then the program using this toolchain could end up using the wrong architecture.&lt;/p&gt;</content><link href="https://bhoot.dev/2023/fixing-ocaml-compiler-build-on-apple-silicon" /><summary type="html">OCaml compiler failed to build on my M1 Macbook with Apple's Silicon architecture.</summary><category term="OCaml" label="OCaml"></category><published>2023-12-01T11:31:22Z</published></entry><entry><id>urn:uuid:bea230bc-0afb-47ac-b73e-631dc8691602</id><title type="html">List of movies better than their book counterparts</title><updated>2024-09-11T11:20:34Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt; This list will likely (hopefully) remain short. &lt;/p&gt;
-
-&lt;ol reversed=&quot;reversed&quot;&gt;
-&lt;li&gt; Dune series. I felt that words in &lt;i&gt;Dune&lt;/i&gt; (Book 1 of the series) didn't convey its strongest moments well. &lt;i&gt;Presently&lt;/i&gt;, I am struggling to get into &lt;i&gt;Dune Messiah&lt;/i&gt; (Book 2 of the series). &lt;/li&gt;
-&lt;li&gt; Bullet train (at least when compared to the translated-to-English version of the book)&lt;/li&gt;
-&lt;/ol&gt;</content><link href="https://bhoot.dev/2023/movie-is-better-than-book" /><summary type="html">This list will likely (hopefully) remain short.</summary><category term="Books" label="Books"></category><published>2023-10-09T11:31:22Z</published></entry><entry><id>urn:uuid:de454181-6576-46c5-9017-afffb721ff58</id><title type="html">An elegant triplet of fonts</title><updated>2023-06-12T11:31:22Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt; I use the following set of fonts. &lt;/p&gt;
-
-&lt;table&gt;
-&lt;caption&gt;An elegant triplet of fonts that go together&lt;/caption&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Font&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Sans Serif&lt;/td&gt;
-&lt;td&gt;PT Sans&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Serif&lt;/td&gt;
-&lt;td&gt;Gentium Book Plus&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Monospace&lt;/td&gt;
-&lt;td&gt;
-&lt;ul&gt;
-&lt;li&gt;PT Mono; or&lt;/li&gt;
-&lt;li&gt;Latin Modern Mono; or&lt;/li&gt;
-&lt;li&gt;Courier; or&lt;/li&gt;
-&lt;li&gt;Courier Screenplay; or&lt;/li&gt;
-&lt;li&gt;Courier Prime; or&lt;/li&gt;
-&lt;li&gt;Monaco&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2&gt;Sans-serif I v/s l&lt;/h2&gt;
-
-&lt;p&gt;Many sans serif fonts fail to distinguish between uppercase I and lowercase l. Twitter's new font is an example of
-this.&lt;/p&gt;
-
-&lt;p&gt;On top of that, Twitter started dishing out blue ticks on subscriptions.&lt;/p&gt;
-
-&lt;p&gt;These two features combine to form deceptive Twitter usernames, as demonstrated in &lt;a href=&quot;https://twitter.com/aardrian/status/1591045578544353280&quot;&gt;this tweet by Adrian Roselli&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Some famous fonts like Helvetica and Roboto fail at it.&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;/static/images/appletvplus-font-test-helvetica-fail.png&quot;&gt;
-&lt;figcaption&gt;Helvetica has identical looking uppercase I and lowercase l.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;/static/images/appletvplus-font-test-roboto-fail.png&quot;&gt;
-&lt;figcaption&gt;Roboto has identical looking uppercase I and lowercase l.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;But PT Sans passes this AppleTVPlus test.&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;/static/images/appletvplus-font-test-pt-sans-pass.png&quot;&gt;
-&lt;figcaption&gt;PT Sans distinguishes between uppercase I and lowercase l by putting a tail on l.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;div class=&quot;draft&quot;&gt;
-Add a word document screenshot showing each font with AppleTVPIus and jiIl|10Oo
-
-- Passes with flying colours, due to a slabbed capital i : Droid Sans, Noto Sans, IBM Plex Sans
-- Passes due to a tailed l: Aptos, PT Sans, Ubuntu, Atkinson Hyperlegible, Fira Sans
-- Fails: Helvetica, Roboto, Inter, Apple's new default San Fransisco Pro, Cantarell, Segoe, Calibri, Droid Sans
-- Clear winner: Atkinson Hyperlegible. Passes the jiIl|10Oo better than all others, due to a tailed small-l and a slashed zero. Followed by Droid Sans and Noto Sans.
-
-I like this font because readers can tell the difference between I and l and 1 and |: https://twitter.com/aardrian/status/1433770392343269389
-
-Another test: jiIl|10Oo
-
-homoglyph attack vector: https://twitter.com/aardrian/status/1590863173942661121
-&lt;/div&gt;</content><link href="https://bhoot.dev/2023/an-elegant-triplet-of-fonts" /><summary type="html">I use the following set of fonts.</summary><category term="Fonts" label="Fonts"></category><published>2023-06-12T11:31:22Z</published></entry><entry><id>urn:uuid:83afeb98-3ab6-4a2c-a1ea-4601afc53dfb</id><title type="html">How to mark up a code snippet in HTML</title><updated>2022-10-06T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;Suppose, we want to mark up the following multi-line snippet of JavaScript code:&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function hello(name) {
-  return &quot;Hello, &quot; + name;
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;figcaption&gt;
-A JavaScript function that greets a user Joe with &quot;Hello, Joe!&quot;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Out of habit, let's start by wrapping it in a &lt;code&gt;pre&lt;/code&gt; tag.&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;pre&amp;gt;
-  function hello(name) {
-    return &quot;Hello, &quot; + name;
-  }
-&amp;lt;/pre&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;figcaption&gt;
-Mark up a code snippet with &lt;code&gt;pre&lt;/code&gt; tag only. Looks good enough, but not conveyed good enough.
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;However, the &lt;a href=&quot;https://html.spec.whatwg.org/multipage/grouping-content.html#the-pre-element&quot;&gt;HTML spec&lt;/a&gt;
-defines &lt;code&gt;pre&lt;/code&gt; as&lt;/p&gt;
-
-&lt;blockquote cite=&quot;https://html.spec.whatwg.org/multipage/grouping-content.html#the-pre-element&quot;&gt;
-The &lt;code&gt;pre&lt;/code&gt; tag represents a block of &lt;em&gt;preformatted text&lt;/em&gt;, in which structure is represented by
-typographic conventions
-rather than by elements.
-&lt;/blockquote&gt;
-
-&lt;p&gt;So, a &lt;code&gt;pre&lt;/code&gt; tag can contain anything which conveys its semantic meaning at least partly through how its
-text is formatted,
-like a code snippet, a poem, or an ascii art.&lt;/p&gt;
-
-&lt;p&gt;Clearly, &lt;code&gt;pre&lt;/code&gt; tag is not enough to represent a code snippet. How do we distinguish a code snippet from
-other
-pre-formatted content? By marking up the snippet with &lt;code&gt;code&lt;/code&gt;, and then wrapping it in a
-&lt;code&gt;pre&lt;/code&gt; tag.
-&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;pre&amp;gt;
-  &amp;lt;code&amp;gt;
-    function hello(name) {
+      &lt;img src=&quot;/static/images/task-failed-successfully-linux-edition.jpeg&quot;
+      alt=&quot;Screenshot of a message printed by pinfo command on terminal on Linux that says
+      'crash with: Success'&quot;&gt;
+      &lt;/figure&gt;</content>
+    <link href="https://bhoot.dev/2024/task-failed-successfully-linux-edition" />
+    <summary type="html">&lt;img alt=&quot;Post author's photo&quot; class=&quot;u-photo&quot;
+      src=&quot;/static/images/profile-pic-closeup-round.png&quot;&gt;
+      &lt;span class=&quot;stack&quot; style=&quot;--stack-gap:0;&quot;&gt;
+      &lt;span&gt;Written by &lt;a class=&quot;p-author h-card&quot;
+      href=&quot;https://bhoot.dev/about&quot;&gt;Jayesh Bhoot&lt;/a&gt;&lt;/span&gt;
+      &lt;/span&gt;</summary>
+    <category term="Note" label="Note"></category>
+    <published>2024-08-20T11:00:00Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:4a3058d8-0c53-4aaa-ad99-daf4254eac48</id>
+    <title type="html">British v/s American comedy dramas</title>
+    <updated>2024-07-07T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;They always felt different from each other, but I could never
+      quite put a finger on the difference.&lt;/p&gt;
+
+      &lt;p&gt;Then it hit me today, while I was watching a British series called &lt;a
+      href=&quot;https://tv.apple.com/in/episode/nikki-and-jason/umc.cmc.2dzdkdvedw0n9h25d49y9lh99?action=playSmartEpisode&quot;&gt;Trying&lt;/a&gt;.&lt;/p&gt;
+      &lt;p&gt;In American shows, the script feels quite...scripted. Every other dialogue in a
+      conversation is written to be a punchline or a one-liner.&lt;/p&gt;
+
+      &lt;p&gt;British dramas feel more organic – a conversation goes on with (wry, dry) humour
+      sprinkled here and there.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/british-vs-american-comedy-drama" />
+    <summary type="html">They always felt different from each other, but I could never quite put a
+      finger on the difference.</summary>
+    <published>2024-07-07T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:9905f662-e652-4747-949b-37c1112e1bad</id>
+    <title type="html">Stubborn pop-up on &lt;i&gt;Mutual Fund Utilities (MFU)&lt;/i&gt; website</title>
+    <updated>2024-06-23T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">
+      &lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
+
+      &lt;p&gt;Tip for Mutual Fund Utilities (MFU) users:&lt;/p&gt;
+
+      &lt;p&gt;While transacting for a new folio, if you are stuck at &quot;Nominee Verify&quot;
+      pop-up even after verifying the nominee(s), then check that:
+      &lt;/p&gt;
+
+      &lt;ol&gt;
+      &lt;li&gt;Whether there are multiple holders of that CAN&lt;/li&gt;
+      &lt;li&gt;Whether *all* of the holders have verified the nominee(s)&lt;/li&gt;
+      &lt;/ol&gt;
+
+      &lt;img src=&quot;/static/images/mfu-nominee-verification-bug-fix.png&quot;
+      alt=&quot;Screenshot of Nominee Details section in Account Profile, showing whether some or
+      all of the holders of a selected CAN account have verified the nominee details. All holders
+      must have verified the nominee details in order to be able to transact for a new
+      folio.&quot;&gt;
+
+      &lt;h2&gt;The problem&lt;/h2&gt;
+
+      &lt;p&gt;I forgot to take screenshots, but here is a close enough description.&lt;/p&gt;
+      &lt;p&gt;If none of the holders have verified the nominee details, then MFU's interface in
+      this section provides a &quot;Verify nominee&quot; button *only* for the primary
+      holder.&lt;/p&gt;
+
+      &lt;p&gt;Once a primary holder has verified the nominee details, the interface looks like the
+      verification is already complete. But New Folio transaction will still ask you to Verify
+      Nominee. Very frustrating.&lt;/p&gt;
+
+      &lt;h2&gt;The solution&lt;/h2&gt;
+
+      &lt;p&gt;In order for any holders to verify nominee details, use this link: &lt;a
+      href=&quot;https://mfuonline.com/CNOMV&quot;&gt;https://mfuonline.com/CNOMV&lt;/a&gt;&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/mfu-nominee-verification" />
+    <summary type="html">Tip for Mutual Fund Utilities (MFU) users:</summary>
+    <published>2024-06-23T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:b1319873-65a5-49e3-82aa-334e3fb7e353</id>
+    <title type="html">Effective Scala, part 8 - OO concepts</title>
+    <updated>2024-05-14T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;Flip the perspective on tools like interfaces and traits. Don't
+      see them as a way for objects to share an interface, but as an abstraction over
+      implementations.&lt;/p&gt;
+
+      &lt;p&gt;So, not: DatabaseAccess -&amp;gt; (InMemoryDatabase, PhysicalDatabase)&lt;/p&gt;
+      &lt;p&gt;but: DatabaseAccess &amp;lt;- (InMemoryDatabase, PhysicalDatabase)&lt;/p&gt;
+      &lt;p&gt;An interface is more usefully seen as:&lt;/p&gt;
+
+      &lt;p&gt;- DatabaseAccess creates an abstraction barrier so we can ignore which database is
+      used underneath&lt;/p&gt;
+
+      &lt;p&gt;than as:&lt;/p&gt;
+
+      &lt;p&gt;- DatabaseAccess allows various databases to share the interface.&lt;/p&gt;
+      &lt;p&gt;The former encourages the view/use of interface as an abstraction over
+      implementation.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/effective-scala-8-oop" />
+    <summary type="html">Flip the perspective on tools like interfaces and traits. Don't see them as
+      a way for objects to share an interface, but as an abstraction over implementations.</summary>
+    <category term="Effective Scala series" label="Effective Scala series"></category>
+    <category term="OOP" label="OOP"></category>
+    <published>2024-05-14T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:5a99b823-fa04-4e97-b94f-a0e57f0f879a</id>
+    <title type="html">Series - Effective Programming in Scala</title>
+    <updated>2024-05-08T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;This is a series of articles I wrote while going through the
+      Coursera Course &lt;a
+      href=&quot;https://www.coursera.org/learn/effective-scala&quot;&gt;Effective Programming in
+      Scala&lt;/a&gt;.&lt;/p&gt;
+
+      &lt;ol&gt;
+      &lt;li&gt;&lt;a href=&quot;/2024/effective-scala-1-elements-of-a-program&quot;&gt;Elements of
+      a program&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/2024/effective-scala-2-domain-modelling&quot;&gt;Domain
+      Modelling&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a
+      href=&quot;/2024/effective-scala-3-compatibility-roulette&quot;&gt;Compatibility roulette in
+      Scala&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/2024/effective-scala-4-method-vs-function&quot;&gt;Function v/s
+      method&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/2024/effective-scala-5-collections&quot;&gt;Collections in
+      Scala&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/2024/effective-scala-6-sbt&quot;&gt;Scala Build Tool
+      (SBT)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/2024/effective-scala-7-project-entry-point&quot;&gt;Entry point of
+      a Scala project&lt;/a&gt;&lt;/li&gt;
+      &lt;/ol&gt;</content>
+    <link href="https://bhoot.dev/2024/effective-scala-series" />
+    <summary type="html">This is a series of articles I wrote while going through the Coursera
+      Course &lt;a href=&quot;https://www.coursera.org/learn/effective-scala&quot;&gt;Effective
+      Programming in Scala&lt;/a&gt;.</summary>
+    <category term="Scala" label="Scala"></category>
+    <category term="Effective Scala series" label="Effective Scala series"></category>
+    <published>2024-05-08T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:3194d9ee-2397-4b1a-ba7a-125dbe10fb30</id>
+    <title type="html">Effective Scala, part 7 - entry point of a project</title>
+    <updated>2024-05-07T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;While a scala worksheet are evaluated from top to bottom, a scala
+      project needs an entry point.&lt;/p&gt;
+
+      &lt;p&gt;Only two requirements:&lt;/p&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;It needs to be a top-level &lt;em&gt;method&lt;/em&gt; or an object-level method,
+      but not a class-level method&lt;/li&gt;
+      &lt;li&gt;It needs to be annotated with &lt;code&gt;@main&lt;/code&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;p&gt;Otherwise&lt;/p&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;It can be named anything.&lt;/li&gt;
+      &lt;li&gt;It can be put in an arbitrary source file.&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;p&gt;A source file in a project cannot contain top-level statements (e.g.,
+      &lt;code&gt;println&lt;/code&gt;), only top-level definitions (&lt;code&gt;def&lt;/code&gt;,
+      &lt;code&gt;val&lt;/code&gt;, &lt;code&gt;var&lt;/code&gt;, &lt;code&gt;trait&lt;/code&gt;,
+      &lt;code&gt;object&lt;/code&gt;, &lt;code&gt;class&lt;/code&gt; definitions)
+      .&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/effective-scala-7-project-entry-point" />
+    <summary type="html">While a scala worksheet are evaluated from top to bottom, a scala project
+      needs an entry point.</summary>
+    <category term="Effective Scala series" label="Effective Scala series"></category>
+    <published>2024-05-07T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:b84ce392-affe-484b-a5eb-fde46cdd0ad8</id>
+    <title type="html">Effective Scala, part 6 - Scala Build Tool (SBT)</title>
+    <updated>2024-05-06T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
+      &lt;p&gt;&lt;code&gt;src/project&lt;/code&gt; dir contains configuration about SBT -
+      &lt;code&gt;build.properties&lt;/code&gt; to specify sbt version,
+      &lt;code&gt;plugins.sbt&lt;/code&gt; to specify sbt plugins, and so on.&lt;/p&gt;
+      &lt;p&gt;&lt;code&gt;src/build.sbt&lt;/code&gt; contains the configuration to build the
+      project itself.&lt;/p&gt;
+
+      &lt;p&gt;̄An sbt build (&lt;code&gt;build.sbt&lt;/code&gt;) is composed of - settings and
+      tasks. A setting parametrises the build, and consists of a key value pair. A task may also by
+      parametrised by settings.&lt;/p&gt;
+
+      &lt;h2&gt;Configurations in &lt;code&gt;build.sbt&lt;/code&gt;&lt;/h2&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;Compile (default configuration where sbt looks first)&lt;/li&gt;
+      &lt;li&gt;Test&lt;/li&gt;
+      &lt;li&gt;Zero (no specified config, where fallback values live)&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;h2&gt;Scoping a Setting&lt;/h2&gt;
+
+      &lt;p&gt;Different values can be applied to a single setting by scoped its key.&lt;/p&gt;
+      &lt;p&gt;A key can be scoped along any of the 3 axes:&lt;/p&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;Configuration. e.g., &lt;code&gt;Compile / sourceDirectory&lt;/code&gt;,
+      &lt;code&gt;Test / sourceDirectory&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Task. e.g., &lt;code&gt;includeFilter&lt;/code&gt;, &lt;code&gt;unmanagedSources /
+      includeFilter&lt;/code&gt; where the latter &lt;code&gt;includeFilter&lt;/code&gt; is scoped
+      by &lt;code&gt;unmanagedSources&lt;/code&gt; task.&lt;/li&gt;
+      &lt;li&gt;Sub-project. e.g., &lt;code&gt;mainProject / scalaVersion&lt;/code&gt;,
+      &lt;code&gt;subProject / scalaVersion&lt;/code&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;p&gt;Axes can be combined too: &lt;code&gt;subProject / Compile / unmanagedSources /
+      includeFilter&lt;/code&gt;. I think the order is: &lt;strong&gt;project / configuration / task
+      / key&lt;/strong&gt;.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/effective-scala-6-sbt" />
+    <summary type="html">&lt;code&gt;src/project&lt;/code&gt; dir contains configuration about SBT -
+      &lt;code&gt;build.properties&lt;/code&gt; to specify sbt version,
+      &lt;code&gt;plugins.sbt&lt;/code&gt; to specify sbt plugins, and so on.</summary>
+    <category term="Effective Scala series" label="Effective Scala series"></category>
+    <published>2024-05-06T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:b62ea789-d0e9-4e7f-9b0e-40d17322bef7</id>
+    <title type="html">Effective Scala, part 5 - collections</title>
+    <updated>2024-04-24T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
+
+      &lt;p&gt;Operations on collections can be classified into:&lt;/p&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;construct&lt;/strong&gt; ops (&lt;code&gt;::&lt;/code&gt;,
+      &lt;code&gt;+:&lt;/code&gt;, &lt;code&gt;:+&lt;/code&gt;, &lt;code&gt;+&lt;/code&gt;,
+      &lt;code&gt;++&lt;/code&gt;);&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;query&lt;/strong&gt; ops (&lt;code&gt;size&lt;/code&gt;,
+      &lt;code&gt;empty&lt;/code&gt;, &lt;code&gt;head&lt;/code&gt;, &lt;code&gt;tail&lt;/code&gt;,
+      &lt;code&gt;find&lt;/code&gt;, &lt;code&gt;filter&lt;/code&gt;); and&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;transform&lt;/strong&gt; ops (&lt;code&gt;map&lt;/code&gt;,
+      &lt;code&gt;fold&lt;/code&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;h2&gt;Infix construct operators&lt;/h2&gt;
+
+      &lt;p&gt;There are a shitload of them, most of them with low recall value to a
+      beginner.&lt;/p&gt;
+
+      &lt;h3&gt;Immutable operators&lt;/h3&gt;
+      &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;::&lt;/code&gt; to prepend to a &lt;em&gt;List&lt;/em&gt;. &lt;code&gt;1
+      :: List.empty&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;+:&lt;/code&gt; to prepend to a &lt;code&gt;Sequence&lt;/code&gt;
+      collection, including &lt;code&gt;List&lt;/code&gt;. &lt;code&gt;1 +: mutable.ArrayBuffer(2,
+      3)&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;:+&lt;/code&gt; to append to a &lt;code&gt;Sequence&lt;/code&gt;
+      collection&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;+&lt;/code&gt; to add a (key, value) tuple to a
+      &lt;em&gt;Map&lt;/em&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;++&lt;/code&gt; constructs a new collection out of two collections.
+      &lt;code&gt;Map((1, &quot;1&quot;), (2, &quot;2&quot;)) ++ Map((4,
+      &quot;4&quot;))&lt;/code&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;h3&gt;Mutable operators&lt;/h3&gt;
+      &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;+=:&lt;/code&gt; to prepend to a &lt;code&gt;Sequence&lt;/code&gt;
+      collection&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;+=&lt;/code&gt; to append to a &lt;code&gt;Sequence&lt;/code&gt;
+      collection&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;++=&lt;/code&gt; concatenates two collections, mutates the first
+      one.&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;h2&gt;List&lt;/h2&gt;
+
+      &lt;p&gt;A list is constructed from right to left:&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;1 :: 2 :: 3 :: Nil&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;h2&gt;Option&lt;/h2&gt;
+
+      &lt;p&gt;Option is actually a collection of zero or one element.&lt;/p&gt;
+
+      &lt;p&gt;This explains why Option type has a &lt;code&gt;map&lt;/code&gt; or
+      &lt;code&gt;filter&lt;/code&gt; operations even in OCaml.&lt;/p&gt;
+
+      &lt;p&gt;No indexed access (&lt;code&gt;opt(0)&lt;/code&gt;) though, understandably.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/effective-scala-5-collections" />
+    <summary type="html">Operations on collections can be classified into:</summary>
+    <category term="Effective Scala series" label="Effective Scala series"></category>
+    <published>2024-04-24T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:af3fbc76-728b-45ac-9c02-886b7aa2db68</id>
+    <title type="html">Effective Scala, part 4 - function v/s method</title>
+    <updated>2024-04-21T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;A function is a value in Scala, while a method is not. So the
+      former can be passed as a parameter of a function or a method, and can be returned as a value.
+      Method cannot do any of those.&lt;/p&gt;
+
+      &lt;p&gt;A function is a value in Scala. All values are objects in Scala. An object can have
+      methods. So a function in Scala can have methods.&lt;/p&gt;
+
+      &lt;p&gt;Any function in Scala has a default &lt;code&gt;apply&lt;/code&gt; method.
+      &lt;code&gt;inc(1)&lt;/code&gt; is a shorthand for
+      &lt;code&gt;inc.apply(1)&lt;/code&gt;.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/effective-scala-4-method-vs-function" />
+    <summary type="html">A function is a value in Scala, while a method is not. So the former can be
+      passed as a parameter of a function or a method, and can be returned as a value. Method cannot
+      do any of those.</summary>
+    <category term="Effective Scala series" label="Effective Scala series"></category>
+    <published>2024-04-21T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:63a0e01e-eacb-486e-9f72-959cc2ccb742</id>
+    <title type="html">Effective Scala, part 3 - compatibility roulette</title>
+    <updated>2024-04-19T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
+
+      &lt;p&gt;I am going through the course &lt;a
+      href=&quot;https://www.coursera.org/learn/effective-scala&quot;&gt;Effective Programming in
+      Scala&lt;/a&gt; on Coursera, and ran into build import errors in the very first assignment
+      (fireworks).&lt;/p&gt;
+
+      &lt;h2&gt;Problem&lt;/h2&gt;
+
+      &lt;p&gt;While importing the fireworks project in VSCode-with-Metals, I encountered an error
+      that started with:&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;[..]bad constant pool index: [..]&lt;/code&gt;&lt;/pre&gt;
+      &lt;p&gt;Looks like an error right out of a database connection pool library!&lt;/p&gt;
+      &lt;h2&gt;Attempt 1&lt;/h2&gt;
+
+      &lt;p&gt;One of the suggested solutions on Discord was to ensure that the versions of java,
+      scala, and sbt exposed in the PATH are compatible with each other.&lt;/p&gt;
+
+      &lt;p&gt;Check the &lt;a
+      href=&quot;https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html&quot;&gt;compatibility
+      tables&lt;/a&gt;.&lt;/p&gt;
+
+      &lt;p&gt;But these were already compatible in my case.&lt;/p&gt;
+
+      &lt;h2&gt;Attempt 2&lt;/h2&gt;
+
+      &lt;p&gt;I roughly knew that *.sbt files describe the build of a project. Because the name
+      bore relevance to build process, I also counted in a file I noticed in early debugging:
+      &lt;code&gt;build.properties&lt;/code&gt;.&lt;/p&gt;
+
+      &lt;p&gt;So my first small scala project, and I am staring at the following list of *.sbt:
+      &lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;zsh | ~/Downloads
+      $ tree -a -P &quot;*.sbt&quot; -P &quot;*.properties&quot; fireworks
+      fireworks
+      ├── assignment.sbt
+      ├── build.sbt
+      ├── project
+      │ ├── build.properties
+      │ ├── buildSettings.sbt
+      │ └── plugins.sbt
+      └── src&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;And all of them were staring back at me, daring me to find which one of them is
+      hiding the cause of the error.&lt;/p&gt;
+
+      &lt;p&gt;Anyway, enough drama.&lt;/p&gt;
+
+      &lt;p&gt;On a hunch, I decided to match the versions of sbt and scala mentioned in these .sbt
+      files with the ones exposed in the PATH.&lt;/p&gt;
+
+      &lt;p&gt;The mismatch turned out to be in &lt;code&gt;build.properties&lt;/code&gt;.&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;zsh | ~/projects/effective-scala/week-1/fireworks
+      $ sbt -V
+      sbt version in this project: 1.9.9
+      sbt script version: 1.9.9
+
+      $ cat project/build.properties
+      sbt.version=1.8.2&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;I matched the versions to be &lt;code&gt;1.9.9&lt;/code&gt;, and re-ran the import.
+      It worked.&lt;/p&gt;
+
+      &lt;h2&gt;TL;DR&lt;/h2&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;Ensure that the versions of java, scala, and sbt exposed in the PATH are compatible
+      with each other. Use the official &lt;a
+      href=&quot;https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html&quot;&gt;compatibility
+      tables&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;Ensure that the versions of sbt and scala exposed in the PATH match with the
+      versions mentioned in the build files (like built.sbt, build.properties). Best make them
+      identical.&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;h2&gt;Conclusion&lt;/h2&gt;
+
+      &lt;p&gt;I hope this was the correct solution.&lt;/p&gt;
+
+      &lt;p&gt;As people who make tools to make people's lives easier, we sure love to torture
+      ourselves with our own tools.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/effective-scala-3-compatibility-roulette" />
+    <summary type="html">I am going through the course &lt;a
+      href=&quot;https://www.coursera.org/learn/effective-scala&quot;&gt;Effective Programming in
+      Scala&lt;/a&gt; on Coursera, and ran into build import errors in the very first assignment
+      (fireworks).</summary>
+    <category term="Effective Scala series" label="Effective Scala series"></category>
+    <published>2024-04-19T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:321f0aca-5212-4b8b-8994-946cac15316f</id>
+    <title type="html">Effective Scala, part 2 - domain modelling</title>
+    <updated>2024-04-16T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;Finding the &lt;em&gt;right&lt;/em&gt; level of abstraction is
+      more important than the best level of abstraction.&lt;/p&gt;
+
+      &lt;p&gt;For example, in a problem involving doors and windows and facades, if the domain is
+      constrained to only deal with surface area, then modelling the doors and windows and facade in
+      terms of &lt;strong&gt;Rectangle&lt;/strong&gt; is the right level of abstraction instead of
+      modelling them as Door, Window, and Facade respectively.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/effective-scala-2-domain-modelling" />
+    <summary type="html">Finding the &lt;em&gt;right&lt;/em&gt; level of abstraction is more
+      important than the best level of abstraction.</summary>
+    <category term="Effective Scala series" label="Effective Scala series"></category>
+    <published>2024-04-16T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:7baad03d-26bd-44b2-a645-36b00f7707a1</id>
+    <title type="html">Effective Scala, part 1 - elements of a program</title>
+    <updated>2024-04-15T16:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
+
+      &lt;h2&gt;Value (or Data in this context)&lt;/h2&gt;
+
+      &lt;p&gt;A value is the representation of some entity that can be manipulated by a
+      program.&lt;/p&gt;
+
+      &lt;p&gt;Value is the most abstract definition here, but it is made concrete by subsequent
+      definitions.&lt;/p&gt;
+
+      &lt;h2&gt;Literal&lt;/h2&gt;
+
+      &lt;p&gt;A literal is a text representation of a value in source code.&lt;/p&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;1&lt;/code&gt; is an integer literal&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;&quot;1&quot;&lt;/code&gt; is a string literal&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;(x) =&amp;gt; x * x&lt;/code&gt; is a &lt;strong&gt;function
+      literal&lt;/strong&gt; aka anonymous function in JavaScript&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;{id: 1, (x) =&amp;gt; x * x}&lt;/code&gt; is an &lt;strong&gt;object
+      literal&lt;/strong&gt; in JavaScript, etc.&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;h2&gt;(Data) Type&lt;/h2&gt;
+
+      &lt;p&gt;A data type (or simply type) is a collection of data values.&lt;/p&gt;
+
+      &lt;p&gt;A type is usually specified by a set of possible values, and a set of allowed
+      &lt;strong&gt;operations&lt;/strong&gt; on these
+      values.&lt;/p&gt;
+
+      &lt;p&gt;The members of a type are the values of that type.&lt;/p&gt;
+      &lt;h2&gt;Expression&lt;/h2&gt;
+
+      &lt;p&gt;An expression is a syntactic entity that can evaluate to a value.&lt;/p&gt;
+      &lt;p&gt;An expression combines literals, constants,
+      variables, and expressions, &lt;strong&gt;by applying operations&lt;/strong&gt; (functions,
+      operators, methods) on them.&lt;/p&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;1&lt;/code&gt; is an integer literal that is also a simple expression
+      that evaluates to value &lt;code&gt;1&lt;/code&gt;. Value
+      &lt;code&gt;1&lt;/code&gt; belongs to type &lt;code&gt;Integer&lt;/code&gt;.
+      &lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;&quot;Alice&quot; + &quot; Wonderland&quot;&lt;/code&gt; is an
+      expression that combines two string literals by applying the operation
+      &lt;code&gt;+&lt;/code&gt; on
+      them. Literal &lt;code&gt;&quot;Alice&quot;&lt;/code&gt; represents the value
+      &lt;code&gt;Alice&lt;/code&gt;. The value &lt;code&gt;Alice&lt;/code&gt; belongs to type
+      &lt;code&gt;String&lt;/code&gt;. The operation &lt;code&gt;+&lt;/code&gt; is an
+      operator/method defined on type &lt;code&gt;String&lt;/code&gt; and can be applied on
+      literals, constants, variables that represent a value of type &lt;code&gt;String&lt;/code&gt;.
+      &lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;(&quot;Alice&quot; + &quot; Wonderland&quot;).toUpperCase&lt;/code&gt;
+      is an expression in which operation &lt;code&gt;toUpperCase&lt;/code&gt; is
+      applied on the expression &lt;code&gt;&quot;Alice&quot; + &quot;
+      Wonderland&quot;&lt;/code&gt;. The expression &lt;code&gt;&quot;Alice&quot; + &quot;
+      Wonderland&quot;&lt;/code&gt; evaluates to a value &lt;code&gt;Alice Wonderland&lt;/code&gt;
+      of type &lt;code&gt;String&lt;/code&gt;. The operation &lt;code&gt;toUpperCase&lt;/code&gt; is
+      a method defined on type &lt;code&gt;String&lt;/code&gt; and can be applied on literals,
+      constants, variables that represent a value of type &lt;code&gt;String&lt;/code&gt;.
+      &lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;h2&gt;Program&lt;/h2&gt;
+
+      &lt;p&gt;A program expresses a computation. (A computation is any type of arithmetic or
+      non-arithmetic calculation that is
+      well-defined).&lt;/p&gt;
+
+      &lt;p&gt;A program is a sequence of expressions (and/or statements too, but let's keep it
+      simple here).&lt;/p&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;1 + 1&lt;/code&gt; is an expression, but also a program which expresses
+      the computation of adding 1 to 1.&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;h2&gt;Another perspective on Type&lt;/h2&gt;
+
+      &lt;p&gt;Types define the rules for combining expressions. The types define how the
+      expressions can be combined, by applying
+      operations to them. For this reason, operations are also called members of types.&lt;/p&gt;
+      &lt;p&gt;For instance, the &amp;amp;&amp;amp; operation (and) is available on the type
+      Boolean, and it expects another Boolean value on its
+      right-hand side. We say that the type Boolean has a member named &amp;amp;&amp;amp; (and),
+      which takes another Boolean value as a
+      parameter.&lt;/p&gt;
+
+      &lt;p&gt;If you try to apply an operation to an expression,
+      whose type does not provide such an operation, it's an error.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/effective-scala-1-elements-of-a-program" />
+    <summary type="html">A value is the representation of some entity that can be manipulated by a
+      program.</summary>
+    <category term="Effective Scala series" label="Effective Scala series"></category>
+    <published>2024-04-15T16:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:6ac9fa5c-7838-41ef-ad83-d460315fa18c</id>
+    <title type="html">An overview of OCaml editor tooling</title>
+    <updated>2024-04-15T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
+
+      &lt;p&gt;I have gone through some options over time. Here is an overview for my future
+      self.&lt;/p&gt;
+
+      &lt;h2&gt;Relevant background&lt;/h2&gt;
+
+      &lt;h3&gt;Package and build tooling&lt;/h3&gt;
+
+      &lt;p&gt;Over time, the OCaml community has converged on:&lt;/p&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;opam&lt;/strong&gt; as a package manager and a project environment
+      handler&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;dune&lt;/strong&gt; as a build system&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;ocamlformat&lt;/strong&gt; as a code formatter&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;p&gt;Other tools in these spaces exist, but the above two are officially recommended, and
+      relatively more popular.&lt;/p&gt;
+
+      &lt;h3&gt;Editor service - &lt;strong&gt;Merlin&lt;/strong&gt;&lt;/h3&gt;
+      &lt;p&gt;&lt;strong&gt;Merlin&lt;/strong&gt; is a &quot;headless&quot; tool which provides
+      modern IDE features for OCaml/ReasonML code.&lt;/p&gt;
+
+      &lt;p&gt;Supporting OCaml in an editor/IDE is essentially a matter of talking to
+      Merlin.&lt;/p&gt;
+
+      &lt;h3&gt;Editor service - LSP&lt;/h3&gt;
+
+      &lt;p&gt;With the advent of VS Code and Language Server Protocol,
+      &lt;strong&gt;ocaml-lsp&lt;/strong&gt; was built as an LSP wrapper on top of Merlin.&lt;/p&gt;
+      &lt;h3&gt;How everything comes together&lt;/h3&gt;
+
+      &lt;p&gt;A glue package integrates the editor service (merlin or ocaml-lsp) with an
+      editor.&lt;/p&gt;
+
+      &lt;p&gt;The glue package assumes that the editor service is available in the user
+      environment. The recommended approach is to have opam create a project-specific environment
+      (called a &lt;b&gt;opam local switch&lt;/b&gt;), and install merlin or ocaml-lsp in that
+      env.&lt;/p&gt;
+
+      &lt;h3&gt;merlin v/s ocaml-lsp&lt;/h3&gt;
+
+      &lt;h4&gt;Feature parity&lt;/h4&gt;
+
+      &lt;p&gt;In terms of features, both ocaml-lsp and merlin are pretty much on par with each
+      other.&lt;/p&gt;
+
+      &lt;p&gt;ocaml-lsp lacks one feature though: determining the type of a selected block of code.
+      Its a pretty nifty feature thanks to OCaml's strong typing system and merlin.&lt;/p&gt;
+      &lt;p&gt;Quoting Marek Kubica from OCaml forums: &lt;a
+      href=&quot;https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/2&quot;&gt;↗&lt;/a&gt;&lt;/p&gt;
+      &lt;blockquote cite=&quot;https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/2&quot;&gt;
+      The only thing I’ve used with Merlin directly that I don’t have at the moment is determining
+      the type of a selection.
+      &lt;/blockquote&gt;
+
+      &lt;h4&gt;Dependency on dune&lt;/h4&gt;
+
+      &lt;p&gt;ocaml-lsp depends on dune to generate type information. Merlin does not need it.
+      Legacy projects predating dune have found this to be a hurdle in transitioning to
+      ocaml-lsp.&lt;/p&gt;
+
+      &lt;h4&gt;Speed&lt;/h4&gt;
+
+      ocaml-lsp, despite being an abstraction on top of merlin, feel faster than the direct merlin
+      because ocaml-lsp operates asynchronously.
+
+      &lt;p&gt;Quoting Rudi Grinberg from OCaml forums: &lt;a
+      href=&quot;https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/4&quot;&gt;↗&lt;/a&gt;&lt;/p&gt;
+      &lt;blockquote cite=&quot;https://discuss.ocaml.org/t/merlin-vs-ocaml-lsp/8887/4&quot;&gt;
+      In my experience the editor frontends that come with merlin perform poorly compared to their
+      LSP counterparts. In Emacs for example, I recall that switching to eglot to ocamllsp gave me a
+      very noticeable boost in completion performance and error checking performance.
+      &lt;/blockquote&gt;
+
+      &lt;p&gt;In a (significantly) large codebase, the editing experience in vim/emacs+merlin has
+      reported to become less responsive and more laggy.&lt;/p&gt;
+
+
+      &lt;h2&gt;Editing setups&lt;/h2&gt;
+
+      &lt;p&gt;I will list a few editing setups I have seen in use.&lt;/p&gt;
+
+      &lt;h3&gt;Official, popular setups&lt;/h3&gt;
+
+      &lt;p&gt;These are official in the sense that setup instructions are &lt;a
+      href=&quot;https://ocaml.org/docs/set-up-editor&quot;&gt;available on the official
+      website.&lt;/a&gt;&lt;/p&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;merlin + emacs&lt;/li&gt;
+      &lt;li&gt;merlin + vim&lt;/li&gt;
+      &lt;li&gt;ocaml-lsp + vscode&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;h3&gt;Unofficial, popular setups&lt;/h3&gt;
+
+      &lt;p&gt;Thanks to ocaml-lsp, alternatives have emerged:&lt;/p&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;ocaml-lsp + neovim&lt;/li&gt;
+      &lt;li&gt;ocaml-lsp + emacs&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;h3&gt;Worthy outliers&lt;/h3&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;IntelliJ with &lt;a
+      href=&quot;https://plugins.jetbrains.com/plugin/9440-reasonml&quot;&gt;ReasonML&lt;/a&gt;
+      plugin by Herve Giraud. The only one that does not use merlin underneath, rather takes
+      advantage of IntelliJ's IDE infrastructure.&lt;/li&gt;
+      &lt;li&gt;ocaml-lsp + helix&lt;/li&gt;
+      &lt;li&gt;Anything else that can work with LSP protocol, like KDE's Kate editor&lt;/li&gt;
+      &lt;li&gt;Thanks to a strong static typing with a very fast compiler and a built tool with
+      watch mode, some ditch tooling altogether and go with plain vim or emacs or even &lt;a
+      href=&quot;https://discuss.ocaml.org/t/which-editor-ide-do-you-use-when-developing-ocaml-projects/362/27&quot;&gt;nano&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;h2&gt;My excursions&lt;/h2&gt;
+
+      &lt;p&gt;I care a lot about vim-like modal editing.&lt;/p&gt;
+
+      &lt;p&gt;The other thing I care about: less hassle to set up.&lt;/p&gt;
+
+      &lt;p&gt;Now, let's see how some of these have fared for me.&lt;/p&gt;
+
+      &lt;h3&gt;merlin + emacs&lt;/h3&gt;
+
+      &lt;p&gt;The glue packages in this case are &lt;strong&gt;tuareg&lt;/strong&gt; and
+      &lt;strong&gt;user-setup&lt;/strong&gt;.&lt;/p&gt;
+
+      &lt;p&gt;Unfortunately, &lt;a
+      href=&quot;https://ocaml.org/docs/set-up-editor#vim-and-emacs&quot;&gt;official
+      instructions&lt;/a&gt; didn't work for me. Instructions &lt;a
+      href=&quot;https://dev.realworldocaml.org/install.html#editor-setup&quot;&gt;from Real World
+      OCaml&lt;/a&gt; did:&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;$ opam install user-setup tuareg ocamlformat merlin
+      $ opam user-setup install&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;There is another alternative to tuareg - &lt;strong&gt;caml-mode&lt;/strong&gt;, but
+      I haven't tried it.&lt;/p&gt;
+
+      &lt;p&gt;Tuareg also provides a &lt;i&gt;Send to REPL for evaluation&lt;/i&gt; action, which
+      provides a quick way to test and design code on-the-fly.&lt;/p&gt;
+
+      &lt;p&gt;This setup works (type inference, error detection, etc.), but is very barebones. I
+      realised I had to do a lot more on Emacs side - install and configure packages like flycheck,
+      eldoc, merlin-eldoc, and what not - to modernise the editing experience. I stopped
+      here.&lt;/p&gt;
+
+      &lt;h3&gt;merlin + vim&lt;/h3&gt;
+
+      &lt;p&gt;The glue package is &lt;strong&gt;user-setup&lt;/strong&gt;.&lt;/p&gt;
+      &lt;p&gt;However, this setup did not work due to the following error:&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;&quot;src/soup.ml&quot; 1326L, 39757B
+      Error detected while processing BufRead Autocommands for &quot;*.ml&quot;..FileType
+      Autocommands for &quot;*&quot;..function &amp;lt;SNR&amp;gt;4_LoadFTPlugin[18]..script
+      /Users/jb/projects/lambdasoup/_opam
+      /share/merlin/vim/ftplugin/ocaml.vim[2]../Users/jb/projects/lambdasoup/_opam/share/merlin/vim/autoload/merlin.vim:
+      line 9:
+      Error: Required vim compiled with +python or +python3
+      Error detected while processing BufRead Autocommands for &quot;*.ml&quot;..FileType
+      Autocommands for &quot;*&quot;..function &amp;lt;SNR&amp;gt;4_LoadFTPlugin[18]..script
+      /Users/jb/projects/lambdasoup/_opam
+      /share/merlin/vim/ftplugin/ocaml.vim:
+      line 2:
+      E117: Unknown function: merlin#Register
+      Press ENTER or type command to continue&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;I get the issue of course: my vim is not compiled with python. But it also means that
+      now I have to look for a vim that is compiled with python. And I tried out two vims: macOS's
+      default vim, and the vim in nixpkgs.&lt;/p&gt;
+
+      &lt;p&gt;So I moved on.&lt;/p&gt;
+
+      &lt;h3&gt;ocaml-lsp + vscode&lt;/h3&gt;
+
+      &lt;p&gt;The glue package is &lt;strong&gt;VSCode OCaml Platform&lt;/strong&gt;, which,
+      besides integrating ocaml-lsp, also brings together ocamlformat, opam environment sandbox
+      selection tool, etc., under a single VS Code extension.&lt;/p&gt;
+
+      &lt;p&gt;Despite that fact that there is one more abstraction to deal with - ocaml-lsp built
+      on top of merlin - this setup has been one of the most seamless.&lt;/p&gt;
+
+      &lt;p&gt;It is also the top official recommendation now, thanks to a lot of effort put in by
+      OCaml tooling developers.&lt;/p&gt;
+
+      &lt;p&gt;The extension also provides a &quot;Send to REPL for evaluation&quot; action, much
+      popular with the Emacs crowd.&lt;/p&gt;
+
+      &lt;p&gt;The experience hasn't been 100% flawless though. Once, when I opened VS Code with an
+      OCaml project, the editor didn't show any type hints at all. No errors were thrown either.
+      After a long debugging session, it turned out that the OCaml LSP did throw an error saying
+      that VS Code needs to be updated, but it was buried in Output Pane's OCaml LSP tab. I wish
+      that the Output window had popped up on its own to highlight the error, instead of having to
+      look for the problem myself. I have seen this happen in some other language project.&lt;/p&gt;
+      &lt;p&gt;This is VS Code specific, but I also miss a good modal editing experience. I also
+      keep getting bugged by a weird problem caused due to my MacBook's virtual Fn bar and while
+      executing a specific keychord sequence, in which a slight touch from one of my raised fingers
+      triggers the find window in VS Code. Very annoying!&lt;/p&gt;
+
+      &lt;h3&gt;ocaml-lsp + neovim&lt;/h3&gt;
+
+      &lt;p&gt;The glue package is &lt;strong&gt;nvim-lspconfig&lt;/strong&gt;.&lt;/p&gt;
+      &lt;p&gt;This setup has often broken down, though the &lt;strong&gt;fault lied with the
+      constant churn in neovim and neovim's LSP ecosystem&lt;/strong&gt; more than with OCaml
+      tooling.&lt;/p&gt;
+
+      &lt;p&gt;There are a lot of other helper neovim packages to reckon with, like, the
+      configurations of which I copy-paste and then pray for them to keep working.&lt;/p&gt;
+      &lt;p&gt;When everything works, this is the most elegant setup for me. However, once in a
+      while, when I load an OCaml project in neovim, some setup-related error would pop
+      up.&lt;/p&gt;
+
+      &lt;p&gt;Debugging a broken neovim configuration is a nightmare I wouldn't wish upon my
+      enemy.&lt;/p&gt;
+
+      &lt;h3&gt;ocaml-lsp + helix&lt;/h3&gt;
+
+      &lt;p&gt;&lt;strong&gt;There is no glue package.&lt;/strong&gt; This has been
+      &lt;strong&gt;the only zero-config setup&lt;/strong&gt; for me.&lt;/p&gt;
+
+      &lt;p&gt;Only Helix has worked immediately and flawlessly for me.&lt;/p&gt;
+      &lt;h2&gt;Conclusion&lt;/h2&gt;
+
+      &lt;p&gt;At this point, I would consider the merlin-based setups appropriate only for
+      &lt;strong&gt;veterans and advanced users&lt;/strong&gt;. They are worth it only if you care
+      about having every fringe feature available under merlin and don't mind going through some
+      pain of setting things up.&lt;/p&gt;
+
+      &lt;p&gt;merlin-based setup might also be the only sane option if a project does not use dune
+      as its build tool. But don't quote me on this.&lt;/p&gt;
+
+      &lt;p&gt;A &lt;strong&gt;beginner&lt;/strong&gt; should absolutely choose VS Code OCaml
+      Platform. When there is a whole new ecosystem to reckon with, you don't want to be scared away
+      by the editing experience.&lt;/p&gt;
+
+      &lt;p&gt;Only Helix provides a similar seamless experience. So VS Code dodgers can choose
+      helix (at the cost of the baggage of a non-vim modal editing).&lt;/p&gt;
+
+      &lt;p&gt;To vim lovers, I recommend the ocaml-lsp + neovim route.&lt;/p&gt;
+
+      &lt;p&gt;To emacs lovers, I recommend the ocaml-lsp + emacs route.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/editor-tooling-in-ocaml" />
+    <summary type="html">For a small community, OCaml ecosystem is quite rich, maybe too rich, in
+      editor tooling.</summary>
+    <category term="OCaml" label="OCaml"></category>
+    <published>2024-04-15T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:aa8b98ca-36f9-4a95-9b18-2b8a75335e17</id>
+    <title type="html">Memorising branch order in git rebase</title>
+    <updated>2024-03-05T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;In a &lt;code&gt;git rebase x&lt;/code&gt; command, is
+      &lt;code&gt;x&lt;/code&gt; being rebased on the current branch, or vice versa?&lt;/p&gt;
+      &lt;p&gt;I mentally always read &lt;i&gt;rebase&lt;/i&gt; as &lt;i&gt;rebase on top
+      of&lt;/i&gt;.&lt;/p&gt;
+
+      &lt;p&gt;So, &lt;code&gt;git rebase master&lt;/code&gt; reads as &lt;strong&gt;&lt;i&gt;git,
+      rebase on top of master&lt;/i&gt;&lt;/strong&gt;, i.e., rebase the current branch on top of
+      master.&lt;/p&gt;
+
+      &lt;p&gt;But what about the alternate version of the command: &lt;code&gt;git rebase master
+      feat/x&lt;/code&gt; ?&lt;/p&gt;
+
+      &lt;p&gt;Well, git always rebases the &lt;strong&gt;current&lt;/strong&gt; branch.&lt;/p&gt;
+      &lt;p&gt;So &lt;code&gt;git rebase master feat/x&lt;/code&gt; is actually &lt;code&gt;git
+      checkout feat/x &amp;amp;&amp;amp; git rebase master&lt;/code&gt; . So the reading
+      &lt;i&gt;git rebase on top of master&lt;/i&gt; still applies.&lt;/p&gt;
+
+      &lt;p&gt;A bit clunky, but good enough for me.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/memorising-git-rebase" />
+    <summary type="html">In a &lt;code&gt;git rebase x&lt;/code&gt; command, is
+      &lt;code&gt;x&lt;/code&gt; being rebased on the current branch, or vice versa?</summary>
+    <category term="Git" label="Git"></category>
+    <published>2024-03-05T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:972047d6-1709-42ab-b18e-fa68f6a760b5</id>
+    <title type="html">&lt;del&gt;I switched to fish shell&lt;/del&gt; Nope. Back to bash.</title>
+    <updated>2024-02-06T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
+
+      &lt;h2&gt;Update: 5 May 2024&lt;/h2&gt;
+
+      &lt;p&gt;I have come crawling back to bash. Why?&lt;/p&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;My interest in system, infrastructure, and developer tooling is growing. I don't see
+      much place for a non-bash shell in that space. &lt;/li&gt;
+      &lt;li&gt;I have time for only one niche ecosystem in my life. I have already chosen OCaml as
+      it.&lt;/li&gt;
+      &lt;li&gt;fish is too syntax-incompatible with bash, right down to inline declaration of env
+      vars before executing a command. If I have to recall the fish syntax for every little thing,
+      then it's just not worth it.&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;h2&gt;Original article&lt;/h2&gt;
+
+      &lt;p&gt;Here, I am putting down my reasons to choose &lt;code&gt;fish&lt;/code&gt; shell for
+      my future self.&lt;/p&gt;
+
+      &lt;p&gt;All I want is a shell that is&lt;/p&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;a first-class citizen on macOS and Linux&lt;/li&gt;
+      &lt;li&gt;low maintenance, which means&lt;/li&gt;
+      &lt;li&gt;out-of-the-box or low-configuration autocompletion and fuzzy history
+      search&lt;/li&gt;
+      &lt;li&gt;adequately supported by third-party tools&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;p&gt;I don't use shell much beyond that.&lt;/p&gt;
+
+      &lt;p&gt;I also don't care much about scripting compabilities as I have never had to share
+      scripts with others. Also, I prefer to write my scripts in typed, FP languages like
+      Scala.&lt;/p&gt;
+
+      &lt;p&gt;&lt;code&gt;fish&lt;/code&gt; checks all those boxes.&lt;/p&gt;
+      &lt;p&gt;&lt;code&gt;bash&lt;/code&gt; is anything but first-class on macOS now.&lt;/p&gt;
+      &lt;p&gt;&lt;code&gt;zsh&lt;/code&gt; is powerful, and comes with a lot of bells and whistles,
+      most of them do not come out-of-the-box. I need to lug around a few packages (like
+      &lt;code&gt;zsh-completions&lt;/code&gt;) and a lot of configuration. I also need to maintain
+      configuration for &lt;code&gt;fzf&lt;/code&gt; for fuzzy search.&lt;/p&gt;
+
+      &lt;p&gt;At the very least, I will stop worrying and wasting time in maintaining parity
+      between bash and zsh configs.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2024/switching-to-fish-shell" />
+    <summary type="html">I have come crawling back to bash. Why?</summary>
+    <category term="Shell" label="Shell"></category>
+    <published>2024-02-06T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:e5759f6b-3be5-4219-aad2-35e9d8c1ebe2</id>
+    <title type="html">Make an opam local switch and &lt;code&gt;dune init project&lt;/code&gt; work
+      together</title>
+    <updated>2023-12-03T11:31:22Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
+
+      &lt;p&gt;In the OCaml ecosystem, opam is the most popular package management tool, while dune
+      is the foremost build tool.&lt;/p&gt;
+
+      &lt;p&gt;Both have evolved independently. While they manage to work in tandem, there are a lot
+      of irregularities to trip on
+      where they meet.&lt;/p&gt;
+
+      &lt;h2&gt;Local switch in opam&lt;/h2&gt;
+
+      &lt;p&gt;opam's local switch feature can set up and isolate development environment and
+      dependencies per project.&lt;/p&gt;
+
+      &lt;p&gt;&lt;code&gt;opam switch create&lt;/code&gt; creates a local switch if it is given the
+      path to a directory. If the specified
+      directory does not exist, then its is created.&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;opam switch create ./path/to/existing/dir&lt;/code&gt;&lt;/pre&gt;
+      &lt;p&gt;The above command creates an &lt;i&gt;_opam&lt;/i&gt; directory inside the given
+      path, inside which all of the opam-related
+      artifacts for this project are stored.&lt;/p&gt;
+
+      &lt;p&gt;A cool side-effect is that when a directory containing a local opam switch is
+      visited, that switch is activated
+      automatically. No need to &lt;code&gt;opam switch set&lt;/code&gt; the switch
+      explicitly.&lt;/p&gt;
+
+      &lt;h2&gt;dune init project&lt;/h2&gt;
+
+      &lt;p&gt;&lt;code&gt;dune init project&lt;/code&gt; is the recommended way to bootstrap an
+      OCaml project.&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;dune init project prj_name&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt; The above command creates a directory named &lt;i&gt;prj_name&lt;/i&gt; in the
+      current directory, and populates it with project
+      artifacts.&lt;/p&gt;
+
+      &lt;p&gt;I found that dune cannot bootstrap a project in the current directory itself. So
+      &lt;code&gt;dune init project .&lt;/code&gt;
+      fails to work.&lt;/p&gt;
+
+      &lt;h2&gt;The problem&lt;/h2&gt;
+
+      &lt;p&gt; I prefer to use opam's local switch feature to ensure the isolatation of all
+      dependencies and tools related to an
+      OCaml project. This means I also prefer to install dune per-project. So &lt;/p&gt;
+
+      &lt;ol&gt;
+      &lt;li&gt;I want to use dune to bootstrap a project&lt;/li&gt;
+      &lt;li&gt;dune is installed through opam&lt;/li&gt;
+      &lt;li&gt;opam needs a local switch for per-project installation&lt;/li&gt;
+      &lt;li&gt;A local switch needs an existing empty project directory&lt;/li&gt;
+      &lt;li&gt;dune cannot bootstrap a project in a current directory&lt;/li&gt;
+      &lt;/ol&gt;
+
+      &lt;p&gt;The chicken and egg problem looks easy now, huh?&lt;/p&gt;
+
+      &lt;p&gt;I started guessing a solution. &lt;/p&gt;
+
+      &lt;hgroup&gt;
+      &lt;h3&gt;Attempt 1&lt;/h3&gt;
+      &lt;p&gt;Execute opam and dune commands from parent directory&lt;/p&gt;
+      &lt;/hgroup&gt;
+
+      &lt;p&gt;I planned the following idealised sequence of commands:&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;# create an empty project dir
+      ~/projects $ mkdir my_prj
+
+      # create a local switch
+      ~/projects $ opam switch create ./my_prj
+
+      # install dune in our local switch
+      ~/projects $ opam install dune
+
+      # bootstrap project
+      ~/projects $ dune init project my_prj&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;I didn't make it past the 3rd command of installing dune because of the following
+      (reasonable) error:&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;$ opam install dune
+      [ERROR] No switch is currently set. Please use 'opam switch'
+      to set or install a switch.&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;Ok, then. I tried to set the switch after creating it.&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;~/projects $ mkdir my_prj
+      ~/projects $ opam switch create ./my_prj
+      ~/projects $ opam switch set ./my_prj
+      [ERROR] Can not set external switch '/Users/jb/projects/my_prj' globally. To set
+      it in the current shell use:
+      eval $(opam env --switch=/Users/jb/projects/my_prj --set-switch)&lt;/code&gt;&lt;/pre&gt;
+      &lt;p&gt;The advice felt like a long-winded solution to me. I wanted a simpler
+      solution.&lt;/p&gt;
+
+      &lt;p&gt;So may be, first, I should enter the empty project directory to set up the
+      project.&lt;/p&gt;
+
+      &lt;hgroup&gt;
+      &lt;h3&gt;Attempt 2&lt;/h3&gt;
+      &lt;p&gt;Execute opam and dune commands from project directory&lt;/p&gt;
+      &lt;/hgroup&gt;
+
+      &lt;p&gt;I carried out the following sequence of commands:&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;~/projects $ mkdir my_prj
+      ~/projects $ cd my_prj
+      ~/projects/my_prj $ opam switch create .
+      ~/projects/my_prj $ opam install dune
+      ~/projects/my_prj $ dune init project my_prj&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;The above sequence creates a &lt;code&gt;my_prj/my_prj/&lt;/code&gt; directory tree.
+      That's not what I wanted.&lt;/p&gt;
+
+      &lt;p&gt;Now what?&lt;/p&gt;
+
+      &lt;hgroup&gt;
+      &lt;h3&gt;Solution&lt;/h3&gt;
+      &lt;p&gt;exploit opam's auto-activation of local switch&lt;/p&gt;
+      &lt;/hgroup&gt;
+
+      &lt;p&gt;Now, consider the following sequence of commands:&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;# create an empty project dir
+      ~/projects $ mkdir my_prj
+
+      ~/projects $ cd my_prj
+
+      # create a local switch, which is auto-activated after a successful creation
+      # because the switch is created in the current directory itself.
+      ~/projects/my_prj $ opam switch create .
+
+      ~/projects/my_prj $ opam install dune
+
+      # go back to parent, with opam still pointing to the local switch env
+      # until the current session ends or until another switch is activated
+      ~/projects $ cd ..
+
+      # bootstrap our project
+      ~/projects/my_prj $ dune init project my_prj&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;Note the 3rd command &lt;code&gt;opam switch create .&lt;/code&gt;. After the command
+      finishes execution, the switch is
+      auto-activated because the local switch lives in the current directory
+      &lt;code&gt;.&lt;/code&gt; itself.&lt;/p&gt;
+
+      &lt;p&gt;opam also sets an env var &lt;code&gt;OPAM_SWITCH_PREFIX&lt;/code&gt; to the path of
+      this activated switch.&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;$ echo $OPAM_SWITCH_PREFIX
+      /Users/jb/projects/my_prj/_opam&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;This env var probably lives on until the current shell session ends even if the
+      directory changes, or until another
+      switch is activated.&lt;/p&gt;
+
+      &lt;aside&gt;
+      &lt;p&gt;If the directory is changed at this point, then &lt;code&gt;opam switch
+      list&lt;/code&gt; no longer shows an active switch.
+      However, &lt;code&gt;OPAM_SWITCH_PREFIX&lt;/code&gt; still points to our my_prj local switch
+      until a directory with another local
+      switch is visited.&lt;/p&gt;
+
+      &lt;p&gt;Also, my machine's opam setup does not a global switch at all. I am not sure how opam
+      would behave amidst all of this
+      in presence of a global switch. A case for another time, may be.&lt;/p&gt;
+      &lt;/aside&gt;
+
+      &lt;p&gt;That means that when the above command sequence goes one directory up to execute
+      &lt;code&gt;dune init project&lt;/code&gt;, opam
+      is still pointing to the right local switch env.&lt;/p&gt;
+
+      &lt;p&gt;Also dune does not mind if the directory &lt;i&gt;my_prj&lt;/i&gt; already
+      exists.&lt;/p&gt;
+
+      &lt;p&gt;Case solved!&lt;/p&gt;
+
+      &lt;p&gt;I can imagine a variation of the above sequence:&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;# create an empty project dir
+      ~/projects $ mkdir my_prj
+
+      # create our local switch
+      ~/projects $ opam switch create ./my_prj
+
+      # activate our local switch
+      ~/projects $ cd my_prj
+
+      # go back to parent, with opam still pointing to the local switch env
+      # until the current session ends or until another switch is activated
+      ~/projects/my_prj $ cd ..
+
+      # install dune in our local switch
+      ~/projects $ opam install dune
+
+      # bootstrap our project
+      ~/projects $ dune init project my_prj&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;h2&gt;What next?&lt;/h2&gt;
+
+      &lt;p&gt;There is &lt;a
+      href=&quot;https://discuss.ocaml.org/t/extending-dune-with-package-management/5649&quot;&gt;work
+      under progress&lt;/a&gt; to
+      wrap dune around opam, thus making dune as the unifying package management and build
+      solution.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2023/opam-local-switch-and-dune-init-project" />
+    <summary type="html">In the OCaml ecosystem, opam is the most popular package management tool,
+      while dune is the foremost build tool.</summary>
+    <category term="OCaml" label="OCaml"></category>
+    <published>2023-12-03T11:31:22Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:6e7ebece-1f47-4461-b284-a0094aacf55e</id>
+    <title type="html">Spoonfeeding machine architecture to OCaml toolchain on Apple Silicon</title>
+    <updated>2023-12-01T11:31:22Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
+
+      &lt;h2&gt;Problem&lt;/h2&gt;
+
+      &lt;p&gt;OCaml compiler failed to build on my M1 Macbook with Apple's Silicon
+      architecture.&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;$ opam switch create . 4.14.1 -y --deps-only
+      &amp;lt;&amp;gt;&amp;lt;&amp;gt; Installing new switch packages
+      &amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;
+      🐫
+      Switch invariant: [&quot;ocaml-base-compiler&quot; {= &quot;4.14.1&quot;} |
+      &quot;ocaml-system&quot; {= &quot;4.14.1&quot;}]
+      [NOTE] External dependency handling not supported for OS family 'macos'.
+      You can disable this check using 'opam option --global depext=false'
+      &amp;lt;&amp;gt;&amp;lt;&amp;gt; Processing actions
+      &amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;
+      🐫
+      ∗ installed base-bigarray.base
+      ∗ installed base-threads.base
+      ∗ installed base-unix.base
+      ∗ installed ocaml-options-vanilla.1
+      ⬇ retrieved ocaml-base-compiler.4.14.1 (cached)
+      [ERROR] The compilation of ocaml-base-compiler.4.14.1 failed at
+      &quot;make -j7&quot;.
+
+      #=== ERROR while compiling ocaml-base-compiler.4.14.1 ===========#
+      # context 2.1.5 | macos/arm64 | | https://opam.ocaml.org#bc52affc
+      # path ~/projects/aoc-2023/ocaml/_opam/.opam-switch/build/ocaml-base-compiler.4.14.1
+      # command ~/.opam/opam-init/hooks/sandbox.sh build make -j7
+      # exit-code 2
+      # env-file ~/.opam/log/ocaml-base-compiler-11985-7b627b.env
+      # output-file ~/.opam/log/ocaml-base-compiler-11985-7b627b.out
+      ### output ###
+      # [...]
+      # signals_nat.c:221:5: error: no member named '__pc' in 'struct __darwin_x86_thread_state64'
+      # CONTEXT_PC = (context_reg) &amp;amp;caml_stack_overflow;
+      # ^~~~~~~~~~
+      # ./signals_osdep.h:182:37: note: expanded from macro 'CONTEXT_PC'
+      # #define CONTEXT_PC (CONTEXT_STATE.__pc)
+      # ~~~~~~~~~~~~~ ^
+      # 4 errors generated.
+      # make[3]: *** [signals_nat.n.o] Error 1
+      # make[3]: *** Waiting for unfinished jobs....
+      # make[2]: *** [makeruntimeopt] Error 2
+      # make[1]: *** [opt.opt] Error 2
+      # make: *** [world.opt] Error 2
+
+
+      &amp;lt;&amp;gt;&amp;lt;&amp;gt; Error report
+      &amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;
+      🐫
+      ┌─ The following actions failed
+      │ λ build ocaml-base-compiler 4.14.1
+      └─
+      ┌─ The following changes have been performed (the rest was aborted)
+      │ ∗ install base-bigarray base
+      │ ∗ install base-threads base
+      │ ∗ install base-unix base
+      │ ∗ install ocaml-options-vanilla 1
+      └─
+
+      &amp;lt;&amp;gt;&amp;lt;&amp;gt; ocaml-base-compiler.4.14.1 troubleshooting
+      &amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;&amp;lt;&amp;gt;
+      🐫
+      =&amp;gt; A failure in the middle of the build may be caused by build
+      parallelism
+      (enabled by default).
+      Please file a bug report at
+      https://github.com/ocaml/opam-repository/issues
+      =&amp;gt; You can try installing again including --jobs=1
+      to force a sequential build instead.
+      Switch initialisation failed: clean up? ('n' will leave the
+      switch partially installed) [Y/n] y&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;h2&gt;Hacky solution&lt;/h2&gt;
+
+      &lt;p&gt;If you have the same issue, then try specifying the architecture explicitly.
+      &lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;$ arch -arm64 opam switch create . 4.14.1 -y
+      --deps-only&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;Apply the same approach to install packages too.&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;$ arch -arm64 opam install dune&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;There has to be a better way though.&lt;/p&gt;
+
+      &lt;p&gt;P.S.: Even dune does not work without it!&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;$ arch -arm64 dune exec bin/main.exe&lt;/code&gt;&lt;/pre&gt;
+      &lt;h2&gt;Update (&lt;time datetime=&quot;2024-02-23&quot;&gt;23 Feb 2024&lt;/time&gt;) :
+      Better solution&lt;/h2&gt;
+
+      &lt;p&gt;JM from OCaml discord helped me to discover the underlying issue - my Terminal.app
+      was running in Rosetta mode. I had
+      configured it to run on Rosetta during the initial Silicon-Rosetta churn, but forgotten all
+      about it.&lt;/p&gt;
+
+      &lt;p&gt;So, opam, which uses &lt;a
+      href=&quot;https://github.com/ocaml/opam/issues/5853&quot;&gt;&lt;code&gt;uname
+      -a&lt;/code&gt;&lt;/a&gt; to find the
+      underlying architecture, always got &lt;code&gt;x86_64&lt;/code&gt;. &lt;/p&gt;
+
+      &lt;p&gt;Once I unchecked the &lt;i&gt;Open using Rosetta&lt;/i&gt; option, &lt;code&gt;arch
+      -arm64&lt;/code&gt; was no longer needed.&lt;/p&gt;
+
+      &lt;p&gt;&lt;a href=&quot;https://apple.stackexchange.com/a/453954&quot;&gt;From what I
+      understand&lt;/a&gt;, if &lt;i&gt;any&lt;/i&gt; tool or binary across a
+      toolchain is configured to run through Rosetta - be it the Terminal.app, or the shell, or a
+      helper binary like &lt;code&gt;uname&lt;/code&gt;
+      - then the program using this toolchain could end up using the wrong architecture.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2023/fixing-ocaml-compiler-build-on-apple-silicon" />
+    <summary type="html">OCaml compiler failed to build on my M1 Macbook with Apple's Silicon
+      architecture.</summary>
+    <category term="OCaml" label="OCaml"></category>
+    <published>2023-12-01T11:31:22Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:bea230bc-0afb-47ac-b73e-631dc8691602</id>
+    <title type="html">List of movies better than their book counterparts</title>
+    <updated>2024-09-11T11:20:34Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt; This list will likely (hopefully) remain short. &lt;/p&gt;
+
+      &lt;ol reversed=&quot;reversed&quot;&gt;
+      &lt;li&gt; Dune series. I felt that words in &lt;i&gt;Dune&lt;/i&gt; (Book 1 of the series)
+      didn't convey its strongest moments well. &lt;i&gt;Presently&lt;/i&gt;, I am struggling to get
+      into &lt;i&gt;Dune Messiah&lt;/i&gt; (Book 2 of the series). &lt;/li&gt;
+      &lt;li&gt; Bullet train (at least when compared to the translated-to-English version of the
+      book)&lt;/li&gt;
+      &lt;/ol&gt;</content>
+    <link href="https://bhoot.dev/2023/movie-is-better-than-book" />
+    <summary type="html">This list will likely (hopefully) remain short.</summary>
+    <category term="Books" label="Books"></category>
+    <published>2023-10-09T11:31:22Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:de454181-6576-46c5-9017-afffb721ff58</id>
+    <title type="html">An elegant triplet of fonts</title>
+    <updated>2023-06-12T11:31:22Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt; I use the following set of fonts. &lt;/p&gt;
+
+      &lt;table&gt;
+      &lt;caption&gt;An elegant triplet of fonts that go together&lt;/caption&gt;
+      &lt;thead&gt;
+      &lt;tr&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Font&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+      &lt;tr&gt;
+      &lt;td&gt;Sans Serif&lt;/td&gt;
+      &lt;td&gt;PT Sans&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+      &lt;td&gt;Serif&lt;/td&gt;
+      &lt;td&gt;Gentium Book Plus&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+      &lt;td&gt;Monospace&lt;/td&gt;
+      &lt;td&gt;
+      &lt;ul&gt;
+      &lt;li&gt;PT Mono; or&lt;/li&gt;
+      &lt;li&gt;Latin Modern Mono; or&lt;/li&gt;
+      &lt;li&gt;Courier; or&lt;/li&gt;
+      &lt;li&gt;Courier Screenplay; or&lt;/li&gt;
+      &lt;li&gt;Courier Prime; or&lt;/li&gt;
+      &lt;li&gt;Monaco&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/tbody&gt;
+      &lt;/table&gt;
+
+      &lt;h2&gt;Sans-serif I v/s l&lt;/h2&gt;
+
+      &lt;p&gt;Many sans serif fonts fail to distinguish between uppercase I and lowercase l.
+      Twitter's new font is an example of
+      this.&lt;/p&gt;
+
+      &lt;p&gt;On top of that, Twitter started dishing out blue ticks on subscriptions.&lt;/p&gt;
+      &lt;p&gt;These two features combine to form deceptive Twitter usernames, as demonstrated in
+      &lt;a href=&quot;https://twitter.com/aardrian/status/1591045578544353280&quot;&gt;this tweet
+      by Adrian Roselli&lt;/a&gt;.&lt;/p&gt;
+
+      &lt;p&gt;Some famous fonts like Helvetica and Roboto fail at it.&lt;/p&gt;
+
+      &lt;figure&gt;
+      &lt;img src=&quot;/static/images/appletvplus-font-test-helvetica-fail.png&quot;&gt;
+      &lt;figcaption&gt;Helvetica has identical looking uppercase I and lowercase
+      l.&lt;/figcaption&gt;
+      &lt;/figure&gt;
+
+      &lt;figure&gt;
+      &lt;img src=&quot;/static/images/appletvplus-font-test-roboto-fail.png&quot;&gt;
+      &lt;figcaption&gt;Roboto has identical looking uppercase I and lowercase l.&lt;/figcaption&gt;
+      &lt;/figure&gt;
+
+      &lt;p&gt;But PT Sans passes this AppleTVPlus test.&lt;/p&gt;
+
+      &lt;figure&gt;
+      &lt;img src=&quot;/static/images/appletvplus-font-test-pt-sans-pass.png&quot;&gt;
+      &lt;figcaption&gt;PT Sans distinguishes between uppercase I and lowercase l by putting a tail
+      on l.&lt;/figcaption&gt;
+      &lt;/figure&gt;
+
+      &lt;div class=&quot;draft&quot;&gt;
+      Add a word document screenshot showing each font with AppleTVPIus and jiIl|10Oo
+
+      - Passes with flying colours, due to a slabbed capital i : Droid Sans, Noto Sans, IBM Plex
+      Sans
+      - Passes due to a tailed l: Aptos, PT Sans, Ubuntu, Atkinson Hyperlegible, Fira Sans
+      - Fails: Helvetica, Roboto, Inter, Apple's new default San Fransisco Pro, Cantarell, Segoe,
+      Calibri, Droid Sans
+      - Clear winner: Atkinson Hyperlegible. Passes the jiIl|10Oo better than all others, due to a
+      tailed small-l and a slashed zero. Followed by Droid Sans and Noto Sans.
+
+      I like this font because readers can tell the difference between I and l and 1 and |:
+      https://twitter.com/aardrian/status/1433770392343269389
+
+      Another test: jiIl|10Oo
+
+      homoglyph attack vector: https://twitter.com/aardrian/status/1590863173942661121
+      &lt;/div&gt;</content>
+    <link href="https://bhoot.dev/2023/an-elegant-triplet-of-fonts" />
+    <summary type="html">I use the following set of fonts.</summary>
+    <category term="Fonts" label="Fonts"></category>
+    <published>2023-06-12T11:31:22Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:83afeb98-3ab6-4a2c-a1ea-4601afc53dfb</id>
+    <title type="html">How to mark up a code snippet in HTML</title>
+    <updated>2022-10-06T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;Suppose, we want to mark up the following multi-line snippet of
+      JavaScript code:&lt;/p&gt;
+
+      &lt;figure&gt;
+      &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function hello(name) {
       return &quot;Hello, &quot; + name;
-    }
-  &amp;lt;/code&amp;gt;
-&amp;lt;/pre&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;figcaption&gt;
-Mark up a multi-line code snippet with &lt;code&gt;code&lt;/code&gt; tag, and then wrap that &lt;code&gt;code&lt;/code&gt; tag
-in a &lt;code&gt;pre&lt;/code&gt; tag
-&lt;/figcaption&gt;
-&lt;/figure&gt;
+      }&lt;/code&gt;&lt;/pre&gt;
+      &lt;figcaption&gt;
+      A JavaScript function that greets a user Joe with &quot;Hello, Joe!&quot;
+      &lt;/figcaption&gt;
+      &lt;/figure&gt;
 
-&lt;p&gt;Now, how do we convey that the language of the code snippet is JavaScript?&lt;/p&gt;
+      &lt;p&gt;Out of habit, let's start by wrapping it in a &lt;code&gt;pre&lt;/code&gt;
+      tag.&lt;/p&gt;
 
-&lt;p&gt;HTML spec has an answer to that too:&lt;/p&gt;
-
-&lt;blockquote cite=&quot;https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-code-element&quot;&gt;
-There is no formal way to indicate the language of computer code being marked up. Authors who wish to mark code
-elements
-with the language used, e.g. so that syntax highlighting scripts can use the right rules, can use the class
-attribute,
-e.g. by adding a class prefixed with &quot;language-&quot; to the element.
-&lt;/blockquote&gt;
-
-&lt;p&gt;In short, assign to the &lt;code&gt;code&lt;/code&gt; tag a class named &lt;b&gt;language-name of the programming language&lt;/b&gt;.&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;pre&amp;gt;
-  &amp;lt;code class=&quot;language-javascript&quot;&amp;gt;
-    function hello(name) {
-      return &quot;Hello, &quot; + name;
-    }
-  &amp;lt;/code&amp;gt;
-&amp;lt;/pre&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;figcaption&gt;A &lt;code&gt;code&lt;/code&gt; tag containing a JavaScript snippet should be given a class named
-&lt;strong&gt;language-javascript&lt;/strong&gt;.
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;There is still one improvement left, which applies to &lt;code&gt;pre&lt;/code&gt; tag in general.&lt;/p&gt;
-
-&lt;p&gt;Conveying formatting of a text can be difficult to a visually-challenged user, just like conveying an image is.&lt;/p&gt;
-
-&lt;p&gt;In order to assist such a user with an alternate description, wrap such semi-accessible content in a
-&lt;code&gt;figure&lt;/code&gt; tag, and put
-the alternate description in a &lt;code&gt;figcaption&lt;/code&gt; tag.
-&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;figure&amp;gt;
-  &amp;lt;pre&amp;gt;
-    &amp;lt;code class=&quot;language-javascript&quot;&amp;gt;
+      &lt;figure&gt;
+      &lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;pre&amp;gt;
       function hello(name) {
-        return &quot;Hello, &quot; + name;
+      return &quot;Hello, &quot; + name;
       }
-    &amp;lt;/code&amp;gt;
-  &amp;lt;/pre&amp;gt;
-  &amp;lt;figcaption&amp;gt;
+      &amp;lt;/pre&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;figcaption&gt;
+      Mark up a code snippet with &lt;code&gt;pre&lt;/code&gt; tag only. Looks good enough, but not
+      conveyed good enough.
+      &lt;/figcaption&gt;
+      &lt;/figure&gt;
+
+      &lt;p&gt;However, the &lt;a
+      href=&quot;https://html.spec.whatwg.org/multipage/grouping-content.html#the-pre-element&quot;&gt;HTML
+      spec&lt;/a&gt;
+      defines &lt;code&gt;pre&lt;/code&gt; as&lt;/p&gt;
+
+      &lt;blockquote
+      cite=&quot;https://html.spec.whatwg.org/multipage/grouping-content.html#the-pre-element&quot;&gt;
+      The &lt;code&gt;pre&lt;/code&gt; tag represents a block of &lt;em&gt;preformatted
+      text&lt;/em&gt;, in which structure is represented by
+      typographic conventions
+      rather than by elements.
+      &lt;/blockquote&gt;
+
+      &lt;p&gt;So, a &lt;code&gt;pre&lt;/code&gt; tag can contain anything which conveys its
+      semantic meaning at least partly through how its
+      text is formatted,
+      like a code snippet, a poem, or an ascii art.&lt;/p&gt;
+
+      &lt;p&gt;Clearly, &lt;code&gt;pre&lt;/code&gt; tag is not enough to represent a code snippet.
+      How do we distinguish a code snippet from
+      other
+      pre-formatted content? By marking up the snippet with &lt;code&gt;code&lt;/code&gt;, and then
+      wrapping it in a
+      &lt;code&gt;pre&lt;/code&gt; tag.
+      &lt;/p&gt;
+
+      &lt;figure&gt;
+      &lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;pre&amp;gt;
+      &amp;lt;code&amp;gt;
+      function hello(name) {
+      return &quot;Hello, &quot; + name;
+      }
+      &amp;lt;/code&amp;gt;
+      &amp;lt;/pre&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;figcaption&gt;
+      Mark up a multi-line code snippet with &lt;code&gt;code&lt;/code&gt; tag, and then wrap that
+      &lt;code&gt;code&lt;/code&gt; tag
+      in a &lt;code&gt;pre&lt;/code&gt; tag
+      &lt;/figcaption&gt;
+      &lt;/figure&gt;
+
+      &lt;p&gt;Now, how do we convey that the language of the code snippet is JavaScript?&lt;/p&gt;
+      &lt;p&gt;HTML spec has an answer to that too:&lt;/p&gt;
+
+      &lt;blockquote
+      cite=&quot;https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-code-element&quot;&gt;
+      There is no formal way to indicate the language of computer code being marked up. Authors who
+      wish to mark code
+      elements
+      with the language used, e.g. so that syntax highlighting scripts can use the right rules, can
+      use the class
+      attribute,
+      e.g. by adding a class prefixed with &quot;language-&quot; to the element.
+      &lt;/blockquote&gt;
+
+      &lt;p&gt;In short, assign to the &lt;code&gt;code&lt;/code&gt; tag a class named
+      &lt;b&gt;language-name of the programming language&lt;/b&gt;.&lt;/p&gt;
+
+      &lt;figure&gt;
+      &lt;pre&gt;&lt;code&gt;&amp;lt;pre&amp;gt;
+      &amp;lt;code class=&quot;language-javascript&quot;&amp;gt;
+      function hello(name) {
+      return &quot;Hello, &quot; + name;
+      }
+      &amp;lt;/code&amp;gt;
+      &amp;lt;/pre&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;figcaption&gt;A &lt;code&gt;code&lt;/code&gt; tag containing a JavaScript snippet should
+      be given a class named
+      &lt;strong&gt;language-javascript&lt;/strong&gt;.
+      &lt;/figcaption&gt;
+      &lt;/figure&gt;
+
+      &lt;p&gt;There is still one improvement left, which applies to &lt;code&gt;pre&lt;/code&gt;
+      tag in general.&lt;/p&gt;
+
+      &lt;p&gt;Conveying formatting of a text can be difficult to a visually-challenged user, just
+      like conveying an image is.&lt;/p&gt;
+
+      &lt;p&gt;In order to assist such a user with an alternate description, wrap such
+      semi-accessible content in a
+      &lt;code&gt;figure&lt;/code&gt; tag, and put
+      the alternate description in a &lt;code&gt;figcaption&lt;/code&gt; tag.
+      &lt;/p&gt;
+
+      &lt;figure&gt;
+      &lt;pre&gt;&lt;code&gt;&amp;lt;figure&amp;gt;
+      &amp;lt;pre&amp;gt;
+      &amp;lt;code class=&quot;language-javascript&quot;&amp;gt;
+      function hello(name) {
+      return &quot;Hello, &quot; + name;
+      }
+      &amp;lt;/code&amp;gt;
+      &amp;lt;/pre&amp;gt;
+      &amp;lt;figcaption&amp;gt;
       A code tag containing a JavaScript snippet
       should be given a class named language-javascript.
-  &amp;lt;/figcaption&amp;gt;
-&amp;lt;/figure&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;figcaption&gt;Wrap a &lt;code&gt;pre&lt;/code&gt; tag in a &lt;code&gt;figure&lt;/code&gt; tag, and put a &lt;code&gt;figcaption&lt;/code&gt; tag inside
-the &lt;code&gt;figure&lt;/code&gt; tag that provides an
-alternate description to the contents of the &lt;code&gt;pre&lt;/code&gt; tag.
-&lt;/figcaption&gt;
-&lt;/figure&gt;</content><link href="https://bhoot.dev/2022/how-to-mark-up-a-code-snippet-in-html" /><summary type="html">Suppose, we want to mark up the following multi-line snippet of JavaScript code:</summary><category term="HTML" label="HTML"></category><category term="Accessibility" label="Accessibility"></category><published>2022-10-06T11:31:21Z</published></entry><entry><id>urn:uuid:8a234ceb-901a-4448-8826-a5e49716c251</id><title type="html">Location of emacs config</title><updated>2022-09-24T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;If &lt;code&gt;~/.emacs.d&lt;/code&gt; exists in the system, which always does because emacs auto-creates it, then emacs does not
-pick up &lt;code&gt;init.el&lt;/code&gt; from &lt;code&gt;~/.config/emacs&lt;/code&gt; for some reason...even if &lt;code&gt;~/.emacs.d&lt;/code&gt; is
-empty.&lt;/p&gt;
+      &amp;lt;/figcaption&amp;gt;
+      &amp;lt;/figure&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;figcaption&gt;Wrap a &lt;code&gt;pre&lt;/code&gt; tag in a &lt;code&gt;figure&lt;/code&gt;
+      tag, and put a &lt;code&gt;figcaption&lt;/code&gt; tag inside
+      the &lt;code&gt;figure&lt;/code&gt; tag that provides an
+      alternate description to the contents of the &lt;code&gt;pre&lt;/code&gt; tag.
+      &lt;/figcaption&gt;
+      &lt;/figure&gt;</content>
+    <link href="https://bhoot.dev/2022/how-to-mark-up-a-code-snippet-in-html" />
+    <summary type="html">Suppose, we want to mark up the following multi-line snippet of JavaScript
+      code:</summary>
+    <category term="HTML" label="HTML"></category>
+    <category term="Accessibility" label="Accessibility"></category>
+    <published>2022-10-06T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:8a234ceb-901a-4448-8826-a5e49716c251</id>
+    <title type="html">Location of emacs config</title>
+    <updated>2022-09-24T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;If &lt;code&gt;~/.emacs.d&lt;/code&gt; exists in the system, which
+      always does because emacs auto-creates it, then emacs does not
+      pick up &lt;code&gt;init.el&lt;/code&gt; from &lt;code&gt;~/.config/emacs&lt;/code&gt; for
+      some reason...even if &lt;code&gt;~/.emacs.d&lt;/code&gt; is
+      empty.&lt;/p&gt;
 
-&lt;p&gt;So I chose &lt;code&gt;~/.emacs.d&lt;/code&gt; as emacs's config location.&lt;/p&gt;</content><link href="https://bhoot.dev/2022/location-of-emacs-config" /><summary type="html">If &lt;code&gt;~/.emacs.d&lt;/code&gt; exists in the system, which always does because emacs auto-creates it, then emacs does not
-pick up &lt;code&gt;init.el&lt;/code&gt; from &lt;code&gt;~/.config/emacs&lt;/code&gt; for some reason...even if &lt;code&gt;~/.emacs.d&lt;/code&gt; is
-empty.</summary><category term="Emacs" label="Emacs"></category><published>2022-09-24T11:31:21Z</published></entry><entry><id>urn:uuid:49f2ccac-8123-4080-af1c-cd47e7201a75</id><title type="html">What &lt;code&gt;box-sizing&lt;/code&gt; does</title><updated>2022-09-17T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;&lt;code&gt;box-sizing&lt;/code&gt; specifies the part of an element's CSS box, to which the properties &lt;code&gt;width, min-width,
-max-width,
-height, min-height, max-height&lt;/code&gt; apply.&lt;/p&gt;
+      &lt;p&gt;So I chose &lt;code&gt;~/.emacs.d&lt;/code&gt; as emacs's config location.&lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2022/location-of-emacs-config" />
+    <summary type="html">If &lt;code&gt;~/.emacs.d&lt;/code&gt; exists in the system, which always
+      does because emacs auto-creates it, then emacs does not
+      pick up &lt;code&gt;init.el&lt;/code&gt; from &lt;code&gt;~/.config/emacs&lt;/code&gt; for
+      some reason...even if &lt;code&gt;~/.emacs.d&lt;/code&gt; is
+      empty.</summary>
+    <category term="Emacs" label="Emacs"></category>
+    <published>2022-09-24T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:49f2ccac-8123-4080-af1c-cd47e7201a75</id>
+    <title type="html">What &lt;code&gt;box-sizing&lt;/code&gt; does</title>
+    <updated>2022-09-17T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;code&gt;box-sizing&lt;/code&gt; specifies the part of an
+      element's CSS box, to which the properties &lt;code&gt;width, min-width,
+      max-width,
+      height, min-height, max-height&lt;/code&gt; apply.&lt;/p&gt;
 
-&lt;figure&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;
-p {
-    height: 3rem; 
-    box-sizing: content-box;
-}
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;figcaption&gt;Result: brown content box is 3rem tall&lt;/figcaption&gt;
-&lt;/figure&gt;
+      &lt;figure&gt;
+      &lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;
+      p {
+      height: 3rem;
+      box-sizing: content-box;
+      }
+      &lt;/code&gt;&lt;/pre&gt;
+      &lt;figcaption&gt;Result: brown content box is 3rem tall&lt;/figcaption&gt;
+      &lt;/figure&gt;
 
-&lt;figure&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;
-p {
-    height: 3rem; 
-    box-sizing: border-box;
-}
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;figcaption&gt;Result: black border box is 3rem tall&lt;/figcaption&gt;
-&lt;/figure&gt;
+      &lt;figure&gt;
+      &lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;
+      p {
+      height: 3rem;
+      box-sizing: border-box;
+      }
+      &lt;/code&gt;&lt;/pre&gt;
+      &lt;figcaption&gt;Result: black border box is 3rem tall&lt;/figcaption&gt;
+      &lt;/figure&gt;
 
-&lt;style&gt;
-    figure {
-        display: inline flex;
-        flex-direction: column;
-        gap: 5px;
-        margin: 0;
-        border: 1px solid #dcdee0;
-        line-height: 1;
-    }
+      &lt;style&gt;
+      figure {
+      display: inline flex;
+      flex-direction: column;
+      gap: 5px;
+      margin: 0;
+      border: 1px solid #dcdee0;
+      line-height: 1;
+      }
 
-    figure &gt; * {
-        margin: 0;
-    }
+      figure &gt; * {
+      margin: 0;
+      }
 
-    figure:first-of-type &gt; figcaption {
-        display: inline-block;
-        font-weight: 600;
-        color: white;
-        background-color: brown;
-        background-clip: content-box;
-        box-sizing: content-box;
-        height: 3rem;
-        border: 0.5rem solid black;
-        padding: 0.5rem;
-    }
+      figure:first-of-type &gt; figcaption {
+      display: inline-block;
+      font-weight: 600;
+      color: white;
+      background-color: brown;
+      background-clip: content-box;
+      box-sizing: content-box;
+      height: 3rem;
+      border: 0.5rem solid black;
+      padding: 0.5rem;
+      }
 
-    figure:last-of-type &gt; figcaption {
-        display: inline-block;
-        font-weight: 600;
-        color: white;
-        background-color: brown;
-        background-clip: content-box;
-        box-sizing: border-box;
-        height: 3rem;
-        border: 0.5rem solid black;
-        padding: 0.5rem;
+      figure:last-of-type &gt; figcaption {
+      display: inline-block;
+      font-weight: 600;
+      color: white;
+      background-color: brown;
+      background-clip: content-box;
+      box-sizing: border-box;
+      height: 3rem;
+      border: 0.5rem solid black;
+      padding: 0.5rem;
 
-        margin-top: 1rem;
-    }
-&lt;/style&gt;</content><link href="https://bhoot.dev/2022/box-sizing" /><summary type="html">&lt;code&gt;box-sizing&lt;/code&gt; specifies the part of an element's CSS box, to which the properties &lt;code&gt;width, min-width,
-max-width,
-height, min-height, max-height&lt;/code&gt; apply.</summary><category term="CSS" label="CSS"></category><published>2022-09-17T11:31:21Z</published></entry><entry><id>urn:uuid:913be558-883b-446e-ae0d-6b3cf5d18275</id><title type="html">Fake SHA256 in a Nix derivation</title><updated>2022-09-09T11:31:21Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;Discovering the SHA256 hash for a derivation is a chore.&lt;/p&gt;
+      margin-top: 1rem;
+      }
+      &lt;/style&gt;</content>
+    <link href="https://bhoot.dev/2022/box-sizing" />
+    <summary type="html">&lt;code&gt;box-sizing&lt;/code&gt; specifies the part of an element's CSS
+      box, to which the properties &lt;code&gt;width, min-width,
+      max-width,
+      height, min-height, max-height&lt;/code&gt; apply.</summary>
+    <category term="CSS" label="CSS"></category>
+    <published>2022-09-17T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:913be558-883b-446e-ae0d-6b3cf5d18275</id>
+    <title type="html">Fake SHA256 in a Nix derivation</title>
+    <updated>2022-09-09T11:31:21Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;Discovering the SHA256 hash for a derivation is a chore.&lt;/p&gt;
+      &lt;p&gt;One approach is to fake the hash with zeroes.&lt;/p&gt;
 
-&lt;p&gt;One approach is to fake the hash with zeroes.&lt;/p&gt;
+      &lt;pre&gt;&lt;code class=&quot;language-nix&quot;&gt;sha256 =
+      &quot;0000000000000000000000000000000000000000000000000000&quot;;&lt;/code&gt;&lt;/pre&gt;
+      &lt;p&gt;This induces nix-build to throw an error containing the correct hash.&lt;/p&gt;
+      &lt;p&gt;However, even the fake hash has to be correct, i.e., needs to have the right number
+      of zeroes in it. Otherwise,
+      nix-build throws an error about the hash being invalid instead of being incorrect. This error
+      does not contain the
+      correct hash.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-nix&quot;&gt;sha256 = &quot;0000000000000000000000000000000000000000000000000000&quot;;&lt;/code&gt;&lt;/pre&gt;
+      &lt;p&gt;Thankfully, Nix already binds the fake hash value to a variable
+      &lt;code&gt;lib.fakeSha256&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;This induces nix-build to throw an error containing the correct hash.&lt;/p&gt;
+      &lt;pre&gt;&lt;code class=&quot;language-nix&quot;&gt;sha256 =
+      lib.fakeSha256;&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;However, even the fake hash has to be correct, i.e., needs to have the right number of zeroes in it. Otherwise,
-nix-build throws an error about the hash being invalid instead of being incorrect. This error does not contain the
-correct hash.&lt;/p&gt;
+      &lt;p&gt;Thanks to &lt;a
+      href=&quot;https://github.com/NixOS/nix/issues/1880#issuecomment-687579758&quot;&gt;paulyoung&lt;/a&gt;
+      for this tip.&lt;/p&gt;
 
-&lt;p&gt;Thankfully, Nix already binds the fake hash value to a variable &lt;code&gt;lib.fakeSha256&lt;/code&gt;.&lt;/p&gt;
+      &lt;p&gt;
+      &lt;ins datetime=&quot;2022-10-03&quot;&gt;I found a more memorable variable
+      &lt;code&gt;lib.fakeHash&lt;/code&gt;.&lt;/ins&gt;
+      &lt;/p&gt;</content>
+    <link href="https://bhoot.dev/2022/fake-sha256-in-a-nix-derivation" />
+    <summary type="html">Discovering the SHA256 hash for a derivation is a chore.</summary>
+    <category term="Nix" label="Nix"></category>
+    <published>2022-09-09T11:31:21Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:5e88869a-3274-4b58-9065-8ffcf0dabab7</id>
+    <title type="html">How to use &lt;i&gt;Hover Click&lt;/i&gt; without animation in GNOME</title>
+    <updated>2020-07-05T11:31:22Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;
+      Desktop systems usually provide an accessibility feature, with which a user only has to hover
+      the cursor
+      over where he wants to click. The click goes off automatically. In GNOME, this feature is
+      called &lt;i&gt;Hover
+      Click&lt;/i&gt;.
+      &lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-nix&quot;&gt;sha256 = lib.fakeSha256;&lt;/code&gt;&lt;/pre&gt;
+      &lt;p&gt;
+      Not having to press the mouse button makes for a much more pleasurable and efficient
+      experience. Coupled
+      with &lt;i&gt;Sticky Keys&lt;/i&gt;, &lt;i&gt;Hover Click&lt;/i&gt; has also helped me recover
+      from a hand injury.
+      &lt;/p&gt;
 
-&lt;p&gt;Thanks to &lt;a href=&quot;https://github.com/NixOS/nix/issues/1880#issuecomment-687579758&quot;&gt;paulyoung&lt;/a&gt; for this tip.&lt;/p&gt;
+      &lt;p&gt;
+      The click goes off a few configurable milliseconds after the user positions the cursor. GNOME
+      represents
+      this buffer with an animating circle, which looks pretty but gets in the way, especially if
+      you are trying
+      to course-correct the cursor position.
+      &lt;/p&gt;
 
-&lt;p&gt;
-&lt;ins datetime=&quot;2022-10-03&quot;&gt;I found a more memorable variable &lt;code&gt;lib.fakeHash&lt;/code&gt;.&lt;/ins&gt;
-&lt;/p&gt;</content><link href="https://bhoot.dev/2022/fake-sha256-in-a-nix-derivation" /><summary type="html">Discovering the SHA256 hash for a derivation is a chore.</summary><category term="Nix" label="Nix"></category><published>2022-09-09T11:31:21Z</published></entry><entry><id>urn:uuid:5e88869a-3274-4b58-9065-8ffcf0dabab7</id><title type="html">How to use &lt;i&gt;Hover Click&lt;/i&gt; without animation in GNOME</title><updated>2020-07-05T11:31:22Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;
-Desktop systems usually provide an accessibility feature, with which a user only has to hover the cursor
-over where he wants to click. The click goes off automatically. In GNOME, this feature is called &lt;i&gt;Hover
-Click&lt;/i&gt;.
-&lt;/p&gt;
+      &lt;p&gt;
+      The option to disable this animation is simple but not straightforward. You need to disable
+      all the
+      animations entirely from Gnome Tweaks:
+      &lt;/p&gt;
 
-&lt;p&gt;
-Not having to press the mouse button makes for a much more pleasurable and efficient experience. Coupled
-with &lt;i&gt;Sticky Keys&lt;/i&gt;, &lt;i&gt;Hover Click&lt;/i&gt; has also helped me recover from a hand injury.
-&lt;/p&gt;
+      &lt;ol&gt;
+      &lt;li&gt;Open &lt;i&gt;Gnome Tweaks&lt;/i&gt; tool&lt;/li&gt;
+      &lt;li&gt;Open &lt;i&gt;General&lt;/i&gt; Tab&lt;/li&gt;
+      &lt;li&gt;Turn &lt;i&gt;Animations&lt;/i&gt; off&lt;/li&gt;
+      &lt;/ol&gt;
 
-&lt;p&gt;
-The click goes off a few configurable milliseconds after the user positions the cursor. GNOME represents
-this buffer with an animating circle, which looks pretty but gets in the way, especially if you are trying
-to course-correct the cursor position.
-&lt;/p&gt;
+      &lt;figure&gt;
+      &lt;img src=&quot;/static/images/demo-gnome-hover-to-click-animation.gif&quot; alt=&quot;Hover
+      click animation gif demo&quot;&gt;
+      &lt;figcaption&gt; Hover Click feature in GNOME, with and without animation&lt;/figcaption&gt;
+      &lt;/figure&gt;</content>
+    <link href="https://bhoot.dev/2020/hover-to-click-without-animation-in-gnome" />
+    <summary type="html">Desktop systems usually provide an accessibility feature, with which a user
+      only has to hover the cursor
+      over where he wants to click. The click goes off automatically. In GNOME, this feature is
+      called &lt;i&gt;Hover
+      Click&lt;/i&gt;.</summary>
+    <category term="GNOME" label="GNOME"></category>
+    <category term="Accessibility" label="Accessibility"></category>
+    <published>2020-07-05T11:31:22Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:5f447c9e-6f5d-4cfd-98e8-e917b0429afd</id>
+    <title type="html">How to write a Firefox add-on in ClojureScript</title>
+    <updated>2020-07-04T11:31:22Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
 
-&lt;p&gt;
-The option to disable this animation is simple but not straightforward. You need to disable all the
-animations entirely from Gnome Tweaks:
-&lt;/p&gt;
+      &lt;p&gt;
+      You can find a sample add-on on my &lt;a
+      href=&quot;https://github.com/jayesh-bhoot/firefox-add-on-in-cljs&quot;&gt;GitHub&lt;/a&gt;.
+      I won't go through the code here, but will lay out the quirky development process. I will
+      mostly focus on the
+      plumbing - how ClojureScript hands over the compiled JavaScript code to the add-on.
+      &lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Open &lt;i&gt;Gnome Tweaks&lt;/i&gt; tool&lt;/li&gt;
-&lt;li&gt;Open &lt;i&gt;General&lt;/i&gt; Tab&lt;/li&gt;
-&lt;li&gt;Turn &lt;i&gt;Animations&lt;/i&gt; off&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;/static/images/demo-gnome-hover-to-click-animation.gif&quot; alt=&quot;Hover click animation gif demo&quot;&gt;
-&lt;figcaption&gt; Hover Click feature in GNOME, with and without animation&lt;/figcaption&gt;
-&lt;/figure&gt;</content><link href="https://bhoot.dev/2020/hover-to-click-without-animation-in-gnome" /><summary type="html">Desktop systems usually provide an accessibility feature, with which a user only has to hover the cursor
-over where he wants to click. The click goes off automatically. In GNOME, this feature is called &lt;i&gt;Hover
-Click&lt;/i&gt;.</summary><category term="GNOME" label="GNOME"></category><category term="Accessibility" label="Accessibility"></category><published>2020-07-05T11:31:22Z</published></entry><entry><id>urn:uuid:5f447c9e-6f5d-4cfd-98e8-e917b0429afd</id><title type="html">How to write a Firefox add-on in ClojureScript</title><updated>2020-07-04T11:31:22Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;div class=&quot;toc&quot;&gt;&lt;/div&gt;
-
-&lt;p&gt;
-You can find a sample add-on on my &lt;a href=&quot;https://github.com/jayesh-bhoot/firefox-add-on-in-cljs&quot;&gt;GitHub&lt;/a&gt;.
-I won't go through the code here, but will lay out the quirky development process. I will mostly focus on the
-plumbing - how ClojureScript hands over the compiled JavaScript code to the add-on.
-&lt;/p&gt;
-
-&lt;p&gt;
-The sample add-on tries to mirror the functionality of the one found in the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension&quot;&gt;official
-tutorial&lt;/a&gt; - wrap a border around the pages at mozilla.org.
-&lt;/p&gt;
+      &lt;p&gt;
+      The sample add-on tries to mirror the functionality of the one found in the &lt;a
+      href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension&quot;&gt;official
+      tutorial&lt;/a&gt; - wrap a border around the pages at mozilla.org.
+      &lt;/p&gt;
 
 
-&lt;figure&gt;
-&lt;img src=&quot;/static/images/demo-ff-addon-cljs.png&quot; alt=&quot;The addon puts a purple border around the current webpage&quot;&gt;
-&lt;figcaption&gt;The demo add-on puts a purple border around the current webpage&lt;/figcaption&gt;
-&lt;/figure&gt;
+      &lt;figure&gt;
+      &lt;img src=&quot;/static/images/demo-ff-addon-cljs.png&quot; alt=&quot;The addon puts a
+      purple border around the current webpage&quot;&gt;
+      &lt;figcaption&gt;The demo add-on puts a purple border around the current
+      webpage&lt;/figcaption&gt;
+      &lt;/figure&gt;
 
-&lt;h2 id=&quot;org9a73bf2&quot;&gt;Project Layout&lt;/h2&gt;
+      &lt;h2 id=&quot;org9a73bf2&quot;&gt;Project Layout&lt;/h2&gt;
 
-&lt;p&gt;
-Figuring out a clean project layout took some effort. I am satisfied with the following structure:
-&lt;/p&gt;
+      &lt;p&gt;
+      Figuring out a clean project layout took some effort. I am satisfied with the following
+      structure:
+      &lt;/p&gt;
 
-&lt;pre&gt;project-root
-|-- addon  // root for the Firefox add-on
-|   |--- manifest.json
-|   |--- // add-on artefacts like icons
-|   |--- // JS file compiled and placed here by ClojureScript compiler
-|-- src  // ClojureScript code
-|-- compile-opts.edn  // compilation options provided to ClojureScript compiler
-|-- deps.edn
-&lt;/pre&gt;
+      &lt;pre&gt;project-root
+      |-- addon // root for the Firefox add-on
+      | |--- manifest.json
+      | |--- // add-on artefacts like icons
+      | |--- // JS file compiled and placed here by ClojureScript compiler
+      |-- src // ClojureScript code
+      |-- compile-opts.edn // compilation options provided to ClojureScript compiler
+      |-- deps.edn
+      &lt;/pre&gt;
 
-&lt;p&gt;
-The goal is to isolate the artefacts of the add-on from the ClojureScript code. The add-on gets only its
-JavaScript from ClojureScript. So, isolating the rest of its artefacts - icons, manifest, etc. - into its own
-directory works out well. ClojureScript dominates the rest of the project layout.
-&lt;/p&gt;
+      &lt;p&gt;
+      The goal is to isolate the artefacts of the add-on from the ClojureScript code. The add-on
+      gets only its
+      JavaScript from ClojureScript. So, isolating the rest of its artefacts - icons, manifest, etc.
+      - into its own
+      directory works out well. ClojureScript dominates the rest of the project layout.
+      &lt;/p&gt;
 
-&lt;p&gt;
-The only time the ClojureScript compiler touches the &lt;i&gt;addon&lt;/i&gt; folder is to put the compiled JavaScript in
-it.
-&lt;/p&gt;
+      &lt;p&gt;
+      The only time the ClojureScript compiler touches the &lt;i&gt;addon&lt;/i&gt; folder is to put
+      the compiled JavaScript in
+      it.
+      &lt;/p&gt;
 
-&lt;h2 id=&quot;org4352a07&quot;&gt;ClojureScript to JavaScript&lt;/h2&gt;
+      &lt;h2 id=&quot;org4352a07&quot;&gt;ClojureScript to JavaScript&lt;/h2&gt;
 
-&lt;p&gt;
-The compilation process by default uses &lt;code&gt;:optimizations :none&lt;/code&gt;, which produces a set of JavaScript
-files, with the main file pointing at the others. This does not work here as the add-on does not seem to pick up
-the secondary files from the main file.
-&lt;/p&gt;
+      &lt;p&gt;
+      The compilation process by default uses &lt;code&gt;:optimizations :none&lt;/code&gt;, which
+      produces a set of JavaScript
+      files, with the main file pointing at the others. This does not work here as the add-on does
+      not seem to pick up
+      the secondary files from the main file.
+      &lt;/p&gt;
 
-&lt;p&gt;
-The rest of the &lt;code&gt;:optimizations&lt;/code&gt; options - &lt;code&gt;:whitespace&lt;/code&gt;, &lt;code&gt;:simple&lt;/code&gt;,
-&lt;code&gt;:advanced&lt;/code&gt; - produce a single standalone JavaScript file, which the add-on happily accepts.
-&lt;/p&gt;
+      &lt;p&gt;
+      The rest of the &lt;code&gt;:optimizations&lt;/code&gt; options -
+      &lt;code&gt;:whitespace&lt;/code&gt;, &lt;code&gt;:simple&lt;/code&gt;,
+      &lt;code&gt;:advanced&lt;/code&gt; - produce a single standalone JavaScript file, which the
+      add-on happily accepts.
+      &lt;/p&gt;
 
-&lt;p&gt;
-However, &lt;code&gt;:optimizations :none&lt;/code&gt; is the default because it compiles the fastest, lending a speedy development
-process. I went with the second fastest - &lt;code&gt;:whitespace&lt;/code&gt; - for development purpose, and
-&lt;code&gt;:advanced&lt;/code&gt; to compile a production build.
-&lt;/p&gt;
+      &lt;p&gt;
+      However, &lt;code&gt;:optimizations :none&lt;/code&gt; is the default because it compiles the
+      fastest, lending a speedy development
+      process. I went with the second fastest - &lt;code&gt;:whitespace&lt;/code&gt; - for
+      development purpose, and
+      &lt;code&gt;:advanced&lt;/code&gt; to compile a production build.
+      &lt;/p&gt;
 
-&lt;p&gt;
-Two other compilation options helps keep the plumbing short and clean: &lt;code&gt;:target&lt;/code&gt; diverts the
-temporary files produced during compilation to a &lt;i&gt;tmp&lt;/i&gt; folder, while &lt;code&gt;:target-to&lt;/code&gt; puts the
-standalone compile JavaScript file directly into the &lt;i&gt;addon&lt;/i&gt; folder.
-&lt;/p&gt;
+      &lt;p&gt;
+      Two other compilation options helps keep the plumbing short and clean:
+      &lt;code&gt;:target&lt;/code&gt; diverts the
+      temporary files produced during compilation to a &lt;i&gt;tmp&lt;/i&gt; folder, while
+      &lt;code&gt;:target-to&lt;/code&gt; puts the
+      standalone compile JavaScript file directly into the &lt;i&gt;addon&lt;/i&gt; folder.
+      &lt;/p&gt;
 
-&lt;p&gt;
-To summarise, we tweak the default compilation process with the following three options to keep life simple:
-&lt;/p&gt;
+      &lt;p&gt;
+      To summarise, we tweak the default compilation process with the following three options to
+      keep life simple:
+      &lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-clojure&quot;&gt;{:optimizations :whitespace
- :output-dir    &quot;tmp&quot;
- :output-to     &quot;addon/main.js&quot;}&lt;/code&gt;&lt;/pre&gt;
+      &lt;pre&gt;&lt;code class=&quot;language-clojure&quot;&gt;{:optimizations :whitespace
+      :output-dir &quot;tmp&quot;
+      :output-to &quot;addon/main.js&quot;}&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;org9d85caf&quot;&gt;Live reload&lt;/h2&gt;
-&lt;p&gt;
-Basically, we instruct the ClojureScript compiler to watch over the ClojureScript files and recompile them into
-JavaScript on change.
-&lt;/p&gt;
+      &lt;h2 id=&quot;org9d85caf&quot;&gt;Live reload&lt;/h2&gt;
+      &lt;p&gt;
+      Basically, we instruct the ClojureScript compiler to watch over the ClojureScript files and
+      recompile them into
+      JavaScript on change.
+      &lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# in project-root
-clj --main cljs.main \
-    --watch &quot;src&quot; \
-    --compile-opts &quot;compile-opts.edn&quot; \
-    --compile demo.core&lt;/code&gt;&lt;/pre&gt;
+      &lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# in project-root
+      clj --main cljs.main \
+      --watch &quot;src&quot; \
+      --compile-opts &quot;compile-opts.edn&quot; \
+      --compile demo.core&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;
-In turn, Mozilla's web-ext tool by default watches over the add-on folder and reloads the add-on on detecting a
-change.
-&lt;/p&gt;
+      &lt;p&gt;
+      In turn, Mozilla's web-ext tool by default watches over the add-on folder and reloads the
+      add-on on detecting a
+      change.
+      &lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# in addon folder
-web-ext run --start-url https://www.mozilla.org/en-US/&lt;/code&gt;&lt;/pre&gt;</content><link href="https://bhoot.dev/2020/firefox-add-on-with-clojurescript" /><summary type="html">I found writing Firefox add-ons to be a good way to learn the ropes in ClojureScript in a productive manner.</summary><category term="Firefox add-on" label="Firefox add-on"></category><published>2020-07-04T11:31:22Z</published></entry></feed>
+      &lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;# in addon folder
+      web-ext run --start-url https://www.mozilla.org/en-US/&lt;/code&gt;&lt;/pre&gt;</content>
+    <link href="https://bhoot.dev/2020/firefox-add-on-with-clojurescript" />
+    <summary type="html">I found writing Firefox add-ons to be a good way to learn the ropes in
+      ClojureScript in a productive manner.</summary>
+    <category term="Firefox add-on" label="Firefox add-on"></category>
+    <published>2020-07-04T11:31:22Z</published>
+  </entry>
+</feed>
