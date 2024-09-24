@@ -77,10 +77,11 @@ val makeFeed = (entries: List[Entry]) => {
   """<?xml version="1.0" encoding="utf-8"?>""" ++ body.render
 }
 
-val json = ujson.read(os.read(os.pwd / "input.json"))
+@main def main() =
+  val json = ujson.read(os.read(os.pwd / "input.json"))
 
-val entries = json.arr.toList
-  .filter(e => !exclude.contains(e("url").str))
-  .map(parseFromJson)
+  val entries = json.arr.toList
+    .filter(e => !exclude.contains(e("url").str))
+    .map(parseFromJson)
 
-os.write.over(os.pwd / "atom-scala.xml", makeFeed(entries))
+  os.write.over(os.pwd / "outputs" / "atom-scala.xml", makeFeed(entries))
