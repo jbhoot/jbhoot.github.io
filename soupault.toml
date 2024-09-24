@@ -108,9 +108,6 @@ selector = [".p-author"]
 [index.fields.excerpt]
 selector = [".e-summary", ".e-content > p", "hgroup ~ p"]
 
-[index.fields.excerpt_2]
-selector = [".e-content > p + p", "hgroup ~ p + p"]
-
 [index.fields.content]
 selector = [".e-content"]
 
