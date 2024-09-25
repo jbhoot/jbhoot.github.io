@@ -297,7 +297,7 @@ html = """
   <li><a href="/about">About</a></li>
   <li><a href="/posts">Writing</a></li>
   <!--<li><a href="/articles">Articles</a></li>-->
-  <li><a href="/notes">Notes</a></li>
+  <!--<li><a href="/notes">Notes</a></li>-->
   <li><a href="/collections">Collections</a></li>
   <li>Projects</li>
   <li>Hire</li>
