@@ -111,6 +111,28 @@ selector = [".e-summary", ".e-content > p", "hgroup ~ p"]
 [index.fields.content]
 selector = [".e-content"]
 
+[index.views.all-posts]
+path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
+index_selector = ".all-posts"
+index_template = """
+  <h1> All posts </h1>
+  <ol class='all-posts' reversed='reversed'>
+  {% for e in entries %}
+  <li>
+  {% if "Note" in e.collections %}
+    <div style="border: 2px solid black; background-color: #efefef;">
+      <p style="padding: 0.5em 1em; background-color: #fbcc6b;">Posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a>
+      <div style="padding: 0 1em 1em 1em;">{{e.content}}</div>
+    </div>
+  {% else %}
+    <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.published}}"> {{e.published_text}}</time></p>
+  {% endif %}
+  </li>
+  {% endfor %}
+  </ol>
+  """
+file = "index_processors/all-posts.lua"
+
 [index.views.all-articles]
 path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
 index_selector = ".all-articles"
@@ -270,14 +292,15 @@ selector = ".main-nav"
 after = ["add-homepage-header", "add-otherpage-header"]
 parse = true
 html = """
-<ul class="cluster" style="--cluster-gap: var(--s2);">
+<ul class="cluster" style="--cluster-gap: var(--s1);">
   <li><a href="/">Home</a></li>
-  <li><a href="/articles">Articles</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/posts">Writing</a></li>
+  <!--<li><a href="/articles">Articles</a></li>-->
   <li><a href="/notes">Notes</a></li>
   <li><a href="/collections">Collections</a></li>
   <li>Projects</li>
-  <li>CV</li>
-  <li><a href="/about">About</a></li>
+  <li>Hire</li>
 </ul>
 """
 
