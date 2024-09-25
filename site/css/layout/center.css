@@ -3,3 +3,9 @@
   margin-inline: auto;
   max-inline-size: var(--measure);
 }
+
+.center-children {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
