@@ -60,10 +60,9 @@
 
 .site-title-blinker {
     background-color: black;
-    padding: 2px 4px;
-    border: 1px solid;
-    /*outline: 1px solid;*/
-    /*outline-offset: 1px;*/
+    padding: 4px;
+    outline: 1px solid;
+    outline-offset: 1px;
 
     text-decoration: none;
 
@@ -78,11 +77,6 @@
     0 0 0.5em #ff4444,
     0 0 0.1em #ff4444,
     0 10px 3px #000;
-}
-
-.site-title-blinker:hover {
-    background-color: transparent;
-    outline: none;
 }
 
 .site-title-blinker span {

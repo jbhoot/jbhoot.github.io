@@ -235,11 +235,11 @@ action = "replace_element"
 parse = true
 html = """
 <div class="box coloured invert">
-  <div class="h-card" style="align-items: center; max-inline-size: var(--measure); margin: auto;">
-    <h1 class="site-title-wrapper font-family:sans-serif">
+  <div class="h-card cluster" style="align-items: center;">
+    <h1 class="site-title cluster font-family:sans-serif">
       <!-- Content inserted by soupault widget -->
     </h1>
-    <nav class="main-nav">
+    <nav class="main-nav cluster-split">
       <!-- Content inserted by soupault widget -->
     </nav>
   </div>
@@ -253,11 +253,11 @@ action = "replace_element"
 parse = true
 html = """
 <div class="box coloured invert">
-  <div class="h-card" style="align-items: center; max-inline-size: var(--measure); margin: auto;">
-    <p class="site-title-wrapper font-family:sans-serif">
+  <div class="h-card cluster" style="align-items: center;">
+    <p class="site-title cluster font-family:sans-serif">
       <!-- Content inserted by soupault widget -->
     </p>
-    <nav class="main-nav">
+    <nav class="main-nav cluster-split">
       <!-- Content inserted by soupault widget -->
     </nav>
   </div>
@@ -270,30 +270,41 @@ selector = ".main-nav"
 after = ["add-homepage-header", "add-otherpage-header"]
 parse = true
 html = """
-      <ul class="cluster">
-        <li><a href="/articles">Articles</a></li>
-        <li><a href="/notes">Notes</a></li>
-        <li><a href="/collections">Collections</a></li>
-        <li>Projects</li>
-        <li>CV</li>
-        <li><a href="/about">About</a></li>
-      </ul>
+<ul class="cluster" style="--cluster-gap: var(--s2);">
+  <li><a href="/">Home</a></li>
+  <li><a href="/articles">Articles</a></li>
+  <li><a href="/notes">Notes</a></li>
+  <li><a href="/collections">Collections</a></li>
+  <li>Projects</li>
+  <li>CV</li>
+  <li><a href="/about">About</a></li>
+  <li><a href="https://github.com/jbhoot" rel="me">
+    <img alt="GitHub." src="/static/images/github.svg" width="30" style="vertical-align: middle;">
+  </a></li>
+  <li><a href="https://functional.cafe/@bhoot" rel="me">
+    <img alt="Mastodon." src="/static/images/mastodon.svg" width="30" style="vertical-align: middle;">
+  </a></li>
+  <li><a href="https://lobste.rs/~bhoot" rel="me">
+    <img alt="Link to my lobsters account bhoot" src="/static/images/lobsters.svg" width="30" style="vertical-align: middle;">
+  </a></li>
+  <li><a href="https://linkedin.com/in/jbhoot" rel="me">
+    <img alt="LinkedIn." src="/static/images/linkedin.svg" width="30" style="vertical-align: middle;">
+  </a></li>
+</ul>
 """
 
 [widgets.populate-site-title]
 widget = "insert_html"
-selector = ".site-title-wrapper"
+selector = ".site-title"
 after = ["add-homepage-header", "add-otherpage-header"]
 parse = true
 html = """
-<span class="site-title cluster">
 <a class="u-url" href="/"
-   style="--cluster-gap: var(--s-4); align-items: center;">
-  <span><span class="p-name">Jayesh <span class="p-nickname p-family-name">Bhoot</span></span><span>&apos;s</span></span></a>
+   style="--cluster-gap: var(--s-4); align-items: center; text-decoration: none;">
+  <span><span class="p-name">Jayesh <span class="p-nickname p-family-name">Bhoot</span></span><span>&apos;s</span></span>
   <span class="site-title-blinker"
         title="because my last name means 'Ghost' in some Indian languages">Gh<span>o</span>st
-  T<span>o</span>wn</span>
-</span>
+  T<span>o</span>wn</span></a>
 """
 
 [widgets.add-footer]
@@ -302,25 +313,8 @@ selector = "body"
 action = "append_child"
 parse = true
 html = """
-<div class="box coloured invert">
-  <footer class="stack" style="--stack-gap: var(--s-6); margin: auto;">
-    <aside class="cluster no-touch">
-      Find me on:
-      <a href="https://github.com/jbhoot" rel="me">
-        <img alt="GitHub." src="/static/images/github.svg" width="30">
-      </a>
-      <a href="https://functional.cafe/@bhoot" rel="me">
-        <img alt="Mastodon." src="/static/images/mastodon.svg" width="30">
-      </a>
-      <a href="https://lobste.rs/~bhoot" rel="me">
-        <img alt="Link to my lobsters account bhoot" src="/static/images/lobsters.svg" width="30">
-      </a>
-      <a href="https://linkedin.com/in/jbhoot" rel="me">
-        <img alt="LinkedIn." src="/static/images/linkedin.svg" width="30">
-      </a>
-    </aside>
-    <p>Built with <a href="https://soupault.app/">soupault</a> • Part of <a href="https://ring.muhokama.fun/">Muhokama</a> webring (<a href="https://ring.muhokama.fun/u/bhoot/pred">Previous</a> - <a href="https://ring.muhokama.fun/u/bhoot/succ">Next</a>)</p>
-  </div
+<footer class="box coloured invert cluster" style="max-inline-size: none; justify-content: center;">
+    <p> Built with <a href="https://soupault.app/">soupault</a> • Part of <a href="https://ring.muhokama.fun/">Muhokama</a> webring (<a href="https://ring.muhokama.fun/u/bhoot/pred">Previous</a> - <a href="https://ring.muhokama.fun/u/bhoot/succ">Next</a>) </p>
 </footer>
 """
 
