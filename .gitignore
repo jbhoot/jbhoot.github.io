@@ -8,3 +8,7 @@ build/
 soupault
 *dummy-*
 index.json
+.scala-build/
+.vscode/
+.metals/
+.bsp/
