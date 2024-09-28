@@ -301,6 +301,7 @@ html = """
   <li><a href="/collections">Collections</a></li>
   <li>Projects</li>
   <li>Hire</li>
+  <li><a href="/feed.xml">Subscribe</a></li>
 </ul>
 """
 
