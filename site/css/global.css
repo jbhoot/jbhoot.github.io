@@ -269,7 +269,7 @@ https://html.spec.whatwg.org/multipage/rendering.html#lists
        across all browsers.
        Safari still is a pain in the ass, because it puts more space between the list item bullet number and the list item text than Firefox and Chrome do, which mucks up even em-based padding. So alignment looks a bit off in Safari. But it is what it is. */
     padding-inline-start: calc(2em + 7px);
-    list-style-type: decimal;
+    list-style-type: decimal-leading-zero;
 }
 
 ol > li::marker {
