@@ -119,14 +119,7 @@ index_template = """
   <ol class='all-posts' reversed='reversed'>
   {% for e in entries %}
   <li>
-  {% if "Note" in e.collections %}
-    <div style="border: 2px solid black; background-color: #efefef;">
-      <p style="padding: 0.5em 1em; background-color: #fbcc6b;">Posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a>
-      <div style="padding: 0 1em 1em 1em;">{{e.content}}</div>
-    </div>
-  {% else %}
     <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.published}}"> {{e.published_text}}</time></p>
-  {% endif %}
   </li>
   {% endfor %}
   </ol>
@@ -166,14 +159,7 @@ file = "index_processors/all-notes.lua"
 index_selector = ".yearly-posts"
 index_item_template = """
   <li>
-  {% if "Note" in collections %}
-    <div style="border: 2px solid black; background-color: #efefef;">
-      <p style="padding: 0.5em 1em; background-color: #fbcc6b;">Posted on <a href="{{url}}"><time datetime="{{published}}">{{published_text}}</time></a>
-      <div style="padding: 0 1em 1em 1em;">{{content}}</div>
-    </div>
-  {% else %}
     <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{published}}"> {{published_text}}</time></p>
-  {% endif %}
   </li>
   """
 
@@ -183,14 +169,7 @@ max_items = 5
 index_selector = ".recent-posts"
 index_item_template = """
   <li>
-  {% if "Note" in collections %}
-    <div style="border: 2px solid black; background-color: #efefef;">
-      <p style="padding: 0.5em 1em; background-color: #fbcc6b;">Posted on <a href="{{url}}"><time datetime="{{published}}">{{published_text}}</time></a>
-      <div style="padding: 0 1em 1em 1em;">{{content}}</div>
-    </div>
-  {% else %}
     <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{published}}"> {{published_text}}</time></p>
-  {% endif %}
   </li>
   """
 
@@ -202,14 +181,7 @@ index_template = """
   <ol class="collection" reversed="reversed">
   {% for e in entries %}
   <li>
-  {% if "Note" in e.collections %}
-    <div style="border: 2px solid black; background-color: #efefef;">
-      <p style="padding: 0.5em 1em; background-color: #fbcc6b;">Posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a>
-      <div style="padding: 0 1em 1em 1em;">{{e.content}}</div>
-    </div>
-  {% else %}
     <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.timestamp}}"> {{e.date}}</time></p>
-  {% endif %}
   </li>
   {% endfor %}
   </ol>
