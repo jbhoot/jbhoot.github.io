@@ -277,11 +277,13 @@ ol > li::marker {
 }
 
 ol ol {
+    padding-inline-start: calc(1em + 14px);
     list-style-type: lower-alpha;
 }
 
 ol ol ol {
-    list-style-type: lower-roman;
+    list-style-type: decimal-leading-zero;
+    padding-inline-start: calc(2em + 7px);
 }
 
 ul {
