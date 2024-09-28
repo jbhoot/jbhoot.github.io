@@ -1,7 +1,6 @@
 .site-title {
     font-size: var(--s2);
     font-weight: bold;
-    line-height: 1.5;
 }
 
 @keyframes animate-site-title {

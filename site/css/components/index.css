@@ -5,3 +5,10 @@
     border: 1px solid black;
     border-bottom: 5px solid black;
 }
+
+.profile-pic-closeup {
+    float: right;
+    width: 150px;
+    outline: none;
+    margin: 0 var(--s0) var(--s0) var(--s0);
+}
