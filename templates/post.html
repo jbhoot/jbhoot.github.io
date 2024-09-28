@@ -1,53 +1,53 @@
 <html lang="en">
 
 <head>
-  <!-- content will be inserted by [widgets.populate-head] in soupault.toml -->
+    <!-- content will be inserted by [widgets.populate-head] in soupault.toml -->
 </head>
 
 <body>
+    <div class="center" style="border: 2px solid;">
+        <div class="placeholder-header"></div>
+        <main style="padding: 0 var(--s0);">
+            <h2><button type="button" class="commentLoader">Load comments</button></h2>
+        </main>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const btn = document.querySelector('.commentLoader');
+                if (btn) {
+                    btn.addEventListener('click', () => {
+                        const commentSection = document.getElementById('commentSection');
+                        if (!commentSection) {
+                            const sec = document.createElement('div');
+                            sec.id = 'commentSection';
 
-<div class="placeholder-header"></div>
+                            const commentWidget = document.createElement('script');
+                            commentWidget.src = 'https://giscus.app/client.js';
 
-<main class="center" style="padding: 0 var(--s0);">
-  <h2><button type="button" class="commentLoader">Load comments</button></h2>
-</main>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const btn = document.querySelector('.commentLoader');
-        if (btn) {
-            btn.addEventListener('click', () => {
-                const commentSection = document.getElementById('commentSection');
-                if (!commentSection) {
-                    const sec = document.createElement('div');
-                    sec.id = 'commentSection';
+                            commentWidget.dataset.repo = 'jbhoot/jbhoot.github.io';
+                            commentWidget.dataset.repoId = 'R_kgDOLEw7Mg';
+                            commentWidget.dataset.category = 'Announcements';
+                            commentWidget.dataset.categoryId = 'DIC_kwDOLEw7Ms4CghhO';
+                            commentWidget.dataset.mapping = 'pathname';
+                            commentWidget.dataset.strict = '1';
+                            commentWidget.dataset.reactionsEnabled = '0';
+                            commentWidget.dataset.emitMetadata = '0';
+                            commentWidget.dataset.inputPosition = 'bottom';
+                            commentWidget.dataset.theme = 'preferred_color_scheme';
+                            commentWidget.dataset.lang = 'en';
+                            commentWidget.dataset.loading = 'lazy';
+                            commentWidget.crossOrigin = 'anonymous';
+                            commentWidget.async = true;
 
-                    const commentWidget = document.createElement('script');
-                    commentWidget.src = 'https://giscus.app/client.js';
-
-                    commentWidget.dataset.repo = 'jbhoot/jbhoot.github.io';
-                    commentWidget.dataset.repoId = 'R_kgDOLEw7Mg';
-                    commentWidget.dataset.category = 'Announcements';
-                    commentWidget.dataset.categoryId = 'DIC_kwDOLEw7Ms4CghhO';
-                    commentWidget.dataset.mapping = 'pathname';
-                    commentWidget.dataset.strict = '1';
-                    commentWidget.dataset.reactionsEnabled = '0';
-                    commentWidget.dataset.emitMetadata = '0';
-                    commentWidget.dataset.inputPosition = 'bottom';
-                    commentWidget.dataset.theme = 'preferred_color_scheme';
-                    commentWidget.dataset.lang = 'en';
-                    commentWidget.dataset.loading = 'lazy';
-                    commentWidget.crossOrigin = 'anonymous';
-                    commentWidget.async = true;
-
-                    sec.appendChild(commentWidget);
-                    const main = document.querySelector('main');
-                    main.appendChild(sec);
-                    btn.innerText = 'Comments';
+                            sec.appendChild(commentWidget);
+                            const main = document.querySelector('main');
+                            main.appendChild(sec);
+                            btn.innerText = 'Comments';
+                        }
+                    });
                 }
             });
-        }
-    });
-</script>
+        </script>
+    </div>
 </body>
 
 </html>
