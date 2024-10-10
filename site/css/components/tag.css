@@ -1,9 +1,8 @@
 .p-category {
-    background-color: white;
-    padding: 2px;
-    text-decoration-thickness: 1px;
+  background-color: white;
+  padding: 2px;
+  text-decoration-thickness: 1px;
 }
 
 .p-category + .p-category {
-    margin-inline-start: 4px;
 }
