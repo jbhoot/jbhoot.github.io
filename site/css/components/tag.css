@@ -1,8 +1,5 @@
 .p-category {
-  background-color: white;
   padding: 2px;
-  text-decoration-thickness: 1px;
-}
-
-.p-category + .p-category {
+  /*background-color: white;
+  text-decoration-thickness: 1px;*/
 }
