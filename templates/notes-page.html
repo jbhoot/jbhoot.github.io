@@ -1,29 +1,27 @@
 <html lang="en">
+  <head>
+    <!-- content will be inserted by [widgets.populate-head] in soupault.toml -->
+    <style>
+      article {
+        border: 2px solid black;
+        background-color: #efefef;
+      }
 
-<head>
-  <!-- content will be inserted by [widgets.populate-head] in soupault.toml -->
-  <style>
-    article {
-      border: 2px solid black;
-      background-color: #efefef;
-    }
+      article > p {
+        padding: 0.5em 1em;
+        background-color: #fbcc6b;
+      }
 
-    article > p {
-      padding: 0.5em 1em;
-      background-color: #fbcc6b;
-    }
+      article > div {
+        padding: 0 1em 1em 1em;
+      }
+    </style>
+  </head>
 
-    article > div {
-      padding: 0 1em 1em 1em;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="center">
-    <div class="placeholder-homepage-header"></div>
-    <main class="center"></main>
-  </div>
-</body>
-
+  <body>
+    <div>
+      <div class="placeholder-homepage-header"></div>
+      <main class="center"></main>
+    </div>
+  </body>
 </html>
