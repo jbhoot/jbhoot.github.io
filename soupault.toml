@@ -200,7 +200,7 @@ html = """
     <!-- Will be inserted by [widgets.page-title] configuration in soupault.toml -->
   </title>
   <link rel="icon" href="/static/images/favicon.png">
-  <link rel="stylesheet" href="/css/font.css">
+  <!-- <link rel="stylesheet" href="/css/font.css">
   <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="/css/utility.css">
   <link rel="stylesheet" href="/css/layout/stack.css">
@@ -217,7 +217,7 @@ html = """
   <link rel="stylesheet" href="/css/components/site-title.css">
   <link rel="stylesheet" href="/css/components/tag.css">
   <link rel="stylesheet" href="/css/components/toc.css">
-  <link rel="stylesheet" href="/css/components/post-index.css">
+  <link rel="stylesheet" href="/css/components/post-index.css"> -->
   <link rel="me" href="mailto:jayesh@bhoot.dev">
   <script src="/index.js"></script>
 """
@@ -229,7 +229,7 @@ action = "replace_element"
 parse = true
 html = """
 <div class="box coloured invert">
-  <div class="h-card cluster" style="max-inline-size: var(--measure); align-items: center; margin: auto;">
+  <div class="h-card box cluster">
     <h1 class="site-title cluster font-family:sans-serif">
       <!-- Content inserted by soupault widget -->
     </h1>
@@ -247,7 +247,7 @@ action = "replace_element"
 parse = true
 html = """
 <div class="box coloured invert">
-  <div class="h-card cluster" style="max-inline-size: var(--measure); align-items: center; margin: auto;">
+  <div class="h-card cluster">
     <p class="site-title cluster font-family:sans-serif">
       <!-- Content inserted by soupault widget -->
     </p>
@@ -264,7 +264,7 @@ selector = ".main-nav"
 after = ["add-homepage-header", "add-otherpage-header"]
 parse = true
 html = """
-<ul class="cluster" style="--cluster-gap: var(--s1);">
+<ul class="cluster">
   <li><a href="/">Home</a></li>
   <li><a href="/about">About</a></li>
   <li><a href="/posts">Writing</a></li>
@@ -283,8 +283,7 @@ selector = ".site-title"
 after = ["add-homepage-header", "add-otherpage-header"]
 parse = true
 html = """
-<a class="u-url" href="/"
-   style="--cluster-gap: var(--s-4); align-items: center; text-decoration: none;">
+<a class="u-url" href="/">
   <span><span class="p-name">Jayesh <span class="p-nickname p-family-name">Bhoot</span></span><span>&apos;s</span></span>
   <span class="site-title-blinker"
         title="because my last name means 'Ghost' in some Indian languages">Gh<span>o</span>st
@@ -298,7 +297,7 @@ action = "append_child"
 parse = true
 html = """
 <div class="box coloured invert">
-<footer style="max-inline-size: var(--measure); margin: auto;">
+<footer>
   <p> Built with <a href="https://soupault.app/">soupault</a> • Part of <a href="https://ring.muhokama.fun/">Muhokama</a> webring (<a href="https://ring.muhokama.fun/u/bhoot/pred">Previous</a> - <a href="https://ring.muhokama.fun/u/bhoot/succ">Next</a>) </p>
   <address class="cluster">
     <a href="https://github.com/jbhoot" rel="me">
@@ -326,8 +325,8 @@ action = "append_child"
 parse = true
 html = """
 <p class="cluster visually-hidden">
-  <img alt="Post author's photo" class="u-photo" src="/static/images/profile-pic-closeup-round.png">
-  <span class="stack" style="--stack-gap:0;">
+  <img alt="Post author's photo" class="u-photo"  src="/static/images/profile-pic-closeup-round.png" width="60">
+  <span class="stack">
     <span>Written by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a></span>
   </span>
 </p>
