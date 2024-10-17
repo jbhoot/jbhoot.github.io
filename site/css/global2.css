@@ -1,0 +1,28 @@
+:root {
+    --base-size: 1rem;
+    --ratio: 1.25;
+    --measure: 65ch;
+    --s0: var(--base-size);
+    --s1: calc(var(--s0) * var(--ratio));
+    --s2: calc(var(--s1) * var(--ratio));
+    --s3: calc(var(--s2) * var(--ratio));
+    --s4: calc(var(--s3) * var(--ratio));
+    --s5: calc(var(--s4) * var(--ratio));
+    --s6: calc(var(--s5) * var(--ratio));
+    --s7: calc(var(--s6) * var(--ratio));
+  
+    line-height: 1.5;
+}
+
+body {
+    max-inline-size: var(--measure);
+    font-size: var(--s1);
+}
+
+/* h1 {
+    font-size: calc(var(--s4) - 1);
+} */
+
+h1::before {
+    content: '#';
+}

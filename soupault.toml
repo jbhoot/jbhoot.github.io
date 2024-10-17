@@ -200,6 +200,7 @@ html = """
     <!-- Will be inserted by [widgets.page-title] configuration in soupault.toml -->
   </title>
   <link rel="icon" href="/static/images/favicon.png">
+  <link rel="stylesheet" href="/css/global2.css">
   <!-- <link rel="stylesheet" href="/css/font.css">
   <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="/css/utility.css">
