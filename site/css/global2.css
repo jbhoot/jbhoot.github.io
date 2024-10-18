@@ -12,6 +12,8 @@
     --s7: calc(var(--s6) * var(--ratio));
   
     line-height: 1.5;
+    counter-reset: h2 h3 h4 h5 h6;
+}
 }
 
 body {
@@ -19,10 +21,43 @@ body {
     font-size: var(--s1);
 }
 
-/* h1 {
-    font-size: calc(var(--s4) - 1);
-} */
 
-h1::before {
-    content: '#';
+h2::before {
+    counter-increment: h2;
+    content: counter(h2);
+    counter-set: h3 0;
+    color: lightgray;
+}
+
+h3::before {
+    counter-increment: h3;
+    content: counter(h2) "." counter(h3);
+    counter-set: h4 0;
+    color: lightgray;
+}
+
+h4::before {
+    counter-increment: h4;
+    content: counter(h2) "." counter(h3) "." counter(h4);
+    counter-set: h5 0;
+    color: lightgray;
+}
+
+h5::before {
+    counter-increment: h5;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5);
+    counter-set: h6 0;
+    color: lightgray;
+}
+
+h6::before {
+    counter-increment: h6;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6);
+    color: lightgray;
+}
+
+h2:has(.commentLoader)::before {
+    content: '';
+}
+
 }
