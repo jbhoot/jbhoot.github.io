@@ -1,5 +1,5 @@
 .site-title {
-    font-size: var(--s2);
+    font-size: 2em;
     font-weight: bold;
 }
 
@@ -59,8 +59,9 @@
 
 .site-title-blinker {
     background-color: black;
-    padding: 4px;
-    outline: 1px solid;
+    color: white;
+    padding: 2px 8px;
+    outline: 1px solid black;
     outline-offset: 1px;
 
     text-decoration: none;
@@ -84,11 +85,4 @@
 
 .site-title-blinker span:nth-of-type(2) {
     animation: blink linear infinite 3s;
-}
-
-.u-photo {
-    vertical-align: middle;
-    width: 60px;
-    height: auto;
-    outline: none;
 }

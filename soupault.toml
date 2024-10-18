@@ -215,10 +215,11 @@ html = """
   <link rel="stylesheet" href="/css/components/index.css">
   <link rel="stylesheet" href="/css/components/apparate.css">
   <link rel="stylesheet" href="/css/components/cv.css">
-  <link rel="stylesheet" href="/css/components/site-title.css">
   <link rel="stylesheet" href="/css/components/tag.css">
   <link rel="stylesheet" href="/css/components/toc.css">
-  <link rel="stylesheet" href="/css/components/post-index.css"> -->
+  <link rel="stylesheet" href="/css/components/post-index.css">
+  <link rel="stylesheet" href="/css/components/indieweb.css"> -->
+  <link rel="stylesheet" href="/css/components/site-title.css">
   <link rel="me" href="mailto:jayesh@bhoot.dev">
   <script src="/index.js"></script>
 """
