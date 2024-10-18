@@ -5,6 +5,8 @@
 
     line-height: 1.5;
     font-size: calc(var(--base-size) + 0.25vw);
+    font-family: 'PT Sans', 'Atkinson Hyperlegible', sans-serif;
+
     counter-reset: h2 h3 h4 h5 h6;
 }
 
