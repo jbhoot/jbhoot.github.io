@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+}
+
 :root {
     --ratio: 1.125;
     --base-size: calc(1rem * var(--ratio));
