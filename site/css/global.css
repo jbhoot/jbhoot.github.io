@@ -47,6 +47,7 @@ body {
     max-inline-size: calc(var(--measure) * 1.5);
     margin: auto;
     padding-inline: 1em;
+    padding-block-end: 1em;
     background-color: #f4f3ef;
 }
 

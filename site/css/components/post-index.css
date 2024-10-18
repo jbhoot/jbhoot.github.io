@@ -1,7 +1,13 @@
 :is(.all-posts, .all-articles, .all-notes, .yearly-posts, .recent-posts, .collections, .collection) li {
 }
 
+.post-title {
+    font-size: 1em;
+    font-weight: 600;
+}
+
 .post-timestamp {
-    font-family: var(--font-monospaced-sans);
-    color: #555454;
+    font-size: 0.9em;
+    font-family: var(--font-monospace);
+    color: gray;
 }

@@ -11,3 +11,7 @@
     /* outline: none; */
     /* margin: 0 var(--s0) var(--s0) var(--s0); */
 }
+
+.social>*+* {
+    margin-inline-start: 0.5em;
+}

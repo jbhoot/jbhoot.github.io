@@ -119,7 +119,7 @@ index_template = """
   <ol class='all-posts' reversed='reversed'>
   {% for e in entries %}
   <li>
-    <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.published}}"> {{e.published_text}}</time></p>
+    <p><a class="post-title" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.published}}"> {{e.published_text}}</time></p>
   </li>
   {% endfor %}
   </ol>
@@ -134,7 +134,7 @@ index_template = """
   <ol class='all-articles' reversed='reversed'>
   {% for e in entries %}
   <li>
-    <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.published}}"> {{e.published_text}}</time></p>
+    <p><a href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.published}}"> {{e.published_text}}</time></p>
   </li>
   {% endfor %}
   </ol>
@@ -159,7 +159,7 @@ file = "index_processors/all-notes.lua"
 index_selector = ".yearly-posts"
 index_item_template = """
   <li>
-    <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{published}}"> {{published_text}}</time></p>
+    <p><a href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{published}}"> {{published_text}}</time></p>
   </li>
   """
 
@@ -169,7 +169,7 @@ max_items = 5
 index_selector = ".recent-posts"
 index_item_template = """
   <li>
-    <p><a class="font-size:s2 font-weight:600" href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{published}}"> {{published_text}}</time></p>
+    <p><a href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{published}}"> {{published_text}}</time></p>
   </li>
   """
 
@@ -181,7 +181,7 @@ index_template = """
   <ol class="collection" reversed="reversed">
   {% for e in entries %}
   <li>
-    <p><a class="font-size:s2 font-weight:600" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.timestamp}}"> {{e.date}}</time></p>
+    <p><a href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.timestamp}}"> {{e.date}}</time></p>
   </li>
   {% endfor %}
   </ol>
@@ -200,9 +200,8 @@ html = """
     <!-- Will be inserted by [widgets.page-title] configuration in soupault.toml -->
   </title>
   <link rel="icon" href="/static/images/favicon.png">
-  <link rel="stylesheet" href="/css/global2.css">
-  <!-- <link rel="stylesheet" href="/css/global.css">
-  <link rel="stylesheet" href="/css/utility.css">
+  <link rel="stylesheet" href="/css/global.css">
+  <!-- <link rel="stylesheet" href="/css/utility.css">
   <link rel="stylesheet" href="/css/layout/stack.css">
   <link rel="stylesheet" href="/css/layout/sidebar.css">
   <link rel="stylesheet" href="/css/layout/box.css">
@@ -228,15 +227,13 @@ selector = ".placeholder-homepage-header"
 action = "replace_element"
 parse = true
 html = """
-<div class="box coloured invert">
-  <div class="h-card box cluster">
-    <h1 class="site-title cluster font-family:sans-serif">
-      <!-- Content inserted by soupault widget -->
-    </h1>
-    <nav class="main-nav">
-      <!-- Content inserted by soupault widget -->
-    </nav>
-  </div>
+<div class="h-card">
+  <h1 class="site-title">
+    <!-- Content inserted by soupault widget -->
+  </h1>
+  <nav class="main-nav">
+    <!-- Content inserted by soupault widget -->
+  </nav>
 </div>
 """
 
@@ -246,15 +243,13 @@ selector = ".placeholder-header"
 action = "replace_element"
 parse = true
 html = """
-<div class="box coloured invert">
-  <div class="h-card cluster">
-    <p class="site-title cluster font-family:sans-serif">
-      <!-- Content inserted by soupault widget -->
-    </p>
-    <nav class="main-nav">
-      <!-- Content inserted by soupault widget -->
-    </nav>
-  </div>
+<div class="h-card">
+  <p class="site-title">
+    <!-- Content inserted by soupault widget -->
+  </p>
+  <nav class="main-nav">
+    <!-- Content inserted by soupault widget -->
+  </nav>
 </div>
 """
 
@@ -264,7 +259,7 @@ selector = ".main-nav"
 after = ["add-homepage-header", "add-otherpage-header"]
 parse = true
 html = """
-<ul class="cluster">
+<ul>
   <li><a href="/">Home</a></li>
   <li><a href="/about">About</a></li>
   <li><a href="/posts">Writing</a></li>
@@ -292,14 +287,13 @@ html = """
 
 [widgets.add-footer]
 widget = "insert_html"
-selector = "body > div"
+selector = "body"
 action = "append_child"
 parse = true
 html = """
-<div class="box coloured invert">
 <footer>
   <p> Built with <a href="https://soupault.app/">soupault</a> • Part of <a href="https://ring.muhokama.fun/">Muhokama</a> webring (<a href="https://ring.muhokama.fun/u/bhoot/pred">Previous</a> - <a href="https://ring.muhokama.fun/u/bhoot/succ">Next</a>) </p>
-  <address class="cluster">
+  <address class="social">
     <a href="https://github.com/jbhoot" rel="me">
       <img alt="GitHub." src="/static/images/github.svg" width="30" style="vertical-align: middle;">
     </a>
@@ -315,7 +309,6 @@ html = """
     </a>
   </address>
 </footer>
-</div>
 """
 
 [widgets.populate-author-info]
@@ -324,9 +317,9 @@ selector = ".h-entry"
 action = "append_child"
 parse = true
 html = """
-<p class="cluster visually-hidden">
+<p class="visually-hidden">
   <img alt="Post author's photo" class="u-photo"  src="/static/images/profile-pic-closeup-round.png" width="60">
-  <span class="stack">
+  <span>
     <span>Written by <a class="p-author h-card" href="https://bhoot.dev/about">Jayesh Bhoot</a></span>
   </span>
 </p>
