@@ -1,123 +1,77 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
 }
 
 :root {
-  /*Ref: https://every-layout.dev/rudiments/modular-scale/*/
-  /*See https://type-scale.com and https://www.modularscale.com/*/
-  /*to play with other values.*/
-  --base-size: 1rem;
-  --ratio: 1.125;
-  --measure: 65ch; /* if this value is changed, also adjust @media query value in toc.css */
-  line-height: 1.75;
+    --ratio: 1.125;
+    --base-size: calc(1rem * var(--ratio));
+    --measure: 65ch;
+    --font-monospace: 'Cascadia Code', monospace;
+    --font-sans: 'PT Sans', 'Atkinson Hyperlegible', sans-serif;
+    --font-serif: "Droid Serif", "Noto Serif", serif;
 
-  --s-6: calc(var(--s-5) / var(--ratio));
-  --s-5: calc(var(--s-4) / var(--ratio));
-  --s-4: calc(var(--s-3) / var(--ratio));
-  --s-3: calc(var(--s-2) / var(--ratio));
-  --s-2: calc(var(--s-1) / var(--ratio));
-  --s-1: calc(var(--s0) / var(--ratio));
-  --s0: var(--base-size);
-  --s1: calc(var(--s0) * var(--ratio));
-  --s2: calc(var(--s1) * var(--ratio));
-  --s3: calc(var(--s2) * var(--ratio));
-  --s4: calc(var(--s3) * var(--ratio));
-  --s5: calc(var(--s4) * var(--ratio));
-  --s6: calc(var(--s5) * var(--ratio));
-  --s7: calc(var(--s6) * var(--ratio));
-
-  --padding-large: calc(var(--s0) + 2vw);
-  --padding: calc(var(--s0) + 0.25vw);
-
-  --border-thin: 1px;
-  --border-thick: 2px;
-
-  --border-dark: black;
-  --border-light: #e2e2e2;
-
-  --border-radius: 4px;
-
-  --font-sans: "Atkinson Hyperlegible", "Droid Sans", "Noto Sans",
-    "IBM Plex Sans", "PT Sans", sans-serif;
-  --font-serif: "Droid Serif", "Noto Serif", serif;
-  --font-monospaced-sans: "Cascadia Code", "DejaVu Sans Mono", Menlo,
-    "Source Code Pro", "Droid Sans Mono", monospace;
-  --font-monospaced-serif: "Cascadia Code", "Courier Screenplay",
-    "Final Draft Heavy", "PT Mono", "Latin Modern Mono", "Courier Prime",
-    Courier, monospace;
-
-  --color-light-1: #fbf4e9;
-  --color-light-2: #ffeebf;
-  --color-light-3: #bfd0ff;
-  --color-dark: black;
-
-  --size-h1: var(--s7);
-}
-
-html {
-  block-size: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-body {
-  flex: 1;
-  font-family: var(--font-sans);
-
-  /***
-     Increase the base font-size to --s1.
-
-     --s0 = 1rem is too small.
-
-     In case of (--s0 + Xvw),  0.25vw or 0.5vw values are too small on mobile devices to add anything to the tiny 1rem.
-        But 1vw is so large on a desktop screen that text becomes huge.
-
-     (--s0 + Xvh) might be a better approach than (--s0 + Xvw) because 0.5vh is neither too small on mobile device, nor too large on desktop screen. But I am not sure of any side-effects. But there don't seem to be any because people don't play around with viewport height as much as they do with the viewport width. In any case, the minimum size fonts can shrink to is 1rem, but at least we get a much better default from it than from (--s0 + Xvw).
-
-     But all this mental gymnastics led me to wonder what the hell do I care about scaling the fonts in accordance with the viewport size, as long as the base font size is large enough on all screens? So for now I have resorted to --s1 as the base font-size.
-
-     Updating --s0 = 1rem * module scale does not make sense because the default --s0 would become too large for spacing purposes.
-     ***/
-  font-size: var(--s1);
-  container-type: inline-size;
+    line-height: 1.5;
+    font-size: calc(var(--base-size) + 0.25vw);
+    font-family: var(--font-sans);
+    counter-reset: h2 h3 h4 h5 h6;
 }
 
 * {
-  max-inline-size: var(--measure);
+    max-inline-size: var(--measure);
 }
 
-/* Make every img responsive by default.
- * As recommended by Every Layout - The Frame */
-img {
-  max-inline-size: 100%;
+*+* {
+    margin-block-start: 1em;
 }
 
-/*
-The point of using measure is to limit each column of *content* to a readable length.
-There might as well be multiple such columns horizontally.
-Each column length ideally is equal to the value of the measure. ￼
-So the exceptions to the rule that applies measure should be those elements which could be used to lay out horizontal columns of content. ￼
- */
 html,
 body,
-div {
-  max-inline-size: none;
+div,
+main,
+article {
+    max-inline-size: none;
 }
 
-body * + * {
-  margin-block-start: 1em;
+body {
+    min-height: 100vh;
+    max-inline-size: calc(var(--measure) * 1.5);
+    margin: auto;
+    padding-inline: 1em;
+    background-color: #f4f3ef;
 }
 
-hgroup p {
-  color: #5b5a5a;
+h1 {
+    font-size: 2.2em;
 }
 
-hgroup > * + * {
-  margin-block-start: 5px;
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+h4 {
+    font-size: 1.6em;
+}
+
+h5 {
+    font-size: 1.4em;
+}
+
+h6 {
+    font-size: 1.2em;
 }
 
 h1,
@@ -126,232 +80,219 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1.5;
+    text-wrap: balance;
 }
 
-h1 {
-  font-size: var(--size-h1);
+img,
+picture {
+    max-inline-size: 100%;
 }
 
-h2 {
-  font-size: var(--s6);
+:is(h1, h2, h3, h4, h5, h6)::before {
+    color: lightgray;
+    font-family: var(--font-monospace);
+    list-style-type: decimal-leading-zero;
 }
 
-h3 {
-  font-size: var(--s5);
+h2::before {
+    counter-increment: h2;
+    content: counter(h2);
+    counter-set: h3 0;
 }
 
-h4 {
-  font-size: var(--s4);
+h3::before {
+    counter-increment: h3;
+    content: counter(h2) "." counter(h3);
+    counter-set: h4 0;
 }
 
-h5 {
-  font-size: var(--s3);
+h4::before {
+    counter-increment: h4;
+    content: counter(h2) "." counter(h3) "." counter(h4);
+    counter-set: h5 0;
 }
 
-h6 {
-  font-size: var(--s2);
+h5::before {
+    counter-increment: h5;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5);
+    counter-set: h6 0;
 }
 
-caption,
-figcaption {
-  font-family: var(--font-sans);
-  font-size: 0.9em;
-  font-style: italic;
-  margin-block-start: 0;
+h6::before {
+    counter-increment: h6;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6);
 }
 
-caption {
-  text-align: left;
-  caption-side: bottom;
+h2:has(.commentLoader)::before {
+    content: '';
 }
 
-:is(figcaption, caption) code {
-  font-style: normal;
+ol {
+    /*
+  For ul and ol, W3C standard specifies a default for padding-inline-start (of 40px), but not for margin-inline-start.
+  So we only adjust padding value here, not margin.
+  https://html.spec.whatwg.org/multipage/rendering.html#lists
+  */
+
+    /* After a lot of experimentation, this calculated padding brings
+         an <ol>, which is numbered up to 99,
+         in alignment with its surrounding content
+         across all browsers.
+         Safari still is a pain in the ass, because it puts more space between the list item bullet number and the list item text than Firefox and Chrome do, which mucks up even em-based padding. So alignment looks a bit off in Safari. But it is what it is. */
+    padding-inline-start: calc(2em + 0.5em);
+    list-style-type: decimal-leading-zero;
+}
+
+ol>li::marker {
+    font-family: var(--font-monospace);
+    color: gray;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+    padding-inline-start: calc(1em + 1em);
+}
+
+ol ol ol {
+    list-style-type: decimal-leading-zero;
+    padding-inline-start: calc(2em + 7px);
+}
+
+ul {
+    /* After a lot of experimentation, a padding of 1em brings
+         a <ul> in alignment with its surrounding content
+         across all browsers. */
+    padding-inline-start: 1em;
+}
+
+ul ul {
+    list-style-type: circle;
+}
+
+ul ul ul {
+    list-style-type: square;
 }
 
 code {
-  font-family: var(--font-monospaced-sans);
-  font-weight: normal;
-  font-size: 0.9em;
-  color: green;
+    font-family: var(--font-monospace);
+    font-weight: normal;
+    font-size: 0.9em;
+    color: green;
 }
 
-:is(h1, h2, h3, h4, h5, h6) > code {
-  font-size: 0.8em;
+:is(h1, h2, h3, h4, h5, h6)>code {
+    font-size: 0.8em;
 }
 
 pre {
-  /* max-inline-size of <pre> computes to be wider than other tags because it uses monospaced font-family by default, thus causing the --measure=60ch to compute a wider size.
-     * Various approaches to tackle this are:
-     * 1. Set the font-family to serif to set its measure similar to other tags.
-     *    font-family: var(--font-serif);
-     *    But code become (subjectively) illegible to an extent.
-     * 2. Decrease the max-inline-size of <pre> a bit.
-     *    max-inline-size: calc(var(--measure) * 0.9);
-     *    But <60ch is too narrow for code snippets The effort of scrolling to see a line of code increases.
-     * 3. Decrease the font-size so that max-inline-size reduces by itself.
-     *    font-size: 0.9em;
-     *    But code snippets become small and a bit hard to read.
-     * 4. Let the width consistency go to hell. Size the width of <pre> to a proper 75-80ch.
-     *    This is in accordance with the line width of 80 chars used by editors and formatters.
-     *    max-inline-size: 80ch;
-     *    In order to alleviate the inconsistent widths of normal content and <pre> content,
-     *    increase the styling contrast between the two.
-     */
-  max-inline-size: 75ch;
-  background-color: black;
-  color: #4af626;
-  overflow: auto;
-  padding: 10px;
-  font-family: var(--font-monospaced-sans);
-  font-weight: normal;
-  font-size: 0.9em;
+    /* max-inline-size of <pre> computes to be wider than other tags because it uses monospaced font-family by default, thus causing the --measure=60ch to compute a wider size.
+       * Various approaches to tackle this are:
+       * 1. Set the font-family to serif to set its measure similar to other tags.
+       *    font-family: var(--font-serif);
+       *    But code become (subjectively) illegible to an extent.
+       * 2. Decrease the max-inline-size of <pre> a bit.
+       *    max-inline-size: calc(var(--measure) * 0.9);
+       *    But <60ch is too narrow for code snippets The effort of scrolling to see a line of code increases.
+       * 3. Decrease the font-size so that max-inline-size reduces by itself.
+       *    font-size: 0.9em;
+       *    But code snippets become small and a bit hard to read.
+       * 4. Let the width consistency go to hell. Size the width of <pre> to a proper 75-80ch.
+       *    This is in accordance with the line width of 80 chars used by editors and formatters.
+       *    max-inline-size: 80ch;
+       *    In order to alleviate the inconsistent widths of normal content and <pre> content,
+       *    increase the styling contrast between the two.
+       */
+    max-inline-size: 75ch;
+    background-color: black;
+    color: #4af626;
+    overflow: auto;
+    padding: 10px;
+    font-family: var(--font-monospace);
+    font-weight: normal;
+    font-size: 0.9em;
 }
 
-pre > code {
-  color: #4af626;
-  font-size: inherit;
+pre>code {
+    color: #4af626;
+    font-size: inherit;
 }
 
-img {
-  outline: 1px solid var(--border-light);
+a {
+    text-underline-offset: 0.25em;
+    text-decoration-skip-ink: none;
 }
 
-ins {
-  text-decoration: none;
-  background-color: rgba(0, 128, 0, 0.2);
-  padding: 0 4px 0 0;
-}
-
-ins::before {
-  content: "+ " attr(datetime);
-  background-color: green;
-  color: white;
-  padding: 0 4px 0 4px;
+a:hover {
+    text-decoration-thickness: 3px;
+    text-decoration-style: solid;
 }
 
 table,
 th,
 td {
-  border-collapse: collapse;
+    border-collapse: collapse;
 }
 
 th,
 td {
-  border: 1px solid var(--border-dark);
-  padding: var(--s-2) var(--s-1);
-  text-align: left;
+    border: 1px solid var(--border-dark);
+    padding: 0.125em 0.25em;
+    text-align: left;
 }
 
 tr:hover {
-  background-color: #f0f0f0;
-}
-
-a {
-  text-decoration-style: dotted;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.25em;
-  text-decoration-skip-ink: none;
-}
-
-a:hover {
-  text-decoration-thickness: 3px;
-  text-decoration-style: solid;
-}
-
-ol {
-  /*
-For ul and ol, W3C standard specifies a default for padding-inline-start (of 40px), but not for margin-inline-start.
-So we only adjust padding value here, not margin.
-https://html.spec.whatwg.org/multipage/rendering.html#lists
-*/
-
-  /* After a lot of experimentation, this calculated padding brings
-       an <ol>, which is numbered up to 99,
-       in alignment with its surrounding content
-       across all browsers.
-       Safari still is a pain in the ass, because it puts more space between the list item bullet number and the list item text than Firefox and Chrome do, which mucks up even em-based padding. So alignment looks a bit off in Safari. But it is what it is. */
-  padding-inline-start: calc(2em + 7px);
-  list-style-type: decimal-leading-zero;
-}
-
-ol > li::marker {
-  font-family: var(--font-monospaced-sans);
-}
-
-ol ol {
-  padding-inline-start: calc(1em + 14px);
-  list-style-type: lower-alpha;
-}
-
-ol ol ol {
-  list-style-type: decimal-leading-zero;
-  padding-inline-start: calc(2em + 7px);
-}
-
-ul {
-  /* After a lot of experimentation, a padding of 1em brings
-       a <ul> in alignment with its surrounding content
-       across all browsers. */
-  padding-inline-start: 1em;
-}
-
-ul ul {
-  list-style-type: circle;
-}
-
-ul ul ul {
-  list-style-type: square;
-}
-
-nav ul {
-  padding-inline-start: 0;
-  list-style: none;
+    background-color: #f0f0f0;
 }
 
 aside:not(.no-touch) {
-  color: gray;
-  border: 1px dashed gray;
-  padding: var(--s0);
+    color: gray;
+    border: 1px dashed gray;
+    padding: 1em;
 }
 
 aside:not(.no-touch)::before {
-  display: block;
-  content: "ASIDE";
-  margin-bottom: var(--s0);
-  text-decoration: underline;
+    display: block;
+    content: "ASIDE";
+    margin-bottom: 1em;
+    text-decoration: underline;
 }
 
 blockquote {
-  border-inline-start: 2px solid #0097db;
-  padding-inline-start: var(--s0);
-  font-style: italic;
+    margin: 0;
+    border-inline-start: 2px solid #0097db;
+    padding-inline-start: 1em;
+    font-style: italic;
 }
 
-p:has(.p-author) + p:has(.dt-published) {
-  margin-block-start: 0;
+ins {
+    text-decoration: none;
+    background-color: rgba(0, 128, 0, 0.2);
+    padding: 0 4px 0 0;
+}
+
+ins::before {
+    content: "+ " attr(datetime);
+    background-color: green;
+    color: white;
+    padding: 0 4px 0 4px;
+}
+
+nav>ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    list-style-type: none;
+    padding: 0;
+}
+
+nav>ul>li+li {
+    margin-block-start: 0;
 }
 
 .no-show {
-  display: none;
-}
-
-.e-summary {
-  font-size: 1.2em;
+    display: none;
 }
 
 .visually-hidden {
-  display: none !important;
-}
-
-@media print {
-  main {
-    padding: 0 !important;
-  }
-
-  .no-print,
-  .no-print * {
     display: none !important;
-  }
 }
