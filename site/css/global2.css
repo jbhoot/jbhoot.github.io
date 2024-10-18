@@ -89,4 +89,14 @@ h2:has(.commentLoader)::before {
     content: '';
 }
 
+nav > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    list-style-type: none;
+    padding: 0;
+}
+
+nav > ul > li + li {
+    margin-block-start: 0;
 }
