@@ -21,6 +21,10 @@ html {
 }
 
 body {
+    max-inline-size: calc(var(--measure) * 1.5);
+    margin: auto;
+}
+
 h1 {
     font-size: 2.2em;
 }
