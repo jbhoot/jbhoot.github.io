@@ -7,6 +7,10 @@
     font-size: calc(var(--base-size) + 0.25vw);
     counter-reset: h2 h3 h4 h5 h6;
 }
+
+*+* {
+    margin-block-start: 1em;
+}
 }
 
 body {
