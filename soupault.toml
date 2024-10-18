@@ -361,10 +361,10 @@ use_heading_slug = true
 toc_list_class = "toc"
 toc_class_levels = true
 ignore_heading_selectors = [".no-toc"]
-heading_links = true
+heading_links = false
 heading_link_class = "toc-heading-link"
 heading_link_text = "§" # silcrow sign / section sign
-heading_links_append = true
+heading_links_append = false
 valid_html = true
 
 [widgets.delete_draft_content]
