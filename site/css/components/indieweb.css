@@ -1,3 +1,11 @@
+p:has(.p-author)+p:has(.dt-published) {
+    margin-block-start: 0;
+}
+
+.e-summary {
+    /* font-size: 1.2em; */
+}
+
 .u-photo {
     vertical-align: middle;
     width: 60px;

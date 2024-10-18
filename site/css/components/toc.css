@@ -1,10 +1,7 @@
 .toc {
+    max-inline-size: var(--measure);
     outline: 2px solid gray;
     padding: 1em;
-}
-
-.toc-1 {
-    /*list-style-type: none;*/
 }
 
 .toc-1:has(*)::before {
@@ -13,28 +10,6 @@
     font-size: 1.6em;
     font-weight: bold;
     margin-block-end: 0.5em;
-}
-
-.toc-1 * + * {
-    /* margin-block-start: 0.25em; */
-}
-
-.toc-2 {
-    /*padding-inline-start: 2ch;*/
-    /*list-style-type: decimal;*/
-}
-
-.toc-3 {
-    /*padding-inline-start: 2ch;*/
-    /*list-style-type: disc;*/
-}
-
-.toc-heading-link {
-    font-weight: normal;
-    margin-inline-start: 0.4em;
-    text-decoration: none;
-    font-size: 0.7em;
-    font-family: var(--font-monospaced-sans);
 }
 
 /*
