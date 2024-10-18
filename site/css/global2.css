@@ -1,12 +1,20 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 :root {
     --ratio: 1.125;
     --base-size: calc(1rem * var(--ratio));
     --measure: 65ch;
+    --font-monospace: 'Cascadia Code', monospace;
+    --font-sans: 'PT Sans', 'Atkinson Hyperlegible', sans-serif;
+    --font-serif: "Droid Serif", "Noto Serif", serif;
 
     line-height: 1.5;
     font-size: calc(var(--base-size) + 0.25vw);
-    font-family: 'PT Sans', 'Atkinson Hyperlegible', sans-serif;
-
+    font-family: var(--font-sans);
     counter-reset: h2 h3 h4 h5 h6;
 }
 
@@ -18,11 +26,16 @@
     margin-block-start: 1em;
 }
 
-html {
+html,
+body,
+div,
+main,
+article {
     max-inline-size: none;
 }
 
 body {
+    min-height: 100vh;
     max-inline-size: calc(var(--measure) * 1.5);
     margin: auto;
     padding-inline: 1em;
@@ -52,45 +65,205 @@ h6 {
     font-size: 1.2em;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+img,
+picture {
+    max-inline-size: 100%;
+    outline: 1px solid gray;
+}
+
+:is(h1, h2, h3, h4, h5, h6)::before {
+    color: lightgray;
+    font-family: var(--font-monospace);
+    list-style-type: decimal-leading-zero;
+}
+
 h2::before {
     counter-increment: h2;
     content: counter(h2);
     counter-set: h3 0;
-    color: lightgray;
 }
 
 h3::before {
     counter-increment: h3;
     content: counter(h2) "." counter(h3);
     counter-set: h4 0;
-    color: lightgray;
 }
 
 h4::before {
     counter-increment: h4;
     content: counter(h2) "." counter(h3) "." counter(h4);
     counter-set: h5 0;
-    color: lightgray;
 }
 
 h5::before {
     counter-increment: h5;
     content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5);
     counter-set: h6 0;
-    color: lightgray;
 }
 
 h6::before {
     counter-increment: h6;
     content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6);
-    color: lightgray;
 }
 
 h2:has(.commentLoader)::before {
     content: '';
 }
 
-nav > ul {
+ol {
+    /*
+  For ul and ol, W3C standard specifies a default for padding-inline-start (of 40px), but not for margin-inline-start.
+  So we only adjust padding value here, not margin.
+  https://html.spec.whatwg.org/multipage/rendering.html#lists
+  */
+
+    /* After a lot of experimentation, this calculated padding brings
+         an <ol>, which is numbered up to 99,
+         in alignment with its surrounding content
+         across all browsers.
+         Safari still is a pain in the ass, because it puts more space between the list item bullet number and the list item text than Firefox and Chrome do, which mucks up even em-based padding. So alignment looks a bit off in Safari. But it is what it is. */
+    padding-inline-start: calc(2em + 0.5em);
+    list-style-type: decimal-leading-zero;
+}
+
+ol>li::marker {
+    font-family: var(--font-monospace);
+    color: gray;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+    padding-inline-start: calc(1em + 1em);
+}
+
+ol ol ol {
+    list-style-type: decimal-leading-zero;
+    padding-inline-start: calc(2em + 7px);
+}
+
+ul {
+    /* After a lot of experimentation, a padding of 1em brings
+         a <ul> in alignment with its surrounding content
+         across all browsers. */
+    padding-inline-start: 1em;
+}
+
+ul ul {
+    list-style-type: circle;
+}
+
+ul ul ul {
+    list-style-type: square;
+}
+
+code {
+    font-family: var(--font-monospaced-sans);
+    font-weight: normal;
+    font-size: 0.9em;
+    color: green;
+}
+
+:is(h1, h2, h3, h4, h5, h6)>code {
+    font-size: 0.8em;
+}
+
+pre {
+    /* max-inline-size of <pre> computes to be wider than other tags because it uses monospaced font-family by default, thus causing the --measure=60ch to compute a wider size.
+       * Various approaches to tackle this are:
+       * 1. Set the font-family to serif to set its measure similar to other tags.
+       *    font-family: var(--font-serif);
+       *    But code become (subjectively) illegible to an extent.
+       * 2. Decrease the max-inline-size of <pre> a bit.
+       *    max-inline-size: calc(var(--measure) * 0.9);
+       *    But <60ch is too narrow for code snippets The effort of scrolling to see a line of code increases.
+       * 3. Decrease the font-size so that max-inline-size reduces by itself.
+       *    font-size: 0.9em;
+       *    But code snippets become small and a bit hard to read.
+       * 4. Let the width consistency go to hell. Size the width of <pre> to a proper 75-80ch.
+       *    This is in accordance with the line width of 80 chars used by editors and formatters.
+       *    max-inline-size: 80ch;
+       *    In order to alleviate the inconsistent widths of normal content and <pre> content,
+       *    increase the styling contrast between the two.
+       */
+    max-inline-size: 75ch;
+    background-color: black;
+    color: #4af626;
+    overflow: auto;
+    padding: 10px;
+    font-family: var(--font-monospace);
+    font-weight: normal;
+    font-size: 0.9em;
+}
+
+pre>code {
+    color: #4af626;
+    font-size: inherit;
+}
+
+a:hover {
+    text-decoration-thickness: 3px;
+    text-decoration-style: solid;
+}
+
+table,
+th,
+td {
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid var(--border-dark);
+    padding: var(--s-2) var(--s-1);
+    text-align: left;
+}
+
+tr:hover {
+    background-color: #f0f0f0;
+}
+
+aside:not(.no-touch) {
+    color: gray;
+    border: 1px dashed gray;
+    padding: var(--s0);
+}
+
+aside:not(.no-touch)::before {
+    display: block;
+    content: "ASIDE";
+    margin-bottom: var(--s0);
+    text-decoration: underline;
+}
+
+blockquote {
+    border-inline-start: 2px solid #0097db;
+    padding-inline-start: var(--s0);
+    font-style: italic;
+}
+
+ins {
+    text-decoration: none;
+    background-color: rgba(0, 128, 0, 0.2);
+    padding: 0 4px 0 0;
+}
+
+ins::before {
+    content: "+ " attr(datetime);
+    background-color: green;
+    color: white;
+    padding: 0 4px 0 4px;
+}
+
+nav>ul {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
@@ -98,6 +271,14 @@ nav > ul {
     padding: 0;
 }
 
-nav > ul > li + li {
+nav>ul>li+li {
     margin-block-start: 0;
+}
+
+.no-show {
+    display: none;
+}
+
+.visually-hidden {
+    display: none !important;
 }

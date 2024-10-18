@@ -220,6 +220,7 @@ html = """
   <link rel="stylesheet" href="/css/components/indieweb.css"> -->
   <link rel="stylesheet" href="/css/components/site-title.css">
   <link rel="stylesheet" href="/css/components/toc.css">
+  <link rel="stylesheet" href="/css/print.css">
   <link rel="me" href="mailto:jayesh@bhoot.dev">
   <script src="/index.js"></script>
 """

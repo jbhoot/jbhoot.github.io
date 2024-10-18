@@ -1,0 +1,10 @@
+@media print {
+    main {
+        padding: 0 !important;
+    }
+
+    .no-print,
+    .no-print * {
+        display: none !important;
+    }
+}
