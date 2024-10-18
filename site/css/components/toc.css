@@ -8,13 +8,15 @@
 }
 
 .toc-1:has(*)::before {
+    display: block;
     content: 'Table of contents';
-    font-size: var(--s3);
+    font-size: 1.6em;
     font-weight: bold;
+    margin-block-end: 0.5em;
 }
 
 .toc-1 * + * {
-    margin-block-start: 0.25em;
+    /* margin-block-start: 0.25em; */
 }
 
 .toc-2 {
