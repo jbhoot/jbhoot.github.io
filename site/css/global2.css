@@ -47,6 +47,7 @@ body {
     max-inline-size: calc(var(--measure) * 1.5);
     margin: auto;
     padding-inline: 1em;
+    background-color: #f4f3ef;
 }
 
 h1 {
@@ -85,7 +86,6 @@ h6 {
 img,
 picture {
     max-inline-size: 100%;
-    outline: 1px solid gray;
 }
 
 :is(h1, h2, h3, h4, h5, h6)::before {
@@ -174,7 +174,7 @@ ul ul ul {
 }
 
 code {
-    font-family: var(--font-monospaced-sans);
+    font-family: var(--font-monospace);
     font-weight: normal;
     font-size: 0.9em;
     color: green;
@@ -217,6 +217,11 @@ pre>code {
     font-size: inherit;
 }
 
+a {
+    text-underline-offset: 0.25em;
+    text-decoration-skip-ink: none;
+}
+
 a:hover {
     text-decoration-thickness: 3px;
     text-decoration-style: solid;
@@ -231,7 +236,7 @@ td {
 th,
 td {
     border: 1px solid var(--border-dark);
-    padding: var(--s-2) var(--s-1);
+    padding: 0.125em 0.25em;
     text-align: left;
 }
 
@@ -242,19 +247,20 @@ tr:hover {
 aside:not(.no-touch) {
     color: gray;
     border: 1px dashed gray;
-    padding: var(--s0);
+    padding: 1em;
 }
 
 aside:not(.no-touch)::before {
     display: block;
     content: "ASIDE";
-    margin-bottom: var(--s0);
+    margin-bottom: 1em;
     text-decoration: underline;
 }
 
 blockquote {
+    margin: 0;
     border-inline-start: 2px solid #0097db;
-    padding-inline-start: var(--s0);
+    padding-inline-start: 1em;
     font-style: italic;
 }
 
