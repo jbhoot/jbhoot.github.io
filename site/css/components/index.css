@@ -15,3 +15,9 @@
 .social>*+* {
     margin-inline-start: 0.5em;
 }
+
+.copy-link {
+    font-size: var(--base-size);
+    vertical-align: middle;
+    margin-block-start: 0;
+}
