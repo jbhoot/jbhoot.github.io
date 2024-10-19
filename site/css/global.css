@@ -297,3 +297,7 @@ nav>ul>li+li {
 .visually-hidden {
     display: none !important;
 }
+
+footer {
+    border-block-start: 0.125em solid;
+}
