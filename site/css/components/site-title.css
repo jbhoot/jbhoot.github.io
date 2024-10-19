@@ -58,11 +58,11 @@
 }
 
 .site-title-blinker {
+    display: inline-block;
     background-color: black;
     color: white;
-    padding: 2px 8px;
-    outline: 1px solid black;
-    outline-offset: 1px;
+    padding: 0 8px;
+    margin-block-start: 0;
 
     text-decoration: none;
 
@@ -71,12 +71,7 @@
     animation-duration: 200ms;
     animation-fill-mode: forwards;
 
-    text-shadow: 0 -40px 100px,
-    0 0 2px,
-    0 0 1em #ff4444,
-    0 0 0.5em #ff4444,
-    0 0 0.1em #ff4444,
-    0 10px 3px #000;
+    text-shadow: 0 -40px 100px, 0 0 1em #f44, 0 0 0.5em #f44;
 }
 
 .site-title-blinker span {
