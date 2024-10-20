@@ -2,6 +2,11 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    margin: 0;
+}
+
+h1 {
+    margin-block: 1em;
 }
 
 input,
