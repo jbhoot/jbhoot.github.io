@@ -6,17 +6,11 @@
     border-bottom: 5px solid black;
 }
 
-.profile-pic-closeup {
-    /* float: right; */
-    /* outline: none; */
-    /* margin: 0 var(--s0) var(--s0) var(--s0); */
-}
-
-.social>*+* {
+.social *+* {
     margin-inline-start: 0.5em;
 }
 
-.social > a {
+.social a {
     text-decoration: none;
 }
 
