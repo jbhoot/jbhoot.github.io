@@ -221,7 +221,7 @@ pre>code {
 
 a {
     text-decoration-thickness: 1px;
-    text-decoration-style: dotted;
+    text-decoration-style: solid;
     text-underline-offset: 0.25em;
     text-decoration-skip-ink: none;
 }
@@ -229,6 +229,7 @@ a {
 a:hover {
     text-decoration-thickness: 3px;
     text-decoration-style: solid;
+    background-color: #dbe7fb;
 }
 
 a[href*="http"]::after {
