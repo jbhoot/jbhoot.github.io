@@ -6,14 +6,6 @@
     border-bottom: 5px solid black;
 }
 
-.social *+* {
-    margin-inline-start: 0.5em;
-}
-
-.social a {
-    text-decoration: none;
-}
-
 .copy-link {
     font-size: var(--base-size);
     vertical-align: middle;

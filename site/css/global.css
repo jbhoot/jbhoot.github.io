@@ -231,6 +231,29 @@ a:hover {
     text-decoration-style: solid;
 }
 
+a[href*="http"]::after {
+    content: '⎋';
+    display: inline-block;
+    transform: rotate(90deg);
+    margin-inline-start: 0.125em;
+    vertical-align: middle;
+    font-size: 0.75em;
+}
+
+/* social links */
+a[rel="me"]:has(img) {
+    text-decoration: none;
+}
+
+a[rel="me"]:has(img)::after {
+    content: '';
+    margin-inline-start: 0;
+}
+
+a[rel="me"]:not(:first-of-type) {
+    margin-inline-start: 0.5em;
+}
+
 table,
 th,
 td {
