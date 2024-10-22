@@ -1,6 +1,7 @@
 .site-title {
     font-size: 2em;
     font-weight: bold;
+    margin-block: var(--space4);
 }
 
 @keyframes animate-site-title {

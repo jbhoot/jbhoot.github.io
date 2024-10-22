@@ -14,17 +14,33 @@ select {
 }
 
 :root {
-    --ratio: 1.125;
-    --base-size: calc(1rem * var(--ratio));
-    --measure: 65ch;
     --font-monospace: 'Cascadia Code', monospace;
     --font-sans: 'PT Sans', 'Atkinson Hyperlegible', sans-serif;
     --font-serif: "Droid Serif", "Noto Serif", serif;
 
+    --measure: 65ch;
+
+    --base-size: calc(1rem + 0.5vw);
+    --p: var(--base-size);
+    --h4: calc(var(--base-size) + 0.4rem);
+    --h3: calc(var(--base-size) + 0.8rem);
+    --h2: calc(var(--base-size) + 1.2rem);
+    --h1: calc(var(--base-size) + 1.6rem);
+
+    --base-space: 0.25em;
+    --space1: calc(var(--base-space) * 1);
+    --space2: calc(var(--base-space) * 2);
+    --space3: calc(var(--base-space) * 3);
+    --space4: calc(var(--base-space) * 4);
+
+    --base-border: 0.0625em;
+    --border1: calc(var(--base-border) * 1);
+    --border2: calc(var(--base-border) * 2);
+    --border3: calc(var(--base-border) * 3);
+    --border4: calc(var(--base-border) * 4);
+
     line-height: 1.5;
-    font-size: calc(var(--base-size) + 0.25vw);
-    font-family: var(--font-sans);
-    counter-reset: h2 h3 h4 h5 h6;
+    counter-reset: h2 h3 h4;
 }
 
 * {
@@ -44,53 +60,41 @@ article {
 }
 
 body {
-    min-height: 100vh;
     max-inline-size: calc(var(--measure) * 1.5);
+    font-size: var(--p);
+    font-family: var(--font-sans);
+
+    min-height: 100vh;
     margin: auto;
-    padding-inline: 1em;
-    padding-block-end: 1em;
+    padding-inline: var(--space4);
+    padding-block-end: var(--space4);
     background-color: #f4f3ef;
 }
 
 h1 {
-    font-size: 2.2em;
+    font-size: var(--h1);
 }
 
 h2 {
-    font-size: 2em;
+    font-size: var(--h2);
 }
 
 h3 {
-    font-size: 1.8em;
+    font-size: var(--h3);
 }
 
 h4 {
-    font-size: 1.6em;
-}
-
-h5 {
-    font-size: 1.4em;
-}
-
-h6 {
-    font-size: 1.2em;
+    font-size: var(--h4);
 }
 
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
+h4 {
     text-wrap: balance;
 }
 
-img,
-picture {
-    max-inline-size: 100%;
-}
-
-:is(h1, h2, h3, h4, h5, h6)::before {
+:is(h1, h2, h3, h4)::before {
     color: lightgray;
     font-family: var(--font-monospace);
     list-style-type: decimal-leading-zero;
@@ -111,22 +115,15 @@ h3::before {
 h4::before {
     counter-increment: h4;
     content: counter(h2) "." counter(h3) "." counter(h4);
-    counter-set: h5 0;
-}
-
-h5::before {
-    counter-increment: h5;
-    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5);
-    counter-set: h6 0;
-}
-
-h6::before {
-    counter-increment: h6;
-    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6);
 }
 
 h2:has(.commentLoader)::before {
     content: '';
+}
+
+img,
+picture {
+    max-inline-size: 100%;
 }
 
 ol {
@@ -208,7 +205,7 @@ pre {
     background-color: black;
     color: #4af626;
     overflow: auto;
-    padding: 10px;
+    padding: var(--space4);
     font-family: var(--font-monospace);
     font-weight: normal;
     font-size: 0.9em;
@@ -220,14 +217,14 @@ pre>code {
 }
 
 a {
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: var(--border1);
     text-decoration-style: solid;
-    text-underline-offset: 0.25em;
+    text-underline-offset: var(--space1);
     text-decoration-skip-ink: none;
 }
 
 a:hover {
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: var(--border3);
     text-decoration-style: solid;
     background-color: #dbe7fb;
 }
@@ -236,7 +233,7 @@ a[href*="http"]::after {
     content: '⎋';
     display: inline-block;
     transform: rotate(90deg);
-    margin-inline-start: 0.125em;
+    margin-inline-start: var(--space1);
     vertical-align: middle;
     font-size: 0.75em;
 }
@@ -252,7 +249,7 @@ a[rel="me"]:has(img)::after {
 }
 
 a[rel="me"]:not(:first-of-type) {
-    margin-inline-start: 0.5em;
+    margin-inline-start: var(--space2);
 }
 
 table,
@@ -263,8 +260,8 @@ td {
 
 th,
 td {
-    border: 1px solid var(--border-dark);
-    padding: 0.125em 0.25em;
+    border: var(--border2) solid black;
+    padding: var(--space2) var(--space3);
     text-align: left;
 }
 
@@ -274,41 +271,41 @@ tr:hover {
 
 aside:not(.no-touch) {
     color: gray;
-    border: 1px dashed gray;
-    padding: 1em;
+    border: var(--border1) dashed gray;
+    padding: var(--space4);
 }
 
 aside:not(.no-touch)::before {
     display: block;
     content: "ASIDE";
-    margin-bottom: 1em;
+    margin-bottom: var(--space4);
     text-decoration: underline;
 }
 
 blockquote {
     margin: 0;
-    border-inline-start: 2px solid #0097db;
-    padding-inline-start: 1em;
+    border-inline-start: var(--border2) solid #0097db;
+    padding-inline-start: var(--space4);
     font-style: italic;
 }
 
 ins {
     text-decoration: none;
     background-color: rgba(0, 128, 0, 0.2);
-    padding: 0 4px 0 0;
+    padding: 0 var(--space1) 0 0;
 }
 
 ins::before {
     content: "+ " attr(datetime);
     background-color: green;
     color: white;
-    padding: 0 4px 0 4px;
+    padding: 0 var(--space1) 0 var(--space1);
 }
 
 nav>ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 1em;
+    gap: var(--space4);
     list-style-type: none;
     padding: 0;
 }
@@ -326,6 +323,6 @@ nav>ul>li+li {
 }
 
 footer {
-    border-block-start: 2px solid lightgray;
+    border-block-start: var(--border2) solid lightgray;
     border-block-start-style: dotted;
 }
