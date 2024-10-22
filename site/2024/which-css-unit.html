@@ -1,0 +1,67 @@
+Choosing a measurement unit in CSS
+
+https://zellwk.com/blog/rem-vs-em/
+
+What are em and rem?
+
+em: 1em is equal to the current font-size. Within an element, the current font-size points to the font-size set for the element. What about the font-size property itself then? Well, the current font-size at that point points to the parent's font-size.
+
+So, 1em is equal to the element's own font size for everything other than font-size, but equal to the parent's font-size for font-size.
+
+1rem is equal to the font-size defined in the root element <html>, no matter where in the element tree its used.
+
+Observe the following tree [TODO: use an HTML tree to demonstrate the difference]
+
+When to use what?
+
+Use em for properties of an element that have to scale with the element's content, i.e., font-size.
+
+Use rem for everything else.
+
+Font sizing
+
+Still not sure, but either of em or rem. It looks to me that em suffers from a compounding problem, but only when font size is set arbitrarily across the HTML tree.
+
+Element's own styles (especially spacing)
+
+em looks like a more sensible option. Observe the following:
+
+<p style="font-size: 1rem; border: 0.125rem solid; margin: 0; padding: 1rem;">hello world</p>
+
+<p style="font-size: 0.5rem; border: 0.125rem solid; margin: 0; padding: 1rem;">hello world</p>
+
+<p style="font-size: 0.5rem; border: 0.125em solid; margin: 0; padding: 1em;">hello world</p>
+
+I will keep a watch on using em for border. But it sure looks sensible in the above example.
+
+Over all I am still on the fence about using em/rem altogether for borders. But let's see.
+
+<h2>Why is em controversial?</h2>
+
+It is, for sizing fonts, at least.
+
+I firmly believe that the most important aspects of a codebase is its maintainability and (as an extension) refactorability. em violates that belief in some ways, when used for sizing fonts.
+
+Webapps are usually component-based. Plugging in a component that uses em-based styling makes it highly dependent on the container component font-size. This is problem if arbitrary font sizes are used arbitrarily (deadline rush, this is a small change, etc.). rem makes a plugged-in component free of such risks as all components now depend only on the root em font-size. 
+
+Basically, while using em, there is always a sword hanging above your head, that if down the line, you arbitrarily set a font size somewhere, then that mistake will cascade across the subtree, and becomes difficult to fix. rem makes it easy to fix such mistakes.
+
+<h2>Other recommendation</h2>
+
+A Hacker News user recommends the following rules: https://news.ycombinator.com/item?id=33606119
+
+The real question is when to use which?
+
+- use px for borders, absolute positioning of small elements, etc. which you don’t want to scale at all
+
+- use ch for setting text paragraph widths
+
+- use rem for element horizontal padding/margin
+
+- use em for everything else, like element vertical margin/padding, font and icon sizes
+
+Most curious is:
+
+- use rem for element horizontal padding/margin
+
+I think the angle to use rem instead of em for horizontal spacing is to ensure consistent horizontal layout are not affected due to different font sizes.

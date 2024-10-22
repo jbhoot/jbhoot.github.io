@@ -1,0 +1,34 @@
+<article
+  class="h-entry"
+  itemid="urn:uuid:cbef6f15-a212-48a2-9acd-c01b781701f7"
+  itemscope
+  itemtype="https://schema.org/Article">
+
+<hgroup>
+  <h1 class="p-name"><i>ESM</i> import from JS in ReScript - Mental model</h1>
+  <p>Posted on <a class="u-url" href=""><time class="dt-published" datetime=""></time></a> in <a class="p-category" href="" rel="tag">Mental model</a></p>
+</hgroup>
+
+<p class="e-summary">I try to model the ReScript syntax to import from JS in an easy-to-remember way.</p>
+
+<div class="e-content">
+To be clear, this post does not apply to CommonJS.
+
+In JavaScript, I've so far used the following import statements:
+
+import defaultExport from 'module';
+
+import {namedExport1, namedExport2} from 'module';
+
+import * as fullExport from 'module';
+
+Of these, 
+
+Now, ReScript docs list three ways to import modules from JS code. https://rescript-lang.org/docs/manual/latest/import-from-export-to-js#import-from-javascript
+
+I think only 2 of them apply to ES Modules.
+
+
+</div>
+
+</article>
