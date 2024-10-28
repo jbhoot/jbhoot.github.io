@@ -15,31 +15,32 @@ select {
 
 :root {
     --font-monospace: 'Cascadia Code', monospace;
-    --font-sans: 'PT Sans', 'Atkinson Hyperlegible', sans-serif;
+    --font-sans: 'PT Sans', 'Atkinson Hyperlegible',  sans-serif;
     --font-serif: "Droid Serif", "Noto Serif", serif;
 
     --measure: 65ch;
+    --line-height-unitless: 1.5;
+    --line-height-em: calc(var(--line-height-unitless) * 1em);
+    --base-font-size: calc(1rem + 0.25vw);
 
-    --base-size: calc(1rem + 0.5vw);
-    --p: var(--base-size);
-    --h4: calc(var(--base-size) + 0.4rem);
-    --h3: calc(var(--base-size) + 0.8rem);
-    --h2: calc(var(--base-size) + 1.2rem);
-    --h1: calc(var(--base-size) + 1.6rem);
+    --p: var(--base-font-size);
+    --h4: calc(var(--base-font-size) * 1.75);
+    --h3: calc(var(--base-font-size) * 2);
+    --h2: calc(var(--base-font-size) * 2.25);
+    --h1: calc(var(--base-font-size) * 2.5);
 
-    --base-space: 0.25em;
-    --space1: calc(var(--base-space) * 1);
-    --space2: calc(var(--base-space) * 2);
-    --space3: calc(var(--base-space) * 3);
-    --space4: calc(var(--base-space) * 4);
+    --space1: calc(var(--line-height-em) * 0.2);
+    --space2: calc(var(--line-height-em) * 0.4);
+    --space3: calc(var(--line-height-em) * 0.6);
+    --space4: calc(var(--line-height-em) * 0.8);
+    --space5: calc(var(--line-height-em) * 1);
 
-    --base-border: 0.0625em;
-    --border1: calc(var(--base-border) * 1);
-    --border2: calc(var(--base-border) * 2);
-    --border3: calc(var(--base-border) * 3);
-    --border4: calc(var(--base-border) * 4);
+    --border1: calc(var(--line-height-em) * 0.07);
+    --border2: calc(var(--line-height-em) * 0.09);
+    --border3: calc(var(--line-height-em) * 0.11);
+    --border4: calc(var(--line-height-em) * 0.13);
+    --border5: calc(var(--line-height-em) * 0.15);
 
-    line-height: 1.5;
     counter-reset: h2 h3 h4;
 }
 
@@ -47,8 +48,9 @@ select {
     max-inline-size: var(--measure);
 }
 
-*+* {
-    margin-block-start: 1em;
+body *+*,
+p {
+    margin-block-start: var(--line-height-em);
 }
 
 html,
@@ -61,6 +63,7 @@ article {
 
 body {
     max-inline-size: calc(var(--measure) * 1.5);
+    line-height: var(--line-height-unitless);
     font-size: var(--p);
     font-family: var(--font-sans);
 
@@ -224,7 +227,7 @@ a {
 }
 
 a:hover {
-    text-decoration-thickness: var(--border3);
+    text-decoration-thickness: var(--border4);
     text-decoration-style: solid;
     background-color: #dbe7fb;
 }

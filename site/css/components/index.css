@@ -1,13 +1,13 @@
 .commentLoader {
     border: none;
     padding: 0.5em 1em;
-    font-size: var(--base-size);
+    font-size: var(--base-font-size);
     border: 1px solid black;
     border-bottom: 5px solid black;
 }
 
 .copy-link {
-    font-size: var(--base-size);
+    font-size: var(--base-font-size);
     vertical-align: middle;
     margin-block-start: 0;
 }
