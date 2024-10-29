@@ -1,15 +1,15 @@
 .toc {
     max-inline-size: var(--measure);
-    outline: 2px solid gray;
-    padding: 1em;
+    outline: var(--size-one-tenth-font-size) solid;
+    padding: var(--size-full-font-size);
 }
 
 .toc-1:has(*)::before {
     display: block;
     content: 'Table of contents';
-    font-size: 1.6em;
+    font-size: var(--h4);
     font-weight: bold;
-    margin-block-end: 0.5em;
+    margin-block-end: var(--size-full-line-height);
 }
 
 /*

@@ -3,7 +3,8 @@ p:has(.p-author)+p:has(.dt-published) {
 }
 
 .e-summary {
-    /* font-size: 1.2em; */
+    font-size: 1.1em;
+    font-style: italic;
 }
 
 .u-photo {
@@ -14,7 +15,4 @@ p:has(.p-author)+p:has(.dt-published) {
 }
 
 .p-category {
-    padding: 2px;
-    /*background-color: white;
-    text-decoration-thickness: 1px;*/
 }

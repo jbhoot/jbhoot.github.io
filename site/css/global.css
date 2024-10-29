@@ -15,8 +15,14 @@ select {
 
 :root {
     --font-monospace: 'Cascadia Code', monospace;
-    --font-sans: 'PT Sans', 'Atkinson Hyperlegible',  sans-serif;
+    --font-sans: 'PT Sans', 'Atkinson Hyperlegible', sans-serif;
     --font-serif: "Droid Serif", "Noto Serif", serif;
+
+    /*
+    - Axiom 1: Spacing between flow elements should be a multiple of line-height, which, when set reasonably, is larger than font-size. Its usage is most likely limited to margins and gaps.
+    - Axiom 2: Internal spacing and elements, like border-size, underline-thickness, text-decoration-offset, should be a multiple of font-size. I chose to use font-size for padding too.
+    - Axiom 3: Use a modular scale to set various font-sizes in order to ensure reasonable increments between levels. (not other elements, which should just be a multiple or fraction of either line-height or font-size, as described above).
+    */
 
     --measure: 65ch;
     --line-height-unitless: 1.5;
@@ -24,22 +30,24 @@ select {
     --base-font-size: calc(1rem + 0.25vw);
 
     --p: var(--base-font-size);
-    --h4: calc(var(--base-font-size) * 1.75);
-    --h3: calc(var(--base-font-size) * 2);
-    --h2: calc(var(--base-font-size) * 2.25);
-    --h1: calc(var(--base-font-size) * 2.5);
+    --h4: calc(var(--p) * 1.25);
+    --h3: calc(var(--h4) * 1.25);
+    --h2: calc(var(--h3) * 1.25);
+    --h1: calc(var(--h2) * 1.25);
 
-    --space1: calc(var(--line-height-em) * 0.2);
-    --space2: calc(var(--line-height-em) * 0.4);
-    --space3: calc(var(--line-height-em) * 0.6);
-    --space4: calc(var(--line-height-em) * 0.8);
-    --space5: calc(var(--line-height-em) * 1);
+    --size-full-line-height: calc(var(--line-height-unitless) * 1em);
+    --size-one-half-line-height: calc(var(--size-full-line-height) * 0.5);
+    --size-one-fourth-line-height: calc(var(--size-full-line-height) * 0.25em);
+    --size-one-eighth-line-height: calc(var(--size-full-line-height) * 0.25em);
 
-    --border1: calc(var(--line-height-em) * 0.07);
-    --border2: calc(var(--line-height-em) * 0.09);
-    --border3: calc(var(--line-height-em) * 0.11);
-    --border4: calc(var(--line-height-em) * 0.13);
-    --border5: calc(var(--line-height-em) * 0.15);
+    --size-full-font-size: 1em;
+    --size-one-half-font-size: 0.5em;
+    --size-one-fourth-font-size: 0.25em;
+    --size-one-sixth-font-size: 0.167em;
+    --size-one-eighth-font-size: 0.125em;
+    --size-one-tenth-font-size: 0.1em;
+    /* --size-one-twelfth-font-size: 0.083em; */
+    /* --size-one-sixteenth-font-size: 0.0625em; */
 
     counter-reset: h2 h3 h4;
 }
@@ -68,9 +76,9 @@ body {
     font-family: var(--font-sans);
 
     min-height: 100vh;
-    margin: auto;
-    padding-inline: var(--space4);
-    padding-block-end: var(--space4);
+    margin-inline: auto;
+    margin-block-end: var(--size-full-line-height);
+    padding-inline: var(--size-full-font-size);
     background-color: #f4f3ef;
 }
 
@@ -129,6 +137,14 @@ picture {
     max-inline-size: 100%;
 }
 
+img {
+    /* <img> is rendered as display: inline by default. In firefox at least, it lays out the image at baseline level (vertical-align: baseline). Baseline level for text spares some space for descenders. This creates a side-effect for an image, such that a gap is created below the image that looks like an extra un-configured padding or margin. */
+    /* Use vertical-align other than baseline, and the problem is solved. */
+    /* img can also be set to display as block to fix this problem, but it also changes the default layout style. */
+    vertical-align: bottom;
+    /* display: block; */
+}
+
 ol {
     /*
   For ul and ol, W3C standard specifies a default for padding-inline-start (of 40px), but not for margin-inline-start.
@@ -175,15 +191,33 @@ ul ul ul {
     list-style-type: square;
 }
 
+code, small, figcaption, caption, pre {
+    font-size: 0.9em;
+}
+
 code {
     font-family: var(--font-monospace);
     font-weight: normal;
-    font-size: 0.9em;
     color: green;
 }
 
-:is(h1, h2, h3, h4, h5, h6)>code {
-    font-size: 0.8em;
+caption,
+figcaption {
+    font-style: italic;
+    text-align: left;
+    color: white;
+    background-color: black;
+}
+
+caption {
+    caption-side: bottom;
+    padding: var(--size-one-half-font-size);
+}
+
+figcaption {
+    max-inline-size: 100%;
+    margin: 0;
+    padding: var(--size-one-half-font-size);
 }
 
 pre {
@@ -208,10 +242,9 @@ pre {
     background-color: black;
     color: #4af626;
     overflow: auto;
-    padding: var(--space4);
+    padding: var(--size-full-font-size);
     font-family: var(--font-monospace);
     font-weight: normal;
-    font-size: 0.9em;
 }
 
 pre>code {
@@ -220,14 +253,14 @@ pre>code {
 }
 
 a {
-    text-decoration-thickness: var(--border1);
+    text-decoration-thickness: var(--size-one-tenth-font-size);
     text-decoration-style: solid;
-    text-underline-offset: var(--space1);
+    text-underline-offset: var(--size-one-fourth-font-size);
     text-decoration-skip-ink: none;
 }
 
 a:hover {
-    text-decoration-thickness: var(--border4);
+    text-decoration-thickness: var(--size-one-sixth-font-size);
     text-decoration-style: solid;
     background-color: #dbe7fb;
 }
@@ -236,7 +269,7 @@ a[href*="http"]::after {
     content: '⎋';
     display: inline-block;
     transform: rotate(90deg);
-    margin-inline-start: var(--space1);
+    margin-inline-start: var(--size-one-fourth-font-size);
     vertical-align: middle;
     font-size: 0.75em;
 }
@@ -252,7 +285,7 @@ a[rel="me"]:has(img)::after {
 }
 
 a[rel="me"]:not(:first-of-type) {
-    margin-inline-start: var(--space2);
+    margin-inline-start: var(--size-full-font-size);
 }
 
 table,
@@ -263,8 +296,8 @@ td {
 
 th,
 td {
-    border: var(--border2) solid black;
-    padding: var(--space2) var(--space3);
+    border: var(--size-one-tenth-font-size) solid black;
+    padding: var(--size-one-half-font-size);
     text-align: left;
 }
 
@@ -274,41 +307,41 @@ tr:hover {
 
 aside:not(.no-touch) {
     color: gray;
-    border: var(--border1) dashed gray;
-    padding: var(--space4);
+    border: var(--size-one-tenth-font-size) dotted gray;
+    padding: var(--size-full-font-size);
 }
 
 aside:not(.no-touch)::before {
     display: block;
     content: "ASIDE";
-    margin-bottom: var(--space4);
+    margin-bottom: var(--size-full-line-height);
     text-decoration: underline;
 }
 
 blockquote {
     margin: 0;
-    border-inline-start: var(--border2) solid #0097db;
-    padding-inline-start: var(--space4);
+    border-inline-start: var(--size-one-fourth-font-size) solid #0097db;
+    padding-inline-start: var(--size-full-font-size);
     font-style: italic;
 }
 
 ins {
     text-decoration: none;
     background-color: rgba(0, 128, 0, 0.2);
-    padding: 0 var(--space1) 0 0;
+    padding: 0 var(--size-one-half-font-size) 0 0;
 }
 
 ins::before {
     content: "+ " attr(datetime);
     background-color: green;
     color: white;
-    padding: 0 var(--space1) 0 var(--space1);
+    padding: 0 var(--size-one-half-font-size) 0 var(--size-one-half-font-size);
 }
 
 nav>ul {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space4);
+    gap: var(--size-full-line-height);
     list-style-type: none;
     padding: 0;
 }
@@ -326,6 +359,6 @@ nav>ul>li+li {
 }
 
 footer {
-    border-block-start: var(--border2) solid lightgray;
+    border-block-start: var(--size-one-tenth-font-size) solid lightgray;
     border-block-start-style: dotted;
 }
