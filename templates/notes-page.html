@@ -3,13 +3,14 @@
 <head>
   <!-- content will be inserted by [widgets.populate-head] in soupault.toml -->
    <style>
-    body, main {
-      max-inline-size: none;
-    }
     main {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(calc(var(--measure) * 0.5), 1fr));
+      display: flex;
+      flex-wrap: wrap;
       gap: var(--size-full-line-height);
+    }
+
+    .main > * {
+      flex: 1 1 calc(var(--measure) * 0.5);
     }
 
     main > * + * {
