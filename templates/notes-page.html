@@ -2,29 +2,31 @@
 
 <head>
   <!-- content will be inserted by [widgets.populate-head] in soupault.toml -->
-  <style>
-    article {
-      max-inline-size: var(--measure);
-      border: 1px solid black;
-      background-color: #efefef;
+   <style>
+    body, main {
+      max-inline-size: none;
+    }
+    main {
+      display: flex;
+      flex-direction: row;
+      gap: var(--size-full-line-height);
+      align-items: flex-start;
+    }
+    main > * {
+      flex-basis: calc(var(--measure) * 0.5);
     }
 
-    article>p {
+    main > * + * {
       margin-block-start: 0;
-      padding: 0.5em 1em;
-      background-color: #fbcc6b;
     }
-
-    article>div {
-      padding: var(--size-full-font-size);
-      padding-top: 0;
-    }
-  </style>
+   </style>
 </head>
 
 <body>
   <div class="placeholder-homepage-header"></div>
-  <main></main>
+  <h1> All notes </h1>
+  <main>
+  </main>
 </body>
 
 </html>
