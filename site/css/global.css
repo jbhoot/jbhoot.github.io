@@ -25,8 +25,7 @@ select {
     */
 
     --measure: 65ch;
-    --line-height-unitless: 1.5;
-    --line-height-em: calc(var(--line-height-unitless) * 1em);
+    --line-height: 1.5;
     --base-font-size: calc(1rem + 0.25vw);
 
     --p: var(--base-font-size);
@@ -35,7 +34,7 @@ select {
     --h2: calc(var(--h3) * 1.25);
     --h1: calc(var(--h2) * 1.25);
 
-    --size-full-line-height: calc(var(--line-height-unitless) * 1em);
+    --size-full-line-height: calc(var(--line-height) * 1em);
     --size-one-half-line-height: calc(var(--size-full-line-height) * 0.5);
     --size-one-fourth-line-height: calc(var(--size-full-line-height) * 0.25em);
     --size-one-eighth-line-height: calc(var(--size-full-line-height) * 0.25em);
@@ -56,9 +55,8 @@ select {
     max-inline-size: var(--measure);
 }
 
-body *+*,
-p {
-    margin-block-start: var(--line-height-em);
+body *+* {
+    margin-block-start: var(--size-full-line-height);
 }
 
 html,
@@ -71,7 +69,7 @@ article {
 
 body {
     max-inline-size: calc(var(--measure) * 1.5);
-    line-height: var(--line-height-unitless);
+    line-height: var(--line-height);
     font-size: var(--p);
     font-family: var(--font-sans);
 
