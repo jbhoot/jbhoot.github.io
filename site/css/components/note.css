@@ -1,11 +1,5 @@
-/* 
-#f6f66a
-#ccffcc
-*/
-
 .note {
     max-inline-size: var(--measure);
-    /* border: var(--size-one-tenth-font-size) solid; */
     padding: var(--size-full-font-size);
 }
 

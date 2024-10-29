@@ -120,9 +120,9 @@ index_template = """
   {% for e in entries %}
   <li>
     {% if "Note" in e.collections %}
-      <div style="border: 2px solid black; background-color: #efefef;">
-        <p style="margin-block-start: 0; padding: 0.5em 1em; background-color: #fbcc6b;">Posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a>
-        <div style="padding: 0 1em 1em 1em;">{{e.content}}</div>
+      <div class="note">
+        <p>Posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a></p>
+        <div>{{e.content}}</div>
       </div>
     {% else %}
       <p><a class="post-title" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.published}}"> {{e.published_text}}</time></p>
@@ -152,6 +152,7 @@ file = "index_processors/all-articles.lua"
 path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
 index_selector = ".all-notes"
 index_template = """
+  <h1> All notes </h1>
   {% for e in entries %}
     <article class="note">
       <p>Posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a> in {% for c in e.collections %} <a class="p-category" href="/collections/{{c}}">{{c}}</a> {%endfor%}</p>
@@ -166,9 +167,9 @@ index_selector = ".yearly-posts"
 index_item_template = """
   <li>
     {% if "Note" in collections %}
-      <div style="border: 2px solid black; background-color: #efefef;">
-        <p style="margin-block-start: 0; padding: 0.5em 1em; background-color: #fbcc6b;">Posted on <a href="{{url}}"><time datetime="{{published}}">{{published_text}}</time></a>
-        <div style="padding: 0 1em 1em 1em;">{{content}}</div>
+      <div class="note">
+        <p>Posted on <a href="{{url}}"><time datetime="{{published}}">{{published_text}}</time></a></p>
+        <div>{{content}}</div>
       </div>
     {% else %}
       <p><a href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{published}}"> {{published_text}}</time></p>
@@ -183,9 +184,9 @@ index_selector = ".recent-posts"
 index_item_template = """
   <li>
     {% if "Note" in collections %}
-      <div style="border: 2px solid black; background-color: #efefef;">
-        <p style="margin-block-start: 0; padding: 0.5em 1em; background-color: #fbcc6b;">Posted on <a href="{{url}}"><time datetime="{{published}}">{{published_text}}</time></a>
-        <div style="padding: 0 1em 1em 1em;">{{content}}</div>
+      <div class="note">
+        <p>Posted on <a href="{{url}}"><time datetime="{{published}}">{{published_text}}</time></a></p>
+        <div>{{content}}</div>
       </div>
     {% else %}
       <p><a href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{published}}"> {{published_text}}</time></p>
@@ -202,9 +203,9 @@ index_template = """
   {% for e in entries %}
   <li>
     {% if "Note" in e.collections %}
-      <div style="border: 2px solid black; background-color: #efefef;">
-        <p style="margin-block-start: 0; padding: 0.5em 1em; background-color: #fbcc6b;">Posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a>
-        <div style="padding: 0 1em 1em 1em;">{{e.content}}</div>
+      <div class="note">
+        <p>Posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a></p>
+        <div>{{e.content}}</div>
       </div>
     {% else %}
       <p><a href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.timestamp}}"> {{e.date}}</time></p>
