@@ -217,6 +217,10 @@ figcaption {
     padding: var(--size-one-half-font-size);
 }
 
+figure {
+    border: var(--size-one-tenth-font-size) solid;
+}
+
 pre {
     /* max-inline-size of <pre> computes to be wider than other tags because it uses monospaced font-family by default, thus causing the --measure=60ch to compute a wider size.
        * Various approaches to tackle this are:
