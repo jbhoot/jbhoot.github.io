@@ -7,13 +7,9 @@
       max-inline-size: none;
     }
     main {
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(calc(var(--measure) * 0.5), 1fr));
       gap: var(--size-full-line-height);
-      align-items: flex-start;
-    }
-    main > * {
-      flex-basis: calc(var(--measure) * 0.5);
     }
 
     main > * + * {
