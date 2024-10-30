@@ -143,6 +143,14 @@ img {
     /* display: block; */
 }
 
+button {
+    background-color: #e9e9ed;
+}
+
+button:hover {
+    background-color: #d0d0d7;
+}
+
 ol {
     /*
   For ul and ol, W3C standard specifies a default for padding-inline-start (of 40px), but not for margin-inline-start.
