@@ -45,8 +45,8 @@ select {
     --size-one-sixth-font-size: 0.167em;
     --size-one-eighth-font-size: 0.125em;
     --size-one-tenth-font-size: 0.1em;
-    /* --size-one-twelfth-font-size: 0.083em; */
-    /* --size-one-sixteenth-font-size: 0.0625em; */
+    --size-one-twelfth-font-size: 0.083em;
+    --size-one-sixteenth-font-size: 0.0625em;
 
     counter-reset: h2 h3 h4;
 }
@@ -254,7 +254,7 @@ pre>code {
 }
 
 a {
-    text-decoration-thickness: var(--size-one-tenth-font-size);
+    text-decoration-thickness: var(--size-one-sixteenth-font-size);
     text-decoration-style: solid;
     text-underline-offset: var(--size-one-fourth-font-size);
     text-decoration-skip-ink: none;
