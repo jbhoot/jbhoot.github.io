@@ -153,6 +153,7 @@ path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
 index_selector = ".all-notes"
 index_template = """
   <h1> All notes </h1>
+  <p> These are entries, for which either I could not find a heading, or the content is short enough to fit into a heading. </p>
   <ol reversed="reversed">
   {% for e in entries %}
     <li>
