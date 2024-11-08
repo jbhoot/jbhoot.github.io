@@ -16,23 +16,17 @@ then
   exit 1
 fi
 
-echo "<article
-  class='h-entry'
-  itemid='urn:uuid:$(uuidgen | tr '[:upper:]' '[:lower:]')'
-  itemscope
-  itemtype='https://schema.org/Article'>
+echo "<meta itemprop='itemid' content='urn:uuid:$(uuidgen | tr '[:upper:]' '[:lower:]')'>
+<!-- date --utc +'%Y-%m-%dT%H:%M:%SZ' -->
+<meta itemprop='dt-published' content=''>
+<meta itemprop='p-category' content=''>
 
-<hgroup>
-  <h1 class='p-name'></h1>
-  <p>Posted on <a class='u-url' href=''><time class='dt-published' datetime=''></time></a> in <a class='p-category' href='' rel='tag'></a></p>
-</hgroup>
+<h1></h1>
 
 <p class='e-summary'></p>
 
 <div class='e-content'>
-</div>
-
-</article>" > "$draft"
+</div>" > "$draft"
 
 # replace single quotes with the conventional double quotes used in HTML in the draft.
 sed -i.bkp -E "s/'/\"/g" "$draft"

@@ -29,7 +29,7 @@ plugin_dirs = ["plugins"]
 
 default_template_file = "templates/post.html"
 # The content will be inserted into element selected by default_content_selector,
-default_content_selector = "main"
+default_content_selector = "article"
 default_content_action = "prepend_child"
 
 [templates.post-index]
@@ -70,7 +70,7 @@ sort_type = "calendar"
 sort_descending = true
 # Formats: https://man7.org/linux/man-pages/man1/date.1.html
 date_formats = ["%Y-%m-%dT%H:%M:%SZ"]
-extract_after_widgets = ["populate-author-info"] # so that author_name can be extracted as an index field
+extract_after_widgets = ["populate-author-info", "populate-metadata"] # so that author_name can be extracted as an index field
 
 dump_json = "index.json"
 
@@ -345,13 +345,10 @@ html = """
 </p>
 """
 
-[widgets.populate-post-link]
-widget = "post-link"
-selector = ".u-url"
-
-[widgets.populate-collection-link]
-widget = "collection-link"
-selector = ".p-category"
+[widgets.populate-metadata]
+path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
+exclude_path_regex = '^(.*)/[0-9]{4}/index\.html$'
+widget = "populate-metadata"
 
 [widgets.page-title]
 widget = "title"

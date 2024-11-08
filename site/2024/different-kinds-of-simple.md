@@ -1,13 +1,10 @@
-<article
-  class="h-entry"
-  itemid="urn:uuid:dea8aaf0-4066-43bd-8b01-a5b482609206"
-  itemscope
-  itemtype="https://schema.org/Article">
+<meta itemprop="itemid" content="urn:uuid:dea8aaf0-4066-43bd-8b01-a5b482609206">
+<meta itemprop="dt-published" content="2024-10-01T07:22:39Z">
+<meta itemprop="p-category" content="Philosophy of programming,PESOS">
 
-<hgroup>
-  <h1 class="p-name">Different kinds of simple</h1>
-  <p>Posted on <a class="u-url" href=""><time class="dt-published" datetime="2024-10-01T07:22:39Z">01st October 2024</time></a> in <a class="p-category" href="" rel="tag">Philosophy of programming</a> <a class="p-category" href="" rel="tag">PESOS</a></p>
-</hgroup>
+
+  <h1>Different kinds of simple</h1>
+
 
 <p class="e-summary"></p>
 
@@ -29,4 +26,4 @@ An unaffiliated side-note: the above re-factoring became possible due to the sta
 
 </div>
 
-</article>
+
