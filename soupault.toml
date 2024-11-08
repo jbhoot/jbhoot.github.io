@@ -153,12 +153,16 @@ path_regex = '^(.*)/[0-9]{4}/.*\.(html|md)$'
 index_selector = ".all-notes"
 index_template = """
   <h1> All notes </h1>
+  <ol reversed="reversed">
   {% for e in entries %}
+    <li>
     <article class="note">
       <p>Posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a> in {% for c in e.collections %} <a class="p-category" href="/collections/{{c}}">{{c}}</a> {%endfor%}</p>
       <div>{{e.content}}</div>
     </article>
+    </li>
   {% endfor %}
+  </ol>
   """
 file = "index_processors/all-notes.lua"
 

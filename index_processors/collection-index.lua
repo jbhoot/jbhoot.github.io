@@ -132,7 +132,7 @@ end
 
 local template = [[
 <h1>Collections</h1>
-<ol class="collections">
+<ol class="collections" reversed="reversed">
 {% for t in collection_links %}
   <li> <a href="{{t.url}}">{{t.title}}</a> </li>
 {% endfor %}

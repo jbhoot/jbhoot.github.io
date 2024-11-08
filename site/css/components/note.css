@@ -7,10 +7,10 @@
     margin-block-start: 0;
 }
 
-.note:nth-of-type(even) {
+li:nth-of-type(even) > .note {
     background-color: #f2e499;
 }
 
-.note:nth-of-type(odd) {
+li:nth-of-type(odd) > .note {
     background-color: #ccccff;
 }
