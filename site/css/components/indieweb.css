@@ -1,3 +1,7 @@
+.p-name {
+    margin-block-start: var(--size-full-line-height);
+}
+
 p:has(.p-author)+p:has(.dt-published) {
     margin-block-start: 0;
 }

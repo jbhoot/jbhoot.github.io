@@ -130,6 +130,12 @@ h2:has(.commentLoader)::before {
     content: '';
 }
 
+hgroup > h1 ~ p {
+    margin-block-start: var(--size-one-fourth-line-height);
+    color: gray;
+    font-style: italic;
+}
+
 img,
 picture {
     max-inline-size: 100%;

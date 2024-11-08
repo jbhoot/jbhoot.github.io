@@ -104,7 +104,9 @@ end
 HTML.delete_element(published_meta_ele)
 HTML.delete_element(category_list_ele)
 if h1_ele ~= nil then
-    HTML.insert_before(h1_ele, category_container_ele)
+    local hgroup = HTML.create_element('hgroup')
+    HTML.wrap(h1_ele, hgroup)
+    HTML.append_child(hgroup, category_container_ele)
 else
     HTML.prepend_child(article_ele, category_container_ele)
 end
