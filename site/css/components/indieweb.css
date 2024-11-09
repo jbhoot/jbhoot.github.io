@@ -8,7 +8,6 @@ p:has(.p-author)+p:has(.dt-published) {
 
 .e-summary {
     font-size: 1.1em;
-    font-style: italic;
 }
 
 .u-photo {
