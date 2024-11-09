@@ -76,7 +76,7 @@ body {
 
     margin-inline: auto;
     margin-block: var(--size-full-line-height);
-    padding-inline: var(--size-full-font-size);
+    padding-inline: var(--size-full-line-height);
     background-color: #f4f3ef;
 }
 
