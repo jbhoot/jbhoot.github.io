@@ -150,6 +150,9 @@ img {
 }
 
 button {
+    border: none;
+    padding: var(--size-one-fourth-font-size);
+    border: 1px solid;
     background-color: #e9e9ed;
 }
 
