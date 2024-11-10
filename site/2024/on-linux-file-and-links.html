@@ -50,7 +50,6 @@
 <li><p>As a corollary to the above point, <strong>there is always at least one hard link attached to a file</strong>. When you create a file, say, with <code>touch filename</code>, you create a hard link between <code>filename</code> and the file's inode.</p></li>
 </ol>
 
-
 <h3>Deleting a hard link</h3>
 
 <p>Refer to the figure above. If you do <code>rm /tmp/filename1</code>, what should happen from a sane perspective?</p>
@@ -123,6 +122,14 @@ $ ls -i file.txt softlink.txt
 <p>A hard link relationship is stored inside the <i>filename</i>&apos;s data structure, as a pointer to the inode.</p>
 
 <p>How is a soft link relationship stored? In the <em>data block of the soft link file</em>. <strong>The content of a soft link is the filename of the target file it points to</strong>.</p>
+    
+<aside>
+<del cite="https://lobste.rs/s/e62p4b/mental_model_for_linux_file_hard_soft#c_gfp3ws" datetime="2024-11-10T04:24:12Z"><p>If a soft link file is created in the same directory as the target file, then only the basename of the target file is stored as the content of the soft link file. Otherwise, the absolute filename of the target file is stored.</p></del>
+
+<p><time datetime="2024-11-10T04:24:12Z">10th of November, 2024:</time> <a href="https://lobste.rs/~kosayoda">Kosayoda on lobste.rs</a> politely pointed out that my struck-out claim above is bullshit. After a few tests, I concur.</p>
+
+<p>Check out the <a href="https://lobste.rs/s/e62p4b/mental_model_for_linux_file_hard_soft#c_gfp3ws">full explanation</a>, but a concise summary is: <code>ln -s some-file.txt link-file.txt</code> simply creates a <code>link-file.txt</code> file, the content of which is <code>some-file.txt</code>.</p>
+</aside>
     
 <p>There are 2 ways to verify this:</p>
 
