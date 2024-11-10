@@ -48,8 +48,11 @@
 <li><p>At this level of abstraction, is it possible to tell which one of them originally created the file? I think not. Hard links are supposed to be equal in status to each other.</p></li>
 
 <li><p>As a corollary to the above point, <strong>there is always at least one hard link attached to a file</strong>. When you create a file, say, with <code>touch filename</code>, you create a hard link between <code>filename</code> and the file's inode.</p></li>
+</ol>
 
-<li>
+
+<h3>Deleting a hard link</h3>
+
 <p>Refer to the figure above. If you do <code>rm /tmp/filename1</code>, what should happen from a sane perspective?</p>
 
 <p>Should the entire <i>filename1 + inode + data block</i> combo be removed? Then what happens to <code>/home/bhoot/filename2</code>?</p>
@@ -64,16 +67,13 @@
     <img src="/static/images/on-linux-file-and-links/hard-link-rm.svg">
     <figcaption>Representation of one of the two hard links, linked to the same node, being removed. Only the affected filename is removed. The inode and underlying data block stay in tact.</figcaption>
 </figure>
-</li>
 
-<li><p>What happens when all the hard links to a file are deleted? Now, there are no filenames in the filesystem that refer to that data block anymore. Thus, the inode is marked for deletion, and the associated data block is orphaned.</p>
+<p>What happens when all the hard links to a file are deleted? Now, there are no filenames in the filesystem that refer to that data block anymore. Thus, the inode is marked for deletion, and the associated data block is orphaned.</p>
 
 <figure>
     <img src="/static/images/on-linux-file-and-links/hard-link-rm-all.svg">
     <figcaption>When all the hard links to an inode are removed, the entire file, along with its content, is removed from the filesystem.</figcaption>
 </figure>
-</li>
-</ol>
 
 <h2>Soft links</h2>
 
@@ -123,10 +123,6 @@ $ ls -i file.txt softlink.txt
 <p>A hard link relationship is stored inside the <i>filename</i>&apos;s data structure, as a pointer to the inode.</p>
 
 <p>How is a soft link relationship stored? In the <em>data block of the soft link file</em>. <strong>The content of a soft link is the filename of the target file it points to</strong>.</p>
-
-<aside>
-<p>If a soft link file is created in the same directory as the target file, then only the basename of the target file is stored as the content of the soft link file. Otherwise, the absolute filename of the target file is stored.</p>
-</aside>
     
 <p>There are 2 ways to verify this:</p>
 
