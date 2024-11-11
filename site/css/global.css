@@ -386,3 +386,9 @@ footer {
     border-block-start: var(--size-one-tenth-font-size) solid lightgray;
     border-block-start-style: dotted;
 }
+
+s {
+    color: gray;
+    text-decoration-style: wavy;
+    text-decoration-color: red;
+}
