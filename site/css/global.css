@@ -27,7 +27,7 @@ select {
 
     --measure: 65ch;
     --line-height: 1.5;
-    --base-font-size: calc(1rem + 0.375vw);
+    --base-font-size: calc(1rem + 0.25vw);
 
     --p: var(--base-font-size);
     --h4: calc(var(--p) * 1.25);
