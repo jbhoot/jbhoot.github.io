@@ -14,8 +14,8 @@
       </main>
       <script>
         document.addEventListener("DOMContentLoaded", () => {
-          const btn = document.querySelector(".commentLoader");
-          if (btn) {
+          const btns = document.querySelectorAll(".commentLoader");
+          for (const btn of btns) {
             btn.addEventListener("click", () => {
               const commentSection = document.getElementById("commentSection");
               if (!commentSection) {
