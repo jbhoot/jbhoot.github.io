@@ -198,9 +198,11 @@ $ stat --format="%s" softlink2.txt
 
 <p>What happened there? The <code>cp</code> command simply copied the target file instead of the link file.</p>
 
-<p><strong>My guess is that when those I/O operations, which involve acting on the <em>data block</em> of a file, are ran on a soft link file, they are actually executed on the target file that the soft link file is pointed to.</strong></p>
+<p><s><strong>My guess is that when those I/O operations, which involve acting on the <em>data block</em> of a file, are ran on a soft link file, they are actually executed on the target file that the soft link file is pointed to.</strong></s></p>
 
-<p>Thus, <code>cp softlink.txt softlink2.txt</code> would actually copy the target file. Similarly, <code>cat softlink.txt</code> would print the content of the target file. But, <code>mv</code>, which does not need to act on the underlying data block of a file, would just operate on the soft link file itself.</p>
+<p><s>Thus, <code>cp softlink.txt softlink2.txt</code> would actually copy the target file. Similarly, <code>cat softlink.txt</code> would print the content of the target file. But, <code>mv</code>, which does not need to act on the underlying data block of a file, would just operate on the soft link file itself.</s></p>
+
+<p><strong>NOTE: </strong>When I wrote the couple of struck-out paragraphs above, the purpose was only to have a <i>convenient logic</i> of memorising how I/O operations work on soft links by default. Memorising techniques need not be technically accurate. However, I have struck it out because the logic is also blatantly inaccurate and has been rightly <a href="https://news.ycombinator.com/item?id=42099928">called out by others</a>. By default, <code>cp</code> sure works as described above, but <code>cp -P</code> copies the soft link itself, i.e., the soft link's inode and data block. </p>
 
 <h4>Moving a soft link file</h4>
 
