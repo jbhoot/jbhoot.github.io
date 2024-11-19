@@ -121,7 +121,7 @@ if has_category_mental_model ~= nil then
         <details>
         <summary>What's a mental model?</summary>
         <div>
-        <p>My sole purpose is to describe how I have understood a concept, how I visualise it in my mind when I have to think about it.</p>
+        <p>My sole purpose is to describe how I visualise a concept in my mind when I think about it.</p>
 
         <p>The level of abstraction of a mental model is supposed to keep out the details of implementation, ensuring which I may fail at.</p>
 
