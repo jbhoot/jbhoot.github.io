@@ -88,6 +88,7 @@ HTML.append_child(category_container_ele, HTML.create_element("span", " in "))
 category_list_ele = HTML.select_one(page, "meta[itemprop='p-category']")
 local category_list = HTML.get_attribute(category_list_ele, "content")
 local categories = split(category_list, ",")
+local has_category_mental_model = nil
 local i, v = next(categories, nil)
 while i do
     local category_ele = HTML.create_element("a", v)
@@ -99,6 +100,9 @@ while i do
     if i ~= size(categories) then 
         HTML.append_child(category_container_ele, HTML.create_element("span", ", "))
     end
+    if v == "Mental model" then 
+        has_category_mental_model = 1
+    end
     i, v = next(categories, i)
 end
 HTML.delete_element(published_meta_ele)
@@ -109,6 +113,33 @@ if h1_ele ~= nil then
     HTML.append_child(hgroup, category_container_ele)
 else
     HTML.prepend_child(article_ele, category_container_ele)
+end
+
+if has_category_mental_model ~= nil then
+    local disclosure_template = [[
+        <aside>
+        <details>
+        <summary>What's a mental model?</summary>
+        <div>
+        <p>My sole purpose is to describe how I have understood a concept, how I visualise it in my mind when I have to think about it.</p>
+
+        <p>The level of abstraction of a mental model is supposed to keep out the details of implementation, ensuring which I may fail at.</p>
+
+        <p>A mental model is meant to be only a starting point for a concept. I create one for cases where an authoritative source is too dense to start with. Please refer to authoritative sources for deeper understanding.</p>
+
+        <p>In other words, the aim is such that when you think about a concept, its mental model should put you into the right perspective. <i>Right, this is how something works, now let's check out the manual to see how I can put it to use.</i></p>
+        </div>
+        </details>
+        </aside>
+    ]]
+    local disclosure_ele = HTML.parse(disclosure_template)
+    local marker_ele = HTML.select_one(page, "hgroup:has(h1)")
+    if marker_ele ~= nil then
+        HTML.insert_after(marker_ele, disclosure_ele)
+    else
+        marker_ele = HTML.select_one(page, ".e-content")
+        HTML.insert_before(marker_ele, disclosure_ele)
+    end
 end
 
 -- -- wrap content in .e-content
