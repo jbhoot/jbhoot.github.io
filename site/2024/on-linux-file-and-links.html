@@ -45,7 +45,7 @@
 
 <h2>Hard links</h2>
 
-<p>Now, a file&apos;s data block is represented by exactly one inode at the filesystem level. But, <strong>if we think of pathnames as labels slapped on the (inodes, data block) pair, then we can refer to the same inode with different labels.</strong></p>
+<p>Now, <strong>if we think of pathnames as labels slapped on an (inode, data block) pair, then we can refer to the same inode with different labels.</strong></p>
 
 <figure>
 <img src="/static/images/on-linux-file-and-links/hard-links.svg">
@@ -235,6 +235,7 @@ $ stat --format="%s" softlink2.txt
 <h2>Further reading</h2>
 
 <ul>
+<li>An <a href="https://www.pixelbeat.org/docs/unix_links.html">excellent post by Pádraig Brady</a> also adds <i>reflinks</i> to this perspective. In this post, I talked about stuff as if a data block is represented by exactly one inode at the filesystem level. But reflinks enable many-to-one mapping between inodes and a data block. </li>
 <li><code>man 7 inode</code></li>
 <li><code>man 7 symlink</code></li>
 <li><code>man 7 path_resolution</code></li>
