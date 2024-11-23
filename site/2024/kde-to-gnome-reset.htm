@@ -12,6 +12,7 @@
 <li><p>Evaluate the need for <code>~/.config/{gtkrc,gtk-3.0,gtk-4.0,gtkrc-2.0}</code> and any other besides them. These are either auto-generated or tainted by KDE.</p></li>
 <li><p>HiDPI: If you had configured scaling in KDE, then fonts may look blown up and out of proportion in relation to the interface in GNOME. Go to Tweaks -> Fonts -> Scaling Factor to 1.0. You should end up with Display Settings -> Scale == 200%, Fonts -> Scaling Factor == 1.0</p></li>
 <li><p>Reset several values in dconf. One among them is cursor-size and cursor-theme which may have been set to breeze.</p></li>
-<li><p></p></li>
+<li><p><code>gsettings reset org.gnome.desktop.interface scaling-factor
+</code> to fix JetBrains IDE rendering in tiny dimensions</p></li>
 </ol>
 </div>
