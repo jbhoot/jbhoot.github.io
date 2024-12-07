@@ -1,0 +1,71 @@
+<meta itemprop="itemid" content="urn:uuid:42b89e9a-1aed-412c-89a8-da36a6221c82">
+<meta itemprop="dt-published" content="2024-12-07T08:27:23Z">
+<meta itemprop="p-category" content="MySQL,NixOS">
+
+<h1>Connecting to MySQL running on NixOS on local network</h1>
+
+<p class="e-summary">I have a Linux workstation, and a Macbook. While I prefer to work on Linux, I also like the mobility around my house. Once, I needed to access a database instance running on the Linux workstation from my MacBook. My first instinct was to sell it all and buy a Linux-operated ThinkPad! After I placated myself, I came up with the following setup.</em>.</p>
+
+<div class="toc"></div>
+
+<div class="e-content">
+
+<h2>The big picture</h2>
+
+<p>This setup aims to allow connections to a MySQL database hosted on my NixOS workstation, <em>only on local network</em>.</p>
+
+<p>I needed to configure MySQL to listen to connections on network interfaces. I also needed a MySQL user who is authorised to connect from a host on local network. Then, I needed to configure NixOS to open up the port used by MySQL.</p>
+
+<h2>Configure MySQL to listen to remote connections</h2>
+
+<p>NixOS features a service to configure MySQL, including the ability to configure MySQL's <code>my.cnf</code>. So it took only a few lines to get MySQL up and running.</p>
+
+<pre><code># in /etc/nixos/configuration.nix
+services.mysql = {
+  enable = true;
+
+  package = pkgs.mysql84;
+
+  configFile = pkgs.writeText "my.cnf" ''
+  [mysqld]
+  skip-networking=OFF
+
+  # listen for connections on all network interfaces, though
+  # only one interface at firewall level will be opened up.
+  bind-address=0.0.0.0
+  '';
+};        
+</code></pre>
+
+<h2>Configure a remote-enabled MySQL user</h3>
+
+<p>I wanted to allow only connections from local network.</p>
+
+<p>A default command <code>CREATE USER 'bhoot';</code> would create a user which could connect from any remote host.</p>
+
+<p><a href="https://dev.mysql.com/doc/refman/8.4/en/account-names.html">MySQL follows</a> a <code>username@hostname</code> convention for user accounts, where <code>hostname</code> can use a <code>host_ip/netmask</code> syntax to allow connections only from the local network.</p>
+
+<pre><code>
+# as root MySQL user
+mysql> CREATE USER 'bhoot'@'192.168.100.0/255.255.255.0' IDENTIFIED BY 'my_password';
+mysql> GRANT ALL ON my_schema.* to 'bhoot'@'192.168.100.0/255.255.255.0';
+</code></pre>
+
+<h2>Configure NixOS to open up MySQL port</h2>
+
+<p>NixOS enables a firewall by default.</p>
+
+<p>I was under the (borrowed) impression that NixOS automatically opens up the ports for enabled services. But that wasn't the case, at least for MySQL.</p>
+
+<p>Opening up the MySQL port was a matter of a single line:</p>
+
+<pre><code># in /etc/nixos/configuration.nix
+networking.firewall.enable = true;
+# Open MySQL port, only on the wireless network interface.
+networking.firewall.interfaces.wlp0s20f3.allowedTCPPorts = [ 3306 ];</code></pre>
+
+<p>Then, rebuild NixOS.</p>
+
+<pre><code>$ sudo nixos-rebuild switch --flake .</code></pre>
+
+</div>
