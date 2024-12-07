@@ -7,7 +7,10 @@ p:has(.p-author)+p:has(.dt-published) {
 }
 
 .e-summary {
-    font-size: 1.1em;
+    font-style: italic;
+    /* font-size: 1.1em; */
+    background-color: lightyellow;
+    padding: 0.5em;
 }
 
 .u-photo {

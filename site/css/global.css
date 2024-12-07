@@ -131,7 +131,6 @@ h2:has(.commentLoader)::before {
 }
 
 hgroup > h1 ~ p {
-    margin-block-start: var(--size-one-fourth-line-height);
     color: gray;
     font-style: italic;
 }
