@@ -26,6 +26,7 @@ case class Entry(
 )
 
 val parseFromJson = (e: ujson.Value) => {
+  print("TITLE", e("title").str)
   val published = Instant.parse(e("published").str)
   val updated = e("updated").strOpt match
     case Some(updated) => Instant.parse(updated)
@@ -78,7 +79,7 @@ val makeFeed = (entries: List[Entry]) => {
 }
 
 @main def main() =
-  val json = ujson.read(os.read(os.pwd / "input.json"))
+  val json = ujson.read(os.read(os.pwd / "index.json"))
 
   val entries = json.arr.toList
     .filter(e => !exclude.contains(e("url").str))
