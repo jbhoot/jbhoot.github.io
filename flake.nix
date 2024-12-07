@@ -17,7 +17,7 @@
         let
           pkgs = import inputs.nixpkgs { inherit system; };
         in
-        pkgs.mkShell { buildInputs = [ pkgs.soupault ]; };
+        pkgs.mkShell { buildInputs = [ pkgs.soupault pkgs.scala-next ]; };
     in
     {
       devShell = inputs.nixpkgs.lib.genAttrs systems createDevShell;
