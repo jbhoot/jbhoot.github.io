@@ -1,0 +1,15 @@
+<meta itemprop="itemid" content="urn:uuid:80cea035-27cc-4944-b5fb-8e5b4397153e">
+<meta itemprop="dt-published" content="2024-12-09T07:05:18Z">
+<meta itemprop="p-category" content="SQL">
+
+<h1>Name your SQL constraints</h1>
+
+<div class="e-content">
+
+<p>I learnt the hard way, while trying to amend the structure of a database instantiated at more than one place, that its best to explicitly name the SQL constraints like a foreign key.</p>
+
+<p>Trying to adjust a foreign key constraint by referring it to its implicit name felt like holding on to a falling person just with their shoe. I could never be sure that the implicit name would be identical across different instances of the database.</p>
+
+<p>Also, in MySQl at least, there was no foolproof way to dynamically query for the implicit name.</p>
+
+</div>
