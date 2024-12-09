@@ -328,7 +328,7 @@ html = """
 <footer>
   <p> Built with <a href="https://soupault.app/">soupault</a> • Part of <a href="https://ring.muhokama.fun/">Muhokama</a> webring (<a href="https://ring.muhokama.fun/u/bhoot/pred">Previous</a> - <a href="https://ring.muhokama.fun/u/bhoot/succ">Next</a>)</p>
 
-  <p><a href="/accessibility-statement">Accessibility statement</a></p>
+  <p><a href="/accessibility-statement">Accessibility statement</a> • Part of <a href="https://a11y-webring.club/" rel="external">a11y-webring.club</a> (<a rel="external" referrerpolicy="strict-origin" href="https://a11y-webring.club/prev">Previous</a> - <a rel="external" referrerpolicy="strict-origin" href="https://a11y-webring.club/next">Next</a> - <a rel="external" referrerpolicy="strict-origin" href="https://a11y-webring.club/random">Random</a>)</p>
 
   <address class="social"><p>
     <a href="https://github.com/jbhoot" rel="me"><img alt="GitHub." src="/static/images/github.svg" width="30" style="vertical-align: middle;"></a>
