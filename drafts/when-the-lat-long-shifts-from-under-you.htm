@@ -206,3 +206,147 @@ With a single argument representing a valid Point object p that has a geographic
 With a single argument representing a valid Point object p that has a geographic spatial reference system (SRS), ST_Latitude() returns the latitude value of p as a double-precision number.
 
 </article>
+
+<div>
+    -- from climatedb_clone/admin
+    alter table weather_source
+    modify column location point not null srid 4326;
+
+show create table weather_source;
+
+alter table weather_source
+    add spatial index idx_location (location);
+
+show index from weather_source;
+
+</div>
+
+<div>
+    -- from climatedb_clone/app_user
+
+    select version();
+
+    explain format = json
+    SELECT t.*
+    FROM (SELECT x.*
+          FROM weather_source x
+                   INNER JOIN weather_data wd ON x.id = wd.weather_source_id
+              AND mbrcontains(ST_Buffer(ST_GeomFromText('POINT(12.9 109)', 4326), 14000), x.location) = 1) t
+    WHERE (t.type = 'GRID_POINT')
+    GROUP BY t.id;
+    
+    -- 652540 rows
+    select count(*)
+    from weather_source;
+    
+    -- 645004 rows
+    SELECT count(*)
+    FROM weather_source
+    where type = 'GRID_POINT';
+    
+    select *
+    from weather_source
+    order by id
+    limit 5;
+    
+    -- mbrcontains() -> st_contains() or st_within(): reduced query time from 43s to 34s
+    -- having distance hasn't made a noticeable difference though. Inspect further.
+    set @area = ST_Buffer(ST_GeomFromText('POINT(12.9 109)', 4326), 14000);
+    explain
+    SELECT id, location, st_distance_sphere(location, ST_GeomFromText('POINT(12.9 109)', 4326)) as distance
+    FROM weather_source
+    where type = 'GRID_POINT'
+      and st_within(location, @area)
+    having distance < 14000;
+    
+    -- Define the center point and radius
+    SET @lat = 12.9;
+    SET @lon = 109;
+    SET @radius = 14000;
+    -- in meters
+    
+    -- Convert radius to latitude and longitude changes
+    SET @lat_change = @radius / 111320; -- approximate degrees latitude per meter
+    SET @lon_change = @radius / (111320 * COS(RADIANS(@lat)));
+    -- approximate degrees longitude per meter
+    
+    -- Calculate bounding box coordinates
+    SET @lat_min = @lat - @lat_change;
+    SET @lat_max = @lat + @lat_change;
+    SET @lon_min = @lon - @lon_change;
+    SET @lon_max = @lon + @lon_change;
+    
+    -- Create a polygon from the bounding box
+    
+    SET @polygon = CONCAT(
+            'POLYGON((',
+            @lat_min, ' ', @lon_min, ', ',
+            @lat_max, ' ', @lon_min, ', ',
+            @lat_max, ' ', @lon_max, ', ',
+            @lat_min, ' ', @lon_max, ', ',
+            @lat_min, ' ', @lon_min, '))'
+                   );
+    
+    -- This query does exactly what MySQL docs claim we should do to employ a spatial index.
+    -- https://dev.mysql.com/doc/refman/8.4/en/using-spatial-indexes.html
+    -- But the query still does not use the spatial index. Even force index does not.
+    -- Use of a polygon instead of st_buffer() reduced the time to 18 seconds.
+    explain
+    SELECT id, location
+    FROM weather_source force index (idx_location)
+    where type = 'GRID_POINT'
+    and mbrcontains(ST_GeomFromText(@polygon, 4326), location);
+    
+    -- Above query, but uses st_contains() instead of mbrcontains().
+    -- st_contains() is still faster than mbrcontains().
+    explain
+    SELECT id, location, st_distance_sphere(location, ST_GeomFromText('POINT(12.9 109)', 4326)) as distance
+    FROM weather_source
+    where type = 'GRID_POINT'
+      and st_contains(ST_GeomFromText(@polygon, 4326), location)
+    having distance < 14000
+    order by location;
+    
+    -- uses similar time as st_contains(): 18s
+    explain
+    SELECT id, location
+    FROM weather_source
+    where type = 'GRID_POINT'
+      and st_within(location, ST_GeomFromText(@polygon, 4326))
+    order by location;
+    
+    -- use just st_distance_sphere: reduce to 12s!
+    -- but need to make sure that this gives the same results as the original query.
+    explain
+    SELECT id, location, st_distance_sphere(location, ST_GeomFromText('POINT(12.9 109)', 4326)) as distance
+    FROM weather_source
+    where type = 'GRID_POINT'
+    having distance <= 14000;
+    
+    -- 10 seconds
+    -- Bounding Box Filtering reduces the number of rows that need to be checked with ST_Distance_Sphere()
+    -- st_distance_sphere clause has no effect on the speed, but reduces the resulting rows from 36 to 20.
+    -- force index (idx_location) doesn't use the index, but reduces the query time from 10 to 8 seconds! My guess is forcing this index causes the query to not use the other index on `type`, which in turn proves beneficial to the query.
+    -- type = GRID_POINT filter doesnt make much difference because most sources are of that type.
+    -- st_x()/st_latitude() and st_latitude()/st_longitude() have the same performance
+    -- mbrcontains(), st_contains(), st_within()
+    -- doesnt use: st_latitude(), st_longitude(), st_distance_*() wont.
+    explain
+    SELECT id, location
+    FROM weather_source
+    # use index (idx_location)
+    # ignore index (type)
+    # force index (idx_location)
+    # where mbrcontains(st_geomfromtext(@polygon, 4326), location);
+    where type = 'GRID_POINT'
+    and mbrcontains(ST_Buffer(ST_GeomFromText('POINT(12.9 109)', 4326), 14000), location);
+    # where type = 'GRID_POINT'
+    # where st_latitude(location) between @lat_min and @lat_max
+    # and st_longitude(location) between @lon_min and @lon_max
+    # and st_distance_sphere(location, ST_GeomFromText('POINT(12.9 109)', 4326)) < 14000;
+    
+    
+    -- THIS WAS THE PROBLEM: check if the location index is actually created and populated.
+    -- ensure that results from the best query here is identical with the mysql 5 query.
+    
+</div>
