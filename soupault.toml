@@ -52,7 +52,7 @@ content_action = "append_child"
 
 [templates.info-page]
 file = "templates/info-page.html"
-page = ["about.html", "cv.html"]
+page = ["about.html", "cv.html", "accessibility-statement.html"]
 content_selector = "main"
 content_action = "append_child"
 
@@ -327,6 +327,9 @@ parse = true
 html = """
 <footer>
   <p> Built with <a href="https://soupault.app/">soupault</a> • Part of <a href="https://ring.muhokama.fun/">Muhokama</a> webring (<a href="https://ring.muhokama.fun/u/bhoot/pred">Previous</a> - <a href="https://ring.muhokama.fun/u/bhoot/succ">Next</a>)</p>
+
+  <p><a href="/accessibility-statement">Accessibility statement</a></p>
+
   <address class="social"><p>
     <a href="https://github.com/jbhoot" rel="me"><img alt="GitHub." src="/static/images/github.svg" width="30" style="vertical-align: middle;"></a>
     <a href="https://lobste.rs/~bhoot" rel="me"><img alt="Link to my lobsters account bhoot" src="/static/images/lobsters.svg" width="30" style="vertical-align: middle;"></a>
