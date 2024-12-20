@@ -56,7 +56,7 @@ select {
     max-inline-size: var(--measure);
 }
 
-body *+*, p {
+body *+*{
     margin-block-start: var(--size-full-line-height);
 }
 
