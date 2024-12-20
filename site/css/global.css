@@ -73,8 +73,8 @@ body {
     font-size: var(--p);
     font-family: var(--font-sans);
 
-    margin-block: 2em;
-    padding-inline: 2em;
+    margin-block: 2vw;
+    padding-inline: 2vw;
     background-color: #f4f3ef;
 }
 
