@@ -69,14 +69,12 @@ article {
 }
 
 body {
-    max-inline-size: calc(var(--measure) * 1.5);
     line-height: var(--line-height);
     font-size: var(--p);
     font-family: var(--font-sans);
 
-    margin-inline: auto;
-    margin-block: var(--size-full-line-height);
-    padding-inline: var(--size-full-line-height);
+    margin-block: 2em;
+    padding-inline: 2em;
     background-color: #f4f3ef;
 }
 
