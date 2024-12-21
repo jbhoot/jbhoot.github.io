@@ -384,7 +384,7 @@ nav>ul>li+li {
 }
 
 footer {
-    border-block-start: var(--size-one-tenth-font-size) solid lightgray;
+    border-block-start: var(--size-one-tenth-font-size) solid gray;
     border-block-start-style: dotted;
 }
 
