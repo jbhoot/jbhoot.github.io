@@ -246,7 +246,7 @@ html = """
   <link rel="stylesheet" href="/css/components/post-index.css">
   <link rel="stylesheet" href="/css/components/index.css">
   <link rel="stylesheet" href="/css/components/indieweb.css">
-  <link rel="stylesheet" href="/css/font.css">
+  <!-- <link rel="stylesheet" href="/css/font.css"> -->
   <link rel="stylesheet" href="/css/components/site-title.css">
   <link rel="stylesheet" href="/css/components/toc.css">
   <link rel="stylesheet" href="/css/components/note.css">
