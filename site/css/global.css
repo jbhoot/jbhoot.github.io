@@ -274,16 +274,16 @@ pre>code {
 }
 
 a {
-    text-decoration-thickness: var(--size-one-sixteenth-font-size);
-    text-decoration-style: solid;
-    text-underline-offset: var(--size-one-fourth-font-size);
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.2em;
     text-decoration-skip-ink: none;
 }
 
 a:hover {
-    text-decoration-thickness: var(--size-one-sixth-font-size);
-    text-decoration-style: solid;
-    background-color: #dbe7fb;
+    text-decoration: none;
+    background-color: blue;
+    outline: 0.25em solid blue;
+    color: white;
 }
 
 a[href*="http"]::after {
