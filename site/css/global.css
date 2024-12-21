@@ -56,7 +56,7 @@ select {
     max-inline-size: var(--measure);
 }
 
-body *+*{
+body *+*, p {
     margin-block-start: var(--size-full-line-height);
 }
 
@@ -73,9 +73,8 @@ body {
     font-size: var(--p);
     font-family: var(--font-sans);
 
-    margin-block: 2vh;
-    padding-inline: 2vw;
-    background-color: #f4f3ef;
+    margin-block: 3vw;
+    padding-inline: 3vw;
 }
 
 h1 {
