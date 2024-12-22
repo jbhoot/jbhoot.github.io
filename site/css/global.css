@@ -73,8 +73,8 @@ body {
     font-size: var(--p);
     font-family: var(--font-sans);
 
-    margin-block: 3vw;
-    padding-inline: 3vw;
+    margin-block: 20px;
+    padding-inline: 20px;
 }
 
 h1 {
