@@ -52,7 +52,7 @@ content_action = "append_child"
 
 [templates.info-page]
 file = "templates/info-page.html"
-page = ["about.html", "cv.html", "accessibility-statement.html"]
+page = ["about.html", "about-website.html", "cv.html", "accessibility-statement.html"]
 content_selector = "main"
 content_action = "append_child"
 
@@ -295,7 +295,7 @@ parse = true
 html = """
 <ul>
   <!--<li><a href="/">Home</a></li>-->
-  <li><a href="/about">About</a></li>
+  <li><a href="/about">About me</a></li>
   <li><a href="/posts">Posts</a></li>
   <!--<li><a href="/articles">Articles</a></li>-->
   <li><a href="/notes">Notes</a></li>
@@ -325,17 +325,15 @@ selector = "body"
 action = "append_child"
 parse = true
 html = """
-<footer>
-  <p> This website is built with <a href="https://soupault.app/">soupault</a>. Check out its <a href="/accessibility-statement">Accessibility statement</a>. </p>
-  
-  <p>It is a part of <a href="https://ring.muhokama.fun/">Muhokama</a> webring (<a href="https://ring.muhokama.fun/u/bhoot/pred">Previous</a> - <a href="https://ring.muhokama.fun/u/bhoot/succ">Next</a>). It is also a part of <a href="https://a11y-webring.club/" rel="external">a11y-webring.club</a> (<a rel="external" referrerpolicy="strict-origin" href="https://a11y-webring.club/prev">Previous</a> - <a rel="external" referrerpolicy="strict-origin" href="https://a11y-webring.club/next">Next</a> - <a rel="external" referrerpolicy="strict-origin" href="https://a11y-webring.club/random">Random</a>)</p>
-
+<footer>  
   <address class="social"><p>
     <a href="https://github.com/jbhoot" rel="me"><img alt="GitHub." src="/static/images/github.svg" width="30" style="vertical-align: middle;"></a>
     <a href="https://lobste.rs/~bhoot" rel="me"><img alt="Link to my lobsters account bhoot" src="/static/images/lobsters.svg" width="30" style="vertical-align: middle;"></a>
     <a href="https://linkedin.com/in/jbhoot" rel="me"><img alt="LinkedIn." src="/static/images/linkedin.svg" width="30" style="vertical-align: middle;"></a>
     <a href="https://functional.cafe/@bhoot" rel="me"><img alt="Mastodon." src="/static/images/mastodon.svg" width="30" style="vertical-align: middle;"></a>
   </p></address>
+
+  <p> <a href="/about-website">About this website</a> • <a href="/accessibility-statement">Accessibility statement</a> </p>
 </footer>
 """
 
