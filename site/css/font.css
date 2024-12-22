@@ -8,34 +8,66 @@ src: https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight  */
 
 @font-face {
   font-display: swap;
-  font-family: 'Atkinson Hyperlegible';
+  font-family: 'Asap';
   font-style: normal;
   font-weight: 400;
-  src: url('/static/fonts/Atkinson-Hyperlegible-2020-0514/Atkinson-Hyperlegible-Regular.woff2') format('woff2');
+  src: url('/static/fonts/Asap/Asap-Regular.ttf') format('ttf');
 }
 
 @font-face {
   font-display: swap;
-  font-family: 'Atkinson Hyperlegible';
-  font-style: italic;
-  font-weight: 400;
-  src: url('/static/fonts/Atkinson-Hyperlegible-2020-0514/Atkinson-Hyperlegible-Italic.woff2') format('woff2');
+  font-family: 'Asap';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/static/fonts/Asap/Asap-Medium.ttf') format('ttf');
 }
 
 @font-face {
   font-display: swap;
-  font-family: 'Atkinson Hyperlegible';
+  font-family: 'Asap';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/static/fonts/Asap/Asap-SemiBold.ttf') format('ttf');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Asap';
   font-style: normal;
   font-weight: 700;
-  src: url('/static/fonts/Atkinson-Hyperlegible-2020-0514/Atkinson-Hyperlegible-Bold.woff2') format('woff2');
+  src: url('/static/fonts/Asap/Asap-Bold.ttf') format('ttf');
 }
 
 @font-face {
   font-display: swap;
-  font-family: 'Atkinson Hyperlegible';
+  font-family: 'Asap';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/static/fonts/Asap/Asap-Italic.ttf') format('ttf');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Asap';
+  font-style: italic;
+  font-weight: 500;
+  src: url('/static/fonts/Asap/Asap-MediumItalic.ttf') format('ttf');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Asap';
+  font-style: italic;
+  font-weight: 600;
+  src: url('/static/fonts/Asap/Asap-SemiBoldItalic.ttf') format('ttf');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Asap';
   font-style: italic;
   font-weight: 700;
-  src: url('/static/fonts/Atkinson-Hyperlegible-2020-0514/Atkinson-Hyperlegible-BoldItalic.woff2') format('woff2');
+  src: url('/static/fonts/Asap/Asap-BoldItalic.ttf') format('ttf');
 }
 
 @font-face {

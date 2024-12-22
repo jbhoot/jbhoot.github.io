@@ -16,7 +16,7 @@ select {
 
 :root {
     --font-monospace: 'Cascadia Code', monospace;
-    --font-sans: sans-serif;
+    --font-sans: Asap, sans-serif;
     --font-serif: serif;
 
     /*
