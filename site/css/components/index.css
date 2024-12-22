@@ -8,7 +8,7 @@
 
 .copy-link {
     font-size: var(--base-font-size);
-    vertical-align: text-top;
+    vertical-align: middle;
     margin-block-start: 0;
 }
 

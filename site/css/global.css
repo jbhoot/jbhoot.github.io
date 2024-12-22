@@ -285,7 +285,7 @@ a:hover {
     color: white;
 }
 
-a[href*="http"]::after {
+:is(a[href*="http"], a[rel="external"]):not(:where(.webring))::after {
     content: '⎋';
     display: inline-block;
     transform: rotate(90deg);

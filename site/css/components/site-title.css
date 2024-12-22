@@ -4,6 +4,10 @@
     margin-block-start: 0;
 }
 
+.site-title > .u-url {
+    text-decoration: none;
+}
+
 @keyframes animate-site-title {
     0% {
         transform-origin: top left;
