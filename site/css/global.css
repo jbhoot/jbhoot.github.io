@@ -299,13 +299,17 @@ a[rel="me"]:has(img) {
     text-decoration: none;
 }
 
+a[rel="me"]:has(img):hover,
+.site-title > .u-url:hover {
+    outline-width: 3px;
+    background-color: transparent;
+    outline-offset: 3px;
+    color: currentColor;
+}
+
 a[rel="me"]:has(img)::after {
     content: '';
     margin-inline-start: 0;
-}
-
-a[rel="me"]:not(:first-of-type) {
-    margin-inline-start: var(--size-full-font-size);
 }
 
 table,

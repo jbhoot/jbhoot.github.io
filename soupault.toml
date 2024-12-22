@@ -235,6 +235,7 @@ html = """
   <link rel="icon" href="/static/images/favicon.png">
   <!-- <link rel="stylesheet" href="/css/font.css"> -->
   <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/layout/cluster.css">
   <link rel="stylesheet" href="/css/components/post-index.css">
   <link rel="stylesheet" href="/css/components/index.css">
   <link rel="stylesheet" href="/css/components/indieweb.css">
@@ -317,7 +318,7 @@ action = "append_child"
 parse = true
 html = """
 <footer>  
-  <address class="social"><p>
+  <address class="social"><p class="cluster">
     <a href="https://github.com/jbhoot" rel="me"><img alt="GitHub." src="/static/images/github.svg" width="30" style="vertical-align: middle;"></a>
     <a href="https://lobste.rs/~bhoot" rel="me"><img alt="Link to my lobsters account bhoot" src="/static/images/lobsters.svg" width="30" style="vertical-align: middle;"></a>
     <a href="https://linkedin.com/in/jbhoot" rel="me"><img alt="LinkedIn." src="/static/images/linkedin.svg" width="30" style="vertical-align: middle;"></a>
