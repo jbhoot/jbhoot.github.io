@@ -285,7 +285,7 @@ selector = ".main-nav"
 after = ["add-homepage-header", "add-otherpage-header"]
 parse = true
 html = """
-<ul>
+<ul class="cluster">
   <!--<li><a href="/">Home</a></li>-->
   <li><a href="/about">About me</a></li>
   <li><a href="/posts">Posts</a></li>

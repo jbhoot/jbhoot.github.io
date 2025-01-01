@@ -368,15 +368,8 @@ ins::before {
 }
 
 nav>ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--size-full-line-height);
     list-style-type: none;
     padding: 0;
-}
-
-nav>ul>li+li {
-    margin-block-start: 0;
 }
 
 .no-show {

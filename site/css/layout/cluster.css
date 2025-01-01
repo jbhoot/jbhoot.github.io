@@ -1,5 +1,5 @@
 .cluster {
-    --cluster-gap: var(--s0, 1rem);
+    --cluster-gap: 1em;
     display: flex;
     flex-wrap: wrap;
     gap: var(--cluster-gap);
