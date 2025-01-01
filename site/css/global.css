@@ -30,10 +30,10 @@ select {
     --base-font-size: 1.125rem;
 
     --p: var(--base-font-size);
-    --h4: calc(var(--base-font-size) * 1.25);
-    --h3: calc(var(--base-font-size) * 1.5);
-    --h2: calc(var(--base-font-size) * 1.75);
-    --h1: calc(var(--base-font-size) * 2);
+    --h4: calc(var(--base-font-size) * 1.1);
+    --h3: calc(var(--base-font-size) * 1.25);
+    --h2: calc(var(--base-font-size) * 1.5);
+    --h1: calc(var(--base-font-size) * 1.75);
 
     --size-full-line-height: calc(var(--line-height) * 1em);
     --size-one-half-line-height: calc(var(--size-full-line-height) * 0.5);
