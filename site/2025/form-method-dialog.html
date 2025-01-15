@@ -1,0 +1,43 @@
+<meta itemprop="itemid" content="urn:uuid:7749ee91-b3bd-44a1-9a45-cd69ae779b73">
+<meta itemprop="dt-published" content="2025-01-15T10:52:16Z">
+<meta itemprop="p-category" content="HTML">
+
+<h1>Use cases for <code>&lt;form method="dialog"&gt;</code></h1>
+
+<div class="e-content">
+
+<p>I've started using a relatively less known value of the <code>&lt;form&gt;</code> element's <code>method</code> attribute, called <code>dialog</code>, for the following scenarios:</p>
+
+<ul>
+<li>when a form is submitted via AJAX.</li>
+
+<li>when a form is a multi-step wizard, where each step is a form in itself, and I have to accummulate values from each step.</li>
+</ul>
+
+<h2>But what about MDN talking about using it in a <code>&lt;dialog&gt;</code> element?</h2>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form">MDN reference</a> defines <code>method="dialog"</code> as:</p>
+
+<blockquote cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form">
+<p>When the form is inside a <code>&lt;dialog&gt;</code>, closes the dialog and causes a submit event to be fired on submission, without submitting data or clearing the form.</p>
+</blockquote>
+
+<p>But the HTML spec, having been written in officialese and being the more authoritative source than MDN, provides a nice escape hatch.</p>
+
+<p><a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-method">The spec defines</a> <code>method="dialog"</code> as follows (emphasis mine):</p>
+
+<blockquote cite="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-method">
+<p>Indicates the form is intended to close the dialog box in which the form finds itself, <em style="font-weight: 600;">if any</em>, and otherwise not submit.</p>
+</blockquote>
+
+<p>My interpretation is that <code>method="dialog"</code> has two jobs:</p>
+
+<ul>
+<li><em class="font-weight: 600;">If</em> a <code>&lt;form&gt;</code> using <code>method="dialog"</code> is located inside a <code>&lt;dialog&gt;</code> element, then its submission causes the dialog to close.</li>
+
+<li><code>method="dialog"</code> also does not really submit the form, i.e., it fires the submit event, but leaves the actual submission to further programming, like AJAX. As a nice side-effect, <b>I don't have to fire an explicit <code>ev.preventDefault()</code></b>.</li>    
+</ul>
+
+<p>Am I wrong? May be. Please let me know in the comments.</p>
+
+</div>
