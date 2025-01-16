@@ -1,0 +1,296 @@
+<meta itemprop="itemid" content="urn:uuid:ec8ff889-ecf7-42f7-b279-164ed487a1ee">
+<!-- date --utc +"%Y-%m-%dT%H:%M:%SZ" -->
+<meta itemprop="dt-published" content="">
+<meta itemprop="p-category" content="">
+
+<h1></h1>
+
+<p class="e-summary"></p>
+
+<div class="e-content">
+
+3 approaches
+
+<ul>
+    <li>Validate only on submit</li>
+    <li>Don't validate until first submit (i.e., let the user fill the form at peace first), then live validation of an input whenever it loses focus (i.e., user is done editing that field)</li>
+    <li>Always-on live validation. Get or the user's nerves by constantly nagging them.</li>
+</ul>
+
+<p>We are not touching the 3rd approach at all. Its never valid in my eyes.</p>
+
+<p>Nice add-on: Don't `display:none` the error of a field so that the form does not shift around. Rather, opacity: 0 and aria-hidden=true should work nicely? Verify.</p>
+
+<h2>Approach 1</h2>
+
+<pre><code>
+    module PaymentDetailsForm = {
+        let name = "PaymentDetailsForm"
+      
+        type t = {
+          bankName: string,
+          bsb: string,
+        }
+      
+        module FieldError = {
+          @react.component
+          let make = (~name: string, ~formErrors: Dict.t<string>) => {
+            switch formErrors->Dict.get(name) {
+            | Some(v) => <p id={FormUtils.Field.toErrorDescriptionId(name)}> {v->React.string} </p>
+            | None => <> </>
+            }
+          }
+        }
+      
+        module Fields = {
+          module BankName = {
+            let name = "BankName"
+      
+            let parse = v =>
+              switch v {
+              | "" => Error("Please enter the name of your bank")
+              | _ => Ok(v)
+              }
+      
+            @react.component
+            let make = (~formErrors: Dict.t<string>) => {
+              <div>
+                <label htmlFor=name> {"Name of the bank"->React.string} </label>
+                <input
+                  ariaDescribedby={FormUtils.Field.toErrorDescriptionId(name)}
+                  ariaInvalid={ariaInvalid(formErrors, name)}
+                  defaultValue=""
+                  id=name
+                  name
+                  required=true
+                />
+                <FieldError name formErrors />
+              </div>
+            }
+          }
+      
+          module Bsb = {
+            let name = "BSB"
+      
+            let parse = v =>
+              switch v {
+              | "" => Error("Please enter the bank's BSB code")
+              | _ => Ok(v)
+              }
+      
+            @react.component
+            let make = (~formErrors: Dict.t<string>) => {
+              <div>
+                <label htmlFor=name> {"BSB"->React.string} </label>
+                <input
+                  ariaDescribedby={FormUtils.Field.toErrorDescriptionId(name)}
+                  ariaInvalid={ariaInvalid(formErrors, name)}
+                  className="max-inline-size:10ch"
+                  defaultValue=""
+                  id=name
+                  name
+                  required=true
+                />
+                <FieldError name formErrors />
+              </div>
+            }
+          }
+        }
+      
+        let parseField = (formData, fieldName, parser) => {
+          formData
+          ->JsApi.FormData.getExn(fieldName)
+          ->parser
+        }
+      
+        let collectError = (errors, fieldName, parsedValue) => {
+          switch parsedValue {
+          | Ok(_) => ()
+          | Error(e) => errors->Dict.set(fieldName, e)
+          }
+          errors
+        }
+      
+        let parseForm = formData => {
+          switch (
+            formData->parseField(Fields.BankName.name, Fields.BankName.parse),
+            formData->parseField(Fields.Bsb.name, Fields.Bsb.parse),
+          ) {
+          | (Ok(bankName), Ok(bsb)) => Ok({bankName, bsb})
+          | (bankName, bsb) =>
+            Error(
+              Dict.make()
+              ->collectError(Fields.BankName.name, bankName)
+              ->collectError(Fields.Bsb.name, bsb),
+            )
+          }
+        }
+      
+        let (sFormSubmitted, handleFormSubmit) = createSignal1((ev: ReactEvent.Form.t) => ev)
+      
+        let cParsedForm = stateLocalComp(
+          sFormSubmitted->Stream.pipe1(
+            Op.map(ev => {
+              let formData = ReactX.getFormData(ev)
+              parseForm(formData)
+            }),
+          ),
+          Error(Dict.fromArray([(name, "Could not find all fields in FormData")])),
+        )
+      
+        let cFormErrors = stateLocalComp(
+          cParsedForm
+          ->Cell.stream
+          ->Stream.pipe1(
+            Op.map(parsedForm => {
+              switch parsedForm {
+              | Ok(_) => Dict.make()
+              | Error(formErrors) => formErrors
+              }
+            }),
+          ),
+          Dict.make(),
+        )
+      
+        @react.component
+        let make = () => {
+          let formErrors = useStateObservable(cFormErrors)
+      
+          <form id=name method="dialog" name noValidate=true onSubmit={handleFormSubmit}>
+            <Fields.BankName formErrors />
+            <Fields.Bsb formErrors />
+            <button type_="submit" value="SubmitPaymentDetails"> {"Continue"->React.string} </button>
+          </form>
+        }
+      }
+</code></pre>
+
+<h2>Approach 2</h2>
+<pre><code>
+    module PaymentDetailsForm2 = {
+        let name = "PaymentDetailsForm2"
+      
+        type t = {
+          bankName: string,
+          bsb: string,
+        }
+      
+        let (sFormSubmitted, handleFormSubmit) = createSignal1((ev: ReactEvent.Form.t) => ev)
+      
+        let cFormSubmissionAttempted = stateLocalComp(
+          sFormSubmitted->Stream.pipe1(Op.map(_ => DataAttributes.DataFormSubmissionAttempted.True)),
+          False,
+        )
+      
+        let collectError = (errors, fieldName, parsedValue) => {
+          switch parsedValue {
+          | Ok(_) => ()
+          | Error(e) => errors->Dict.set(fieldName, e)
+          }
+          errors
+        }
+      
+        module Fields = {
+          module BankName = {
+            let name = "BankName"
+      
+            let parse = v =>
+              switch v {
+              | "" => Error("Please enter the name of your bank")
+              | _ => Ok(v)
+              }
+      
+            let (sValueChanged, handleValueChange) = createSignal1(ev => ReactX.getEventValue(ev))
+      
+            let cParsedValue = stateLocalComp(sValueChanged->Stream.pipe1(Op.map(parse)), parse(""))
+      
+            @react.component
+            let make = () => {
+              let parsed = useStateObservable(cParsedValue)
+              let dataFormSubmissionAttempted = useStateObservable(cFormSubmissionAttempted)
+              <div>
+                <label htmlFor=name> {"Name of the bank"->React.string} </label>
+                <input
+                  ariaDescribedby={FormUtils.Field.toErrorDescriptionId(name)}
+                  ariaInvalid={FormUtils.Field.isAriaInvalid(~parsed, ~dataFormSubmissionAttempted)}
+                  defaultValue=""
+                  id=name
+                  name
+                  onChange={handleValueChange}
+                  required=true
+                />
+                <FormUtils.Field.Error id=name parsed />
+              </div>
+            }
+          }
+      
+          module Bsb = {
+            let name = "BSB"
+      
+            let parse = v =>
+              switch v {
+              | "" => Error("Please enter the bank's BSB code")
+              | _ => Ok(v)
+              }
+      
+            let (sValueChanged, handleValueChange) = createSignal1(ev => ReactX.getEventValue(ev))
+      
+            let cParsedValue = stateLocalComp(sValueChanged->Stream.pipe1(Op.map(parse)), parse(""))
+      
+            @react.component
+            let make = () => {
+              let parsed = useStateObservable(cParsedValue)
+              let dataFormSubmissionAttempted = useStateObservable(cFormSubmissionAttempted)
+              <div>
+                <label htmlFor=name> {"BSB"->React.string} </label>
+                <input
+                  ariaDescribedby={FormUtils.Field.toErrorDescriptionId(name)}
+                  ariaInvalid={FormUtils.Field.isAriaInvalid(~parsed, ~dataFormSubmissionAttempted)}
+                  className="max-inline-size:10ch"
+                  defaultValue=""
+                  id=name
+                  name
+                  onChange={handleValueChange}
+                  required=true
+                />
+                <FormUtils.Field.Error id=name parsed />
+              </div>
+            }
+          }
+        }
+      
+        let cParsedForm = Op.combineLatest2(
+          Fields.BankName.cParsedValue->Cell.stream,
+          Fields.Bsb.cParsedValue->Cell.stream,
+          (bankName, bsb) => {
+            switch (bankName, bsb) {
+            | (Ok(bankName), Ok(bsb)) => Ok({bankName, bsb})
+            | (bankName, bsb) =>
+              Error(
+                Dict.make()
+                ->collectError(Fields.BankName.name, bankName)
+                ->collectError(Fields.Bsb.name, bsb),
+              )
+            }
+          },
+        )
+      
+        @react.component
+        let make = () => {
+          let dataFormSubmissionAttempted = useStateObservable(cFormSubmissionAttempted)
+      
+          <form
+            dataFormSubmissionAttempted
+            id=name
+            method="dialog"
+            name
+            noValidate=true
+            onSubmit={handleFormSubmit}>
+            <Fields.BankName />
+            <Fields.Bsb />
+            <button type_="submit" value="SubmitPaymentDetails2"> {"Continue"->React.string} </button>
+          </form>
+        }
+      }
+</code></pre>
+</div>
