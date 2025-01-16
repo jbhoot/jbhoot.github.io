@@ -1,4 +1,5 @@
-:is(.all-posts, .all-articles, .all-notes, .yearly-posts, .recent-posts, .collections, .collection) li {
+:is(.all-posts, .all-articles, .all-notes, .yearly-posts, .recent-posts, .collections, .collection) > li + li {
+    margin-block-start: 2em;
 }
 
 .post-title {
