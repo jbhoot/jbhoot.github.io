@@ -51,7 +51,7 @@ article {
     max-inline-size: none;
 }
 
-body * + *, h1, p {
+body * + * {
     margin-block-start: 1.75em;
 }
 
