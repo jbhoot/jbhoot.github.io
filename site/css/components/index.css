@@ -1,3 +1,7 @@
+.site-title + .main-nav {
+    margin-block-start: 1em;
+}
+
 .commentLoader {
     border: none;
     padding: 0.5em;

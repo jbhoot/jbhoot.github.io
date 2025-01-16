@@ -317,7 +317,7 @@ action = "append_child"
 parse = true
 html = """
 <footer>  
-  <p> <a href="/about-website">About this website</a> • <a href="/accessibility-statement">Accessibility statement</a> </p>
+  <p class="cluster"> <a href="/about-website">About this website</a> <a href="/accessibility-statement">Accessibility statement</a> </p>
 
   <address class="social"><p class="cluster">
     <a href="https://github.com/jbhoot" rel="me"><img alt="GitHub." src="/static/images/github.svg" width="30" style="vertical-align: middle;"></a>

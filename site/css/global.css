@@ -43,14 +43,6 @@ select {
     max-inline-size: var(--measure);
 }
 
-body * + *, h1, p {
-    margin-block-start: 1.6em;
-}
-
-li + li {
-    margin-block-start: 0.75em;
-}
-
 html,
 body,
 div,
@@ -59,18 +51,29 @@ article {
     max-inline-size: none;
 }
 
+body * + *, h1, p {
+    margin-block-start: 1.75em;
+}
+
+body > * + * {
+    margin-block-start: 3em;
+}
+
+li + li {
+    margin-block-start: 0.75em;
+}
+
 body {
     line-height: var(--line-height);
     font-size: var(--p);
     font-family: var(--font-sans);
 
-    margin-block: 20px;
-    padding-inline: 20px;
+    margin-block: 3em;
 }
 
 body > * {
     max-inline-size: var(--measure);
-    margin: auto;
+    margin-inline: auto;
 }
 
 h1 {
@@ -118,7 +121,7 @@ h2:has(.commentLoader)::before {
 
 hgroup > h1 ~ p {
     color: gray;
-    font-style: italic;
+    margin-block-start: 0.25em;
 }
 
 img,
@@ -367,10 +370,6 @@ nav>ul {
 
 .visually-hidden {
     display: none !important;
-}
-
-footer {
-    margin-block-start: 3em;
 }
 
 s {
