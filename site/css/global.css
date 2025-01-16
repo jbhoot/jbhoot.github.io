@@ -25,29 +25,16 @@ select {
     - Axiom 3: Use a modular scale to set various font-sizes in order to ensure reasonable increments between levels. (not other elements, which should just be a multiple or fraction of either line-height or font-size, as described above).
     */
 
-    --measure: 65ch;
-    --line-height: 1.75;
+    --measure: 45rem;
+
+    --line-height: 1.5;
     --base-font-size: 1.125rem;
 
     --p: var(--base-font-size);
-    --h4: calc(var(--base-font-size) * 1.1);
-    --h3: calc(var(--base-font-size) * 1.25);
-    --h2: calc(var(--base-font-size) * 1.5);
-    --h1: calc(var(--base-font-size) * 1.75);
-
-    --size-full-line-height: calc(var(--line-height) * 1em);
-    --size-one-half-line-height: calc(var(--size-full-line-height) * 0.5);
-    --size-one-fourth-line-height: calc(var(--size-full-line-height) * 0.25em);
-    --size-one-eighth-line-height: calc(var(--size-full-line-height) * 0.25em);
-
-    --size-full-font-size: 1em;
-    --size-one-half-font-size: 0.5em;
-    --size-one-fourth-font-size: 0.25em;
-    --size-one-sixth-font-size: 0.167em;
-    --size-one-eighth-font-size: 0.125em;
-    --size-one-tenth-font-size: 0.1em;
-    --size-one-twelfth-font-size: 0.083em;
-    --size-one-sixteenth-font-size: 0.0625em;
+    --h4: 1.5rem;
+    --h3: 1.75rem;
+    --h2: 2rem;
+    --h1: 2.25rem;
 
     counter-reset: h2 h3 h4;
 }
@@ -56,8 +43,12 @@ select {
     max-inline-size: var(--measure);
 }
 
-body *+*, p {
-    margin-block-start: var(--size-full-line-height);
+body * + *, h1, p {
+    margin-block-start: 1.6em;
+}
+
+li + li {
+    margin-block-start: 0.75em;
 }
 
 html,
@@ -77,6 +68,11 @@ body {
     padding-inline: 20px;
 }
 
+body > * {
+    max-inline-size: var(--measure);
+    margin: auto;
+}
+
 h1 {
     font-size: var(--h1);
 }
@@ -91,13 +87,6 @@ h3 {
 
 h4 {
     font-size: var(--h4);
-}
-
-h1,
-h2,
-h3,
-h4 {
-    text-wrap: balance;
 }
 
 :is(h1, h2, h3, h4)::before {
@@ -147,7 +136,7 @@ img {
 
 button {
     border: none;
-    padding: var(--size-one-fourth-font-size);
+    padding: 0.25em;
     border: 1px solid;
     background-color: #e9e9ed;
 }
@@ -222,17 +211,17 @@ figcaption {
 
 caption {
     caption-side: bottom;
-    padding: var(--size-one-half-font-size);
+    padding: 0.5em;
 }
 
 figcaption {
     max-inline-size: 100%;
     margin: 0;
-    padding: var(--size-one-half-font-size);
+    padding: 0.5em;
 }
 
 figure {
-    border: var(--size-one-tenth-font-size) solid;
+    border: 0.1em solid;
 }
 
 figure > img {
@@ -262,7 +251,7 @@ pre {
     background-color: black;
     color: #4af626;
     overflow: auto;
-    padding: var(--size-full-font-size);
+    padding: 1em;
     font-family: var(--font-monospace);
     font-weight: normal;
 }
@@ -273,8 +262,8 @@ pre>code {
 }
 
 a {
-    text-decoration-thickness: 0.1em;
-    text-underline-offset: 0.2em;
+    text-decoration-thickness: 0.05em;
+    text-underline-offset: 0.25em;
     text-decoration-skip-ink: none;
 }
 
@@ -289,7 +278,7 @@ a:hover {
     content: '⎋';
     display: inline-block;
     transform: rotate(90deg);
-    margin-inline-start: var(--size-one-fourth-font-size);
+    margin-inline-start: 0.25em;
     vertical-align: middle;
     font-size: 0.75em;
 }
@@ -320,8 +309,8 @@ td {
 
 th,
 td {
-    border: var(--size-one-tenth-font-size) solid black;
-    padding: var(--size-one-half-font-size);
+    border: 0.1em solid black;
+    padding: 0.5em;
     text-align: left;
 }
 
@@ -331,40 +320,40 @@ tr:hover {
 
 aside:not(.no-touch) {
     color: gray;
-    border: var(--size-one-tenth-font-size) dotted gray;
-    padding: var(--size-full-font-size);
+    border: 0.1em dotted gray;
+    padding: 1em;
 }
 
 aside:not(.no-touch)::before {
     display: block;
     content: "ASIDE";
-    margin-bottom: var(--size-full-line-height);
+    margin-bottom: 1.5em;
     text-decoration: underline;
 }
 
 blockquote {
-    margin: 0;
-    border-inline-start: var(--size-one-fourth-font-size) solid #0097db;
-    padding-inline-start: var(--size-full-font-size);
+    margin-block: 2.5em;
+    border-inline-start: 0.25em solid #0097db;
+    padding-inline-start: 1em;
     font-style: italic;
 }
 
 details > :last-child {
-    border-inline-start: var(--size-one-sixth-font-size) solid gray;
-    padding-inline-start: var(--size-full-font-size);
+    border-inline-start: 0.25em solid gray;
+    padding-inline-start: 1em;
 }
 
 ins {
     text-decoration: none;
     background-color: rgba(0, 128, 0, 0.2);
-    padding: 0 var(--size-one-half-font-size) 0 0;
+    padding: 0 0.5em 0 0;
 }
 
 ins::before {
     content: "+ " attr(datetime);
     background-color: green;
     color: white;
-    padding: 0 var(--size-one-half-font-size) 0 var(--size-one-half-font-size);
+    padding: 0 0.5em 0 0.5em;
 }
 
 nav>ul {
@@ -381,9 +370,7 @@ nav>ul {
 }
 
 footer {
-    max-inline-size: none;
-    border-block-start: var(--size-one-eighth-font-size) solid gray;
-    border-block-start-style: dotted;
+    margin-block-start: 3em;
 }
 
 s {

@@ -16,7 +16,7 @@
 
     100% {
         transform-origin: top left;
-        transform: rotate(3deg);
+        transform: rotate(0deg);
     }
 }
 
@@ -79,10 +79,10 @@
     text-shadow: 0 -40px 100px, 0 0 1em #f44, 0 0 0.5em #f44;
 }
 
-.site-title-blinker span {
+.site-title-blinker .blinketh-the-first {
     animation: blink linear infinite 2s;
 }
 
-.site-title-blinker span:nth-of-type(2) {
+.site-title-blinker .blinketh-the-second {
     animation: blink linear infinite 3s;
 }

@@ -1,22 +1,22 @@
 .toc {
     max-inline-size: var(--measure);
-    outline: var(--size-one-tenth-font-size) solid;
-    padding: var(--size-full-font-size);
+    outline: 0.1em solid;
+    padding: 1em;
     position: relative;
 }
 
 .toc-1:has(*)::before {
     position: absolute;
     top: -0.75em;
-    right: var(--size-full-font-size);
+    right: 1em;
     text-transform: uppercase;
     background-color: #f4f3ef;
-    padding: 0 var(--size-one-half-font-size);
+    padding: 0 0.5em;
     display: block;
     content: 'Table of contents';
     font-size: var(--h4);
     font-weight: bold;
-    margin-block-end: var(--size-full-line-height);
+    margin-block-end: 1.5em;
 }
 
 /*

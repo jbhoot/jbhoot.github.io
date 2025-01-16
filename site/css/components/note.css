@@ -1,6 +1,6 @@
 .note {
     max-inline-size: var(--measure);
-    padding: var(--size-full-font-size);
+    padding: 1em;
 }
 
 .note > p {

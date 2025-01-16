@@ -1,9 +1,9 @@
 .commentLoader {
     border: none;
-    padding: var(--size-one-half-font-size);
+    padding: 0.5em;
     font-size: var(--base-font-size);
-    border: var(--size-one-tenth-font-size) solid;
-    border-bottom: var(--size-one-fourth-font-size) solid;
+    border: 0.1em solid;
+    border-bottom: 0.25em solid;
 }
 
 .copy-link {
