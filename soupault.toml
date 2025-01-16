@@ -121,8 +121,8 @@ index_template = """
   <li>
     {% if "Note" in e.collections %}
       <div class="note">
-        <p>Posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a></p>
         <div>{{e.content}}</div>
+        <p><a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a></p>
       </div>
     {% else %}
       <p><a class="post-title" href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.published}}"> {{e.published_text}}</time></p>
@@ -173,8 +173,8 @@ index_item_template = """
   <li>
     {% if "Note" in collections %}
       <div class="note">
-        <p>Posted on <a href="{{url}}"><time datetime="{{published}}">{{published_text}}</time></a></p>
         <div>{{content}}</div>
+        <p><a href="{{url}}"><time datetime="{{published}}">{{published_text}}</time></a></p>
       </div>
     {% else %}
       <p><a href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{published}}"> {{published_text}}</time></p>
@@ -190,8 +190,8 @@ index_item_template = """
   <li>
     {% if "Note" in collections %}
       <div class="note">
-        <p>Posted on <a href="{{url}}"><time datetime="{{published}}">{{published_text}}</time></a></p>
         <div>{{content}}</div>
+        <p><a href="{{url}}"><time datetime="{{published}}">{{published_text}}</time></a></p>
       </div>
     {% else %}
       <p><a href="{{url}}">{{title}}</a><time class="post-timestamp" datetime="{{published}}"> {{published_text}}</time></p>
@@ -209,8 +209,8 @@ index_template = """
   <li>
     {% if "Note" in e.collections %}
       <div class="note">
-        <p>Posted on <a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a></p>
         <div>{{e.content}}</div>
+        <p><a href="{{e.url}}"><time datetime="{{e.published}}">{{e.published_text}}</time></a></p>
       </div>
     {% else %}
       <p><a href="{{e.url}}">{{e.title}}</a><time class="post-timestamp" datetime="{{e.timestamp}}"> {{e.date}}</time></p>
