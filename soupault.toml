@@ -320,6 +320,7 @@ html = """
   <p class="cluster"> <a href="/about-website">About this website</a> <a href="/accessibility-statement">Accessibility statement</a> </p>
 
   <address class="social"><p class="cluster">
+    <a href="mailto:hi@bhoot.dev" rel="me" class="u-email" target="_self" ><img alt="GitHub." src="/static/images/email.svg" width="30" style="vertical-align: middle;"></a>
     <a href="https://github.com/jbhoot" rel="me"><img alt="GitHub." src="/static/images/github.svg" width="30" style="vertical-align: middle;"></a>
     <a href="https://lobste.rs/~bhoot" rel="me"><img alt="Link to my lobsters account bhoot" src="/static/images/lobsters.svg" width="30" style="vertical-align: middle;"></a>
     <a href="https://linkedin.com/in/jbhoot" rel="me"><img alt="LinkedIn." src="/static/images/linkedin.svg" width="30" style="vertical-align: middle;"></a>
