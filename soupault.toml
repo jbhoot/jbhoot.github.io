@@ -103,7 +103,7 @@ fallback_to_content = false
 selector = [".dt-updated"]
 
 [index.fields.author_name]
-selector = [".p-author"]
+selector = [".p-author", ".h-card p-name"]
 
 [index.fields.excerpt]
 selector = [".e-summary", ".e-content > p", "hgroup ~ p"]
@@ -330,6 +330,7 @@ html = """
 
 [widgets.populate-author-info]
 widget = "insert_html"
+after = "populate-metadata"
 selector = ".h-entry"
 action = "append_child"
 parse = true

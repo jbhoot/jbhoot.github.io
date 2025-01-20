@@ -10,7 +10,9 @@ import java.time.Instant
 var baseUrl = "https://bhoot.dev"
 
 val exclude = List(
-  "/about"
+  "/about",
+  "/accessibility-statement",
+  "/about-website"
 )
 
 case class Entry(
@@ -26,7 +28,7 @@ case class Entry(
 )
 
 val parseFromJson = (e: ujson.Value) => {
-  print("TITLE", e("title").str)
+  print("ID", e("id"), "TITLE", e("title"), "AUTHOr", e("author_name"), "URL", e("url"), "EXCERPT", e("excerpt"), "\n")
   val published = Instant.parse(e("published").str)
   val updated = e("updated").strOpt match
     case Some(updated) => Instant.parse(updated)
@@ -85,4 +87,4 @@ val makeFeed = (entries: List[Entry]) => {
     .filter(e => !exclude.contains(e("url").str))
     .map(parseFromJson)
 
-  os.write.over(os.pwd / "outputs" / "atom-scala.xml", makeFeed(entries))
+  os.write.over(os.pwd / "site" / "feed.xml", makeFeed(entries))

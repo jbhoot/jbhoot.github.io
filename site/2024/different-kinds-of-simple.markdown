@@ -5,9 +5,6 @@
 
   <h1>Different kinds of simple</h1>
 
-
-<p class="e-summary"></p>
-
 <div class="e-content">
 
 This post is syndicated from [my response](https://lobste.rs/s/8ep75v/how_1_software_engineer_outperforms_138#c_kjyns6) to a Lobste.rs story titled [How 1 Software Engineer Outperforms 138 - Lichess Case Study](https://lobste.rs/s/8ep75v/how_1_software_engineer_outperforms_138).
