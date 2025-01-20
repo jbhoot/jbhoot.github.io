@@ -304,7 +304,7 @@ selector = ".site-title"
 after = ["add-homepage-header", "add-otherpage-header"]
 parse = true
 html = """
-<a class="u-url" href="/">
+<a class="u-url" href="/" rel="author">
   <span class="site-title-blinker"
         title="because my last name means 'Ghost' in some Indian languages"><span><span class="p-name">Jayesh <span class="p-nickname p-family-name">Bhoot</span></span><span>&apos;s</span></span> Gh<span class="blinketh-the-first">o</span>st
   T<span class="blinketh-the-second">o</span>wn</span></a>
