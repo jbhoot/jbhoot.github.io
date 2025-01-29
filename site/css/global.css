@@ -52,7 +52,7 @@ article {
 }
 
 body * + * {
-    margin-block-start: 1.75em;
+    margin-block-start: 1.5em;
 }
 
 body > * + * {
