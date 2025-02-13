@@ -25,10 +25,9 @@ select {
     - Axiom 3: Use a modular scale to set various font-sizes in order to ensure reasonable increments between levels. (not other elements, which should just be a multiple or fraction of either line-height or font-size, as described above).
     */
 
-    --measure: 70ch;
+    --measure: 45rem;
 
     --line-height: 1.5;
-    --proximity: 1.5rem;
     --base-font-size: 1.125rem;
 
     --p: var(--base-font-size);
@@ -41,7 +40,7 @@ select {
 }
 
 * {
-    /* max-inline-size: var(--measure); */
+    max-inline-size: var(--measure);
 }
 
 html,
@@ -53,17 +52,15 @@ article {
 }
 
 body * + * {
-    --proximity: 1.5rem;
-    margin-block-start: var(--proximity);
+    margin-block-start: 1.5em;
 }
 
 body > * + * {
-    --proximity: 3rem;
-    /* margin-block-start: 3rem; */
+    margin-block-start: 3em;
 }
 
 li + li {
-    --proximity: 0.75rem;
+    margin-block-start: 0.75em;
 }
 
 body {
@@ -138,7 +135,7 @@ h2:has(.commentLoader)::before {
 
 hgroup > h1 ~ p {
     color: gray;
-    margin-block-start: 0;
+    margin-block-start: 0.25em;
 }
 
 img,
@@ -219,10 +216,6 @@ code {
     font-family: var(--font-monospace);
     font-weight: normal;
     color: green;
-}
-
-:is(h1, h2, h3, h4) > code {
-    color: inherit;
 }
 
 caption,
@@ -356,27 +349,10 @@ aside:not(.no-touch)::before {
 }
 
 blockquote {
-    background-color: lightgray;
-    /* border-inline-start: 0.25em solid #0097db; */
-    border-radius: 0.25rem;
-    padding: 1rem;
+    margin-block: 2.5em;
+    border-inline-start: 0.25em solid #0097db;
+    padding-inline-start: 1em;
     font-style: italic;
-    position: relative;
-}
-
-blockquote::before {
-    position: absolute;
-    content: "“";
-    font-size: 3em;
-    top: -1.5rem;
-    left: 0;
-}
-
-blockquote::after {
-    position: absolute;
-    content: "”";
-    font-size: 3em;
-    right: 0;
 }
 
 details > :last-child {
