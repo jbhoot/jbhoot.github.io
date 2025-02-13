@@ -31,10 +31,10 @@ select {
     --base-font-size: 1.125rem;
 
     --p: var(--base-font-size);
-    --h4: 1.25rem;
-    --h3: 1.5rem;
-    --h2: 1.75rem;
-    --h1: 2rem;
+    --h4: 1.5rem;
+    --h3: 1.75rem;
+    --h2: 2.25rem;
+    --h1: 3rem;
 
     counter-reset: h2 h3 h4;
 }
