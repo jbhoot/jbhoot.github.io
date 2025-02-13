@@ -71,6 +71,10 @@ body {
     margin-block: 3em;
 }
 
+main {
+    position: relative;
+}
+
 body > * {
     max-inline-size: var(--measure);
     margin-inline: auto;
@@ -93,26 +97,36 @@ h4 {
 }
 
 :is(h1, h2, h3, h4)::before {
-    color: lightgray;
+    position: absolute;
+    inline-size: 6ch;
+    left: -6ch;
+    text-align: right;
+
+    color: gray;
     font-family: var(--font-monospace);
     list-style-type: decimal-leading-zero;
 }
 
+:is(h1, h2, h3, h4) {
+    color: purple;
+    line-height: 1.25;
+}
+
 h2::before {
     counter-increment: h2;
-    content: counter(h2);
+    content: counter(h2) ".";
     counter-set: h3 0;
 }
 
 h3::before {
     counter-increment: h3;
-    content: counter(h2) "." counter(h3);
+    content: counter(h2) "." counter(h3) ".";
     counter-set: h4 0;
 }
 
 h4::before {
     counter-increment: h4;
-    content: counter(h2) "." counter(h3) "." counter(h4);
+    content: counter(h2) "." counter(h3) "." counter(h4) ".";
 }
 
 h2:has(.commentLoader)::before {
