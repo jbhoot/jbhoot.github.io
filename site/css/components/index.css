@@ -21,3 +21,11 @@
 .copy-link > svg {
     vertical-align: middle;
 }
+
+.collection-tag {
+    background-color: purple;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
+    border-radius: 0.25rem;
+}
