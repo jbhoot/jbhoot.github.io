@@ -1,0 +1,24 @@
+<meta itemprop="itemid" content="urn:uuid:27eeadca-a190-4744-a8a2-c5c274257a78">
+<!-- date --utc +"%Y-%m-%dT%H:%M:%SZ" -->
+<meta itemprop="dt-published" content="2025-02-17T05:57:43Z">
+<meta itemprop="p-category" content="Stylus,CSS">
+
+<h1>Making tanstack docs more accessible with Stylus</h1>
+
+<p class="e-summary">Stylus is a browser extension with which you can modify styles on a webpage. I use it to fix accessibility and usability niggles faced on my regularly visited webpages.</p>
+
+<div class="e-content">
+This post adds another Stylus fix to the list <a href="https://www.wezm.net/v2/posts/2025/stylus/">written by wezm</a>.
+
+<p>My mouse/trackpad is configured to auto-click on rest/hover. Over time, I&quot;ve developed a habit of resting the cursor on any white space of a webpage.</p>
+
+<p><a href="tanstack.com">Tanstack.com</a> hosts a collection of headless web widgets to develop web applications. Now, in the <a href="https://tanstack.com/table/latest/docs/introduction">tanstack docs</a>, each heading is a clickable anchor, but the clickable area also spans the whole width of the content area. When I subconsciously rest my cursor on the white space besides a heading, the heading and contents are suddenly yanked to the top.</p>
+
+<p>Here is the Stylus fix:</p>
+
+<pre><code>a.anchor-heading {
+    display: inline;
+}</code></pre>
+
+<p>Now, the heading still remains an anchor, but the white space besides the heading text stays out of the clickable area.</p>
+</div>
