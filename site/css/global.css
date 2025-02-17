@@ -55,6 +55,10 @@ body * + * {
     margin-block-start: 1.5em;
 }
 
+body > * {
+    padding-inline: 1rem;
+}
+
 body > * + * {
     margin-block-start: 3em;
 }
