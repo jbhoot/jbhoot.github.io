@@ -235,6 +235,7 @@ html = """
   <link rel="icon" href="/static/images/favicon.png">
   <link rel="stylesheet" href="/css/font.css">
   <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/utility.css">
   <link rel="stylesheet" href="/css/layout/cluster.css">
   <link rel="stylesheet" href="/css/components/post-index.css">
   <link rel="stylesheet" href="/css/components/index.css">
@@ -254,7 +255,7 @@ action = "replace_element"
 parse = true
 html = """
 <div class="h-card">
-  <h1 class="site-title">
+  <h1 class="site-title text-align:right">
     <!-- Content inserted by soupault widget -->
   </h1>
   <nav class="main-nav">
@@ -270,7 +271,7 @@ action = "replace_element"
 parse = true
 html = """
 <div class="h-card">
-  <p class="site-title">
+  <p class="site-title text-align:right">
     <!-- Content inserted by soupault widget -->
   </p>
   <nav class="main-nav">
@@ -285,7 +286,7 @@ selector = ".main-nav"
 after = ["add-homepage-header", "add-otherpage-header"]
 parse = true
 html = """
-<ul class="cluster">
+<ul class="cluster" style="justify-content:flex-end;">
   <!--<li><a href="/">Home</a></li>-->
   <li><a href="/about">About me</a></li>
   <li><a href="/posts">Posts</a></li>
@@ -304,6 +305,13 @@ selector = ".site-title"
 after = ["add-homepage-header", "add-otherpage-header"]
 parse = true
 html = """
+<img
+    alt="This is what Jayesh Bhoot looks like, with a lopsided smile on its right, which almost closes his right eye while smiling, which strongly implies that he needs to work on his lazy left-side cheek muscles."
+    class="profile-pic-closeup"
+    height="35"
+    src="/static/images/profile-pic-closeup-round.png"
+    width="35"
+  />
 <a class="u-url" href="/" rel="author">
   <span class="site-title-blinker"
         title="because my last name means 'Ghost' in some Indian languages"><span><span class="p-name">Jayesh <span class="p-nickname p-family-name">Bhoot</span></span><span>&apos;s</span></span> Gh<span class="blinketh-the-first">o</span>st
@@ -316,10 +324,10 @@ selector = "body"
 action = "append_child"
 parse = true
 html = """
-<footer>  
-  <p class="cluster"> <a href="/about-website">About this website</a> <a href="/accessibility-statement">Accessibility statement</a> </p>
+<footer>
+  <p class="cluster justify-content:flex-end"> <a href="/about-website">About this website</a> <a href="/accessibility-statement">Accessibility statement</a> </p>
 
-  <address class="social"><p class="cluster">
+  <address class="social"><p class="cluster justify-content:flex-end">
     <a href="mailto:hi@bhoot.dev" rel="me" class="u-email" target="_self" ><img alt="GitHub." src="/static/images/email.svg" width="30" style="vertical-align: middle;"></a>
     <a href="https://github.com/jbhoot" rel="me"><img alt="Link to my GitHub account @jbhoot" src="/static/images/github.svg" width="30" style="vertical-align: middle;"></a>
     <a href="https://lobste.rs/~bhoot" rel="me"><img alt="Link to my lobsters account @bhoot" src="/static/images/lobsters.svg" width="30" style="vertical-align: middle;"></a>
