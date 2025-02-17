@@ -1,5 +1,6 @@
 .site-title {
-    font-size: var(--h3);
+    font-size: clamp(1.5rem, 6vw, var(--h3));
+    text-wrap: balance;
     font-weight: bold;
     margin-block-start: 0;
 }
