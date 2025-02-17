@@ -107,7 +107,7 @@ h4 {
     left: -6ch;
     text-align: right;
 
-    color: gray;
+    color: lightgray;
     font-family: var(--font-monospace);
     list-style-type: decimal-leading-zero;
 }
