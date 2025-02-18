@@ -28,7 +28,6 @@ case class Entry(
 )
 
 val parseFromJson = (e: ujson.Value) => {
-  print("ID", e("id"), "TITLE", e("title"), "AUTHOr", e("author_name"), "URL", e("url"), "EXCERPT", e("excerpt"), "\n")
   val published = Instant.parse(e("published").str)
   val updated = e("updated").strOpt match
     case Some(updated) => Instant.parse(updated)
