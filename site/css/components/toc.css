@@ -4,15 +4,6 @@
     padding: 1em;
 }
 
-.toc-1:has(*)::before {
-    text-transform: uppercase;
-    display: block;
-    content: 'Table of contents';
-    font-size: var(--h4);
-    font-weight: bold;
-    margin-block-end: 1em;
-}
-
 /*
 What should the min-width be in the following media query?
 

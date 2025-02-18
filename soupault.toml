@@ -383,6 +383,9 @@ heading_link_text = "§" # silcrow sign / section sign
 heading_links_append = false
 valid_html = true
 
+[widgets.populate-toc-heading]
+widget = "populate-toc-heading"
+
 [widgets.delete_draft_content]
 widget = "delete_element"
 selector = ".draft"
