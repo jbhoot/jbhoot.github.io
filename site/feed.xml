@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><id>https://bhoot.dev/</id><title>Jayesh Bhoot's Ghost Town – All Posts</title><updated>2025-01-15T10:52:16Z</updated><author><name>Jayesh Bhoot</name></author><link href="https://bhoot.dev/feed.xml" rel="self" /><entry><id>urn:uuid:7749ee91-b3bd-44a1-9a45-cd69ae779b73</id><title type="html">Use cases for &lt;code&gt;&amp;lt;form method=&quot;dialog&quot;&amp;gt;&lt;/code&gt;</title><updated>2025-01-15T10:52:16Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;I've started using a relatively less known value of the &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt; element's &lt;code&gt;method&lt;/code&gt; attribute, called &lt;code&gt;dialog&lt;/code&gt;, for the following scenarios:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><id>https://bhoot.dev/</id><title>Jayesh Bhoot's Ghost Town – All Posts</title><updated>2025-02-17T10:14:23Z</updated><author><name>Jayesh Bhoot</name></author><link href="https://bhoot.dev/feed.xml" rel="self" /><entry><id>urn:uuid:43f46500-f269-4e3b-82e0-e4723df60e63</id><title type="html">UX Design Rework #1 - I love VNSGU</title><updated>2025-02-17T10:14:23Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;h2&gt;Original hoarding&lt;/h2&gt;
+
+&lt;p&gt;I found this hoarding while passing by my &lt;a href=&quot;https://www.youtube.com/watch?v=H0ZRwFCkfzU&amp;amp;t=25s&quot;&gt;university - VNSGU&lt;/a&gt;.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/static/images/design-rework-1-i-love-vnsgu/original-gate.jpeg&quot;&gt;
+
+&lt;figcaption&gt;The hoarding, on the left hand side of the university gate, lays out a vertically laid-out slogan &lt;b&gt;I am in VNSGU&lt;/b&gt;, and also sports the VNSGU logo, cradled by the vertical slogan.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3&gt;Problems in the original&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;No alignment between anything. Even the starting letters of each word of the vertically written slogan are misaligned.&lt;/li&gt;
+
+&lt;li&gt;Lack of focal point. The word &lt;b&gt;am&lt;/b&gt; is needlessly highlighted with a colour.&lt;/li&gt;
+
+&lt;li&gt;Abysmal contrast between text and background&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Rework&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Find a strong &lt;strong&gt;alignment&lt;/strong&gt; - between words of the vertically laid-out slogan, as well as between the slogan and the logo.&lt;/p&gt; 
+
+&lt;img alt=&quot;Iteration 1 - text and logo are have a strong alignment between them&quot; src=&quot;/static/images/design-rework-1-i-love-vnsgu/rework-1-alignment.svg&quot;&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Find a focal point. &lt;strong&gt;Repeat&lt;/strong&gt; the colour of the logo in this word to highlight the two most important elements - logo and the word &lt;b&gt;VNSGU&lt;/b&gt; &lt;/p&gt; 
+
+&lt;img alt=&quot;Iteration 2 - important elements are now highlighted through repetition of logo colour&quot; src=&quot;/static/images/design-rework-1-i-love-vnsgu/rework-2-repetition.svg&quot;&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Use a good &lt;strong&gt;contrast&lt;/strong&gt; of colour between the text and the background.&lt;/p&gt;
+
+&lt;p&gt;I ended up with two variants - the first uses a &lt;strong&gt;complementary&lt;/strong&gt; colour set, where the colour of the logo complements the background colour.&lt;/p&gt;
+
+&lt;img alt=&quot;Final output in complementary colour scheme&quot; src=&quot;/static/images/design-rework-1-i-love-vnsgu/rework-complementary-colours.svg&quot;&gt;
+
+&lt;p&gt;The other uses a &lt;strong&gt;monochromatic&lt;/strong&gt; colour set, where the background colour is set to a tint of the logo colour.&lt;/p&gt;
+
+&lt;img alt=&quot;Final output in monochromatic colour scheme&quot; src=&quot;/static/images/design-rework-1-i-love-vnsgu/rework-monochromatic-colours.svg&quot;&gt;
+
+&lt;/li&gt;
+
+&lt;/ol&gt;
+
+&lt;h2&gt;Figma resources&lt;/h2&gt;
+
+&lt;p&gt;You can find alternate final designs in my Figma file linked below.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.figma.com/design/JTAPsY6LUOumuVMsSV7MBP/I-am-in-VNSGU?node-id=0-1&amp;amp;t=NqvDb2R0cz6F4Ony-1&quot;&gt;Link to the Figma file&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;https://www.figma.com/proto/JTAPsY6LUOumuVMsSV7MBP/I-am-in-VNSGU?page-id=0%3A1&amp;amp;node-id=96-90&amp;amp;p=f&amp;amp;viewport=-1968%2C7%2C0.57&amp;amp;t=JByehD4WYiHvZK4u-1&amp;amp;scaling=min-zoom&amp;amp;content-scaling=fixed&amp;amp;starting-point-node-id=96%3A90&quot;&gt;Link to the Figma playable prototype&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><link href="https://bhoot.dev/2025/ux-design-rework-1-i-love-vnsgu" /><summary type="html">This series is an attempt to learn and practise principles of UX and design by reworking adverts that I find in the real world.</summary><category term="UX/Design" label="UX/Design"></category><published>2025-02-17T10:14:23Z</published></entry><entry><id>urn:uuid:27eeadca-a190-4744-a8a2-c5c274257a78</id><title type="html">Making tanstack docs more accessible with Stylus</title><updated>2025-02-17T05:57:43Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">This post adds another Stylus fix to the list &lt;a href=&quot;https://www.wezm.net/v2/posts/2025/stylus/&quot;&gt;written by wezm&lt;/a&gt;.
+
+&lt;p&gt;My mouse/trackpad is configured to auto-click on rest/hover. Over time, I&quot;ve developed a habit of resting the cursor on any white space of a webpage.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;tanstack.com&quot;&gt;Tanstack.com&lt;/a&gt; hosts a collection of headless web widgets to develop web applications. Now, in the &lt;a href=&quot;https://tanstack.com/table/latest/docs/introduction&quot;&gt;tanstack docs&lt;/a&gt;, each heading is a clickable anchor, but the clickable area also spans the whole width of the content area. When I subconsciously rest my cursor on the white space besides a heading, the heading and contents are suddenly yanked to the top.&lt;/p&gt;
+
+&lt;p&gt;Here is the Stylus fix:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;a.anchor-heading {
+    display: inline;
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, the heading still remains an anchor, but the white space besides the heading text stays out of the clickable area.&lt;/p&gt;</content><link href="https://bhoot.dev/2025/stylus-tanstack" /><summary type="html">Stylus is a &lt;a href=&quot;https://add0n.com/stylus.html&quot;&gt;browser extension&lt;/a&gt; with which you can modify styles on a webpage. I use it to fix accessibility and usability niggles faced on my regularly visited webpages.</summary><category term="Stylus" label="Stylus"></category><category term="CSS" label="CSS"></category><published>2025-02-17T05:57:43Z</published></entry><entry><id>urn:uuid:7749ee91-b3bd-44a1-9a45-cd69ae779b73</id><title type="html">Use cases for &lt;code&gt;&amp;lt;form method=&quot;dialog&quot;&amp;gt;&lt;/code&gt;</title><updated>2025-01-15T10:52:16Z</updated><author><name>Jayesh Bhoot</name></author><content type="html">&lt;p&gt;I've started using a relatively less known value of the &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt; element's &lt;code&gt;method&lt;/code&gt; attribute, called &lt;code&gt;dialog&lt;/code&gt;, for the following scenarios:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;when a form is submitted via AJAX.&lt;/li&gt;
@@ -6,7 +76,7 @@
 &lt;li&gt;when a form is a multi-step wizard, where each step is a form in itself, and I have to accummulate values from each step.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;But what about MDN talking about using it in a &lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt; element?&lt;/h2&gt;
+&lt;h2&gt;But what about MDN using it in a &lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt; element?&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form&quot;&gt;MDN reference&lt;/a&gt; defines &lt;code&gt;method=&quot;dialog&quot;&lt;/code&gt; as:&lt;/p&gt;
 
