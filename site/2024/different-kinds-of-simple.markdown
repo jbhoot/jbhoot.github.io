@@ -1,6 +1,6 @@
 <meta itemprop="itemid" content="urn:uuid:dea8aaf0-4066-43bd-8b01-a5b482609206">
 <meta itemprop="dt-published" content="2024-10-01T07:22:39Z">
-<meta itemprop="p-category" content="Philosophy of programming,PESOS">
+<meta itemprop="p-category" content="Philosophy of programming">
 
 
   <h1>Different kinds of simple</h1>
