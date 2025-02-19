@@ -1,0 +1,243 @@
+<meta itemprop="itemid" content="urn:uuid:8f8baebb-e7b1-4127-b8af-de3d3a944224">
+<meta itemprop="dt-published" content="2025-02-19T14:09:43Z">
+<meta itemprop="p-category" content="Philosophy of programming">
+
+<h1>Proximity of an error in static and dynamic languages</h1>
+
+<p class="e-summary">This is a purely conjectural, anecdotal, probably biased post on how statically-typed languages do better than dynamically-typed languages in keeping an error as close to the source issue as possible.</p>
+
+<div class="e-content">
+
+<p><a href="https://news.ycombinator.com/item?id=43092003#43098447">A thread on Hacker news</a> got me thinking today. The debate was around type validation. I wrote the following there.</p>
+
+<blockquote cite="https://news.ycombinator.com/item?id=43092003#43098447">
+<p>...point is that a bad payload will fail right at the serialisation boundary in case of .NET. We know the problem right there. Now we only need to fix the bad payload.</p>
+
+<p>For TypeScript with only types and without validation, a bad payload gets through, and there is no telling where in the workflow it will explode. This could waste more time and developer resources in debugging.</p>
+</blockquote>
+
+<p>In software development, I feel that a runtime error could be judged by two aspects.</p>
+
+<ol>
+<li>How far away is the error thrown from the actual problem?</li>
+
+<li>If the error is thrown right at the actual problem, or as close as possible to it, then how good the error is at explaining the problem?</li>
+</ol>
+
+<p>In my experience, dynamically-typed languages do worse in the first test. Whenever that is a case, the second test becomes moot.</p>
+
+<p>Statically-typed languages, of course, do relatively better than dynamic languages in the first test. They often fail in the second test though. Newer crop of statically-typed languages like Elm and Rust are trying to improve.</p>
+
+<h2>An example - a web service</h2>
+
+<p>Think of a web API. An API endpoint written in a static language would not just define the type of an incoming payload, but would also have to perform a <strong>mandatory</strong> serialisation. In fact, in most cases, the framework/library being used does the serialisation automatically (through reflection and such).</p>
+
+<p>In contrast, for an API endpoint written in a dynamic language, not only the type of the incoming payload is absent, but the serialisation is also user's responsibility. A bolted-on type system like TypeScript can help define the type and the subsequent access of the payload in the code, but it cannot help with the serialisation aspect. A bad payload is a runtime problem, and TypeScript types are long gone by then.</p>
+
+<p>Consider a web service with two endpoints.</p>
+
+<ul>
+  <li><code>/GET /increment/:number</code>, which returns <code>:number + 1</code>.</li>
+
+  <li>
+    <p><code>/POST /change-case</code>, which accepts a JSON payload of the following format.</p>
+
+    <pre><code># Payload Structure
+{
+  "operation": "string",
+  "operand": "string"
+}
+
+# Sample 1
+{ "operation": "upper", "operand": "Hello"}
+# => should return upper-cased "HELLO"
+
+# Sample 2
+{ "operation": "lower", "operand": "woRLD"}
+# => should return lower-cased "world"
+
+# Sample 3
+{ "operation": "invalid", "operand": "woRLD"}
+# => should return the original string "woRLD"</code></pre>
+  </li>
+</ul>
+
+<p>Now let's build this service in a statically-typed language. I chose Scala.</p>
+
+<h2>Scala service</h2>
+
+<p>I used the tiniest HTTP framework I could find in Scala - <a href="https://github.com/com-lihaoyi/cask">Cask</a>.</p>
+
+<pre><code>//> using dep com.lihaoyi::cask:0.10.2
+
+enum Op:
+  case Lower, Upper
+
+object MinimalApplication extends cask.MainRoutes {
+  @cask.get("/increment/:num")
+  def getArticle(num: Int) = {
+    num + 1
+  }
+
+  @cask.postJson("/change-case")
+  def changeCase(operation: String, operand: String) = {
+    operation match
+      case "lower" => operand.toLowerCase()
+      case "upper" => operand.toUpperCase()
+      case _ => operand
+  }
+
+  initialize()
+}</code></pre>
+
+<p>Let's test the endpoints with bad payloads.</p>
+
+<pre><code># POST /change-case
+# Bad payload 1: "operand" is missing.
+$ curl -X POST http://localhost:8080/change-case --data '{ "operation": "lower"}'</code>
+
+<code style="color: red;"># Response is an error
+Missing argument: (operand: String)
+Arguments provided did not match expected signature:
+changeCase
+  operation  String
+  operand  String
+</code></pre>
+
+<pre><code># GET /increment/:num
+# Bad payload: string instead of an integer
+$ curl -X GET http://localhost:8080/increment/yo
+</code>
+<code style="color: red;">The following argument failed to parse:
+
+num: Int = "List(yo)" failed to parse with java.lang.NumberFormatException: For input string: "yo"
+java.lang.NumberFormatException: For input string: "yo"
+        at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+        at java.base/java.lang.Integer.parseInt(Integer.java:662)
+        at java.base/java.lang.Integer.parseInt(Integer.java:778)
+        at scala.collection.StringOps$.toInt$extension(StringOps.scala:910)
+        at cask.endpoints.QueryParamReader$.IntParam$$superArg$1$$anonfun$1(WebEndpoints.scala:69)
+        at cask.endpoints.QueryParamReader$SimpleParam.read(WebEndpoints.scala:62)
+        at cask.endpoints.QueryParamReader$SimpleParam.read(WebEndpoints.scala:62)
+        at cask.router.Runtime$.makeReadCall$$anonfun$7(Runtime.scala:45)
+        at cask.router.Runtime$.tryEither(Runtime.scala:6)
+        at cask.router.Runtime$.makeReadCall(Runtime.scala:45)
+        at MinimalApplication$.$anonfun$4$$anonfun$1(main.scala:20)
+        at scala.collection.immutable.List.map(List.scala:247)
+        at scala.collection.immutable.List.map(List.scala:79)
+        at MinimalApplication$.$anonfun$4(main.scala:20)
+        at scala.collection.LazyZip3$$anon$9$$anon$10.next(LazyZipOps.scala:171)
+        at scala.collection.immutable.List.prependedAll(List.scala:153)
+        at scala.collection.immutable.List$.from(List.scala:685)
+        at scala.collection.immutable.List$.from(List.scala:682)
+        at scala.collection.BuildFromLowPriority2$$anon$11.fromSpecific(BuildFrom.scala:115)
+        at scala.collection.BuildFromLowPriority2$$anon$11.fromSpecific(BuildFrom.scala:112)
+        at scala.collection.LazyZip3.map(LazyZipOps.scala:165)
+        at MinimalApplication$.$anonfun$3(main.scala:20)
+        at cask.router.EntryPoint.invoke(EntryPoint.scala:47)
+        at cask.router.Decorator$.invoke$$anonfun$2(Decorators.scala:59)
+        at cask.endpoints.WebEndpoint.wrapFunction(WebEndpoints.scala:14)
+        at cask.endpoints.WebEndpoint.wrapFunction$(WebEndpoints.scala:10)
+        at cask.endpoints.get.wrapFunction(WebEndpoints.scala:31)
+        at cask.router.Decorator$.invoke(Decorators.scala:52)
+        at cask.main.Main$DefaultHandler.handleRequest(Main.scala:123)
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:395)
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:861)
+        at org.jboss.threads.ContextHandler$1.runWith(ContextHandler.java:18)
+        at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2513)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1538)
+        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+        at java.base/java.lang.Thread.run(Thread.java:1583)
+
+expected signature:
+
+getArticle
+  num  Int
+</code></pre>
+
+<p>In the examples above, the error points to the actual problem, passing the first test. Of course, the presentation probably fails the second test.</p>
+
+<p>Now let's build the same service using TypeScript.</p>
+
+<h2>TypeScript service</h2>
+
+<p>I used the framework most familiar to me - <a href="https://fastify.dev/">Fastify</a>.</p>
+
+<pre><code>import Fastify from 'fastify'
+
+type Params = {
+  num: number;
+}
+
+const fastify = Fastify({
+  logger: true
+})
+
+fastify.get<{ Params: Params }>('/increment/:num', async function handler(request, _reply) {
+  const params = request.params;
+  return params.num + 1;
+});
+
+type Op = {
+  operation: string;
+  operand: string;
+}
+
+fastify.post<{ Body: Op }>('/change-case', async function handler(request, _reply) {
+  const body = request.body;
+  switch (body.operation) {
+    case 'upper':
+      return body.operand.toUpperCase();
+
+    case 'lower':
+      return body.operand.toLowerCase();
+
+    default:
+      return body.operand;
+  }
+});
+
+try {
+  await fastify.listen({ port: 3000 })
+} catch (err) {
+  fastify.log.error(err)
+  process.exit(1)
+}</code></pre>
+
+<p>Here, the TypeScript types <code>Params</code> and <code>Op</code> certainly aid in writing the code, but let's see how the service deals with bad payloads.</p>
+
+<pre><code># POST /change-case
+# Bad payload: "operand" is missing.
+$ curl -X POST \
+-H 'Content-Type: application/json' \
+  http://localhost:3000/change-case \
+  --data '{"operation": "lower"}'
+</code>
+<code style="color: red;"># Response error
+{
+  "statusCode":500,
+  "error":"Internal Server Error",
+  "message":"Cannot read properties of undefined (reading 'toLowerCase')"
+}</code></pre>
+
+<p>The error we see above is quite removed from the actual problem, i.e., missing operand.</p>
+
+<p><code>GET /increment/:num</code> doesn't even throw an error, but returns an incorrect value.</p>
+
+<pre><code># GET /increment/:num
+# Bad payload: string instead of an integer
+$ curl -X GET http://localhost:3000/increment/hello
+</code>
+<code style="color:red;"># Incorrect response, no error
+hello1
+</code></pre>
+
+<p>Now, I know that the TypeScript service is missing the serialisation-cum-validation portion. Even <a href="https://fastify.dev/docs/latest/Reference/Validation-and-Serialization/#json-schema-support">Fastify docs recommend serialisation</a>. But that's the point - its a <em>recommendation</em>, its optional. Also, its quite <strong>explicit and verbose</strong> as seen in the above link.</p>
+
+<h3>In closing</h3>
+
+<p>I should note that this post is more a thought vomit than a claim of what is better or worse. When I started writing, I only had the first section - <em>the two tests of an error</em> - in mind. I am neither glorifying Scala, not bashing TypeScript or JavaScript. I recognise that having to explicitly add serialisation is probably not a dealbreaker. I also recognise that all statically-typed langauges may not even support implicit serialisation (but probably do mandate serialisation).</p>
+
+<p>That's all.</p>
+
+</div>
