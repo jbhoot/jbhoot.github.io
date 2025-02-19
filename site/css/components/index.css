@@ -22,10 +22,15 @@
     vertical-align: middle;
 }
 
+.tag,
 .collection-tag {
     background-color: purple;
     color: white;
     padding: 0.25rem 0.5rem;
     text-decoration: none;
     border-radius: 0.25rem;
+}
+
+.tag + .tag {
+    margin-inline-start: 0.25rem;
 }
