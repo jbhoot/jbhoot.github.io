@@ -1,0 +1,74 @@
+<meta itemprop="itemid" content="urn:uuid:87e3da7a-67f9-465e-bed1-261e46774e4b">
+<meta itemprop="dt-published" content="2025-02-20T17:15:58Z">
+<meta itemprop="p-category" content="Linux,RHCSA">
+
+<h1><code>cp - </code> copying <em>all</em> files of a directory, including hidden ones</h1>
+
+<p class="e-summary"><code>src/.</code> construct copies all files in <code>src</code>, including hidden files, because of how the algorithm of <code>cp</code> is defined.</p>
+
+<div class="toc"></div>
+
+<div class="e-content">
+
+<p>There are two directories - a non-empty <code>src</code> and an empty <code>dest</code>. My <strong>aim</strong> is to copy *all* the files in <code>src</code> inside <code>dest</code>, including hidden files.</p>
+
+<figure>
+<pre><code>$ ls -a src</code>
+<samp>.  ..  .hidden  unhidden</samp>
+
+<code>$ ls -a dest</code>
+<samp>. ..</samp>
+</pre>
+<figcaption><code>src</code> dir contains a normal file named <code>unhidden</code> and a hidden file called <code>.hidden</code></figcaption>
+</figure>
+
+<h2>Solution - <code>cp -R src/. dest</code></h2>
+
+<p>I want to cut to the chase, so here is the command: <code><strong>cp -R <strong style="color: red;">src/.</strong> dest</strong></code>.</p>
+
+<figure>
+<pre><code>$ cp -R src/. dest</code>
+
+<code>$ ls -a dest</code>
+<samp>. .. .hidden unhidden</samp>
+</pre>
+<figcaption>The <code>src/.</code> construct performs the magic.</figcaption>
+</figure>
+
+<p>I was more interested in figuring out why <code>src/.</code> makes it happen. It does not look very intuitive – <code>src/.</code> simply refers to the <code>.</code> entry in the <code>src</code> directory, i.e., it refers to  <code>src</code> itself. A command like <code>cp -R src dest</code> should have copied the entire <code>src</code> directory inside <code>dest</code>, ending up with a structure like <code>dest/src/{.hidden,unhidden}</code> instead of <code>dest/{.hidden,unhidden}</code>.</p>
+
+<h2>Why does it work?</h2>
+
+<p>After some faffing about, I found the algorithm <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/cp.html">used by <code>cp</code> as documented in POSIX</a>. Below is the relevant portion of the algorithm.</p>
+
+<blockquote cite="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/cp.html">
+<code> cp -R source_file target</code>
+
+<p>If <code>target</code> exists and names an existing directory, the name of the corresponding destination path for each file in the file hierarchy rooted in each <em>source_file</em> shall be the <strong>concatenation</strong> of <code>target</code>, a single &gt;slash&lt; character if <code>target</code> did not end in a &gt;slash&lt;, and the <strong>pathname of the file relative to the directory</strong> containing <code>source_file</code>. [Emphasis added]</p>
+</blockquote>
+
+<p>I tried to understand the algorithm by building path for <code>src/.hidden</code> file. According to the algorithm, the path of a target file is a concatenation of:</p>
+
+<ol>
+<li><em>target</em> (<code>dest</code> in our case) +</li>
+<li><em>/</em> if needed (which we do) + </li>
+<li>relative pathname of the target file, starting from the directory that <em>contains</em> the <code>source_file</code>. I am interpreting <em>heavily</em> now – in our case of <code>src/.</code>, the directory containing <code>.</code> is <code>src</code>. So the pathname for the file <code>.hidden</code> , relative from <code>src</code>, would become: <code>./.hidden</code>.</li>
+</ol>
+
+<p>Thus, the built path for the hidden file <code>.hidden</code>  becomes: <code>dest/./.hidden</code>, which is equal to <code>dest/.hidden</code>.</p>
+
+<p>Similarly, for the normal file <code>unhidden</code>, the built path becomes <code>dest/./unhidden</code>, which is equal to <code>dest/unhidden</code>.</p>
+
+<aside>
+<h2>Why not just use <code>cp -R src/* dest/</code>?</h2>
+<p>Because it just wouldn't do what we want it to. <code>*</code> is a shell construct called <i>globstar</i>. bash expands <code>src/*</code> to all the files inside <code>src</code>, <em>except the hidden files</em>, <em>before</em> running the <code>cp</code> command. So the final command becomes <code>cp -R src/unhidden dest/</code>. The hidden file <code>.hidden</code> is not copied to <code>dest</code>.</p>
+</aside>
+
+<aside>
+<h2>ChatGPT took me for a ride</h2>
+<p>Take a look at the <a href="https://chatgpt.com/share/67b77991-e250-8013-8f9e-7107cd48206e">wild goose chase that ChatGPT</a> sent me on, even after I asked it to digest the aforelinked POSIX doc.</p>
+
+<p>In general, I have seen more use for ChatGPT to produce stuff which I have the knowledge and capability to cross-verify. For learning new stuff, original documentation and books are still the king. </p>
+</aside>
+
+</div>
