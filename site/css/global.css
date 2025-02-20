@@ -257,6 +257,11 @@ figure > img {
     height: auto;
 }
 
+figure:has(>pre) > figcaption {
+  background-color: #fff;
+  color: black;
+}
+
 pre {
     /* max-inline-size of <pre> computes to be wider than other tags because it uses monospaced font-family by default, thus causing the --measure=60ch to compute a wider size.
        * Various approaches to tackle this are:
