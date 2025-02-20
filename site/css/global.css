@@ -242,6 +242,10 @@ figcaption {
     padding: 0.5em;
 }
 
+figure {
+  box-shadow: 0 0 1px gray;
+}
+
 figure > img {
     width: 100%;
     height: auto;
