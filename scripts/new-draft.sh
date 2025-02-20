@@ -17,7 +17,6 @@ then
 fi
 
 echo "<meta itemprop='itemid' content='urn:uuid:$(uuidgen | tr '[:upper:]' '[:lower:]')'>
-<!-- date --utc +'%Y-%m-%dT%H:%M:%SZ' -->
 <meta itemprop='dt-published' content=''>
 <meta itemprop='p-category' content=''>
 
