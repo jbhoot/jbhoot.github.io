@@ -207,6 +207,13 @@ ul {
     padding-inline-start: 1em;
 }
 
+ul>li::marker {
+  content: "– ";
+  font-weight: bold;
+  font-family: var(--font-monospace);
+  color: black;
+}
+
 ul ul {
     list-style-type: circle;
 }
