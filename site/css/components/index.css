@@ -11,15 +11,9 @@
 }
 
 .copy-link {
-    font-size: var(--base-font-size);
-    vertical-align: middle;
-    margin-block-start: 0;
-    block-size: calc(var(--line-height) * 1em);
-    padding: 0 0.25em;
-}
-
-.copy-link > svg {
-    vertical-align: middle;
+  background-color: transparent;
+  border: none;
+  margin-block-start: 0;
 }
 
 .tag,
