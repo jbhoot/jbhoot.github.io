@@ -25,7 +25,7 @@ select {
     - Axiom 3: Use a modular scale to set various font-sizes in order to ensure reasonable increments between levels. (not other elements, which should just be a multiple or fraction of either line-height or font-size, as described above).
     */
 
-    --measure: 45rem;
+    --measure: 48rem;
 
     --line-height: 1.5;
     --base-font-size: 1.125rem;
@@ -275,7 +275,7 @@ pre {
        *    In order to alleviate the inconsistent widths of normal content and <pre> content,
        *    increase the styling contrast between the two.
        */
-    max-inline-size: 75ch;
+    max-inline-size: var(--measure);
     background-color: black;
     color: #4af626;
     overflow: auto;
