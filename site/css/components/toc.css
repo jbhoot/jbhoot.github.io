@@ -1,6 +1,6 @@
 .toc {
     max-inline-size: var(--measure);
-    outline: 0.1em solid lightgray;
+    box-shadow: 0 0 1px gray;
     padding: 1em;
 }
 
