@@ -37,6 +37,8 @@ select {
     --h1: 3rem;
 
     counter-reset: h2 h3 h4;
+
+    --list-item-proximity: 0.75em;
 }
 
 * {
@@ -64,7 +66,7 @@ body > * + * {
 }
 
 li + li {
-    margin-block-start: 0.75em;
+  margin-block-start: var(--list-item-proximity);
 }
 
 body {
