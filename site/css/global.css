@@ -116,7 +116,7 @@ h4 {
     line-height: 1.25;
 }
 
-h2::after {
+h2:not(:has(.commentLoader))::after {
     counter-increment: h2;
     content: counter(h2);
     counter-set: h3 0;
