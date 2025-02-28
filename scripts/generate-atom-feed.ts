@@ -21,12 +21,6 @@ type Entry = typeof EntrySchema.Type
 
 const baseUrl = "https://bhoot.dev";
 
-const exclude = [
-  "/about",
-  "/accessibility-statement",
-  "/about-website"
-];
-
 const toXmlEntry = (e: Entry) => {
   const collections = e.collections
     .map(c => `<category term="${c}" label="${c}" />`)
@@ -51,7 +45,7 @@ const toXmlEntry = (e: Entry) => {
   </entry>`;
 }
 
-const latestModified = (entries: Entry[]) => {
+const latestModified = (entries: readonly Entry[]) => {
   return entries
     .reduce((acc: Option.Option<Date>, curr) => {
       const currUpdated = Option.getOrElse(curr.updated, () => curr.published);
@@ -62,7 +56,7 @@ const latestModified = (entries: Entry[]) => {
     }, Option.none());
 }
 
-const makeFeed = (entries: Entry[]) => {
+const makeFeed = (entries: readonly Entry[]) => {
   const latestModifiedTimeStamp = latestModified(entries)
     .pipe(
       Option.map(v => `<updated>${v.toISOString()}</updated>`),
@@ -94,7 +88,7 @@ const main = async () => {
   const result = decode(json);
 
   if (Either.isRight(result)) {
-    const feed = makeFeed(result.right.filter(e => !exclude.includes(e.url)));
+    const feed = makeFeed(result.right);
     await fs.writeFile('site/feed.xml', feed);
   } else {
     console.error(result.left);
