@@ -16,16 +16,16 @@
       data-lang="en" crossorigin="anonymous" async>
       </script>
     <script>
-      var r = new XMLHttpRequest();
-      r.addEventListener('load', function () {
-        const count = JSON.parse(this.responseText).count
-        const view_count_container_ele = document.createElement('p')
-        view_count_container_ele.innerText = `Viewed ${count} times`
-        const hgroup_ele = document.querySelector('.h-entry > hgroup')
-        hgroup_ele.appendChild(view_count_container_ele);
-      })
-      r.open('GET', 'https://bhoot.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
-      r.send();
+      if (window.location.hostname !== "localhost") {
+        var t = setInterval(function () {
+          console.log('trying');
+
+          if (window.goatcounter && window.goatcounter.visit_count) {
+            clearInterval(t)
+            window.goatcounter.visit_count({ append: '.view_counter' })
+          }
+        }, 100)
+      }
     </script>
   </main>
 </body>
