@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import escape from 'lodash/escape.js';
 import { isAfter } from 'date-fns';
-import { Either, Option, Schema, pipe } from "effect"
+import { Either, Option, Schema } from "effect"
 
 const EntrySchema = Schema.Struct({
   id: Schema.String,
@@ -19,8 +19,6 @@ const EntriesSchema = Schema.Array(EntrySchema);
 
 type Entry = typeof EntrySchema.Type
 
-type EntryEncoded = typeof EntrySchema.Encoded
-
 const baseUrl = "https://bhoot.dev";
 
 const exclude = [
@@ -30,7 +28,9 @@ const exclude = [
 ];
 
 const toXmlEntry = (e: Entry) => {
-  const collections = e.collections.map(c => `<category term="${c}" label="${c}" />`).join('\n');
+  const collections = e.collections
+    .map(c => `<category term="${c}" label="${c}" />`)
+    .join('\n');
 
   const updated = e.updated.pipe(
     Option.getOrElse(() => e.published),
@@ -52,21 +52,26 @@ const toXmlEntry = (e: Entry) => {
 }
 
 const latestModified = (entries: Entry[]) => {
-  return entries.reduce((acc: Option.Option<Date>, curr) => {
-    const currUpdated = Option.getOrElse(curr.updated, () => curr.published);
-    const accUpdated = Option.getOrElse(acc, () => currUpdated);
-    return isAfter(currUpdated, accUpdated)
-      ? Option.some(currUpdated)
-      : Option.some(accUpdated);
-  }, Option.none());
+  return entries
+    .reduce((acc: Option.Option<Date>, curr) => {
+      const currUpdated = Option.getOrElse(curr.updated, () => curr.published);
+      const accUpdated = Option.getOrElse(acc, () => currUpdated);
+      return isAfter(currUpdated, accUpdated)
+        ? Option.some(currUpdated)
+        : Option.some(accUpdated);
+    }, Option.none());
 }
 
 const makeFeed = (entries: Entry[]) => {
-  const latestModifiedTimeStamp = latestModified(entries).pipe(
-    Option.map(v => `<updated>${v.toISOString()}</updated>`),
-    Option.getOrElse(() => ""));
+  const latestModifiedTimeStamp = latestModified(entries)
+    .pipe(
+      Option.map(v => `<updated>${v.toISOString()}</updated>`),
+      Option.getOrElse(() => "")
+    );
 
-  const xmlEntries = entries.map(toXmlEntry).join('\n');
+  const xmlEntries = entries
+    .map(toXmlEntry)
+    .join('\n');
 
   return `<?xml version="1.0" encoding="utf-8"?>
   <feed xmlns="http://www.w3.org/2005/Atom">
