@@ -6,8 +6,6 @@ p:has(.p-author)+p:has(.dt-published) {
 }
 
 .e-summary {
-    background-color: lightpink;
-    padding: 0.5em;
 }
 
 .u-photo {
