@@ -22,7 +22,10 @@
 
           if (window.goatcounter && window.goatcounter.visit_count) {
             clearInterval(t)
-            window.goatcounter.visit_count({ append: '.view_counter' })
+            window.goatcounter.visit_count({
+              append: '.h-entry > hgroup',
+              no_branding: true,
+            })
           }
         }, 100)
       }
