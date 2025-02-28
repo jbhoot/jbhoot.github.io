@@ -103,34 +103,38 @@ h4 {
     font-size: var(--h4);
 }
 
-:is(h1, h2, h3, h4)::after {
-    font-size: 0.8em;
-    margin-inline-start: 0.25em;
+:is(h1, h2, h3, h4)::before {
+    font-size: 0.75em;
 
     color: lightgray;
     font-family: var(--font-monospace);
 }
 
 :is(h1, h2, h3, h4) {
+    text-wrap: balance;
     color: purple;
     line-height: 1.25;
 }
 
-h2:not(:has(.commentLoader))::after {
+:is(h2, h3, h4):not(:has(.commentLoader)) {
+  border-bottom: 1px solid lightgray;
+}
+
+h2:not(:has(.commentLoader))::before {
     counter-increment: h2;
-    content: counter(h2);
+    content: counter(h2) ".";
     counter-set: h3 0;
 }
 
-h3::after {
+h3::before {
     counter-increment: h3;
-    content: counter(h2) "." counter(h3);
+    content: counter(h2) "." counter(h3) ".";
     counter-set: h4 0;
 }
 
-h4::after {
+h4::before {
     counter-increment: h4;
-    content: counter(h2) "." counter(h3) "." counter(h4);
+    content: counter(h2) "." counter(h3) "." counter(h4) ".";
 }
 
 h2:has(.commentLoader)::before {
