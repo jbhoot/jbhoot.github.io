@@ -2,14 +2,6 @@
     margin-block-start: 1em;
 }
 
-.commentLoader {
-    border: none;
-    padding: 0.5em;
-    font-size: var(--base-font-size);
-    border: 0.1em solid;
-    border-bottom: 0.25em solid;
-}
-
 .copy-link {
   background-color: transparent;
   border: none;
