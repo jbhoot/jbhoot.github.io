@@ -1,6 +1,6 @@
 function print_table(t)
     local i, v = next(t, nil)
-    while i do 
+    while i do
         print(v)
         i, v = next(t, i)
     end
@@ -14,12 +14,12 @@ function split(str, sep)
     while (i <= strlen(str)) do
         local v = strsub(str, i, i)
 
-        if v ~= sep then 
+        if v ~= sep then
             segment = segment .. v
         end
 
-        if v == sep or i == strlen(str) then 
-            segments[segments_i] = segment 
+        if v == sep or i == strlen(str) then
+            segments[segments_i] = segment
             segments_i = segments_i + 1
             segment = ""
         end
@@ -63,7 +63,7 @@ end
 
 -- add categories/tags above h1
 -- Posted on <dt-published> in <coll1>,<coll2>
-local category_container_ele = HTML.create_element("p", "Posted on ")
+local published_container_ele = HTML.create_element("p", "Posted on ")
 
 local published_meta_ele = HTML.select_one(page, "meta[itemprop='dt-published']")
 local published_meta_value = HTML.get_attribute(published_meta_ele, "content")
@@ -82,9 +82,9 @@ local published_link_ele = HTML.create_element("a")
 HTML.add_class(published_link_ele, "u-url")
 HTML.set_attribute(published_link_ele, "href", page_url)
 HTML.append_child(published_link_ele, published_ele)
-HTML.append_child(category_container_ele, published_link_ele)
-HTML.append_child(category_container_ele, HTML.create_element("span", " in "))
+HTML.append_child(published_container_ele, published_link_ele)
 
+local category_container_ele = HTML.create_element("p", "Collected in ")
 category_list_ele = HTML.select_one(page, "meta[itemprop='p-category']")
 local category_list = HTML.get_attribute(category_list_ele, "content")
 local categories = split(category_list, ",")
@@ -97,10 +97,10 @@ while i do
     HTML.set_attribute(category_ele, "href", format("/collections/%s", collection_path))
     HTML.set_attribute(category_ele, "rel", "tag")
     HTML.append_child(category_container_ele, category_ele)
-    if i ~= size(categories) then 
-        HTML.append_child(category_container_ele, HTML.create_element("span", ", "))
+    if i ~= size(categories) then
+        HTML.append_child(category_container_ele, HTML.create_element("span", " "))
     end
-    if v == "Mental model" then 
+    if v == "Mental model" then
         has_category_mental_model = 1
     end
     i, v = next(categories, i)
@@ -110,8 +110,10 @@ HTML.delete_element(category_list_ele)
 if h1_ele ~= nil then
     local hgroup = HTML.create_element('hgroup')
     HTML.wrap(h1_ele, hgroup)
+    HTML.append_child(hgroup, published_container_ele)
     HTML.append_child(hgroup, category_container_ele)
 else
+    HTML.prepend_child(article_ele, published_container_ele)
     HTML.prepend_child(article_ele, category_container_ele)
 end
 
