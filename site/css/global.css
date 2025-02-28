@@ -357,8 +357,7 @@ aside:not(.no-touch) {
 aside:not(.no-touch)::before {
     display: block;
     content: "ASIDE";
-    margin-bottom: 1.5em;
-    text-decoration: underline;
+    margin-bottom: 1em;
 }
 
 blockquote {
