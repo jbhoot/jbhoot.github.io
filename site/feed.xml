@@ -9,8 +9,8 @@
   <link href="https://bhoot.dev/feed.xml" rel="self" />
   <entry>
     <id>urn:uuid:87e3da7a-67f9-465e-bed1-261e46774e4b</id>
-    <title type="html">&lt;code&gt;cp - &lt;/code&gt; copying &lt;em&gt;all&lt;/em&gt; files of a
-      directory, including hidden ones</title>
+    <title type="html">Copying &lt;em&gt;all&lt;/em&gt; files of a directory, including hidden ones,
+      with &lt;code&gt;cp&lt;/code&gt;</title>
     <updated>2025-02-20T17:15:58.000Z</updated>
     <author>
       <name>Jayesh Bhoot</name>
@@ -417,7 +417,7 @@
     <summary type="html">This is a purely conjectural, anecdotal, probably biased post on how
       statically-typed languages do better than dynamically-typed languages in keeping an error as
       close to the source issue as possible.</summary>
-    <category term="Philosophy of programming" label="Philosophy of programming" />
+    <category term="Philosophy of software design" label="Philosophy of software design" />
     <published>2025-02-19T14:09:43.000Z</published>
   </entry>
   <entry>
@@ -1510,10 +1510,8 @@
       class=&quot;toc-1&quot;&gt;&lt;li&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;Table of
       contents&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#the-problem&quot;&gt;The
       problem&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#the-solution&quot;&gt;The
-      solution&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#load-comments&quot;&gt;
-      &lt;button type=&quot;button&quot; class=&quot;commentLoader&quot;&gt;Load
-      comments&lt;/button&gt;
-      &lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+      solution&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
+      href=&quot;#comments&quot;&gt;Comments&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
 
       &lt;p&gt;Tip for Mutual Fund Utilities (MFU) users:&lt;/p&gt;
 
@@ -1669,11 +1667,7 @@
       href=&quot;#configurations-in-build-sbt&quot;&gt;Configurations in
       &lt;code&gt;build.sbt&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
       href=&quot;#scoping-a-setting&quot;&gt;Scoping a Setting&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
-      href=&quot;#load-comments&quot;&gt;
-      &lt;button type=&quot;button&quot; class=&quot;commentLoader&quot;&gt;Load
-      comments&lt;/button&gt;
-      &lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
-
+      href=&quot;#comments&quot;&gt;Comments&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
       &lt;p&gt;&lt;code&gt;src/project&lt;/code&gt; dir contains configuration about SBT -
       &lt;code&gt;build.properties&lt;/code&gt; to specify sbt version,
       &lt;code&gt;plugins.sbt&lt;/code&gt; to specify sbt plugins, and so on.&lt;/p&gt;
@@ -1735,11 +1729,7 @@
       operators&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/li&gt;&lt;li&gt;&lt;a
       href=&quot;#list&quot;&gt;List&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
       href=&quot;#option&quot;&gt;Option&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
-      href=&quot;#load-comments&quot;&gt;
-      &lt;button type=&quot;button&quot; class=&quot;commentLoader&quot;&gt;Load
-      comments&lt;/button&gt;
-      &lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
-
+      href=&quot;#comments&quot;&gt;Comments&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
       &lt;p&gt;Operations on collections can be classified into:&lt;/p&gt;
 
       &lt;ul&gt;
@@ -1842,10 +1832,7 @@
       href=&quot;#attempt-2&quot;&gt;Attempt 2&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
       href=&quot;#tl-dr&quot;&gt;TL;DR&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
       href=&quot;#conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
-      href=&quot;#load-comments&quot;&gt;
-      &lt;button type=&quot;button&quot; class=&quot;commentLoader&quot;&gt;Load
-      comments&lt;/button&gt;
-      &lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+      href=&quot;#comments&quot;&gt;Comments&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
 
       &lt;p&gt;I am going through the course &lt;a
       href=&quot;https://www.coursera.org/learn/effective-scala&quot;&gt;Effective Programming in
@@ -1975,10 +1962,8 @@
       href=&quot;#expression&quot;&gt;Expression&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
       href=&quot;#program&quot;&gt;Program&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
       href=&quot;#another-perspective-on-type&quot;&gt;Another perspective on
-      Type&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#load-comments&quot;&gt;
-      &lt;button type=&quot;button&quot; class=&quot;commentLoader&quot;&gt;Load
-      comments&lt;/button&gt;
-      &lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+      Type&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
+      href=&quot;#comments&quot;&gt;Comments&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
 
       &lt;h2 id=&quot;value--or-data-in-this-context-&quot;&gt;Value (or Data in this
       context)&lt;/h2&gt;
@@ -2115,10 +2100,7 @@
       neovim&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#ocaml-lsp---helix&quot;&gt;ocaml-lsp +
       helix&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/li&gt;&lt;li&gt;&lt;a
       href=&quot;#conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
-      href=&quot;#load-comments&quot;&gt;
-      &lt;button type=&quot;button&quot; class=&quot;commentLoader&quot;&gt;Load
-      comments&lt;/button&gt;
-      &lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+      href=&quot;#comments&quot;&gt;Comments&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
 
       &lt;h2 id=&quot;relevant-background&quot;&gt;Relevant background&lt;/h2&gt;
 
@@ -2417,10 +2399,8 @@
       class=&quot;toc-1&quot;&gt;&lt;li&gt;&lt;a href=&quot;#table-of-contents&quot;&gt;Table of
       contents&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#update--5-may-2024&quot;&gt;Update: 5
       May 2024&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#original-article&quot;&gt;Original
-      article&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#load-comments&quot;&gt;
-      &lt;button type=&quot;button&quot; class=&quot;commentLoader&quot;&gt;Load
-      comments&lt;/button&gt;
-      &lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+      article&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
+      href=&quot;#comments&quot;&gt;Comments&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
 
       &lt;h2 id=&quot;update--5-may-2024&quot;&gt;Update: 5 May 2024&lt;/h2&gt;
 
@@ -2490,10 +2470,7 @@
       href=&quot;#attempt-2&quot;&gt;Attempt 2&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
       href=&quot;#solution&quot;&gt;Solution&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/li&gt;&lt;li&gt;&lt;a
       href=&quot;#what-next-&quot;&gt;What next?&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
-      href=&quot;#load-comments&quot;&gt;
-      &lt;button type=&quot;button&quot; class=&quot;commentLoader&quot;&gt;Load
-      comments&lt;/button&gt;
-      &lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+      href=&quot;#comments&quot;&gt;Comments&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
 
       &lt;p&gt;In the OCaml ecosystem, opam is the most popular package management tool, while dune
       is the foremost build tool.&lt;/p&gt;
@@ -2717,10 +2694,8 @@
       href=&quot;#hacky-solution&quot;&gt;Hacky solution&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
       href=&quot;#update--23-feb-2024----better-solution&quot;&gt;Update (&lt;time
       datetime=&quot;2024-02-23&quot;&gt;23 Feb 2024&lt;/time&gt;) : Better
-      solution&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#load-comments&quot;&gt;
-      &lt;button type=&quot;button&quot; class=&quot;commentLoader&quot;&gt;Load
-      comments&lt;/button&gt;
-      &lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+      solution&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
+      href=&quot;#comments&quot;&gt;Comments&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
 
       &lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
 
@@ -3296,10 +3271,8 @@
       contents&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#org9a73bf2&quot;&gt;Project
       Layout&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#org4352a07&quot;&gt;ClojureScript to
       JavaScript&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#org9d85caf&quot;&gt;Live
-      reload&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#load-comments&quot;&gt;
-      &lt;button type=&quot;button&quot; class=&quot;commentLoader&quot;&gt;Load
-      comments&lt;/button&gt;
-      &lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
+      reload&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a
+      href=&quot;#comments&quot;&gt;Comments&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
 
       &lt;p&gt;
       You can find a sample add-on on my &lt;a
