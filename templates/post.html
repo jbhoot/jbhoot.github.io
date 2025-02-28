@@ -13,16 +13,17 @@
     <script src="https://giscus.app/client.js" data-repo="jbhoot/jbhoot.github.io" data-repo-id="R_kgDOLEw7Mg"
       data-category="Announcements" data-category-id="DIC_kwDOLEw7Ms4CghhO" data-mapping="pathname" data-strict="1"
       data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme"
-      data-lang="en" crossorigin="anonymous" async>
-      </script>
+      data-lang="en" crossorigin="anonymous" async></script>
     <script>
-      console.log('https://bhoot.goatcounter.com/counter/' + location.pathname.replace(/\/$/, "") + '.json');
       var r = new XMLHttpRequest();
       r.addEventListener('load', function () {
-        const count = JSON.parse(this.responseText).count
-        const view_count_container_ele = document.createElement('p')
-        view_count_container_ele.innerText = `Viewed ${count} times`
-        const hgroup_ele = document.querySelector('.h-entry > hgroup')
+        const count = JSON.parse(this.responseText).count.replace(/\s/, '');
+        const formatter = Intl.NumberFormat(undefined, { style: "decimal" });
+
+        const view_count_container_ele = document.createElement('p');
+        view_count_container_ele.innerText = `Viewed ${formatter.format(count)} times`;
+
+        const hgroup_ele = document.querySelector('.h-entry > hgroup');
         hgroup_ele.appendChild(view_count_container_ele);
       })
       r.open('GET', 'https://bhoot.goatcounter.com/counter/' + location.pathname.replace(/\/$/, "") + '.json')
