@@ -106,6 +106,12 @@ while i do
     i, v = next(categories, i)
 end
 
+local views_container_ele = HTML.create_element("p", "Viewed ")
+local views_ele = HTML.create_element("span", "")
+HTML.set_attribute(views_ele, "class", "view_counter")
+HTML.append_child(views_container_ele, views_ele)
+HTML.append_child(views_container_ele, HTML.create_element("span", " times"))
+
 HTML.delete_element(published_meta_ele)
 HTML.delete_element(category_list_ele)
 if h1_ele ~= nil then
@@ -113,9 +119,11 @@ if h1_ele ~= nil then
     HTML.wrap(h1_ele, hgroup)
     HTML.append_child(hgroup, published_container_ele)
     HTML.append_child(hgroup, category_container_ele)
+    HTML.append_child(hgroup, views_container_ele)
 else
     HTML.prepend_child(article_ele, published_container_ele)
     HTML.prepend_child(article_ele, category_container_ele)
+    HTML.prepend_child(article_ele, views_container_ele)
 end
 
 if has_category_mental_model ~= nil then
