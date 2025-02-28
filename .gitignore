@@ -12,3 +12,4 @@ index.json
 .vscode/
 .metals/
 .bsp/
+*.js
