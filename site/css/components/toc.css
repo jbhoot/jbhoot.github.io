@@ -1,7 +1,5 @@
 .toc {
     max-inline-size: var(--measure);
-    box-shadow: 0 0 1px gray;
-    padding: 1em;
 }
 
 [class^='toc-'] [class^='toc-'] {
