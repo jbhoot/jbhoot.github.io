@@ -97,9 +97,6 @@ while i do
     HTML.set_attribute(category_ele, "href", format("/collections/%s", collection_path))
     HTML.set_attribute(category_ele, "rel", "tag")
     HTML.append_child(category_container_ele, category_ele)
-    if i ~= size(categories) then
-        HTML.append_child(category_container_ele, HTML.create_element("span", " "))
-    end
     if v == "Mental model" then
         has_category_mental_model = 1
     end

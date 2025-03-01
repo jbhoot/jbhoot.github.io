@@ -298,10 +298,10 @@ a {
     text-decoration-style: dotted;
 }
 
-a:hover {
+:is(a, a[rel='tag']):hover {
     text-decoration: none;
     background-color: blue;
-    outline: 0.25em solid blue;
+    outline: 0.2em solid blue;
     color: white;
 }
 

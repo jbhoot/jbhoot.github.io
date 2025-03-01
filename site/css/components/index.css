@@ -11,6 +11,7 @@
 }
 
 .tag,
+a[rel='tag'],
 .collection-tag {
     background-color: purple;
     color: white;
@@ -19,6 +20,11 @@
     border-radius: 0.25rem;
 }
 
-.tag + .tag {
+:is(.tag, a[rel='tag'], .collection-tag):hover {
+  outline: none;
+}
+
+.tag + .tag,
+a[rel='tag'] + a[rel='tag'] {
     margin-inline-start: 0.25rem;
 }
