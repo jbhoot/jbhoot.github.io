@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import escape from 'lodash/escape.js';
 import { isAfter } from 'date-fns';
-import { Either, Option, Schema } from "effect"
+import { Effect, Option, pipe, Schema } from "effect"
 
 const EntrySchema = Schema.Struct({
   id: Schema.String,
@@ -17,7 +17,9 @@ const EntrySchema = Schema.Struct({
 
 const EntriesSchema = Schema.Array(EntrySchema);
 
-type Entry = typeof EntrySchema.Type
+type Entry = Schema.Schema.Type<typeof EntrySchema>
+
+const decoder = Schema.decodeUnknown(EntriesSchema);
 
 const baseUrl = "https://bhoot.dev";
 
@@ -80,19 +82,18 @@ const makeFeed = (entries: readonly Entry[]) => {
   </feed>`;
 }
 
-const main = async () => {
-  const jsonString = await fs.readFile('index.json', { encoding: 'utf8' });
-  const json = JSON.parse(jsonString);
+const readFile = (file: string) => Effect.tryPromise(() => fs.readFile(file, { encoding: 'utf8' }))
 
-  const decode = Schema.decodeUnknownEither(EntriesSchema);
-  const result = decode(json);
+const writeFile = (file: string) => (feed: string) => Effect.tryPromise(() => fs.writeFile(file, feed))
 
-  if (Either.isRight(result)) {
-    const feed = makeFeed(result.right);
-    await fs.writeFile('site/feed.xml', feed);
-  } else {
-    console.error(result.left);
-  }
-}
+const main = pipe(
+  'index.json',
+  readFile,
+  Effect.map(JSON.parse),
+  Effect.flatMap(decoder),
+  Effect.map(makeFeed),
+  Effect.map(writeFile('site/feed.xml')),
+  Effect.flatten
+);
 
-await main();
+Effect.runPromise(main);
