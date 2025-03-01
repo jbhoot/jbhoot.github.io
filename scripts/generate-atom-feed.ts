@@ -82,9 +82,14 @@ const makeFeed = (entries: readonly Entry[]) => {
   </feed>`;
 }
 
-const readFile = (file: string) => Effect.tryPromise(() => fs.readFile(file, { encoding: 'utf8' }))
+const readFile = (file: string) =>
+  Effect.tryPromise(() =>
+    fs.readFile(file, { encoding: 'utf8' }));
 
-const writeFile = (file: string) => (feed: string) => Effect.tryPromise(() => fs.writeFile(file, feed))
+const writeFile = (file: string) =>
+  (feed: string) =>
+    Effect.tryPromise(() =>
+      fs.writeFile(file, feed))
 
 const main = pipe(
   'index.json',
