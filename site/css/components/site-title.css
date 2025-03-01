@@ -1,8 +1,13 @@
 .site-title {
+    font-family: var(--sans-serif);
     font-size: clamp(1.5rem, 6vw, var(--h3));
     text-wrap: balance;
     font-weight: bold;
     margin-block-start: 0;
+}
+
+.site-title > * {
+  font-family: inherit;
 }
 
 @media (max-width: 375px) {
