@@ -292,9 +292,10 @@ pre>code {
 }
 
 a {
-    text-decoration-thickness: 0.05em;
-    text-underline-offset: 0.25em;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
     text-decoration-skip-ink: none;
+    text-decoration-style: dotted;
 }
 
 a:hover {
