@@ -1,9 +1,7 @@
 {
   "type": "module",
   "dependencies": {
-    "date-fns": "^4.1.0",
-    "effect": "^3.13.2",
-    "lodash": "^4.17.21"
+    "effect": "^3.13.2"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.15",
