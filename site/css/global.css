@@ -226,6 +226,10 @@ code {
     color: green;
 }
 
+:is(h1, h2, h3, h4) code {
+  font-size: 0.75em;
+}
+
 caption,
 figcaption {
     font-style: italic;
