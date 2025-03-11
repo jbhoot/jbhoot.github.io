@@ -1,20 +1,27 @@
 <meta itemprop="itemid" content="urn:uuid:8a234ceb-901a-4448-8826-a5e49716c251">
 <meta itemprop="dt-published" content="2022-09-24T11:31:21Z">
+<meta itemprop="dt-updated" content="2025-03-11T18:37:06Z">
 <meta itemprop="p-category" content="Emacs">
-
 
 <h1>Location of emacs config</h1>
 
-
+<p class="e-summary">After a fresh emacs installation, I always spent a few minutes why emacs wouldn't pick up my config from <code>~/.config/emacs/init.el</code>.</p>
 
 <div class="e-content">
 
+<p>I prefer to keep user configuration inside the standard <code>XDG_CONFIG_HOME</code>, which typically points to <code>~/.config/</code>. Emacs also supports <code>XDG_CONFIG_HOME</code>, but as the <em>last</em> entry in its list of preferred locations, where it looks for <code>init.el</code>.</p>
 
-<p>If <code>~/.emacs.d</code> exists in the system, which always does because emacs auto-creates it, then emacs does not
-pick up <code>init.el</code> from <code>~/.config/emacs</code> for some reason...even if <code>~/.emacs.d</code> is
-empty.</p>
+<p>The list goes in the order: <code>~/.emacs.el</code>, <code>~/.emacs</code>, or <code>~/.emacs.d/init.el</code>, and <em>then</em> <code>~/.config/emacs/init.el</code>.</p>
 
-<p>So I chose <code>~/.emacs.d</code> as emacs's config location.</p>
+<p><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Find-Init.html">Emacs manual</a> also says the following:</p>
+
+<blockquote cite="https://www.gnu.org/software/emacs/manual/html_node/emacs/Find-Init.html">
+<p>Note also that if neither the XDG location nor <code>~/.emacs.d</code> exist, then Emacs will create <code>~/.emacs.d</code> (and therefore use it during subsequent invocations).</p>
+</blockquote>
+
+<p>Now, the XDG location, i.e., <code>~/.config/emacs/</code> wouldn't typically exist in a system by default. So emacs would always end up defaulting to <code>~/.emacs.d/</code>. In order to make it read the XDG location, I always had to manually delete <code>~/.emacs.d/</code> first.</p>
+
+<p>So much hassle on every new system or after a fresh emacs installation. So I now just <a href="https://www.gnu.org/software/stow/"><code>stow</code></a> my emacs dotfiles to <code>~/.emacs.d</code>.</p>
 
 </div>
 
