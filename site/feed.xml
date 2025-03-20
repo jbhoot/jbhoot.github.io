@@ -2,11 +2,95 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://bhoot.dev/</id>
   <title>Jayesh Bhoot's Ghost Town – All Posts</title>
-  <updated>2025-02-20T17:15:58.000Z</updated>
+  <updated>2025-03-06T12:13:15.000Z</updated>
   <author>
     <name>Jayesh Bhoot</name>
   </author>
   <link href="https://bhoot.dev/feed.xml" rel="self" />
+  <entry>
+    <id>urn:uuid:efdac3b9-aaec-4f39-8629-1ebf5c8af173</id>
+    <title type="html">Someone&#39;s high hopes- to dash or not to dash</title>
+    <updated>2025-03-06T12:13:15.000Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;Someone close to you is brimming with optimism – that something
+      they are anticipating is going to transpire in their favour. They have rationalised all
+      related events to point to their success. Be it a test, an interview, a pregnancy test, or
+      whatever.&lt;/p&gt;
+
+      &lt;p&gt;You, having witnessed several such cycles of hope and disappointment by now, feel an
+      urge – an urge as high as their high hopes – to temper this optimism. What do you
+      do?&lt;/p&gt;
+
+      &lt;h2&gt;A matrix of emotions&lt;/h2&gt;
+
+      &lt;p&gt;Let&#39;s try to chart the state of their emotions in different scenarios.&lt;/p&gt;
+      &lt;table&gt;
+      &lt;thead&gt;
+      &lt;tr&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;How do you handle their high hopes?&lt;/th&gt;
+      &lt;th&gt;Their emotional state before the event&lt;/th&gt;
+      &lt;th&gt;Event transpires&lt;/th&gt;
+      &lt;th&gt;Their emotional state after the event&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+      &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;background-color: orange;&quot;&gt;You try to temper their hopes&lt;/td&gt;
+      &lt;td style=&quot;background-color: orange;&quot;&gt;They are clouded with doubt, feel
+      unsupported&lt;/td&gt;
+      &lt;td style=&quot;background-color: green; color: white;&quot;&gt;They succeed&lt;/td&gt;
+      &lt;td style=&quot;background-color: green; color: white;&quot;&gt;They feel joyful,
+      content&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td style=&quot;background-color: green; color: white;&quot;&gt;You stay hopeful
+      too&lt;/td&gt;
+      &lt;td style=&quot;background-color: green; color: white;&quot;&gt;They feel hopeful and
+      optimistic&lt;/td&gt;
+      &lt;td style=&quot;background-color: green; color: white;&quot;&gt;They succeed&lt;/td&gt;
+      &lt;td style=&quot;background-color: green; color: white;&quot;&gt;They feel joyful,
+      content&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td style=&quot;background-color: orange;&quot;&gt;You try to temper their hopes&lt;/td&gt;
+      &lt;td style=&quot;background-color: orange;&quot;&gt;They are clouded with doubt, feel
+      unsupported&lt;/td&gt;
+      &lt;td style=&quot;background-color: orange;&quot;&gt;They fail&lt;/td&gt;
+      &lt;td style=&quot;background-color: orange;&quot;&gt;They are disappointed, potentially
+      resentful due to perceived lack of support&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td style=&quot;background-color: green; color: white;&quot;&gt;You stay hopeful
+      too&lt;/td&gt;
+      &lt;td style=&quot;background-color: green; color: white;&quot;&gt;They feel hopeful and
+      optimistic&lt;/td&gt;
+      &lt;td style=&quot;background-color: orange;&quot;&gt;They fail&lt;/td&gt;
+      &lt;td style=&quot;background-color: orange;&quot;&gt;They are disappointed&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/tbody&gt;
+      &lt;/table&gt;
+
+      &lt;p&gt;The point here is that, in the cases where they fail, the intensity of their
+      disappointment would probably remain the same, whether or not you had tried to temper their
+      hopes. So why not let them have their positive state of mind for a longer period?&lt;/p&gt;
+      &lt;p&gt;The catch is that you can&#39;t just look hopeful for the sake of it. You have to
+      &lt;em&gt;feel&lt;/em&gt; it. Otherwise, having had to hide your true feelings, you run the
+      risk of feeling frustrated yourself!&lt;/p&gt;
+
+      &lt;p&gt;Of course, the worst case is that you are overcome with the sentiment of &lt;em&gt;I
+      told you so&lt;/em&gt;.&lt;/p&gt;</content>
+    <link href="/2025/high-hopes-to-dash-or-not" />
+    <summary type="html">That is the question.</summary>
+    <category term="Philosophy of life" label="Philosophy of life" />
+    <published>2025-03-06T12:13:15.000Z</published>
+  </entry>
   <entry>
     <id>urn:uuid:87e3da7a-67f9-465e-bed1-261e46774e4b</id>
     <title type="html">Copying &lt;em&gt;all&lt;/em&gt; files of a directory, including hidden ones,
@@ -3066,20 +3150,37 @@
     <author>
       <name>Jayesh Bhoot</name>
     </author>
-    <content type="html">&lt;p&gt;If &lt;code&gt;~/.emacs.d&lt;/code&gt; exists in the system, which
-      always does because emacs auto-creates it, then emacs does not
-      pick up &lt;code&gt;init.el&lt;/code&gt; from &lt;code&gt;~/.config/emacs&lt;/code&gt; for
-      some reason...even if &lt;code&gt;~/.emacs.d&lt;/code&gt; is
-      empty.&lt;/p&gt;
+    <content type="html">&lt;p&gt;I prefer to keep user configuration inside the standard
+      &lt;code&gt;XDG_CONFIG_HOME&lt;/code&gt;, which typically points to
+      &lt;code&gt;~/.config/&lt;/code&gt;. Emacs also supports
+      &lt;code&gt;XDG_CONFIG_HOME&lt;/code&gt;, but as the &lt;em&gt;last&lt;/em&gt; entry in its
+      list of preferred locations, where it looks for &lt;code&gt;init.el&lt;/code&gt;.&lt;/p&gt;
+      &lt;p&gt;The list goes in the order: &lt;code&gt;~/.emacs.el&lt;/code&gt;,
+      &lt;code&gt;~/.emacs&lt;/code&gt;, or &lt;code&gt;~/.emacs.d/init.el&lt;/code&gt;, and
+      &lt;em&gt;then&lt;/em&gt; &lt;code&gt;~/.config/emacs/init.el&lt;/code&gt;.&lt;/p&gt;
+      &lt;p&gt;&lt;a
+      href=&quot;https://www.gnu.org/software/emacs/manual/html_node/emacs/Find-Init.html&quot;&gt;Emacs
+      manual&lt;/a&gt; also says the following:&lt;/p&gt;
 
-      &lt;p&gt;So I chose &lt;code&gt;~/.emacs.d&lt;/code&gt; as emacs&#39;s config
-      location.&lt;/p&gt;</content>
+      &lt;blockquote
+      cite=&quot;https://www.gnu.org/software/emacs/manual/html_node/emacs/Find-Init.html&quot;&gt;
+      &lt;p&gt;Note also that if neither the XDG location nor &lt;code&gt;~/.emacs.d&lt;/code&gt;
+      exist, then Emacs will create &lt;code&gt;~/.emacs.d&lt;/code&gt; (and therefore use it during
+      subsequent invocations).&lt;/p&gt;
+      &lt;/blockquote&gt;
+
+      &lt;p&gt;Now, the XDG location, i.e., &lt;code&gt;~/.config/emacs/&lt;/code&gt; wouldn&#39;t
+      typically exist in a system by default. So emacs would always end up defaulting to
+      &lt;code&gt;~/.emacs.d/&lt;/code&gt;. In order to make it read the XDG location, I always had
+      to manually delete &lt;code&gt;~/.emacs.d/&lt;/code&gt; first.&lt;/p&gt;
+
+      &lt;p&gt;So much hassle on every new system or after a fresh emacs installation. So I now just
+      &lt;a
+      href=&quot;https://www.gnu.org/software/stow/&quot;&gt;&lt;code&gt;stow&lt;/code&gt;&lt;/a&gt;
+      my emacs dotfiles to &lt;code&gt;~/.emacs.d&lt;/code&gt;.&lt;/p&gt;</content>
     <link href="/2022/location-of-emacs-config" />
-    <summary type="html">If &lt;code&gt;~/.emacs.d&lt;/code&gt; exists in the system, which always
-      does because emacs auto-creates it, then emacs does not
-      pick up &lt;code&gt;init.el&lt;/code&gt; from &lt;code&gt;~/.config/emacs&lt;/code&gt; for
-      some reason...even if &lt;code&gt;~/.emacs.d&lt;/code&gt; is
-      empty.</summary>
+    <summary type="html">After a fresh emacs installation, I always spent a few minutes why emacs
+      wouldn&#39;t pick up my config from &lt;code&gt;~/.config/emacs/init.el&lt;/code&gt;.</summary>
     <category term="Emacs" label="Emacs" />
     <published>2022-09-24T11:31:21.000Z</published>
   </entry>
