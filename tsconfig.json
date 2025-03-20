@@ -1,9 +1,14 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true, // optional
+    "target": "ES2015",
+    "module": "NodeNext",
+    "erasableSyntaxOnly": true,
     "allowSyntheticDefaultImports": true,
-    "module": "NodeNext"
+    // "strict": true,
+    "noEmitOnError": true,
+    // "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
   }
 }
