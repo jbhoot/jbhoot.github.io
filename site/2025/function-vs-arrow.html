@@ -1,0 +1,38 @@
+<meta itemprop="itemid" content="urn:uuid:f13619df-46e0-4bac-8ca0-25497a183534">
+<meta itemprop="dt-published" content="2025-03-20T13:33:12Z">
+<meta itemprop="p-category" content="javascript">
+
+<h1>JavaScript function declaration v/s arrow function in a browser console</h1>
+
+<p class="e-summary">Apart from the usual conciseness and <code>this</code> arguments, JavaScript's function declaration and arrow functions differ in another practical way.</p>
+
+<div class="e-content">
+
+<p>I often like to develop and test small JavaScript code directly in a browser console.</p>
+
+<p>In this environment, a function declaration has an advantage over an arrow function – I can re-define & re-run a function declaration repeatedly in a browser's console.</p>
+
+<pre><code>>> function strIdentity(v) {
+  return v.toUpperCase();
+}
+<samp>undefined</samp>
+
+>> function strIdentity(v) {
+  return v.toLowerCase();
+}
+<samp>undefined</samp>
+
+>> strIdentity("HELLO");
+"hello" </code></pre>
+
+<p>On the other hand, re-running an arrow function, which have to be assigned to a variable to be usable at the top level, would throw a re-declaration error, because the same variable cannot be re-declared again.</p>
+
+<pre><code>>> const strIdentity = v => v.toLowerCase();
+<samp>undefined</samp>
+
+>> // editing the above script
+
+>> const strIdentity = v => v.toUpperCase();
+<samp style="color: red;">Uncaught SyntaxError: redeclaration of const strIdentity</samp></code></pre>
+
+</div>
