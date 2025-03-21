@@ -1,0 +1,178 @@
+<meta itemprop="itemid" content="urn:uuid:ec62eb12-2d90-4b29-9d7d-57774f038d8c">
+<meta itemprop="dt-published" content="2025-03-21T10:34:21Z">
+<meta itemprop="p-category" content="TypeScript">
+
+<h1>Understanding various syntaxes to annotate a function's type in TypeScript</h1>
+
+<p class="e-summary">I often found myself second guessing while writing type annotations for TypeScript functions. To make it intuitive in future, I try to make sense of various syntaxes TypeScript provides in order to annotate functions.</p>
+
+<div class="toc"></div>
+
+<div class="e-content">
+
+<h2>The underlying principles</h2>
+
+<p>I was able to boil it all down to the following:</p>
+
+<ul>
+  <li>Either individually annotate the function parameters and its return value with their respective types; or</li>
+  <li>annotate the <em>variable</em> that holds a function with the function's type.</li>
+</ul>
+
+<h2>Detour - ways to define a function in JavaScript</h2>
+
+<p>Here is a probably non-exhaustive list.</p>
+
+
+<h3>Function declaration</h3>
+
+<p>This form requires that a name be given to the function.</p>
+
+<pre><code>function identity(v) {
+  return v;
+}</code></pre>
+
+<h3>Function expression</h3>
+
+<p>This form resolves to a function value which must then be bound to a variable, or must be used immediately, for example, as a callback.</p>
+
+<pre><code>// as a callback
+[1, 2, 3].map(<i style='color: red;'>function (v) {
+  return v;
+}</i>);
+
+// assigned to a variable
+const identity = <i style='color: red;'>function(v) {
+  return v;
+}</i></code></pre>
+
+<p>An anonymous (or orphan(?)) function expression - without being used as a callback or assigned to a variable - is illegal at the top level, because it cannot be distinguished from a function declaration. So the following form is <em>illegal</em> at the top level:</p>
+
+<pre><code>>> function (v) {
+  return v;
+}
+<samp style='color: red;'>Uncaught SyntaxError: function statement requires a name</samp></code></pre>
+
+<p>A function expression can be named too. This is useful for a recursive function as now the function can refer to itself inside itself.</p>
+
+<pre><code>const identity = function id(v) {
+  return v;
+}</code></pre>
+
+<h3>Arrow function expression</h3>
+
+<p>Unlike its function expression counterpart, an anonymous arrow function expression is legal, but useless, at the top level.</p>
+
+<pre><code>>> (v) => {
+  return v;
+}
+// Console output:
+<samp style='color: red;'>function (v)
+  length: 1
+  name: ""
+  // ... </samp>
+</code></pre>
+
+<p>An anonymous arrow function expression is best used <strong>as a callback</strong>.</p>
+
+<code><pre>[1, 2, 3].map(<i style='color: red;'>(v) => {
+  return v;
+}</i>);</code></pre>
+
+<p>An arrow function expression can be <strong>assigned to a variable</strong>.</p>
+<pre><code>const identity = v => v</code></pre>
+
+<h2>Syntax #1 - annotate the function parameters and its return value</h2>
+
+<p>Most straightforward. All of the function forms can be annotated with this approach. But a <strong>function declaration can be annotated only through this approach</strong>.</p>
+
+<p>Remembering the position of type annotations of the parameters is easy enough. But the <strong>return value type is placed between the parameter list and the body of the function</strong>.</p>
+
+<p>For a function declaration and function expression, this means that the return type is placed between the parameter list and the opening brace <code>{</code> of the function body. For an arrow function, it is placed between the parameter list and the arrow <code>=></code>.</p>
+
+<pre><code>// function declaration
+function identity (v<i style='color: red;'>: number</i>)<i style='color: red;'>: number</i> {
+  return v;
+}
+
+// function expression
+[1, 2, 3].map(function (v<i style='color: red;'>: number</i>)<i style='color: red;'>: number</i> {
+  return v;
+});
+
+// arrow function expression
+const identity = (v<i style='color: red;'>: number</i>)<i style='color: red;'>: number</i> => {
+  return v;
+}
+
+// arrow function expression as a callback
+[1, 2, 3].map((v<i style='color: red;'>: number</i>)<i style='color: red;'>: number</i> => {
+  return v;
+});</code></pre>
+
+<h2>Syntax #2 - Annotate the variable that holds a function expression</h2>
+
+<p>In this approach, simply annotate the variable name just like any other variable. Only that you have to annotate it with the type of the function expression.</p>
+
+<p>This format is called <strong>function type expression</strong>, because they are used to type a function expression (and not a function declaration).</p>
+
+<p>The format of a function type expression is confusingly similar to that of an arrow function expression: <code>(param: type) => return_type</code>.</p>
+
+<aside>Unintuitively, in a function type expression, parameter names are necessary, but not their types - <code>any</code> type is assigned by default.</aside>
+
+<p>For a JavaScript function expression:</p>
+
+<pre><code>const identity = v => v
+
+// or
+const identity = function(v) {
+  return v;
+}</code>
+</pre>
+
+<p>annotate it by simply sticking the type expression between the variable name <code>identity</code> and the <code>=</code> preceding the function body:</p>
+
+<pre><code>const identity<i style='color: red;'>: (v: number) => number</i> = v => v
+
+// or
+const identity<i style='color: red;'>: (v: number) => number</i> = function(v) {
+  return v;
+}</code></pre>
+
+<p>As I said before, a function type expression worsens readability because it is confusingly similar to an arrow function expression. We can separate the function type expression by defining it as a type:</p>
+
+<pre><code>type identityFn = <i style='color: red;'>(v: number) => number</i>;
+
+const identity<i style='color: red;'>: identityFn</i> = v => v;
+
+// or
+const identity<i style='color: red;'>: identityFn</i> = function(v) {
+  return v;
+}</code></pre>
+
+<p>Now, this looks similar to any other variable annotation: <code>const a: [string, number] = ["hello", 1]</code>.</p>
+
+<h2>Syntax #3 - annotate a function expression as an object type</h2>
+
+<p>More of an edge case, but worth distinguishing it from the rest.</p>
+
+<p>A function is an object and can have properties. If you want to type a function as an object type, then you have to type the callable function with a format called <strong>call signature</strong> inside the object type. This format is similar to how you would annotate a function declaration's parameters and its return type.</p>
+
+<pre><code>type IIdentity = {
+  // call signature
+  <i style='color: red;'>(v: number): number</i>,
+  // other properties, if any
+  whoAmI: "I am identity man"
+}
+
+// or
+interface IIdentity {
+  // call signature
+  <i style='color: red;'>(v: number): number</i>,
+  // other properties, if any
+  whoAmI: "I am identity man"
+}
+
+const identity<i style='color: red;'>: IIdentity</i> = v => v;
+identity.whoAmI = "I am identity man";
+</code></pre>
