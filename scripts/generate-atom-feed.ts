@@ -117,3 +117,16 @@ const main = pipe(
 );
 
 Effect.runPromise(main);
+
+// const program = pipe(
+//   // read from input file
+// Effect.andThen(FileSystem.FileSystem, fs => fs.readFileString("index.json", "utf8")),
+// Effect.map(JSON.parse),
+// Effect.flatMap(decoder),
+// Effect.map(makeFeed),
+// // Write to output file
+// // TODO: How do I get the FileSystem context back here?
+// // Effect.andThen(fs => fs.writeFile("site/feed.xml", "utf8")),
+// );
+
+// NodeRuntime.runMain(program.pipe(Effect.provide(NodeContext.layer)));
