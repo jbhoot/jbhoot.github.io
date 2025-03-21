@@ -37,12 +37,12 @@
 <p>This form resolves to a function value which must then be bound to a variable, or must be used immediately, for example, as a callback.</p>
 
 <pre><code>// as a callback
-[1, 2, 3].map(<i style='color: red;'>function (v) {
+[1, 2, 3].map(<i style='color: yellow;'>function (v) {
   return v;
 }</i>);
 
 // assigned to a variable
-const identity = <i style='color: red;'>function(v) {
+const identity = <i style='color: yellow;'>function(v) {
   return v;
 }</i></code></pre>
 
@@ -67,7 +67,7 @@ const identity = <i style='color: red;'>function(v) {
   return v;
 }
 // Console output:
-<samp style='color: red;'>function (v)
+<samp>function (v)
   length: 1
   name: ""
   // ... </samp>
@@ -75,7 +75,7 @@ const identity = <i style='color: red;'>function(v) {
 
 <p>An anonymous arrow function expression is best used <strong>as a callback</strong>.</p>
 
-<code><pre>[1, 2, 3].map(<i style='color: red;'>(v) => {
+<code><pre>[1, 2, 3].map(<i style='color: yellow;'>(v) => {
   return v;
 }</i>);</code></pre>
 
@@ -91,22 +91,22 @@ const identity = <i style='color: red;'>function(v) {
 <p>For a function declaration and function expression, this means that the return type is placed between the parameter list and the opening brace <code>{</code> of the function body. For an arrow function, it is placed between the parameter list and the arrow <code>=></code>.</p>
 
 <pre><code>// function declaration
-function identity (v<i style='color: red;'>: number</i>)<i style='color: red;'>: number</i> {
+function identity (v<i style='color: yellow;'>: number</i>)<i style='color: yellow;'>: number</i> {
   return v;
 }
 
 // function expression
-[1, 2, 3].map(function (v<i style='color: red;'>: number</i>)<i style='color: red;'>: number</i> {
+[1, 2, 3].map(function (v<i style='color: yellow;'>: number</i>)<i style='color: yellow;'>: number</i> {
   return v;
 });
 
 // arrow function expression
-const identity = (v<i style='color: red;'>: number</i>)<i style='color: red;'>: number</i> => {
+const identity = (v<i style='color: yellow;'>: number</i>)<i style='color: yellow;'>: number</i> => {
   return v;
 }
 
 // arrow function expression as a callback
-[1, 2, 3].map((v<i style='color: red;'>: number</i>)<i style='color: red;'>: number</i> => {
+[1, 2, 3].map((v<i style='color: yellow;'>: number</i>)<i style='color: yellow;'>: number</i> => {
   return v;
 });</code></pre>
 
@@ -132,21 +132,21 @@ const identity = function(v) {
 
 <p>annotate it by simply sticking the type expression between the variable name <code>identity</code> and the <code>=</code> preceding the function body:</p>
 
-<pre><code>const identity<i style='color: red;'>: (v: number) => number</i> = v => v
+<pre><code>const identity<i style='color: yellow;'>: (v: number) => number</i> = v => v
 
 // or
-const identity<i style='color: red;'>: (v: number) => number</i> = function(v) {
+const identity<i style='color: yellow;'>: (v: number) => number</i> = function(v) {
   return v;
 }</code></pre>
 
 <p>As I said before, a function type expression worsens readability because it is confusingly similar to an arrow function expression. We can separate the function type expression by defining it as a type:</p>
 
-<pre><code>type identityFn = <i style='color: red;'>(v: number) => number</i>;
+<pre><code>type identityFn = <i style='color: yellow;'>(v: number) => number</i>;
 
-const identity<i style='color: red;'>: identityFn</i> = v => v;
+const identity<i style='color: yellow;'>: identityFn</i> = v => v;
 
 // or
-const identity<i style='color: red;'>: identityFn</i> = function(v) {
+const identity<i style='color: yellow;'>: identityFn</i> = function(v) {
   return v;
 }</code></pre>
 
@@ -160,7 +160,7 @@ const identity<i style='color: red;'>: identityFn</i> = function(v) {
 
 <pre><code>type IIdentity = {
   // call signature
-  <i style='color: red;'>(v: number): number</i>,
+  <i style='color: yellow;'>(v: number): number</i>,
   // other properties, if any
   whoAmI: "I am identity man"
 }
@@ -168,11 +168,11 @@ const identity<i style='color: red;'>: identityFn</i> = function(v) {
 // or
 interface IIdentity {
   // call signature
-  <i style='color: red;'>(v: number): number</i>,
+  <i style='color: yellow;'>(v: number): number</i>,
   // other properties, if any
   whoAmI: "I am identity man"
 }
 
-const identity<i style='color: red;'>: IIdentity</i> = v => v;
+const identity<i style='color: yellow;'>: IIdentity</i> = v => v;
 identity.whoAmI = "I am identity man";
 </code></pre>
