@@ -1,7 +1,25 @@
 .note {
     font-size: 1.1em;
     max-inline-size: var(--measure);
-    padding: 1em;
+    padding: 0.5em;
+    position: relative;
+}
+
+.note > * + * {
+  margin-block-start: 0.25em;
+}
+
+.note::before {
+  position: absolute;
+  right: 0;
+  top: 0;
+  content: '';
+  width: 0;
+  height: 0;
+  background-color: white;
+  border-style: solid;
+  border-width: 15px;
+  border-color: white white rgb(88, 88, 88) rgb(88, 88, 88);
 }
 
 li:nth-of-type(even) > .note {
