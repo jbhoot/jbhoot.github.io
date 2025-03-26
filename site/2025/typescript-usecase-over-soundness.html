@@ -1,0 +1,45 @@
+<meta itemprop="itemid" content="urn:uuid:ca9a7210-3a69-4623-b308-17ec68d921b9">
+<meta itemprop="dt-published" content="2025-03-26T10:08:33Z">
+<meta itemprop="p-category" content="TypeScript">
+
+<h1>A case of unsoundness in TypeScript</h1>
+
+<p class="e-summary">Defining a function declaration with properties requires more than one statement. This provides a way to break the type system of TypeScript.</p>
+
+<div class="e-content">
+<p>TypeScript provides a construct called a <a href="https://www.typescriptlang.org/docs/handbook/2/functions.html#call-signatures"><i>call signature</i></a> to annotate a callable object with properties in JavaScript. For example, think of a function <code>identity</code>, i.e., a callable object, with a property <code>whoAmI</code>:</p>
+
+<pre><code>function identity(arg) {
+  return arg;
+}
+identity.whoAmI = "I am Identity Man";</code></pre>
+
+<p>Note that the above callable construct requires two statements to construct itself. Now, let's use TypeScript's call signature feature to annotate it:</p>
+
+<pre><code>interface IIdentity {
+  (arg: number) : number
+  whoAmI: string
+}
+
+const i : IIdentity = (arg) => arg;
+// GOOD: compilation error until the following line is added.
+i.whoAmI = "I am Identity!";</code></pre>
+
+<p>So far, so good. However, the following code also type-checks without any compilation errors:</p>
+
+<pre><code>interface IIdentity {
+  (arg: number) : number
+  whoAmI: string
+}
+
+const i : IIdentity = (arg) => arg;
+// BAD: the following line compiles even if the callable's construction isn't finished yet.
+console.log(i.whoAmI.toLowerCase());
+i.whoAmI = "I am Identity!";</code></pre>
+
+<p>The above code of course throws a runtime error: <code>i.whoAmI is undefined</code>.</p>
+
+<p>I don't see a reason why TypeScript cannot ensure that any reference to the non-existent components of a half-constructed callable is illegal until the callable is fully constructed...except for performance reasons. Performance is also why TypeScript does not infer paramter types of a function automatically even though it lets you infer their types, individually, on-demand, through IDE tooling.</p>
+
+<p><a href="https://lobste.rs/s/tjhvij/understanding_various_syntaxes#c_kvjlso">Link to the conversation thread that led to this post.</a></p>
+</div>
