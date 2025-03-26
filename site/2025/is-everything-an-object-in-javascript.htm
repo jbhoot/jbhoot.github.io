@@ -1,0 +1,62 @@
+<meta itemprop="itemid" content="urn:uuid:ff811ee8-5e86-4690-91ad-bf8fd125c909">
+<meta itemprop="dt-published" content="">
+<meta itemprop="p-category" content="">
+
+<h1>Is everything an object in JavaScript?</h1>
+
+<p class="e-summary">This is a summary of how I mentally place different constructs of JavaScript in relation to each other.</p>
+
+<div class="e-content">
+
+<p><a href="https://262.ecma-international.org/15.0/index.html#sec-ecmascript-overview">ECMAScript defines an object</a> as <q cite="https://262.ecma-international.org/15.0/index.html#sec-ecmascript-overview">a collection of zero or more properties</q>. So, anything in JavaScript that has properties is an object.</p>
+
+<p>But there is still room for some ambiguity. A value <code>1</code> or <code>"hello"</code> also have <em>zero</em> properties, so they would still conform to the aforementioned definition.</p>
+
+<p>I like to turn the definition on its head. First, we look at the definition of primitive values. <a href="https://262.ecma-international.org/15.0/index.html#sec-primitive-value">ECMAScript defines a primitive value</a> as <q cite="https://262.ecma-international.org/15.0/index.html#sec-primitive-value">a datum that is represented directly at the lowest level of the language implementation</q>. So, I can see an object in JavaScript as something that is not a primitive value, and has a collection of zero or more properties.</p>
+
+<h2>But what about <code>"hello".toUpperCase()</code> or <code>1.toFixed()</code>?</h2>
+
+<p>Every primitive type has a corresponding object wrapper, which an ECMAScript engine employs implicitly to give a user the aforementioned user experience.</p>
+
+<h2>A <code>function</code> construct</h2>
+
+<p>A function has properties like <code>name</code>, <code>bind</code>, etc. So yes, it is an object.</p>
+
+<p>Note that <code>typeof function(){}</code> returns <code>"function"</code>, not <code>"object"</code>.</p>
+
+<h2>A <code>class</code> construct</h2>
+
+<p>The class construct is just a syntactic sugar over function in JavaScript. What does <code>typeof class(){}</code> return? <code>"function"</code>.</p>
+
+<p>So yes, the class construct is also an object.</p>
+
+<h2>Is <code>null</code> an object?</h2>
+
+<p>I am listing the primitive types as defined in ECMAScript:</p>
+
+<ul>
+<li>Undefined</li>
+<li>Null</li>
+<li>Boolean</li>
+<li>Number</li>
+<li>BigInt</li>
+<li>String</li>
+<li>Symbol</li>
+</ul>
+
+<p>Now, <i>Null</i> type is defined as a <q>type whose <em>sole</em> value is the <code>null</code> value.</q></p>
+
+<p>So, <code>null</code> is <em>not</em> an object, but a primitive value. It does not have any properties. There is also exactly <em>one</em> <code>null</code> value in an ECMAScript environment.</p>
+
+<h3>But, <code>typeof null</code> returns <code>"object"</code>!</h3>
+
+<p>Its incorrect, and only exists for comptability reasons. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof#typeof_null">MDN</a> provides a more technical reason:</p>
+
+<blockquote cite="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof#typeof_null">
+<p>In the first implementation of JavaScript, JavaScript values were represented as a type tag and a value. The type tag for objects was 0. null was represented as the NULL pointer (0x00 in most platforms). Consequently, null had 0 as type tag, hence the typeof return value "object".</p>
+</blockquote>
+
+const y2: ReadonlyArray<number> = [1, 2, 3];
+  const x2: Array<number> = y2;
+
+</div>
