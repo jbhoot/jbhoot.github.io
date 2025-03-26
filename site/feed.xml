@@ -2,11 +2,341 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://bhoot.dev/</id>
   <title>Jayesh Bhoot's Ghost Town – All Posts</title>
-  <updated>2025-03-06T12:13:15.000Z</updated>
+  <updated>2025-03-26T10:08:33.000Z</updated>
   <author>
     <name>Jayesh Bhoot</name>
   </author>
   <link href="https://bhoot.dev/feed.xml" rel="self" />
+  <entry>
+    <id>urn:uuid:ca9a7210-3a69-4623-b308-17ec68d921b9</id>
+    <title type="html">A case of unsoundness in TypeScript</title>
+    <updated>2025-03-26T10:08:33.000Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;TypeScript provides a construct called a &lt;a
+      href=&quot;https://www.typescriptlang.org/docs/handbook/2/functions.html#call-signatures&quot;&gt;&lt;i&gt;call
+      signature&lt;/i&gt;&lt;/a&gt; to annotate a callable object with properties in JavaScript. For
+      example, think of a function &lt;code&gt;identity&lt;/code&gt;, i.e., a callable object, with
+      a property &lt;code&gt;whoAmI&lt;/code&gt;:&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;function identity(arg) {
+      return arg;
+      }
+      identity.whoAmI = &quot;I am Identity Man&quot;;&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;Note that the above callable construct requires two statements to construct itself.
+      Now, let&#39;s use TypeScript&#39;s call signature feature to annotate it:&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;interface IIdentity {
+      (arg: number) : number
+      whoAmI: string
+      }
+
+      const i : IIdentity = (arg) =&amp;gt; arg;
+      // GOOD: compilation error until the following line is added.
+      i.whoAmI = &quot;I am Identity!&quot;;&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;So far, so good. However, the following code also type-checks without any compilation
+      errors:&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;interface IIdentity {
+      (arg: number) : number
+      whoAmI: string
+      }
+
+      const i : IIdentity = (arg) =&amp;gt; arg;
+      // BAD: the following line compiles even if the callable&#39;s construction isn&#39;t finished
+      yet.
+      console.log(i.whoAmI.toLowerCase());
+      i.whoAmI = &quot;I am Identity!&quot;;&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;The above code of course throws a runtime error: &lt;code&gt;i.whoAmI is
+      undefined&lt;/code&gt;.&lt;/p&gt;
+
+      &lt;p&gt;I don&#39;t see a reason why TypeScript cannot ensure that any reference to the
+      non-existent components of a half-constructed callable is illegal until the callable is fully
+      constructed...except for performance reasons. Performance is also why TypeScript does not
+      infer paramter types of a function automatically even though it lets you infer their types,
+      individually, on-demand, through IDE tooling.&lt;/p&gt;
+
+      &lt;p&gt;&lt;a
+      href=&quot;https://lobste.rs/s/tjhvij/understanding_various_syntaxes#c_kvjlso&quot;&gt;Link to
+      the conversation thread that led to this post.&lt;/a&gt;&lt;/p&gt;</content>
+    <link href="/2025/typescript-usecase-over-soundness" />
+    <summary type="html">Defining a function declaration with properties requires more than one
+      statement. This provides a way to break the type system of TypeScript.</summary>
+    <category term="TypeScript" label="TypeScript" />
+    <published>2025-03-26T10:08:33.000Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:ec62eb12-2d90-4b29-9d7d-57774f038d8c</id>
+    <title type="html">Understanding various syntaxes to annotate a function&#39;s type in
+      TypeScript</title>
+    <updated>2025-03-21T10:34:21.000Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;h2 id=&quot;the-underlying-principles&quot;&gt;The underlying
+      principles&lt;/h2&gt;
+
+      &lt;p&gt;I was able to boil it all down to the following:&lt;/p&gt;
+
+      &lt;ul&gt;
+      &lt;li&gt;Either individually annotate the function parameters and its return value with their
+      respective types; or&lt;/li&gt;
+      &lt;li&gt;annotate the &lt;em&gt;variable&lt;/em&gt; that holds a function with the
+      function&#39;s type.&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;h2 id=&quot;detour---ways-to-define-a-function-in-javascript&quot;&gt;Detour - ways to
+      define a function in JavaScript&lt;/h2&gt;
+
+      &lt;p&gt;Here is a probably non-exhaustive list.&lt;/p&gt;
+
+
+      &lt;h3 id=&quot;function-declaration&quot;&gt;Function declaration&lt;/h3&gt;
+
+      &lt;p&gt;This form requires that a name be given to the function.&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;function identity(v) {
+      return v;
+      }&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;h3 id=&quot;function-expression&quot;&gt;Function expression&lt;/h3&gt;
+
+      &lt;p&gt;This form resolves to a function value which must then be bound to a variable, or
+      must be used immediately, for example, as a callback.&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;// as a callback
+      [1, 2, 3].map(&lt;i style=&quot;color: yellow;&quot;&gt;function (v) {
+      return v;
+      }&lt;/i&gt;);
+
+      // assigned to a variable
+      const identity = &lt;i style=&quot;color: yellow;&quot;&gt;function(v) {
+      return v;
+      }&lt;/i&gt;&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;An anonymous (or orphan(?)) function expression - without being used as a callback or
+      assigned to a variable - is illegal at the top level, because it cannot be distinguished from
+      a function declaration. So the following form is &lt;em&gt;illegal&lt;/em&gt; at the top
+      level:&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt; function (v) {
+      return v;
+      }
+      &lt;samp style=&quot;color: red;&quot;&gt;Uncaught SyntaxError: function statement requires a
+      name&lt;/samp&gt;&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;A function expression can be named too.&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;const identity = function id(v) {
+      return v;
+      }&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;h3 id=&quot;arrow-function-expression&quot;&gt;Arrow function expression&lt;/h3&gt;
+      &lt;p&gt;Unlike its function expression counterpart, an anonymous arrow function expression is
+      legal, but useless, at the top level.&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt; (v) =&amp;gt; {
+      return v;
+      }
+      // Console output:
+      &lt;samp&gt;function (v)
+      length: 1
+      name: &quot;&quot;
+      // ... &lt;/samp&gt;
+      &lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;An anonymous arrow function expression is best used &lt;strong&gt;as a
+      callback&lt;/strong&gt;.&lt;/p&gt;
+
+      &lt;code&gt;&lt;/code&gt;&lt;pre&gt;&lt;code&gt;[1, 2, 3].map(&lt;i style=&quot;color:
+      yellow;&quot;&gt;(v) =&amp;gt; {
+      return v;
+      }&lt;/i&gt;);&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;An arrow function expression can be &lt;strong&gt;assigned to a
+      variable&lt;/strong&gt;.&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;const identity = v =&amp;gt; v&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;h2
+      id=&quot;syntax--1---annotate-the-function-parameters-and-its-return-value&quot;&gt;Syntax #1
+      - annotate the function parameters and its return value&lt;/h2&gt;
+
+      &lt;p&gt;Most straightforward. All of the function forms can be annotated with this approach.
+      But a &lt;strong&gt;function declaration can be annotated only through this
+      approach&lt;/strong&gt;.&lt;/p&gt;
+
+      &lt;p&gt;Remembering the position of type annotations of the parameters is easy enough. But
+      the &lt;strong&gt;return value type is placed between the parameter list and the body of the
+      function&lt;/strong&gt;.&lt;/p&gt;
+
+      &lt;p&gt;For a function declaration and function expression, this means that the return type
+      is placed between the parameter list and the opening brace &lt;code&gt;{&lt;/code&gt; of the
+      function body. For an arrow function, it is placed between the parameter list and the arrow
+      &lt;code&gt;=&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;// function declaration
+      function identity (v&lt;i style=&quot;color: yellow;&quot;&gt;: number&lt;/i&gt;)&lt;i
+      style=&quot;color: yellow;&quot;&gt;: number&lt;/i&gt; {
+      return v;
+      }
+
+      // function expression
+      [1, 2, 3].map(function (v&lt;i style=&quot;color: yellow;&quot;&gt;: number&lt;/i&gt;)&lt;i
+      style=&quot;color: yellow;&quot;&gt;: number&lt;/i&gt; {
+      return v;
+      });
+
+      // arrow function expression
+      const identity = (v&lt;i style=&quot;color: yellow;&quot;&gt;: number&lt;/i&gt;)&lt;i
+      style=&quot;color: yellow;&quot;&gt;: number&lt;/i&gt; =&amp;gt; {
+      return v;
+      }
+
+      // arrow function expression as a callback
+      [1, 2, 3].map((v&lt;i style=&quot;color: yellow;&quot;&gt;: number&lt;/i&gt;)&lt;i
+      style=&quot;color: yellow;&quot;&gt;: number&lt;/i&gt; =&amp;gt; {
+      return v;
+      });&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;h2
+      id=&quot;syntax--2---annotate-the-variable-that-holds-a-function-expression&quot;&gt;Syntax #2
+      - Annotate the variable that holds a function expression&lt;/h2&gt;
+
+      &lt;p&gt;In this approach, simply annotate the variable name just like any other variable.
+      Only that you have to annotate it with the type of the function expression.&lt;/p&gt;
+      &lt;p&gt;This format is called &lt;strong&gt;function type expression&lt;/strong&gt;, because
+      they are used to type a function expression (and not a function declaration).&lt;/p&gt;
+      &lt;p&gt;The format of a function type expression is confusingly similar to that of an arrow
+      function expression: &lt;code&gt;(param: type) =&amp;gt; return_type&lt;/code&gt;.&lt;/p&gt;
+      &lt;aside&gt;Unintuitively, in a function type expression, parameter names are necessary, but
+      not their types - &lt;code&gt;any&lt;/code&gt; type is assigned by default.&lt;/aside&gt;
+      &lt;p&gt;For a JavaScript function expression:&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;const identity = v =&amp;gt; v
+
+      // or
+      const identity = function(v) {
+      return v;
+      }&lt;/code&gt;
+      &lt;/pre&gt;
+
+      &lt;p&gt;annotate it by simply sticking the type expression between the variable name
+      &lt;code&gt;identity&lt;/code&gt; and the &lt;code&gt;=&lt;/code&gt; preceding the function
+      body:&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;const identity&lt;i style=&quot;color: yellow;&quot;&gt;: (v: number)
+      =&amp;gt; number&lt;/i&gt; = v =&amp;gt; v
+
+      // or
+      const identity&lt;i style=&quot;color: yellow;&quot;&gt;: (v: number) =&amp;gt;
+      number&lt;/i&gt; = function(v) {
+      return v;
+      }&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;As I said before, a function type expression worsens readability because it is
+      confusingly similar to an arrow function expression. We can separate the function type
+      expression by defining it as a type:&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;type identityFn = &lt;i style=&quot;color: yellow;&quot;&gt;(v: number)
+      =&amp;gt; number&lt;/i&gt;;
+
+      const identity&lt;i style=&quot;color: yellow;&quot;&gt;: identityFn&lt;/i&gt; = v =&amp;gt;
+      v;
+
+      // or
+      const identity&lt;i style=&quot;color: yellow;&quot;&gt;: identityFn&lt;/i&gt; = function(v) {
+      return v;
+      }&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;Now, this looks similar to any other variable annotation: &lt;code&gt;const a:
+      [string, number] = [&quot;hello&quot;, 1]&lt;/code&gt;.&lt;/p&gt;
+
+      &lt;h2 id=&quot;syntax--3---annotate-a-function-expression-as-an-object-type&quot;&gt;Syntax
+      #3 - annotate a function expression as an object type&lt;/h2&gt;
+
+      &lt;p&gt;More of an edge case, but worth distinguishing it from the rest.&lt;/p&gt;
+
+      &lt;p&gt;A function is an object and can have properties. If you want to type a function as an
+      object type, then you have to type the callable function with a format called
+      &lt;strong&gt;call signature&lt;/strong&gt; inside the object type. This format is similar to
+      how you would annotate a function declaration&#39;s parameters and its return type.&lt;/p&gt;
+      &lt;pre&gt;&lt;code&gt;type IIdentity = {
+      // call signature
+      &lt;i style=&quot;color: yellow;&quot;&gt;(v: number): number&lt;/i&gt;,
+      // other properties, if any
+      whoAmI: &quot;I am identity man&quot;
+      }
+
+      // or
+      interface IIdentity {
+      // call signature
+      &lt;i style=&quot;color: yellow;&quot;&gt;(v: number): number&lt;/i&gt;,
+      // other properties, if any
+      whoAmI: &quot;I am identity man&quot;
+      }
+
+      const identity&lt;i style=&quot;color: yellow;&quot;&gt;: IIdentity&lt;/i&gt; = v =&amp;gt; v;
+      identity.whoAmI = &quot;I am identity man&quot;;
+      &lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;This syntax leaves room to create an unsound use case, as &lt;a
+      href=&quot;/2025/typescript-usecase-over-soundness/&quot;&gt;explained in a later
+      post&lt;/a&gt;.&lt;/p&gt;</content>
+    <link href="/2025/typescript-function-type-syntaxes" />
+    <summary type="html">I often found myself second guessing while writing type annotations for
+      TypeScript functions. To make it intuitive in future, I try to make sense of various syntaxes
+      TypeScript provides in order to annotate functions.</summary>
+    <category term="TypeScript" label="TypeScript" />
+    <published>2025-03-21T10:34:21.000Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:f13619df-46e0-4bac-8ca0-25497a183534</id>
+    <title type="html">JavaScript function declaration v/s arrow function in a browser console</title>
+    <updated>2025-03-20T13:33:12.000Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;I often like to develop and test small JavaScript code directly in
+      a browser console.&lt;/p&gt;
+
+      &lt;p&gt;In this environment, a function declaration has an advantage over an arrow function –
+      I can re-define &amp;amp; re-run a function declaration repeatedly in a browser&#39;s
+      console.&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt; function strIdentity(v) {
+      return v.toUpperCase();
+      }
+      &lt;samp&gt;undefined&lt;/samp&gt;
+
+      &amp;gt;&amp;gt; function strIdentity(v) {
+      return v.toLowerCase();
+      }
+      &lt;samp&gt;undefined&lt;/samp&gt;
+
+      &amp;gt;&amp;gt; strIdentity(&quot;HELLO&quot;);
+      &quot;hello&quot; &lt;/code&gt;&lt;/pre&gt;
+
+      &lt;p&gt;On the other hand, re-running an arrow function, which have to be assigned to a
+      variable to be usable at the top level, would throw a re-declaration error, because the same
+      variable cannot be re-declared again.&lt;/p&gt;
+
+      &lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt; const strIdentity = v =&amp;gt; v.toLowerCase();
+      &lt;samp&gt;undefined&lt;/samp&gt;
+
+      &amp;gt;&amp;gt; // editing the above script
+
+      &amp;gt;&amp;gt; const strIdentity = v =&amp;gt; v.toUpperCase();
+      &lt;samp style=&quot;color: red;&quot;&gt;Uncaught SyntaxError: redeclaration of const
+      strIdentity&lt;/samp&gt;&lt;/code&gt;&lt;/pre&gt;</content>
+    <link href="/2025/function-vs-arrow" />
+    <summary type="html">Apart from the usual conciseness and &lt;code&gt;this&lt;/code&gt;
+      arguments, JavaScript&#39;s function declaration and arrow functions differ in another
+      practical way.</summary>
+    <category term="javascript" label="javascript" />
+    <published>2025-03-20T13:33:12.000Z</published>
+  </entry>
   <entry>
     <id>urn:uuid:efdac3b9-aaec-4f39-8629-1ebf5c8af173</id>
     <title type="html">Someone&#39;s high hopes- to dash or not to dash</title>
@@ -1279,6 +1609,58 @@
       the &lt;i&gt;Mob&lt;/i&gt; in &lt;cite&gt;The Dark Knight&lt;/cite&gt;.</summary>
     <category term="Uncollected" label="Uncollected" />
     <published>2024-11-08T16:00:40.000Z</published>
+  </entry>
+  <entry>
+    <id>urn:uuid:dea8aaf0-4066-43bd-8b01-a5b482609206</id>
+    <title type="html">Different kinds of simple</title>
+    <updated>2024-10-01T07:22:39.000Z</updated>
+    <author>
+      <name>Jayesh Bhoot</name>
+    </author>
+    <content type="html">&lt;p&gt;This post is syndicated from &lt;a
+      href=&quot;https://lobste.rs/s/8ep75v/how_1_software_engineer_outperforms_138#c_kjyns6&quot;&gt;my
+      response&lt;/a&gt; to a Lobste.rs story titled &lt;a
+      href=&quot;https://lobste.rs/s/8ep75v/how_1_software_engineer_outperforms_138&quot;&gt;How 1
+      Software Engineer Outperforms 138 - Lichess Case Study&lt;/a&gt;.&lt;/p&gt;
+
+      &lt;p&gt;The video author talked about &lt;em&gt;simple&lt;/em&gt; in terms of fewer lines of
+      code, as in &quot;fewer the features, fewer the lines of code, simpler the codebase&quot;.
+      Recently, I chose another kind of &lt;em&gt;simple&lt;/em&gt; that increased the lines of code
+      and duplication.&lt;/p&gt;
+
+      &lt;p&gt;There was a segment implemented in a complex workflow, which contained enough
+      conditionals that I could identify four sub-workflows, which merged back into one at the end
+      of the segment.&lt;/p&gt;
+
+      &lt;p&gt;When time came to add more conditionals to the workflow, I had a choice to keep going
+      with a single flow, handling conditionals as and when a branch reared its head. This would
+      keep the lines of code to a minimum. But it would also have made the code difficult to follow
+      to someone who was introduced to it for the first time, or even to someone who revisited it
+      after some time.&lt;/p&gt;
+
+      &lt;p&gt;Or I could split that segment into distinct sub-workflows, at the cost of some
+      duplication. More lines of code, but easier to follow. Later on, once I identify the duplicate
+      (i.e., common) components in those sub-workflows, I could extract some of them to reduce the
+      duplication.&lt;/p&gt;
+
+      &lt;p&gt;I chose the latter approach. The segment ended up being split into
+      &lt;em&gt;eight&lt;/em&gt; distinct sub-workflows. One clear benefit was that the number of
+      bugs in the existing implementation reduced, because logic unique to each sub-workflow got
+      isolated. For the same reason, the code became easy to follow. I hope this choice remains the
+      right choice further down the line. I feel this approach would be easier to follow to a later
+      re-visitor or to a new person.&lt;/p&gt;
+
+      &lt;p&gt;An unaffiliated side-note: the above re-factoring became possible due to the
+      statically typed language the code was implemented in – ReScript, which has an ML-like type
+      system. It gave me a high degree of confidence in making a fearless re-factoring.&lt;/p&gt;</content>
+    <link href="/2024/different-kinds-of-simple" />
+    <summary type="html">This post is syndicated from &lt;a
+      href=&quot;https://lobste.rs/s/8ep75v/how_1_software_engineer_outperforms_138#c_kjyns6&quot;&gt;my
+      response&lt;/a&gt; to a Lobste.rs story titled &lt;a
+      href=&quot;https://lobste.rs/s/8ep75v/how_1_software_engineer_outperforms_138&quot;&gt;How 1
+      Software Engineer Outperforms 138 - Lichess Case Study&lt;/a&gt;.</summary>
+    <category term="Philosophy of software design" label="Philosophy of software design" />
+    <published>2024-10-01T07:22:39.000Z</published>
   </entry>
   <entry>
     <id>urn:uuid:05744722-6bac-4385-b50b-1aa0a802eb53</id>
