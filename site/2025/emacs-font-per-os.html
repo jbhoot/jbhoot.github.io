@@ -1,0 +1,30 @@
+<meta itemprop="itemid" content="urn:uuid:8817051d-2e10-41af-93a0-dde98191db22">
+<meta itemprop="dt-published" content="2025-04-22T19:40:38Z">
+<meta itemprop="p-category" content="emacs">
+
+<h1>How I configured OS-specific fonts in Emacs</h1>
+
+<div class="e-content">
+
+<p>Here is the <i>Elisp</i> snippet:</p>
+
+<pre><code>(let ((font-value (cond
+                   ((eq system-type 'gnu/linux)
+                    "Source Code Pro-12:weight=medium")
+                   ((eq system-type 'darwin)
+                    "Source Code Pro-17:weight=medium"))))
+  (add-to-list 'default-frame-alist `(font . ,font-value)))
+</code></pre>
+
+<p>Things I learned while creating this snippet:</p>
+
+<ol>
+<li><code>system-type</code> variable in Elisp identifies the operating system.</li>
+
+<li>A <i>quote</i> <code>'</code> does not evaluate the entire quoted expression, but a <i>backquote</i> <code>`</code> <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Backquote.html">allows evaluation of sub-expressions</a> marked with a <i>comma</i> <code>,</code>, inside the quoted expression. Hence, <code>`(font . ,font-value)</code>, where <code>font-value</code> is evaluated to the font value it got in its <i>let binding</i>, before the parent expression is quoted.</li>
+
+<li><p>The syntax to configure font properties. When I last tried Emacs more than 5 years ago (or more), I was stumped by a plethora of solutions on the internet to specify font properties, none of which had worked. Part of why I had abandoned Emacs back then. This time, I was able to figure it out, thanks to the <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Fonts.html">official doc that describes the syntax to specify a font</a>.</p></li>
+</ol>
+
+<p>I am sure there is a better way, but I have only recently started tinkering with Emacs and ELisp. I mean I still nest a <i>sexp</i> by manually adding parentheses before and after the <i>sexp</i>, like a caveman!</p>
+</div>
