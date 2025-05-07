@@ -82,10 +82,11 @@ end
 
 function make_collection_path(collection_text)
   -- collection_path = gsub(strlower(collection_text), " ", "-")
+  local trimmed = String.trim(collection_text)
   local char_idx = 1
   local collection_path = ""
-  while char_idx <= strlen(collection_text) do
-    local currchar = strlower(strsub(collection_text, char_idx, char_idx))
+  while char_idx <= strlen(trimmed) do
+    local currchar = strlower(strsub(trimmed, char_idx, char_idx))
     if currchar == " " then
       collection_path = collection_path .. "-"
     else
