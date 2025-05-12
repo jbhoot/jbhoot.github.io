@@ -1,0 +1,75 @@
+<meta itemprop="itemid" content="urn:uuid:6542601e-be2a-4643-89a2-4b771b1028c5">
+<meta itemprop="dt-published" content="">
+<meta itemprop="p-category" content="">
+
+<h1></h1>
+
+<p class="e-summary"></p>
+
+<div class="e-content">
+
+Function definition:
+  
+<code>
+  {
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  options,
+  specialArgs
+  }:
+  {
+  # module code
+  }
+    </code>
+  
+  <code>
+    $ sudo nixos-rebuild boot --flake .
+warning: Git tree '/home/bhoot/projects/env' is dirty
+error:
+       … while calling the 'seq' builtin
+         at /nix/store/n5xdr9b74ni7iiqgbcv636a6d4ywfhbn-source/lib/modules.nix:359:18:
+          358|         options = checked options;
+          359|         config = checked (removeAttrs config [ "_module" ]);
+             |                  ^
+          360|         _module = checked (config._module);
+
+       … while evaluating a branch condition
+         at /nix/store/n5xdr9b74ni7iiqgbcv636a6d4ywfhbn-source/lib/modules.nix:295:9:
+          294|       checkUnmatched =
+          295|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [ ] then
+             |         ^
+          296|           let
+
+       (stack trace truncated; use '--show-trace' to show the full, detailed trace)
+
+       error: function 'anonymous lambda' called with unexpected argument '_class'
+       at /nix/store/d2myjs1m6m98xv8cr64g9x6ypn5k4amd-source/nix-configs/machines/safed-hathi/configuration-custom.nix:1:7:
+            1|       {
+             |       ^
+            2|         config,
+  </code>
+
+  The fix was simple, but hidden away in the arcane error message: <code>error: function 'anonymous lambda' called with unexpected argument '_class'</code>.
+
+  I was fretting about the _class argument, but Nix wanted to say that there is an argument being passed to this lambda, which is not specified in the function definition.
+
+All I had to do was to allow the function module to accept variadic arguments.
+  
+  <code>
+  {
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  options,
+  specialArgs,
+  ++ ...
+  }:
+  {
+  # module code
+  }
+    </code>
+  
+</div>
