@@ -335,6 +335,7 @@ html = """
     <a href="https://lobste.rs/~bhoot" rel="me"><img alt="Link to my lobsters account @bhoot" src="/static/images/lobsters.svg" width="30" style="vertical-align: middle;"></a>
     <a href="https://linkedin.com/in/jbhoot" rel="me"><img alt="Link to my LinkedIn account" src="/static/images/linkedin.svg" width="30" style="vertical-align: middle;"></a>
     <a href="https://bsky.app/profile/bhoot.dev" rel="me"><img alt="Link to my bluesky account @bhoot.dev" src="/static/images/bluesky.svg" width="32" style="vertical-align: middle;"></a>
+    <a href="https://mastodon.pub.solar/@bhoot" rel="me"><img alt="Link to my mastodon account" src="/static/images/mastodon.svg" width="32" style="vertical-align: middle;"></a>
   </p></address>
 </footer>
 """
