@@ -13,3 +13,4 @@ index.json
 .metals/
 .bsp/
 *.js
+debug.log
