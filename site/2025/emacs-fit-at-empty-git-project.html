@@ -3,7 +3,8 @@
 <meta itemprop="p-category" content="Emacs, Note">
 
 <div class="e-content">
-  <p>Tip for my future self: If I try to find a file in an empty git project (<code>C-x p f</code>), then Emacs throws an arcane error: <code>project--read-file-name: Wrong type argument: stringp, nil</code>.</p>
+
+  <p>Tip for my future self: If Emacs throws an arcane error - <code>project--read-file-name: Wrong type argument: stringp, nil</code> - while trying to find a file in a git project (<code>C-x p f</code>), then one likely reason is that the git project is empty.</p>
 
   <p>Solution? Make sure you have something inside the git project. Even a staged file is enough.</p>
 </div>
