@@ -10,64 +10,17 @@ src: https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight  */
   font-display: swap;
   font-family: 'Lexend';
   font-style: normal;
-  font-weight: 400;
-  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Lexend';
-  font-style: normal;
-  font-weight: 500;
-  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Lexend';
-  font-style: normal;
-  font-weight: 600;
-  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Lexend';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
+  /* 100 900 => the font supports weights between 100 and 900. */
+  font-weight: 100 900;
+  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('truetype');
 }
 
 @font-face {
   font-display: swap;
   font-family: 'Lexend';
   font-style: italic;
-  font-weight: 400;
-  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Lexend';
-  font-style: italic;
-  font-weight: 500;
-  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Lexend';
-  font-style: italic;
-  font-weight: 600;
-  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Lexend';
-  font-style: italic;
-  font-weight: 700;
-  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
+  font-weight: 100 900;
+  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('truetype');
 }
 
 @font-face {
