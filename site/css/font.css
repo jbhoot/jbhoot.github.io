@@ -8,80 +8,80 @@ src: https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight  */
 
 @font-face {
   font-display: swap;
-  font-family: 'Asap';
+  font-family: 'Lexend';
   font-style: normal;
   font-weight: 400;
-  src: url('/static/fonts/Asap/Asap-Regular.ttf') format('ttf');
+  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
 }
 
 @font-face {
   font-display: swap;
-  font-family: 'Asap';
+  font-family: 'Lexend';
   font-style: normal;
   font-weight: 500;
-  src: url('/static/fonts/Asap/Asap-Medium.ttf') format('ttf');
+  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
 }
 
 @font-face {
   font-display: swap;
-  font-family: 'Asap';
+  font-family: 'Lexend';
   font-style: normal;
   font-weight: 600;
-  src: url('/static/fonts/Asap/Asap-SemiBold.ttf') format('ttf');
+  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
 }
 
 @font-face {
   font-display: swap;
-  font-family: 'Asap';
+  font-family: 'Lexend';
   font-style: normal;
   font-weight: 700;
-  src: url('/static/fonts/Asap/Asap-Bold.ttf') format('ttf');
+  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
 }
 
 @font-face {
   font-display: swap;
-  font-family: 'Asap';
+  font-family: 'Lexend';
   font-style: italic;
   font-weight: 400;
-  src: url('/static/fonts/Asap/Asap-Italic.ttf') format('ttf');
+  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
 }
 
 @font-face {
   font-display: swap;
-  font-family: 'Asap';
+  font-family: 'Lexend';
   font-style: italic;
   font-weight: 500;
-  src: url('/static/fonts/Asap/Asap-MediumItalic.ttf') format('ttf');
+  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
 }
 
 @font-face {
   font-display: swap;
-  font-family: 'Asap';
+  font-family: 'Lexend';
   font-style: italic;
   font-weight: 600;
-  src: url('/static/fonts/Asap/Asap-SemiBoldItalic.ttf') format('ttf');
+  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
 }
 
 @font-face {
   font-display: swap;
-  font-family: 'Asap';
+  font-family: 'Lexend';
   font-style: italic;
   font-weight: 700;
-  src: url('/static/fonts/Asap/Asap-BoldItalic.ttf') format('ttf');
+  src: url('/static/fonts/Lexend/Lexend-Variable.ttf') format('ttf');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Cascadia Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/static/fonts/CascadiaMono/CascadiaMono-Variable.woff2') format('woff2');
 }
 
 @font-face {
   font-display: swap;
   font-family: 'Cascadia Code';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/static/fonts/CascadiaCode-2404.23/CascadiaCode.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Cascadia Code';
   font-style: italic;
   font-weight: 400;
-  src: url('/static/fonts/CascadiaCode-2404.23/CascadiaCodeItalic.woff2') format('woff2');
+  src: url('/static/fonts/CascadiaMono/CascadiaMonoItalic-Variable.woff2') format('woff2');
 }

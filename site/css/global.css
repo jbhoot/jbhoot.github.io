@@ -15,8 +15,8 @@ select {
 }
 
 :root {
-    --font-monospace: 'Cascadia Code', monospace;
-    --font-sans: Asap, sans-serif;
+    --font-monospace: 'Cascadia Mono', monospace;
+    --font-sans: Lexend, Asap, "Atkinson Hyperlegible", sans-serif;
     --font-serif: Alegreya, Georgia, serif;
 
     /*
