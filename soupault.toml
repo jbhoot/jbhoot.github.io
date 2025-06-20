@@ -291,7 +291,8 @@ html = """
 <ul class="cluster" style="justify-content:flex-end;">
   <!--<li><a href="/">Home</a></li>-->
   <li><a href="/about">About me</a></li>
-  <li><a href="/posts">Posts</a></li>
+  <li><a href="/books">Reading</a></li>
+  <li><a href="/posts">Writing</a></li>
   <!--<li><a href="/articles">Articles</a></li>-->
   <!--<li><a href="/notes">Notes</a></li>-->
   <li><a href="/collections">Collections</a></li>
