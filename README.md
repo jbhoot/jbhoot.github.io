@@ -1,3 +1,8 @@
+## Pending articles
+
+- story from the trenches: write blog post about nginx frontend application/encoded binary to mjs
+- ssh git multiple github accounts same machine
+
 ## Debugging soupault build
 
 ```
