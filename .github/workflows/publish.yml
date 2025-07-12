@@ -27,13 +27,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Install cmark
         run: sudo apt-get install cmark
 
-      - name: Setup latest Node.js
+      - name: Setup latest Node.js for feed generation
         uses: actions/setup-node@v4
         with:
           node-version: 'latest'
+
+      - name: Install npm dependencies for feed generation
+        run: npm ci
 
       - name: Install soupault
         env:
@@ -45,12 +48,10 @@ jobs:
           sudo mv -v ./soupault-$SOUPAULT_VERSION-linux-x86_64/soupault /usr/bin/
 
       - name: Build the site
-        run: |
-          soupault --profile production
+        run: soupault --profile production
       
       - name: Build Atom feed
-        run: |
-          node --experimental-strip-types ./scripts/generate-atom-feed.ts
+        run: node --experimental-strip-types ./scripts/generate-atom-feed.ts
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
