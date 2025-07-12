@@ -27,8 +27,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      - name: Install cmark
-        run: sudo apt-get install cmark
+      - name: Install dependencies
+        run: sudo apt-get install cmark nodejs npm
 
       - name: Install soupault
         env:
@@ -42,6 +42,10 @@ jobs:
       - name: Build the site
         run: |
           soupault --profile production
+      
+      - name: Build Atom feed
+        run: |
+          node --experimental-transform-types ./scripts/generate-atom-feed.ts
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
