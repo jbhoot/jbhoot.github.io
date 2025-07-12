@@ -62,7 +62,7 @@ md = "cmark --unsafe --smart"
 [index]
 index = true
 index_first = true
-exclude_page = ["cv.html", "accessibility-statement.html", "about.html", "about-website.html"]
+exclude_page = ["cv.html", "accessibility-statement.html", "about.html", "about-website.html", "books.html"]
 # Treat a folder containing an index.html and a .leaf file as a normal page. This allows putting assets (e.g., images) of a page alongside itself)
 # https://soupault.app/reference-manual/#treating-index-pages-as-normal-pages
 leaf_file = ".leaf"
