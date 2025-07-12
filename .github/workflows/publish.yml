@@ -47,12 +47,12 @@ jobs:
           tar xvf soupault-$SOUPAULT_VERSION-linux-x86_64.tar.gz
           sudo mv -v ./soupault-$SOUPAULT_VERSION-linux-x86_64/soupault /usr/bin/
 
+      - name: Generate Atom feed before building the site
+        run: node --experimental-strip-types ./scripts/generate-atom-feed.ts
+
       - name: Build the site
         run: soupault --profile production
       
-      - name: Build Atom feed
-        run: node --experimental-strip-types ./scripts/generate-atom-feed.ts
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
