@@ -30,13 +30,13 @@ jobs:
       - name: Install cmark
         run: sudo apt-get install cmark
 
-      - name: Setup latest Node.js for feed generation
-        uses: actions/setup-node@v4
-        with:
-          node-version: 'latest'
+      # - name: Setup latest Node.js for feed generation
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 'latest'
 
-      - name: Install npm dependencies for feed generation
-        run: npm ci
+      # - name: Install npm dependencies for feed generation
+      #   run: npm ci
 
       - name: Install soupault
         env:
@@ -47,8 +47,8 @@ jobs:
           tar xvf soupault-$SOUPAULT_VERSION-linux-x86_64.tar.gz
           sudo mv -v ./soupault-$SOUPAULT_VERSION-linux-x86_64/soupault /usr/bin/
 
-      - name: Generate Atom feed before building the site
-        run: node --experimental-strip-types ./scripts/generate-atom-feed.ts
+      # - name: Generate Atom feed before building the site
+        # run: node --experimental-strip-types ./scripts/generate-atom-feed.ts
 
       - name: Build the site
         run: soupault --profile production
