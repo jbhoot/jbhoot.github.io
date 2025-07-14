@@ -216,7 +216,7 @@ ul ul ul {
     list-style-type: square;
 }
 
-code, small, figcaption, caption, pre {
+small, figcaption, caption, pre {
     font-size: 0.9em;
 }
 
@@ -226,9 +226,9 @@ code {
     color: green;
 }
 
-:is(h1, h2, h3, h4) code {
+/* :is(h1, h2, h3, h4) code {
   font-size: 0.75em;
-}
+} */
 
 caption,
 figcaption {
