@@ -28,7 +28,7 @@ select {
     --measure: 48rem;
 
     --line-height: 1.5;
-    --base-font-size: 1.125rem;
+    --base-font-size: 1rem;
 
     --p: var(--base-font-size);
     --h4: 1.25rem;
