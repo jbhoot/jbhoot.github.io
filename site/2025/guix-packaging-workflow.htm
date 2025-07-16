@@ -1,0 +1,73 @@
+<meta itemprop="itemid" content="urn:uuid:8791061f-9990-445d-89f7-3b6a73dda4d2">
+<meta itemprop="dt-published" content="">
+<meta itemprop="p-category" content="">
+
+<h1>How I write a package for Guix</h1>
+
+<p class="e-summary"></p>
+
+<div class="e-content">
+
+How I write a package for Guix
+
+With some help from kind people in #guix IRC, I've developed a workflow to package a software for Guix.
+
+Note: I wouldn't exactly categorise this post as a beginner how-to. It may be helpful for those who have written a Guix package or two, but haven't established a process for it yet.
+
+Official recommendation isn't enough
+
+Guix Cookbook recommends https://guix.gnu.org/cookbook/en/html_node/Direct-checkout-hacking.html working directly in a Guix project checkout, so that submitting your changes upstream becomes frictionless.
+
+The problem - PRs seem to take a lot of time to get reviewed and merged, the wait spanning days or at least a month. Meanwhile, I would want to start using the package yesterday.
+
+What I wanted out of the workflow
+
+I wanted something that would allow me to:
+
+- develop a package through quick local iterations
+- submit a PR upstream for it
+- keep using the package until it gets merged upstream
+
+With some help from the kind people in #guix channel on IRC, I've set up a workflow to be able to do all of the above. I've used it successfully to submit a PR https://codeberg.org/guix/guix/pulls/1019 for soupault https://soupault.app/. I've used it as an example in this post.
+
+A personal Guix channel for Quick, local, iterative development
+
+The software you want to package for Guix is likely to have dependencies which also don't exist as a Guix package yet. So you would need to package them too. Even without missing dependencies, the development process calls for a fail-fast, iterative approach.
+
+Submitting a PR upstream
+
+I followed the official recommendation for this stage - local Guix checkout.
+
+For each of my package and its dependencies:
+
+- I find an appropriate location in my Guix checkout
+- copy-paste it there, then make required changes, if any.
+- verify whether it builds successfully within the context of the official Guix channel
+- commit its module by following the official conventions
+
+This phase involves some grunt work.
+
+A personal Guix channel to keep using the package until it is merged upstream
+
+1. Look up if the package already exists `guix search soupault`
+
+1. Set up a personal channel
+
+1. Search
+
+Currently, I create a module for the target package, and define all its dependencies not yet defined in guix main, within the module. For example, soupault package got a my-channel/soupault.scm, in which I defined and updated ocaml-camomile, and a missing-in-guix-main ocaml-xyz package.
+
+Check if a package - target or a dependency - exists already, with a right version.
+
+guix search <pkg_name>
+
+Use a channel to be able to use the packages you develop, until their PR is accepted and merged into guix main.
+
+Use a local checkout of that channel to quickly iterate on package development. To quickly iterate:
+
+guix build -L /local/path/to/your/channel 
+
+(define-module (gnu packages ocaml)) or #:use-module (gnu packages ocaml) means gnu/packages/ocaml.scm 
+
+When I am happy with the package, I submit a PR to guix. This involves grunt work of finding the appropriate location of my package and its dependencies; creating appropriate logical commits; etc.
+</div>
