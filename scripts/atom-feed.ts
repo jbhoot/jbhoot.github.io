@@ -11,7 +11,7 @@ const EntrySchema = z.object({
     excerpt: z.string(),
     collections: z.array(z.string()),
     published: z.iso.datetime().transform(v => parseISO(v)),
-    updated: z.nullable(z.iso.datetime().transform(v => parseISO(v)))
+    updated: z.iso.datetime().transform(v => parseISO(v)).nullable()
 });
 
 const JsonFeedSchema = z.array(EntrySchema);
@@ -98,6 +98,6 @@ const main = async () => {
         const atomFeed = makeFeed(entries);
         await fs.writeFile('site/feed.xml', atomFeed);
     } else {
-        console.log(entriesResult.error);
+        console.error(entriesResult.error);
     }
 }
