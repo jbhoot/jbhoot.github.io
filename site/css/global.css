@@ -304,9 +304,9 @@ a {
 
 :is(a, a[rel='tag']):hover {
     text-decoration: none;
-    background-color: #ffff99;
-    outline: 1px solid blue;
-    color: black;
+    background-color: #fddb29;
+    outline: 0.2em solid #fddb29;
+    color: blue;
 }
 
 :is(a[href*="http"], a[rel="external"]):not(:where(.webring))::after {
