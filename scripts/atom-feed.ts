@@ -101,3 +101,5 @@ const main = async () => {
         console.error(entriesResult.error);
     }
 }
+
+main();
