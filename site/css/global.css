@@ -16,8 +16,8 @@ select {
 
 :root {
     --font-monospace: 'Cascadia Mono', monospace;
-    --font-sans: Lexend, Asap, "Atkinson Hyperlegible", sans-serif;
-    --font-serif: Alegreya, Georgia, serif;
+    --font-sans: Epunda Sans, Lexend, Asap, "Atkinson Hyperlegible", sans-serif;
+    --font-serif: Merriweather, Georgia, serif;
 
     /*
     - Axiom 1: Spacing between flow elements should be a multiple of line-height, which, when set reasonably, is larger than font-size. Its usage is most likely limited to margins and gaps.
